@@ -70,7 +70,7 @@ public class Payment {
     }
 
     public enum PaymentStatus {
-        PENDING, PROCESSING, COMPLETED, FAILED, REVERSED
+        PENDING, PROCESSING, CB_ACKNOWLEDGED, COMPLETED, FAILED, REVERSED
     }
 
 }

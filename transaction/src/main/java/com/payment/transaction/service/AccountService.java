@@ -53,7 +53,6 @@ public class AccountService {
         Account account = accountRepository.findById(accountId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Account not found: " + accountId));
         return new BalanceResponse(
-                account.getId(),
                 account.getAccountNumber(),
                 account.getBalance(),
                 account.getCurrency().name());
@@ -69,7 +68,6 @@ public class AccountService {
         account.setBalance(account.getBalance().add(amount));
         Account saved = accountRepository.save(account);
         return new BalanceResponse(
-                saved.getId(),
                 saved.getAccountNumber(),
                 saved.getBalance(),
                 saved.getCurrency().name());
@@ -77,7 +75,6 @@ public class AccountService {
 
     private AccountResponse toResponse(Account account) {
         return new AccountResponse(
-                account.getId(),
                 account.getAccountNumber(),
                 account.getStatus().name(),
                 account.getUser().getId());

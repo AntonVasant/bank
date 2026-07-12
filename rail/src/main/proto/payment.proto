@@ -7,7 +7,10 @@ option java_package = "com.settlement.rail.grpc";
 option java_outer_classname = "PaymentProto";
 
 service PaymentService {
-  rpc ProcessPayment(PaymentRequest) returns (PaymentResponse);
+  // Server-streaming: the rail sends two responses.
+  // Response 1 — after the DB commit: acknowledged_by = RAIL
+  // Response 2 — after the receiver bank confirms the credit: acknowledged_by = RECEIVER_BANK
+  rpc ProcessPayment(PaymentRequest) returns (stream PaymentResponse);
   rpc GetPayment(GetPaymentRequest) returns (PaymentResponse);
 }
 
@@ -41,6 +44,15 @@ message PaymentResponse {
   string created_at     = 12;
   string updated_at     = 13;
   string completed_at   = 14;
+  // Indicates which party has acknowledged this response
+  AcknowledgedBy acknowledged_by = 15;
+}
+
+// Who acknowledged the payment at each streaming response
+enum AcknowledgedBy {
+  ACKNOWLEDGED_BY_UNSPECIFIED = 0;
+  RAIL                        = 1;  // Rail committed the transfer (first response)
+  RECEIVER_BANK               = 2;  // Receiver bank confirmed the credit (second response)
 }
 
 message GetPaymentRequest {

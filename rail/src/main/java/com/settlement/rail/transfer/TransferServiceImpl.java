@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.time.Instant;
 import java.util.List;
 
 @Service
@@ -102,6 +103,16 @@ public class TransferServiceImpl implements TransferService {
                 .build());
 
         return TransferResponse.from(transfer);
+    }
+
+    @Override
+    @Transactional
+    public TransferResponse complete(Long transferId) {
+        Transfer transfer = transferRepository.findById(transferId)
+                .orElseThrow(() -> new EntityNotFoundException("Transfer not found with id: " + transferId));
+        transfer.setStatus(TransferStatus.COMPLETED);
+        transfer.setCompletedAt(Instant.now());
+        return TransferResponse.from(transferRepository.save(transfer));
     }
 
     @Override

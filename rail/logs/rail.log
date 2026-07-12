@@ -1500,3 +1500,963 @@ Caused by: java.net.ConnectException: Connection refused
 2026-07-12T18:22:49.080+05:30  INFO 17425 --- [rail] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2026-07-12T18:22:49.083+05:30  INFO 17425 --- [rail] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2026-07-12T18:22:49.086+05:30  INFO 17425 --- [rail] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-07-12T18:54:28.140+05:30  INFO 29801 --- [rail] [main] com.settlement.rail.RailApplication      : Starting RailApplication using Java 25.0.2 with PID 29801 (/Users/anton-23085/Project/bank/rail/target/classes started by anton-23085 in /Users/anton-23085/Project/bank/rail)
+2026-07-12T18:54:28.142+05:30  INFO 29801 --- [rail] [main] com.settlement.rail.RailApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-07-12T18:54:28.510+05:30  INFO 29801 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T18:54:28.511+05:30  INFO 29801 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-12T18:54:28.584+05:30  INFO 29801 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 70 ms. Found 5 JPA repository interfaces.
+2026-07-12T18:54:28.612+05:30  INFO 29801 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T18:54:28.613+05:30  INFO 29801 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-12T18:54:28.620+05:30  INFO 29801 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.bank.BankRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:54:28.621+05:30  INFO 29801 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.bank.BankReserveRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:54:28.621+05:30  INFO 29801 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.ledger.LedgerEntryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:54:28.621+05:30  INFO 29801 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.outbox.OutboxEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:54:28.621+05:30  INFO 29801 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.transfer.TransferRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:54:28.621+05:30  INFO 29801 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2026-07-12T18:54:28.881+05:30  INFO 29801 --- [rail] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8082 (http)
+2026-07-12T18:54:28.888+05:30  INFO 29801 --- [rail] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-12T18:54:28.888+05:30  INFO 29801 --- [rail] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-12T18:54:28.907+05:30  INFO 29801 --- [rail] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 746 ms
+2026-07-12T18:54:28.978+05:30  INFO 29801 --- [rail] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-12T18:54:29.001+05:30  INFO 29801 --- [rail] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-12T18:54:29.158+05:30  INFO 29801 --- [rail] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-12T18:54:29.171+05:30  INFO 29801 --- [rail] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-12T18:54:29.247+05:30  INFO 29801 --- [rail] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@33f81280
+2026-07-12T18:54:29.248+05:30  INFO 29801 --- [rail] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-12T18:54:29.262+05:30  WARN 29801 --- [rail] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-12T18:54:29.272+05:30  INFO 29801 --- [rail] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5433/rail]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: rail/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-12T18:54:29.727+05:30  INFO 29801 --- [rail] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-12T18:54:29.764+05:30  INFO 29801 --- [rail] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T18:54:29.800+05:30  INFO 29801 --- [rail] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-12T18:54:30.142+05:30  WARN 29801 --- [rail] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-12T18:54:30.249+05:30  INFO 29801 --- [rail] [main] g.s.a.GrpcServerFactoryAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
+2026-07-12T18:54:30.321+05:30  WARN 29801 --- [rail] [main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-07-12T18:54:30.514+05:30  INFO 29801 --- [rail] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8082 (http) with context path '/'
+2026-07-12T18:54:30.555+05:30  INFO 29801 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: com.settlement.rail.grpc.PaymentService, bean: paymentGrpcService, class: com.settlement.rail.grpc.PaymentGrpcService
+2026-07-12T18:54:30.556+05:30  INFO 29801 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
+2026-07-12T18:54:30.556+05:30  INFO 29801 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
+2026-07-12T18:54:30.602+05:30  INFO 29801 --- [rail] [main] n.d.b.g.s.s.GrpcServerLifecycle          : gRPC Server started, listening on address: *, port: 9090
+2026-07-12T18:54:30.607+05:30  INFO 29801 --- [rail] [main] com.settlement.rail.RailApplication      : Started RailApplication in 2.669 seconds (process running for 2.857)
+2026-07-12T18:54:33.453+05:30  INFO 29801 --- [rail] [SpringApplicationShutdownHook] n.d.b.g.s.s.GrpcServerLifecycle          : Completed gRPC server shutdown
+2026-07-12T18:54:33.453+05:30  INFO 29801 --- [rail] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-12T18:54:33.457+05:30  INFO 29801 --- [rail] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-07-12T18:54:33.464+05:30  INFO 29801 --- [rail] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T18:54:33.466+05:30  INFO 29801 --- [rail] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-07-12T18:54:33.467+05:30  INFO 29801 --- [rail] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-07-12T21:03:49.471+05:30  INFO 66026 --- [rail] [main] com.settlement.rail.RailApplication      : Starting RailApplication using Java 25.0.2 with PID 66026 (/Users/anton-23085/Project/bank/rail/target/classes started by anton-23085 in /Users/anton-23085/Project/bank/rail)
+2026-07-12T21:03:49.481+05:30  INFO 66026 --- [rail] [main] com.settlement.rail.RailApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-07-12T21:03:49.990+05:30  INFO 66026 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T21:03:49.991+05:30  INFO 66026 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-12T21:03:50.086+05:30  INFO 66026 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 91 ms. Found 5 JPA repository interfaces.
+2026-07-12T21:03:50.122+05:30  INFO 66026 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T21:03:50.124+05:30  INFO 66026 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-12T21:03:50.135+05:30  INFO 66026 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.bank.BankRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T21:03:50.136+05:30  INFO 66026 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.bank.BankReserveRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T21:03:50.137+05:30  INFO 66026 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.ledger.LedgerEntryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T21:03:50.137+05:30  INFO 66026 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.outbox.OutboxEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T21:03:50.137+05:30  INFO 66026 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.transfer.TransferRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T21:03:50.137+05:30  INFO 66026 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2026-07-12T21:03:50.506+05:30  INFO 66026 --- [rail] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8082 (http)
+2026-07-12T21:03:50.513+05:30  INFO 66026 --- [rail] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-12T21:03:50.513+05:30  INFO 66026 --- [rail] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-12T21:03:50.535+05:30  INFO 66026 --- [rail] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1016 ms
+2026-07-12T21:03:50.619+05:30  INFO 66026 --- [rail] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-12T21:03:50.638+05:30  INFO 66026 --- [rail] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-12T21:03:50.824+05:30  INFO 66026 --- [rail] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-12T21:03:50.838+05:30  INFO 66026 --- [rail] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-12T21:03:50.946+05:30  INFO 66026 --- [rail] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@33a3e5db
+2026-07-12T21:03:50.947+05:30  INFO 66026 --- [rail] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-12T21:03:50.962+05:30  WARN 66026 --- [rail] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-12T21:03:50.976+05:30  INFO 66026 --- [rail] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5433/rail]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: rail/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-12T21:03:51.569+05:30  INFO 66026 --- [rail] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-12T21:03:51.613+05:30  INFO 66026 --- [rail] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T21:03:51.649+05:30  INFO 66026 --- [rail] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-12T21:03:52.026+05:30  WARN 66026 --- [rail] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-12T21:03:52.141+05:30  INFO 66026 --- [rail] [main] g.s.a.GrpcServerFactoryAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
+2026-07-12T21:03:52.208+05:30  WARN 66026 --- [rail] [main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-07-12T21:03:52.404+05:30  INFO 66026 --- [rail] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8082 (http) with context path '/'
+2026-07-12T21:03:52.448+05:30  INFO 66026 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: com.settlement.rail.grpc.PaymentService, bean: paymentGrpcService, class: com.settlement.rail.grpc.PaymentGrpcService
+2026-07-12T21:03:52.448+05:30  INFO 66026 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
+2026-07-12T21:03:52.448+05:30  INFO 66026 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
+2026-07-12T21:03:52.494+05:30  INFO 66026 --- [rail] [main] n.d.b.g.s.s.GrpcServerLifecycle          : gRPC Server started, listening on address: *, port: 9090
+2026-07-12T21:03:52.500+05:30  INFO 66026 --- [rail] [main] com.settlement.rail.RailApplication      : Started RailApplication in 3.538 seconds (process running for 3.981)
+2026-07-12T21:04:56.076+05:30  INFO 66026 --- [rail] [scheduler-2] o.a.kafka.common.config.AbstractConfig   : ProducerConfig values: 
+	acks = -1
+	batch.size = 16384
+	bootstrap.servers = [localhost:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = rail-producer-1
+	compression.gzip.level = -1
+	compression.lz4.level = 9
+	compression.type = none
+	compression.zstd.level = 3
+	config.providers = []
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	enable.metrics.push = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 5
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metadata.recovery.rebootstrap.trigger.ms = 300000
+	metadata.recovery.strategy = rebootstrap
+	metric.reporters = [org.apache.kafka.common.metrics.JmxReporter]
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.assertion.algorithm = RS256
+	sasl.oauthbearer.assertion.claim.aud = null
+	sasl.oauthbearer.assertion.claim.exp.seconds = 300
+	sasl.oauthbearer.assertion.claim.iss = null
+	sasl.oauthbearer.assertion.claim.jti.include = false
+	sasl.oauthbearer.assertion.claim.nbf.seconds = 60
+	sasl.oauthbearer.assertion.claim.sub = null
+	sasl.oauthbearer.assertion.file = null
+	sasl.oauthbearer.assertion.private.key.file = null
+	sasl.oauthbearer.assertion.private.key.passphrase = null
+	sasl.oauthbearer.assertion.template.file = null
+	sasl.oauthbearer.client.credentials.client.id = null
+	sasl.oauthbearer.client.credentials.client.secret = null
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = []
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.jwt.retriever.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtRetriever
+	sasl.oauthbearer.jwt.validator.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtValidator
+	sasl.oauthbearer.scope = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = []
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transaction.two.phase.commit.enable = false
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2026-07-12T21:04:56.098+05:30  INFO 66026 --- [rail] [scheduler-2] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2026-07-12T21:04:56.196+05:30  INFO 66026 --- [rail] [scheduler-2] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=rail-producer-1] Instantiated an idempotent producer.
+2026-07-12T21:04:56.220+05:30  INFO 66026 --- [rail] [scheduler-2] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 4.2.1
+2026-07-12T21:04:56.220+05:30  INFO 66026 --- [rail] [scheduler-2] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 92f61c44867f39dc
+2026-07-12T21:04:56.221+05:30  INFO 66026 --- [rail] [scheduler-2] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1783870496219
+2026-07-12T21:04:56.473+05:30  INFO 66026 --- [rail] [kafka-producer-network-thread | rail-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=rail-producer-1] Cluster ID: YnD_8WyzQ4SdY1TpLQDqKA
+2026-07-12T21:04:56.475+05:30  INFO 66026 --- [rail] [kafka-producer-network-thread | rail-producer-1] o.a.k.c.p.internals.TransactionManager   : [Producer clientId=rail-producer-1] ProducerId set to 7005 with epoch 0
+2026-07-12T21:05:18.577+05:30  INFO 66026 --- [rail] [payment-1] c.s.rail.grpc.ReceiverBankGrpcClient     : Credit request acknowledged: bank='HDFC_IN' ackId='8dee6c53-a6c3-43da-ae33-747c5d7ef35a' status='SUCCESS' reference='PAY-4'
+2026-07-12T21:06:55.483+05:30  WARN 66026 --- [rail] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=57s648ms).
+2026-07-12T21:28:45.917+05:30 ERROR 66026 --- [rail] [payment-1] c.s.rail.grpc.ReceiverBankGrpcClient     : gRPC notification to sender bank='AXIS_IN' failed for reference='PAY-4': status=Status{code=UNIMPLEMENTED, description=Method centralbank.gateway.v1.CentralBankGateway/SendTransferNotification is unimplemented, cause=null}
+
+io.grpc.StatusRuntimeException: UNIMPLEMENTED: Method centralbank.gateway.v1.CentralBankGateway/SendTransferNotification is unimplemented
+	at io.grpc.stub.ClientCalls.toStatusRuntimeException(ClientCalls.java:268) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.stub.ClientCalls.getUnchecked(ClientCalls.java:249) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.stub.ClientCalls.blockingUnaryCall(ClientCalls.java:167) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at com.centralbank.gateway.v1.CentralBankGatewayGrpc$CentralBankGatewayBlockingStub.sendTransferNotification(CentralBankGatewayGrpc.java:351) ~[payment-contract-1.0-SNAPSHOT.jar:na]
+	at com.settlement.rail.grpc.ReceiverBankGrpcClient.notifySenderBank(ReceiverBankGrpcClient.java:148) ~[classes/:na]
+	at com.settlement.rail.transfer.PaymentOrchestrator.creditReceiverAndNotifySender(PaymentOrchestrator.java:65) ~[classes/:na]
+	at com.settlement.rail.transfer.PaymentOrchestrator.lambda$initiate$0(PaymentOrchestrator.java:42) ~[classes/:na]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1825) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-07-12T21:28:45.931+05:30 ERROR 66026 --- [rail] [payment-1] c.s.rail.transfer.PaymentOrchestrator    : Post-commit async task failed for reference=PAY-4
+
+java.util.concurrent.CompletionException: io.grpc.StatusRuntimeException: UNIMPLEMENTED: Method centralbank.gateway.v1.CentralBankGateway/SendTransferNotification is unimplemented
+	at java.base/java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java:323) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:359) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:364) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1828) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+Caused by: io.grpc.StatusRuntimeException: UNIMPLEMENTED: Method centralbank.gateway.v1.CentralBankGateway/SendTransferNotification is unimplemented
+	at io.grpc.stub.ClientCalls.toStatusRuntimeException(ClientCalls.java:268) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.stub.ClientCalls.getUnchecked(ClientCalls.java:249) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.stub.ClientCalls.blockingUnaryCall(ClientCalls.java:167) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at com.centralbank.gateway.v1.CentralBankGatewayGrpc$CentralBankGatewayBlockingStub.sendTransferNotification(CentralBankGatewayGrpc.java:351) ~[payment-contract-1.0-SNAPSHOT.jar:na]
+	at com.settlement.rail.grpc.ReceiverBankGrpcClient.notifySenderBank(ReceiverBankGrpcClient.java:148) ~[classes/:na]
+	at com.settlement.rail.transfer.PaymentOrchestrator.creditReceiverAndNotifySender(PaymentOrchestrator.java:65) ~[classes/:na]
+	at com.settlement.rail.transfer.PaymentOrchestrator.lambda$initiate$0(PaymentOrchestrator.java:42) ~[classes/:na]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1825) ~[na:na]
+	... 3 common frames omitted
+
+2026-07-12T21:28:45.996+05:30  INFO 66026 --- [rail] [SpringApplicationShutdownHook] n.d.b.g.s.s.GrpcServerLifecycle          : Completed gRPC server shutdown
+2026-07-12T21:28:45.997+05:30  INFO 66026 --- [rail] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-12T21:28:46.000+05:30  INFO 66026 --- [rail] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-07-12T21:28:46.005+05:30  INFO 66026 --- [rail] [SpringApplicationShutdownHook] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=rail-producer-1] Closing the Kafka producer with timeoutMillis = 30000 ms.
+2026-07-12T21:28:46.010+05:30  INFO 66026 --- [rail] [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2026-07-12T21:28:46.010+05:30  INFO 66026 --- [rail] [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-07-12T21:28:46.010+05:30  INFO 66026 --- [rail] [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2026-07-12T21:28:46.010+05:30  INFO 66026 --- [rail] [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2026-07-12T21:28:46.012+05:30  INFO 66026 --- [rail] [SpringApplicationShutdownHook] o.a.kafka.common.utils.AppInfoParser     : App info kafka.producer for rail-producer-1 unregistered
+2026-07-12T21:28:46.021+05:30  INFO 66026 --- [rail] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T21:28:46.024+05:30  INFO 66026 --- [rail] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-07-12T21:28:46.025+05:30  INFO 66026 --- [rail] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-07-12T21:52:23.825+05:30  INFO 2089 --- [rail] [main] com.settlement.rail.RailApplication      : Starting RailApplication using Java 25.0.2 with PID 2089 (/Users/anton-23085/Project/bank/rail/target/classes started by anton-23085 in /Users/anton-23085/Project/bank/rail)
+2026-07-12T21:52:23.829+05:30  INFO 2089 --- [rail] [main] com.settlement.rail.RailApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-07-12T21:52:24.411+05:30  INFO 2089 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T21:52:24.411+05:30  INFO 2089 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-12T21:52:24.488+05:30  INFO 2089 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 73 ms. Found 5 JPA repository interfaces.
+2026-07-12T21:52:24.512+05:30  INFO 2089 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T21:52:24.512+05:30  INFO 2089 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-12T21:52:24.522+05:30  INFO 2089 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.bank.BankRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T21:52:24.522+05:30  INFO 2089 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.bank.BankReserveRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T21:52:24.523+05:30  INFO 2089 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.ledger.LedgerEntryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T21:52:24.523+05:30  INFO 2089 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.outbox.OutboxEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T21:52:24.523+05:30  INFO 2089 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.transfer.TransferRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T21:52:24.523+05:30  INFO 2089 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2026-07-12T21:52:24.960+05:30  INFO 2089 --- [rail] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8082 (http)
+2026-07-12T21:52:24.967+05:30  INFO 2089 --- [rail] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-12T21:52:24.967+05:30  INFO 2089 --- [rail] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-12T21:52:24.999+05:30  INFO 2089 --- [rail] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1140 ms
+2026-07-12T21:52:25.109+05:30  INFO 2089 --- [rail] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-12T21:52:25.127+05:30  INFO 2089 --- [rail] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-12T21:52:25.327+05:30  INFO 2089 --- [rail] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-12T21:52:25.343+05:30  INFO 2089 --- [rail] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-12T21:52:25.442+05:30  INFO 2089 --- [rail] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6796a873
+2026-07-12T21:52:25.443+05:30  INFO 2089 --- [rail] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-12T21:52:25.457+05:30  WARN 2089 --- [rail] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-12T21:52:25.472+05:30  INFO 2089 --- [rail] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5433/rail]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: rail/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-12T21:52:26.097+05:30  INFO 2089 --- [rail] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-12T21:52:26.144+05:30  INFO 2089 --- [rail] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T21:52:26.182+05:30  INFO 2089 --- [rail] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-12T21:52:26.590+05:30  WARN 2089 --- [rail] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-12T21:52:26.727+05:30  INFO 2089 --- [rail] [main] g.s.a.GrpcServerFactoryAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
+2026-07-12T21:52:26.817+05:30  WARN 2089 --- [rail] [main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-07-12T21:52:27.019+05:30  INFO 2089 --- [rail] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8082 (http) with context path '/'
+2026-07-12T21:52:27.058+05:30  INFO 2089 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: com.settlement.rail.grpc.PaymentService, bean: paymentGrpcService, class: com.settlement.rail.grpc.PaymentGrpcService
+2026-07-12T21:52:27.058+05:30  INFO 2089 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
+2026-07-12T21:52:27.058+05:30  INFO 2089 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
+2026-07-12T21:52:27.100+05:30  INFO 2089 --- [rail] [main] n.d.b.g.s.s.GrpcServerLifecycle          : gRPC Server started, listening on address: *, port: 9090
+2026-07-12T21:52:27.106+05:30  INFO 2089 --- [rail] [main] com.settlement.rail.RailApplication      : Started RailApplication in 3.638 seconds (process running for 3.985)
+2026-07-12T21:54:25.254+05:30  WARN 2089 --- [rail] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m59s705ms).
+2026-07-12T21:54:25.317+05:30  INFO 2089 --- [rail] [SpringApplicationShutdownHook] n.d.b.g.s.s.GrpcServerLifecycle          : Completed gRPC server shutdown
+2026-07-12T21:54:25.319+05:30  INFO 2089 --- [rail] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-12T21:54:25.321+05:30  INFO 2089 --- [rail] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-07-12T21:54:25.330+05:30  INFO 2089 --- [rail] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T21:54:25.332+05:30  INFO 2089 --- [rail] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-07-12T21:54:25.333+05:30  INFO 2089 --- [rail] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-07-12T21:54:25.335+05:30  WARN 2089 --- [rail] [grpc-default-executor-0] com.zaxxer.hikari.pool.ProxyConnection   : HikariPool-1 - Connection org.postgresql.jdbc.PgConnection@4d949e55 marked as broken because of SQLSTATE(08003), ErrorCode(0)
+
+org.postgresql.util.PSQLException: This connection has been closed.
+	at org.postgresql.jdbc.PgConnection.checkClosed(PgConnection.java:1026) ~[postgresql-42.7.11.jar:42.7.11]
+	at org.postgresql.jdbc.PgConnection.rollback(PgConnection.java:1033) ~[postgresql-42.7.11.jar:42.7.11]
+	at com.zaxxer.hikari.pool.ProxyConnection.rollback(ProxyConnection.java:386) ~[HikariCP-7.0.2.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyConnection.rollback(HikariProxyConnection.java) ~[HikariCP-7.0.2.jar:na]
+	at org.hibernate.resource.jdbc.internal.AbstractLogicalConnectionImplementor.rollback(AbstractLogicalConnectionImplementor.java:141) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.rollback(JdbcResourceLocalTransactionCoordinatorImpl.java:300) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.engine.transaction.internal.TransactionImpl.rollback(TransactionImpl.java:123) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.springframework.orm.jpa.JpaTransactionManager.doRollback(JpaTransactionManager.java:579) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processRollback(AbstractPlatformTransactionManager.java:896) ~[spring-tx-7.0.8.jar:7.0.8]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.rollback(AbstractPlatformTransactionManager.java:865) ~[spring-tx-7.0.8.jar:7.0.8]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.completeTransactionAfterThrowing(TransactionAspectSupport.java:708) ~[spring-tx-7.0.8.jar:7.0.8]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:375) ~[spring-tx-7.0.8.jar:7.0.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130) ~[spring-tx-7.0.8.jar:7.0.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.8.jar:7.0.8]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719) ~[spring-aop-7.0.8.jar:7.0.8]
+	at com.settlement.rail.transfer.TransferServiceImpl$$SpringCGLIB$$0.initiate(<generated>) ~[classes/:na]
+	at com.settlement.rail.grpc.PaymentGrpcService.processPayment(PaymentGrpcService.java:66) ~[classes/:na]
+	at com.settlement.rail.grpc.PaymentServiceGrpc$MethodHandlers.invoke(PaymentServiceGrpc.java:280) ~[classes/:na]
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35) ~[grpc-api-1.80.0.jar:1.80.0]
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23) ~[grpc-api-1.80.0.jar:1.80.0]
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40) ~[grpc-api-1.80.0.jar:1.80.0]
+	at io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86) ~[grpc-api-1.80.0.jar:1.80.0]
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:356) ~[grpc-core-1.80.0.jar:1.80.0]
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:861) ~[grpc-core-1.80.0.jar:1.80.0]
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37) ~[grpc-core-1.80.0.jar:1.80.0]
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133) ~[grpc-core-1.80.0.jar:1.80.0]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-07-12T21:54:25.335+05:30  WARN 2089 --- [rail] [grpc-default-executor-1] com.zaxxer.hikari.pool.ProxyConnection   : HikariPool-1 - Connection org.postgresql.jdbc.PgConnection@3e9745e0 marked as broken because of SQLSTATE(08003), ErrorCode(0)
+
+org.postgresql.util.PSQLException: This connection has been closed.
+	at org.postgresql.jdbc.PgConnection.checkClosed(PgConnection.java:1026) ~[postgresql-42.7.11.jar:42.7.11]
+	at org.postgresql.jdbc.PgConnection.rollback(PgConnection.java:1033) ~[postgresql-42.7.11.jar:42.7.11]
+	at com.zaxxer.hikari.pool.ProxyConnection.rollback(ProxyConnection.java:386) ~[HikariCP-7.0.2.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyConnection.rollback(HikariProxyConnection.java) ~[HikariCP-7.0.2.jar:na]
+	at org.hibernate.resource.jdbc.internal.AbstractLogicalConnectionImplementor.rollback(AbstractLogicalConnectionImplementor.java:141) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.rollback(JdbcResourceLocalTransactionCoordinatorImpl.java:300) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.engine.transaction.internal.TransactionImpl.rollback(TransactionImpl.java:123) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.springframework.orm.jpa.JpaTransactionManager.doRollback(JpaTransactionManager.java:579) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processRollback(AbstractPlatformTransactionManager.java:896) ~[spring-tx-7.0.8.jar:7.0.8]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.rollback(AbstractPlatformTransactionManager.java:865) ~[spring-tx-7.0.8.jar:7.0.8]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.completeTransactionAfterThrowing(TransactionAspectSupport.java:708) ~[spring-tx-7.0.8.jar:7.0.8]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:375) ~[spring-tx-7.0.8.jar:7.0.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130) ~[spring-tx-7.0.8.jar:7.0.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.8.jar:7.0.8]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719) ~[spring-aop-7.0.8.jar:7.0.8]
+	at com.settlement.rail.transfer.TransferServiceImpl$$SpringCGLIB$$0.initiate(<generated>) ~[classes/:na]
+	at com.settlement.rail.grpc.PaymentGrpcService.processPayment(PaymentGrpcService.java:66) ~[classes/:na]
+	at com.settlement.rail.grpc.PaymentServiceGrpc$MethodHandlers.invoke(PaymentServiceGrpc.java:280) ~[classes/:na]
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35) ~[grpc-api-1.80.0.jar:1.80.0]
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23) ~[grpc-api-1.80.0.jar:1.80.0]
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40) ~[grpc-api-1.80.0.jar:1.80.0]
+	at io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86) ~[grpc-api-1.80.0.jar:1.80.0]
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:356) ~[grpc-core-1.80.0.jar:1.80.0]
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:861) ~[grpc-core-1.80.0.jar:1.80.0]
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37) ~[grpc-core-1.80.0.jar:1.80.0]
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133) ~[grpc-core-1.80.0.jar:1.80.0]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-07-12T21:54:25.339+05:30 ERROR 2089 --- [rail] [grpc-default-executor-0] o.s.t.i.TransactionInterceptor           : Application exception overridden by rollback exception
+
+org.springframework.dao.InvalidDataAccessApiUsageException: Session/EntityManager is closed
+	at org.springframework.orm.jpa.EntityManagerFactoryUtils.convertJpaAccessExceptionIfPossible(EntityManagerFactoryUtils.java:479) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.hibernate.HibernateExceptionTranslator.translateExceptionIfPossible(HibernateExceptionTranslator.java:112) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:223) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:577) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61) ~[spring-tx-7.0.8.jar:7.0.8]
+	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:346) ~[spring-tx-7.0.8.jar:7.0.8]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:157) ~[spring-tx-7.0.8.jar:7.0.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.8.jar:7.0.8]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:166) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.8.jar:7.0.8]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:222) ~[spring-aop-7.0.8.jar:7.0.8]
+	at jdk.proxy2/jdk.proxy2.$Proxy146.save(Unknown Source) ~[na:na]
+	at com.settlement.rail.transfer.TransferServiceImpl.initiate(TransferServiceImpl.java:53) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359) ~[spring-aop-7.0.8.jar:7.0.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190) ~[spring-aop-7.0.8.jar:7.0.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158) ~[spring-aop-7.0.8.jar:7.0.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133) ~[spring-tx-7.0.8.jar:7.0.8]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371) ~[spring-tx-7.0.8.jar:7.0.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130) ~[spring-tx-7.0.8.jar:7.0.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.8.jar:7.0.8]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719) ~[spring-aop-7.0.8.jar:7.0.8]
+	at com.settlement.rail.transfer.TransferServiceImpl$$SpringCGLIB$$0.initiate(<generated>) ~[classes/:na]
+	at com.settlement.rail.grpc.PaymentGrpcService.processPayment(PaymentGrpcService.java:66) ~[classes/:na]
+	at com.settlement.rail.grpc.PaymentServiceGrpc$MethodHandlers.invoke(PaymentServiceGrpc.java:280) ~[classes/:na]
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35) ~[grpc-api-1.80.0.jar:1.80.0]
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23) ~[grpc-api-1.80.0.jar:1.80.0]
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40) ~[grpc-api-1.80.0.jar:1.80.0]
+	at io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86) ~[grpc-api-1.80.0.jar:1.80.0]
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:356) ~[grpc-core-1.80.0.jar:1.80.0]
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:861) ~[grpc-core-1.80.0.jar:1.80.0]
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37) ~[grpc-core-1.80.0.jar:1.80.0]
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133) ~[grpc-core-1.80.0.jar:1.80.0]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+Caused by: java.lang.IllegalStateException: Session/EntityManager is closed
+	at org.hibernate.internal.AbstractSharedSessionContract.checkOpen(AbstractSharedSessionContract.java:614) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.internal.SessionImpl.checkOpen(SessionImpl.java:158) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.engine.spi.SharedSessionContractImplementor.checkOpen(SharedSessionContractImplementor.java:192) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:677) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityHandlerInvocationHandler.invokeMethod(SharedEntityManagerCreator.java:239) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:383) ~[spring-orm-7.0.8.jar:7.0.8]
+	at jdk.proxy2/jdk.proxy2.$Proxy135.persist(Unknown Source) ~[na:na]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:664) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359) ~[spring-aop-7.0.8.jar:7.0.8]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:278) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:169) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:545) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:290) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:690) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.8.jar:7.0.8]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:171) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:146) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.8.jar:7.0.8]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:69) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.8.jar:7.0.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133) ~[spring-tx-7.0.8.jar:7.0.8]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371) ~[spring-tx-7.0.8.jar:7.0.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130) ~[spring-tx-7.0.8.jar:7.0.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.8.jar:7.0.8]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:135) ~[spring-tx-7.0.8.jar:7.0.8]
+	... 31 common frames omitted
+
+2026-07-12T21:54:25.338+05:30 ERROR 2089 --- [rail] [grpc-default-executor-1] o.s.t.i.TransactionInterceptor           : Application exception overridden by rollback exception
+
+org.springframework.dao.InvalidDataAccessApiUsageException: Session/EntityManager is closed
+	at org.springframework.orm.jpa.EntityManagerFactoryUtils.convertJpaAccessExceptionIfPossible(EntityManagerFactoryUtils.java:479) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.hibernate.HibernateExceptionTranslator.translateExceptionIfPossible(HibernateExceptionTranslator.java:112) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:223) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:577) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61) ~[spring-tx-7.0.8.jar:7.0.8]
+	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:346) ~[spring-tx-7.0.8.jar:7.0.8]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:157) ~[spring-tx-7.0.8.jar:7.0.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.8.jar:7.0.8]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:166) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.8.jar:7.0.8]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:222) ~[spring-aop-7.0.8.jar:7.0.8]
+	at jdk.proxy2/jdk.proxy2.$Proxy146.save(Unknown Source) ~[na:na]
+	at com.settlement.rail.transfer.TransferServiceImpl.initiate(TransferServiceImpl.java:53) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359) ~[spring-aop-7.0.8.jar:7.0.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190) ~[spring-aop-7.0.8.jar:7.0.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158) ~[spring-aop-7.0.8.jar:7.0.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133) ~[spring-tx-7.0.8.jar:7.0.8]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371) ~[spring-tx-7.0.8.jar:7.0.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130) ~[spring-tx-7.0.8.jar:7.0.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.8.jar:7.0.8]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719) ~[spring-aop-7.0.8.jar:7.0.8]
+	at com.settlement.rail.transfer.TransferServiceImpl$$SpringCGLIB$$0.initiate(<generated>) ~[classes/:na]
+	at com.settlement.rail.grpc.PaymentGrpcService.processPayment(PaymentGrpcService.java:66) ~[classes/:na]
+	at com.settlement.rail.grpc.PaymentServiceGrpc$MethodHandlers.invoke(PaymentServiceGrpc.java:280) ~[classes/:na]
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35) ~[grpc-api-1.80.0.jar:1.80.0]
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23) ~[grpc-api-1.80.0.jar:1.80.0]
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40) ~[grpc-api-1.80.0.jar:1.80.0]
+	at io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86) ~[grpc-api-1.80.0.jar:1.80.0]
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:356) ~[grpc-core-1.80.0.jar:1.80.0]
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:861) ~[grpc-core-1.80.0.jar:1.80.0]
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37) ~[grpc-core-1.80.0.jar:1.80.0]
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133) ~[grpc-core-1.80.0.jar:1.80.0]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+Caused by: java.lang.IllegalStateException: Session/EntityManager is closed
+	at org.hibernate.internal.AbstractSharedSessionContract.checkOpen(AbstractSharedSessionContract.java:614) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.internal.SessionImpl.checkOpen(SessionImpl.java:158) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.engine.spi.SharedSessionContractImplementor.checkOpen(SharedSessionContractImplementor.java:192) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:677) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityHandlerInvocationHandler.invokeMethod(SharedEntityManagerCreator.java:239) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:383) ~[spring-orm-7.0.8.jar:7.0.8]
+	at jdk.proxy2/jdk.proxy2.$Proxy135.persist(Unknown Source) ~[na:na]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:664) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359) ~[spring-aop-7.0.8.jar:7.0.8]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:278) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:169) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:545) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:290) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:690) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.8.jar:7.0.8]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:171) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:146) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.8.jar:7.0.8]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:69) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.8.jar:7.0.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133) ~[spring-tx-7.0.8.jar:7.0.8]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371) ~[spring-tx-7.0.8.jar:7.0.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130) ~[spring-tx-7.0.8.jar:7.0.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.8.jar:7.0.8]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:135) ~[spring-tx-7.0.8.jar:7.0.8]
+	... 31 common frames omitted
+
+2026-07-12T21:54:28.653+05:30  INFO 2764 --- [rail] [main] com.settlement.rail.RailApplication      : Starting RailApplication using Java 25.0.2 with PID 2764 (/Users/anton-23085/Project/bank/rail/target/classes started by anton-23085 in /Users/anton-23085/Project/bank/rail)
+2026-07-12T21:54:28.654+05:30  INFO 2764 --- [rail] [main] com.settlement.rail.RailApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-07-12T21:54:29.059+05:30  INFO 2764 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T21:54:29.060+05:30  INFO 2764 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-12T21:54:29.144+05:30  INFO 2764 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 80 ms. Found 5 JPA repository interfaces.
+2026-07-12T21:54:29.170+05:30  INFO 2764 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T21:54:29.170+05:30  INFO 2764 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-12T21:54:29.179+05:30  INFO 2764 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.bank.BankRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T21:54:29.180+05:30  INFO 2764 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.bank.BankReserveRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T21:54:29.180+05:30  INFO 2764 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.ledger.LedgerEntryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T21:54:29.180+05:30  INFO 2764 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.outbox.OutboxEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T21:54:29.180+05:30  INFO 2764 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.transfer.TransferRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T21:54:29.180+05:30  INFO 2764 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2026-07-12T21:54:29.506+05:30  INFO 2764 --- [rail] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8082 (http)
+2026-07-12T21:54:29.513+05:30  INFO 2764 --- [rail] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-12T21:54:29.514+05:30  INFO 2764 --- [rail] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-12T21:54:29.536+05:30  INFO 2764 --- [rail] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 861 ms
+2026-07-12T21:54:29.618+05:30  INFO 2764 --- [rail] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-12T21:54:29.636+05:30  INFO 2764 --- [rail] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-12T21:54:29.798+05:30  INFO 2764 --- [rail] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-12T21:54:29.811+05:30  INFO 2764 --- [rail] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-12T21:54:29.900+05:30  INFO 2764 --- [rail] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@11120583
+2026-07-12T21:54:29.901+05:30  INFO 2764 --- [rail] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-12T21:54:29.915+05:30  WARN 2764 --- [rail] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-12T21:54:29.925+05:30  INFO 2764 --- [rail] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5433/rail]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: rail/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-12T21:54:30.410+05:30  INFO 2764 --- [rail] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-12T21:54:30.463+05:30  INFO 2764 --- [rail] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T21:54:30.509+05:30  INFO 2764 --- [rail] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-12T21:54:30.989+05:30  WARN 2764 --- [rail] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-12T21:54:31.144+05:30  INFO 2764 --- [rail] [main] g.s.a.GrpcServerFactoryAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
+2026-07-12T21:54:31.237+05:30  WARN 2764 --- [rail] [main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-07-12T21:54:31.477+05:30  INFO 2764 --- [rail] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8082 (http) with context path '/'
+2026-07-12T21:54:31.516+05:30  INFO 2764 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: com.settlement.rail.grpc.PaymentService, bean: paymentGrpcService, class: com.settlement.rail.grpc.PaymentGrpcService
+2026-07-12T21:54:31.516+05:30  INFO 2764 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
+2026-07-12T21:54:31.516+05:30  INFO 2764 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
+2026-07-12T21:54:31.568+05:30  INFO 2764 --- [rail] [main] n.d.b.g.s.s.GrpcServerLifecycle          : gRPC Server started, listening on address: *, port: 9090
+2026-07-12T21:54:31.580+05:30  INFO 2764 --- [rail] [main] com.settlement.rail.RailApplication      : Started RailApplication in 3.15 seconds (process running for 3.366)
+2026-07-12T21:54:46.747+05:30  INFO 2764 --- [rail] [scheduler-4] o.a.kafka.common.config.AbstractConfig   : ProducerConfig values: 
+	acks = -1
+	batch.size = 16384
+	bootstrap.servers = [localhost:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = rail-producer-1
+	compression.gzip.level = -1
+	compression.lz4.level = 9
+	compression.type = none
+	compression.zstd.level = 3
+	config.providers = []
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	enable.metrics.push = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 5
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metadata.recovery.rebootstrap.trigger.ms = 300000
+	metadata.recovery.strategy = rebootstrap
+	metric.reporters = [org.apache.kafka.common.metrics.JmxReporter]
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.assertion.algorithm = RS256
+	sasl.oauthbearer.assertion.claim.aud = null
+	sasl.oauthbearer.assertion.claim.exp.seconds = 300
+	sasl.oauthbearer.assertion.claim.iss = null
+	sasl.oauthbearer.assertion.claim.jti.include = false
+	sasl.oauthbearer.assertion.claim.nbf.seconds = 60
+	sasl.oauthbearer.assertion.claim.sub = null
+	sasl.oauthbearer.assertion.file = null
+	sasl.oauthbearer.assertion.private.key.file = null
+	sasl.oauthbearer.assertion.private.key.passphrase = null
+	sasl.oauthbearer.assertion.template.file = null
+	sasl.oauthbearer.client.credentials.client.id = null
+	sasl.oauthbearer.client.credentials.client.secret = null
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = []
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.jwt.retriever.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtRetriever
+	sasl.oauthbearer.jwt.validator.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtValidator
+	sasl.oauthbearer.scope = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = []
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transaction.two.phase.commit.enable = false
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2026-07-12T21:54:46.762+05:30  INFO 2764 --- [rail] [scheduler-4] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2026-07-12T21:54:46.818+05:30  INFO 2764 --- [rail] [scheduler-4] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=rail-producer-1] Instantiated an idempotent producer.
+2026-07-12T21:54:46.858+05:30  INFO 2764 --- [rail] [scheduler-4] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 4.2.1
+2026-07-12T21:54:46.858+05:30  INFO 2764 --- [rail] [scheduler-4] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 92f61c44867f39dc
+2026-07-12T21:54:46.858+05:30  INFO 2764 --- [rail] [scheduler-4] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1783873486857
+2026-07-12T21:54:47.092+05:30  INFO 2764 --- [rail] [kafka-producer-network-thread | rail-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=rail-producer-1] Cluster ID: YnD_8WyzQ4SdY1TpLQDqKA
+2026-07-12T21:54:47.093+05:30  INFO 2764 --- [rail] [kafka-producer-network-thread | rail-producer-1] o.a.k.c.p.internals.TransactionManager   : [Producer clientId=rail-producer-1] ProducerId set to 7006 with epoch 0
+2026-07-12T21:54:53.010+05:30  INFO 2764 --- [rail] [payment-1] c.s.rail.grpc.ReceiverBankGrpcClient     : Credit request acknowledged: bank='HDFC_IN' ackId='8f06cca5-6a7f-44ae-bb1a-515653c4cd01' status='SUCCESS' reference='PAY-41511'
+2026-07-12T21:54:56.588+05:30 ERROR 2764 --- [rail] [payment-1] c.s.rail.grpc.ReceiverBankGrpcClient     : gRPC notification to sender bank='AXIS_IN' failed for reference='PAY-41511': status=Status{code=UNIMPLEMENTED, description=Method centralbank.gateway.v1.CentralBankGateway/SendTransferNotification is unimplemented, cause=null}
+
+io.grpc.StatusRuntimeException: UNIMPLEMENTED: Method centralbank.gateway.v1.CentralBankGateway/SendTransferNotification is unimplemented
+	at io.grpc.stub.ClientCalls.toStatusRuntimeException(ClientCalls.java:268) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.stub.ClientCalls.getUnchecked(ClientCalls.java:249) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.stub.ClientCalls.blockingUnaryCall(ClientCalls.java:167) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at com.centralbank.gateway.v1.CentralBankGatewayGrpc$CentralBankGatewayBlockingStub.sendTransferNotification(CentralBankGatewayGrpc.java:351) ~[payment-contract-1.0-SNAPSHOT.jar:na]
+	at com.settlement.rail.grpc.ReceiverBankGrpcClient.notifySenderBank(ReceiverBankGrpcClient.java:148) ~[classes/:na]
+	at com.settlement.rail.grpc.PaymentGrpcService.lambda$processPayment$0(PaymentGrpcService.java:73) ~[classes/:na]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1825) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-07-12T21:54:56.590+05:30 ERROR 2764 --- [rail] [payment-1] c.s.rail.grpc.PaymentGrpcService         : Async credit/notify failed for reference=PAY-41511
+
+io.grpc.StatusRuntimeException: UNIMPLEMENTED: Method centralbank.gateway.v1.CentralBankGateway/SendTransferNotification is unimplemented
+	at io.grpc.stub.ClientCalls.toStatusRuntimeException(ClientCalls.java:268) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.stub.ClientCalls.getUnchecked(ClientCalls.java:249) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.stub.ClientCalls.blockingUnaryCall(ClientCalls.java:167) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at com.centralbank.gateway.v1.CentralBankGatewayGrpc$CentralBankGatewayBlockingStub.sendTransferNotification(CentralBankGatewayGrpc.java:351) ~[payment-contract-1.0-SNAPSHOT.jar:na]
+	at com.settlement.rail.grpc.ReceiverBankGrpcClient.notifySenderBank(ReceiverBankGrpcClient.java:148) ~[classes/:na]
+	at com.settlement.rail.grpc.PaymentGrpcService.lambda$processPayment$0(PaymentGrpcService.java:73) ~[classes/:na]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1825) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-07-12T21:55:18.646+05:30  INFO 2764 --- [rail] [payment-2] c.s.rail.grpc.ReceiverBankGrpcClient     : Credit request acknowledged: bank='HDFC_IN' ackId='03a3a50f-0f66-41e0-980b-7a7137a8eda8' status='SUCCESS' reference='PAY-417511'
+2026-07-12T21:55:26.137+05:30 ERROR 2764 --- [rail] [payment-2] c.s.rail.grpc.ReceiverBankGrpcClient     : gRPC notification to sender bank='AXIS_IN' failed for reference='PAY-417511': status=Status{code=UNIMPLEMENTED, description=Method centralbank.gateway.v1.CentralBankGateway/SendTransferNotification is unimplemented, cause=null}
+
+io.grpc.StatusRuntimeException: UNIMPLEMENTED: Method centralbank.gateway.v1.CentralBankGateway/SendTransferNotification is unimplemented
+	at io.grpc.stub.ClientCalls.toStatusRuntimeException(ClientCalls.java:268) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.stub.ClientCalls.getUnchecked(ClientCalls.java:249) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.stub.ClientCalls.blockingUnaryCall(ClientCalls.java:167) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at com.centralbank.gateway.v1.CentralBankGatewayGrpc$CentralBankGatewayBlockingStub.sendTransferNotification(CentralBankGatewayGrpc.java:351) ~[payment-contract-1.0-SNAPSHOT.jar:na]
+	at com.settlement.rail.grpc.ReceiverBankGrpcClient.notifySenderBank(ReceiverBankGrpcClient.java:148) ~[classes/:na]
+	at com.settlement.rail.grpc.PaymentGrpcService.lambda$processPayment$0(PaymentGrpcService.java:73) ~[classes/:na]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1825) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-07-12T21:55:40.359+05:30 ERROR 2764 --- [rail] [payment-2] c.s.rail.grpc.PaymentGrpcService         : Async credit/notify failed for reference=PAY-417511
+
+io.grpc.StatusRuntimeException: UNIMPLEMENTED: Method centralbank.gateway.v1.CentralBankGateway/SendTransferNotification is unimplemented
+	at io.grpc.stub.ClientCalls.toStatusRuntimeException(ClientCalls.java:268) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.stub.ClientCalls.getUnchecked(ClientCalls.java:249) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.stub.ClientCalls.blockingUnaryCall(ClientCalls.java:167) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at com.centralbank.gateway.v1.CentralBankGatewayGrpc$CentralBankGatewayBlockingStub.sendTransferNotification(CentralBankGatewayGrpc.java:351) ~[payment-contract-1.0-SNAPSHOT.jar:na]
+	at com.settlement.rail.grpc.ReceiverBankGrpcClient.notifySenderBank(ReceiverBankGrpcClient.java:148) ~[classes/:na]
+	at com.settlement.rail.grpc.PaymentGrpcService.lambda$processPayment$0(PaymentGrpcService.java:73) ~[classes/:na]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1825) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-07-12T21:55:59.210+05:30  INFO 2764 --- [rail] [payment-3] c.s.rail.grpc.ReceiverBankGrpcClient     : Credit request acknowledged: bank='HDFC_IN' ackId='f8d4658b-e6d1-466e-8875-3fe1e69a640a' status='SUCCESS' reference='PAY-4178511'
+2026-07-12T21:56:08.756+05:30 ERROR 2764 --- [rail] [payment-3] c.s.rail.grpc.ReceiverBankGrpcClient     : gRPC notification to sender bank='AXIS_IN' failed for reference='PAY-4178511': status=Status{code=UNIMPLEMENTED, description=Method centralbank.gateway.v1.CentralBankGateway/SendTransferNotification is unimplemented, cause=null}
+
+io.grpc.StatusRuntimeException: UNIMPLEMENTED: Method centralbank.gateway.v1.CentralBankGateway/SendTransferNotification is unimplemented
+	at io.grpc.stub.ClientCalls.toStatusRuntimeException(ClientCalls.java:268) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.stub.ClientCalls.getUnchecked(ClientCalls.java:249) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.stub.ClientCalls.blockingUnaryCall(ClientCalls.java:167) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at com.centralbank.gateway.v1.CentralBankGatewayGrpc$CentralBankGatewayBlockingStub.sendTransferNotification(CentralBankGatewayGrpc.java:351) ~[payment-contract-1.0-SNAPSHOT.jar:na]
+	at com.settlement.rail.grpc.ReceiverBankGrpcClient.notifySenderBank(ReceiverBankGrpcClient.java:148) ~[classes/:na]
+	at com.settlement.rail.grpc.PaymentGrpcService.lambda$processPayment$0(PaymentGrpcService.java:73) ~[classes/:na]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1825) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-07-12T21:59:04.328+05:30  WARN 2764 --- [rail] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m23s981ms).
+2026-07-12T21:59:04.325+05:30 ERROR 2764 --- [rail] [payment-3] c.s.rail.grpc.PaymentGrpcService         : Async credit/notify failed for reference=PAY-4178511
+
+io.grpc.StatusRuntimeException: UNIMPLEMENTED: Method centralbank.gateway.v1.CentralBankGateway/SendTransferNotification is unimplemented
+	at io.grpc.stub.ClientCalls.toStatusRuntimeException(ClientCalls.java:268) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.stub.ClientCalls.getUnchecked(ClientCalls.java:249) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.stub.ClientCalls.blockingUnaryCall(ClientCalls.java:167) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at com.centralbank.gateway.v1.CentralBankGatewayGrpc$CentralBankGatewayBlockingStub.sendTransferNotification(CentralBankGatewayGrpc.java:351) ~[payment-contract-1.0-SNAPSHOT.jar:na]
+	at com.settlement.rail.grpc.ReceiverBankGrpcClient.notifySenderBank(ReceiverBankGrpcClient.java:148) ~[classes/:na]
+	at com.settlement.rail.grpc.PaymentGrpcService.lambda$processPayment$0(PaymentGrpcService.java:73) ~[classes/:na]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1825) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-07-12T21:59:04.335+05:30  WARN 2764 --- [rail] [grpc-nio-boss-ELG-1-1] i.g.n.s.i.n.bootstrap.ServerBootstrap    : Failed to set channel option 'SO_KEEPALIVE' with value 'true' for channel '[id: 0xb2ccbb4d, L:/[0:0:0:0:0:0:7f00:1]:9090 - R:/144.124.155.10:0]' of type 'class io.grpc.netty.shaded.io.netty.channel.socket.nio.NioSocketChannel'
+
+io.grpc.netty.shaded.io.netty.channel.ChannelException: java.net.SocketException: Invalid argument
+	at io.grpc.netty.shaded.io.netty.channel.socket.DefaultSocketChannelConfig.setKeepAlive(DefaultSocketChannelConfig.java:194) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.socket.DefaultSocketChannelConfig.setOption(DefaultSocketChannelConfig.java:110) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.socket.nio.NioSocketChannel$NioSocketChannelConfig.setOption(NioSocketChannel.java:497) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.bootstrap.AbstractBootstrap.setChannelOption(AbstractBootstrap.java:491) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.bootstrap.AbstractBootstrap.setChannelOptions(AbstractBootstrap.java:483) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.bootstrap.ServerBootstrap$ServerBootstrapAcceptor.channelRead(ServerBootstrap.java:231) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1357) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:868) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.AbstractNioMessageChannel$NioMessageUnsafe.read(AbstractNioMessageChannel.java:97) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:796) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+Caused by: java.net.SocketException: Invalid argument
+	at java.base/sun.nio.ch.Net.setIntOption0(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.setSocketOption(Net.java:403) ~[na:na]
+	at java.base/sun.nio.ch.Net.setSocketOption(Net.java:341) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.setOption(SocketChannelImpl.java:285) ~[na:na]
+	at java.base/sun.nio.ch.SocketAdaptor.setBooleanOption(SocketAdaptor.java:206) ~[na:na]
+	at java.base/sun.nio.ch.SocketAdaptor.setKeepAlive(SocketAdaptor.java:323) ~[na:na]
+	at io.grpc.netty.shaded.io.netty.channel.socket.DefaultSocketChannelConfig.setKeepAlive(DefaultSocketChannelConfig.java:192) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	... 21 common frames omitted
+
+2026-07-12T21:59:04.337+05:30  WARN 2764 --- [rail] [grpc-nio-boss-ELG-1-1] i.g.n.s.i.n.bootstrap.ServerBootstrap    : Failed to register an accepted channel: [id: 0xb2ccbb4d, L:/[0:0:0:0:0:0:7f00:1]:9090 ! R:/144.124.155.10:0]
+
+io.grpc.netty.shaded.io.netty.channel.ChannelException: java.net.SocketException: Invalid argument
+	at io.grpc.netty.shaded.io.netty.channel.socket.DefaultSocketChannelConfig.setKeepAlive(DefaultSocketChannelConfig.java:194) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.socket.DefaultSocketChannelConfig.setOption(DefaultSocketChannelConfig.java:110) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.socket.nio.NioSocketChannel$NioSocketChannelConfig.setOption(NioSocketChannel.java:497) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.bootstrap.AbstractBootstrap.setChannelOption(AbstractBootstrap.java:491) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.bootstrap.AbstractBootstrap.setChannelOptions(AbstractBootstrap.java:483) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.bootstrap.ServerBootstrap$ServerBootstrapAcceptor.channelRead(ServerBootstrap.java:231) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1357) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:868) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.AbstractNioMessageChannel$NioMessageUnsafe.read(AbstractNioMessageChannel.java:97) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:796) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+Caused by: java.net.SocketException: Invalid argument
+	at java.base/sun.nio.ch.Net.setIntOption0(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.setSocketOption(Net.java:403) ~[na:na]
+	at java.base/sun.nio.ch.Net.setSocketOption(Net.java:341) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.setOption(SocketChannelImpl.java:285) ~[na:na]
+	at java.base/sun.nio.ch.SocketAdaptor.setBooleanOption(SocketAdaptor.java:206) ~[na:na]
+	at java.base/sun.nio.ch.SocketAdaptor.setKeepAlive(SocketAdaptor.java:323) ~[na:na]
+	at io.grpc.netty.shaded.io.netty.channel.socket.DefaultSocketChannelConfig.setKeepAlive(DefaultSocketChannelConfig.java:192) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	... 21 common frames omitted
+
+2026-07-12T21:59:16.218+05:30  INFO 2764 --- [rail] [payment-4] c.s.rail.grpc.ReceiverBankGrpcClient     : Credit request acknowledged: bank='HDFC_IN' ackId='56a13e1b-a112-41ad-9021-9ee007661b36' status='SUCCESS' reference='PAY-41785111'
+2026-07-12T21:59:16.219+05:30  INFO 2764 --- [rail] [payment-5] c.s.rail.grpc.ReceiverBankGrpcClient     : Credit request acknowledged: bank='HDFC_IN' ackId='74bc0018-0831-4f98-b772-f3ffd9074ccd' status='SUCCESS' reference='PAY-17850111'
+2026-07-12T22:00:54.046+05:30  WARN 2764 --- [rail] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m18s513ms).
+2026-07-12T22:00:54.084+05:30 ERROR 2764 --- [rail] [payment-5] c.s.rail.grpc.ReceiverBankGrpcClient     : gRPC notification to sender bank='AXIS_IN' failed for reference='PAY-17850111': status=Status{code=UNIMPLEMENTED, description=Method centralbank.gateway.v1.CentralBankGateway/SendTransferNotification is unimplemented, cause=null}
+
+io.grpc.StatusRuntimeException: UNIMPLEMENTED: Method centralbank.gateway.v1.CentralBankGateway/SendTransferNotification is unimplemented
+	at io.grpc.stub.ClientCalls.toStatusRuntimeException(ClientCalls.java:268) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.stub.ClientCalls.getUnchecked(ClientCalls.java:249) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.stub.ClientCalls.blockingUnaryCall(ClientCalls.java:167) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at com.centralbank.gateway.v1.CentralBankGatewayGrpc$CentralBankGatewayBlockingStub.sendTransferNotification(CentralBankGatewayGrpc.java:351) ~[payment-contract-1.0-SNAPSHOT.jar:na]
+	at com.settlement.rail.grpc.ReceiverBankGrpcClient.notifySenderBank(ReceiverBankGrpcClient.java:148) ~[classes/:na]
+	at com.settlement.rail.grpc.PaymentGrpcService.lambda$processPayment$0(PaymentGrpcService.java:73) ~[classes/:na]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1825) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-07-12T22:06:48.986+05:30 ERROR 2764 --- [rail] [payment-4] c.s.rail.grpc.ReceiverBankGrpcClient     : gRPC notification to sender bank='AXIS_IN' failed for reference='PAY-41785111': status=Status{code=UNIMPLEMENTED, description=Method centralbank.gateway.v1.CentralBankGateway/SendTransferNotification is unimplemented, cause=null}
+
+io.grpc.StatusRuntimeException: UNIMPLEMENTED: Method centralbank.gateway.v1.CentralBankGateway/SendTransferNotification is unimplemented
+	at io.grpc.stub.ClientCalls.toStatusRuntimeException(ClientCalls.java:268) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.stub.ClientCalls.getUnchecked(ClientCalls.java:249) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.stub.ClientCalls.blockingUnaryCall(ClientCalls.java:167) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at com.centralbank.gateway.v1.CentralBankGatewayGrpc$CentralBankGatewayBlockingStub.sendTransferNotification(CentralBankGatewayGrpc.java:351) ~[payment-contract-1.0-SNAPSHOT.jar:na]
+	at com.settlement.rail.grpc.ReceiverBankGrpcClient.notifySenderBank(ReceiverBankGrpcClient.java:148) ~[classes/:na]
+	at com.settlement.rail.grpc.PaymentGrpcService.lambda$processPayment$0(PaymentGrpcService.java:73) ~[classes/:na]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1825) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-07-12T22:06:48.990+05:30 ERROR 2764 --- [rail] [payment-5] c.s.rail.grpc.PaymentGrpcService         : Async credit/notify failed for reference=PAY-17850111
+
+io.grpc.StatusRuntimeException: UNIMPLEMENTED: Method centralbank.gateway.v1.CentralBankGateway/SendTransferNotification is unimplemented
+	at io.grpc.stub.ClientCalls.toStatusRuntimeException(ClientCalls.java:268) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.stub.ClientCalls.getUnchecked(ClientCalls.java:249) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.stub.ClientCalls.blockingUnaryCall(ClientCalls.java:167) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at com.centralbank.gateway.v1.CentralBankGatewayGrpc$CentralBankGatewayBlockingStub.sendTransferNotification(CentralBankGatewayGrpc.java:351) ~[payment-contract-1.0-SNAPSHOT.jar:na]
+	at com.settlement.rail.grpc.ReceiverBankGrpcClient.notifySenderBank(ReceiverBankGrpcClient.java:148) ~[classes/:na]
+	at com.settlement.rail.grpc.PaymentGrpcService.lambda$processPayment$0(PaymentGrpcService.java:73) ~[classes/:na]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1825) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-07-12T22:06:48.990+05:30 ERROR 2764 --- [rail] [payment-4] c.s.rail.grpc.PaymentGrpcService         : Async credit/notify failed for reference=PAY-41785111
+
+io.grpc.StatusRuntimeException: UNIMPLEMENTED: Method centralbank.gateway.v1.CentralBankGateway/SendTransferNotification is unimplemented
+	at io.grpc.stub.ClientCalls.toStatusRuntimeException(ClientCalls.java:268) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.stub.ClientCalls.getUnchecked(ClientCalls.java:249) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.stub.ClientCalls.blockingUnaryCall(ClientCalls.java:167) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at com.centralbank.gateway.v1.CentralBankGatewayGrpc$CentralBankGatewayBlockingStub.sendTransferNotification(CentralBankGatewayGrpc.java:351) ~[payment-contract-1.0-SNAPSHOT.jar:na]
+	at com.settlement.rail.grpc.ReceiverBankGrpcClient.notifySenderBank(ReceiverBankGrpcClient.java:148) ~[classes/:na]
+	at com.settlement.rail.grpc.PaymentGrpcService.lambda$processPayment$0(PaymentGrpcService.java:73) ~[classes/:na]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1825) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-07-12T22:06:49.000+05:30  WARN 2764 --- [rail] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m54s955ms).
+2026-07-12T22:10:01.641+05:30  INFO 2764 --- [rail] [payment-6] c.s.rail.grpc.ReceiverBankGrpcClient     : Credit request acknowledged: bank='HDFC_IN' ackId='979701af-9cc3-4e3a-84aa-eb32c81212cd' status='SUCCESS' reference='PAY-7850111'
+2026-07-12T22:10:22.092+05:30  INFO 2764 --- [rail] [payment-6] c.s.rail.grpc.ReceiverBankGrpcClient     : Transfer notification acknowledged by sender bank='AXIS_IN' ackId='be87b925-2f72-4358-a715-db41b5c59992' status='SUCCESS' reference='PAY-7850111'
+2026-07-12T22:11:11.850+05:30  INFO 2764 --- [rail] [payment-7] c.s.rail.grpc.ReceiverBankGrpcClient     : Credit request acknowledged: bank='HDFC_IN' ackId='202bc2a4-9b3f-4365-a63e-dfa7149c849e' status='SUCCESS' reference='PAY-70111'
+2026-07-12T22:11:40.706+05:30  INFO 2764 --- [rail] [payment-7] c.s.rail.grpc.ReceiverBankGrpcClient     : Transfer notification acknowledged by sender bank='AXIS_IN' ackId='9c8b2eb1-9732-411e-bebf-b0f34d26a48a' status='SUCCESS' reference='PAY-70111'
+2026-07-12T22:13:57.890+05:30  WARN 2764 --- [rail] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m18s585ms).
+2026-07-12T22:14:02.560+05:30  INFO 2764 --- [rail] [payment-8] c.s.rail.grpc.ReceiverBankGrpcClient     : Credit request acknowledged: bank='HDFC_IN' ackId='e9f4affd-dd80-4846-8763-d00b466ed177' status='SUCCESS' reference='PAY-0111'
+2026-07-12T22:14:07.639+05:30  INFO 2764 --- [rail] [payment-8] c.s.rail.grpc.ReceiverBankGrpcClient     : Transfer notification acknowledged by sender bank='AXIS_IN' ackId='a924ddb2-72e9-47ae-bddf-73337fef10cf' status='SUCCESS' reference='PAY-0111'
+2026-07-12T22:15:41.521+05:30  INFO 2764 --- [rail] [payment-9] c.s.rail.grpc.ReceiverBankGrpcClient     : Credit request acknowledged: bank='HDFC_IN' ackId='dbbb2a34-bca0-4611-8c78-92fffd89a4e7' status='SUCCESS' reference='PAY-1100'
+2026-07-12T22:15:47.410+05:30  INFO 2764 --- [rail] [payment-9] c.s.rail.grpc.ReceiverBankGrpcClient     : Transfer notification acknowledged by sender bank='AXIS_IN' ackId='9c27ed25-9726-4960-82d7-63d97c9858d7' status='SUCCESS' reference='PAY-1100'
+2026-07-12T22:16:19.874+05:30  INFO 2764 --- [rail] [payment-10] c.s.rail.grpc.ReceiverBankGrpcClient     : Credit request acknowledged: bank='HDFC_IN' ackId='417a5808-d1af-4db4-b1af-ee127839ab0d' status='SUCCESS' reference='PAY-11090'
+2026-07-12T22:16:30.251+05:30  INFO 2764 --- [rail] [payment-10] c.s.rail.grpc.ReceiverBankGrpcClient     : Transfer notification acknowledged by sender bank='AXIS_IN' ackId='c13cdf03-91a8-4ead-be58-47d8dd7e226c' status='SUCCESS' reference='PAY-11090'
+2026-07-12T22:20:47.444+05:30  INFO 2764 --- [rail] [payment-11] c.s.rail.grpc.ReceiverBankGrpcClient     : Credit request acknowledged: bank='HDFC_IN' ackId='00d39f8d-d1b2-4871-a5b2-91e7684ba4da' status='SUCCESS' reference='PAY-1090'
+2026-07-12T22:20:55.704+05:30  INFO 2764 --- [rail] [payment-11] c.s.rail.grpc.ReceiverBankGrpcClient     : Transfer notification acknowledged by sender bank='AXIS_IN' ackId='489e93fe-28b2-4b91-abb0-62b42d0b4381' status='SUCCESS' reference='PAY-1090'
+2026-07-12T22:27:49.396+05:30  INFO 2764 --- [rail] [payment-12] c.s.rail.grpc.ReceiverBankGrpcClient     : Credit request acknowledged: bank='HDFC_IN' ackId='1e491b30-061b-45c1-bbd6-240540465d8b' status='SUCCESS' reference='PAY-10990'
+2026-07-12T22:27:51.583+05:30  INFO 2764 --- [rail] [payment-12] c.s.rail.grpc.ReceiverBankGrpcClient     : Transfer notification acknowledged by sender bank='AXIS_IN' ackId='94921479-0f0d-468d-a880-b32a35e264d3' status='SUCCESS' reference='PAY-10990'
+2026-07-12T22:28:48.491+05:30  INFO 2764 --- [rail] [SpringApplicationShutdownHook] n.d.b.g.s.s.GrpcServerLifecycle          : Completed gRPC server shutdown
+2026-07-12T22:28:48.493+05:30  INFO 2764 --- [rail] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-12T22:28:48.495+05:30  INFO 2764 --- [rail] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-07-12T22:28:48.500+05:30  INFO 2764 --- [rail] [SpringApplicationShutdownHook] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=rail-producer-1] Closing the Kafka producer with timeoutMillis = 30000 ms.
+2026-07-12T22:28:48.504+05:30  INFO 2764 --- [rail] [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2026-07-12T22:28:48.505+05:30  INFO 2764 --- [rail] [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-07-12T22:28:48.505+05:30  INFO 2764 --- [rail] [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2026-07-12T22:28:48.505+05:30  INFO 2764 --- [rail] [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2026-07-12T22:28:48.506+05:30  INFO 2764 --- [rail] [SpringApplicationShutdownHook] o.a.kafka.common.utils.AppInfoParser     : App info kafka.producer for rail-producer-1 unregistered
+2026-07-12T22:28:48.514+05:30  INFO 2764 --- [rail] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T22:28:48.517+05:30  INFO 2764 --- [rail] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-07-12T22:28:48.519+05:30  INFO 2764 --- [rail] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

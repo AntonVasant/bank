@@ -1,6 +1,6 @@
 package com.settlement.rail.grpc;
 
-import com.settlement.rail.transfer.PaymentOrchestrator;
+import com.centralbank.gateway.v1.Acknowledgment;
 import com.settlement.rail.transfer.TransferRequest;
 import com.settlement.rail.transfer.TransferResponse;
 import com.settlement.rail.transfer.TransferService;
@@ -8,23 +8,46 @@ import io.grpc.BindableService;
 import io.grpc.ServerServiceDefinition;
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
-import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import net.devh.boot.grpc.server.service.GrpcService;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import java.math.BigDecimal;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.Executor;
 
+@Slf4j
 @GrpcService
-@RequiredArgsConstructor
 public class PaymentGrpcService implements PaymentServiceGrpc.AsyncService, BindableService {
 
-    private final PaymentOrchestrator paymentOrchestrator;
+    private final TransferService transferService;
+    private final ReceiverBankGrpcClient receiverBankGrpcClient;
+    private final Executor paymentExecutor;
+
+    public PaymentGrpcService(TransferService transferService,
+                               ReceiverBankGrpcClient receiverBankGrpcClient,
+                               @Qualifier("paymentExecutor") Executor paymentExecutor) {
+        this.transferService = transferService;
+        this.receiverBankGrpcClient = receiverBankGrpcClient;
+        this.paymentExecutor = paymentExecutor;
+    }
+
     @Override
     public ServerServiceDefinition bindService() {
         return PaymentServiceGrpc.bindService(this);
     }
 
-    private final TransferService transferService;
-
+    /**
+     * Server-streaming implementation of ProcessPayment.
+     * <p>
+     * <b>Response 1</b> (sent immediately after the DB commit):
+     *   {@code acknowledged_by = RAIL} — the rail has reserved funds,
+     *   written the ledger entries and committed the transaction.
+     * <p>
+     * <b>Response 2</b> (sent after the receiver bank confirms the credit):
+     *   {@code acknowledged_by = RECEIVER_BANK} — the receiver bank has
+     *   applied the credit and returned an acknowledgement.
+     */
     @Override
     public void processPayment(PaymentRequest request, StreamObserver<PaymentResponse> responseObserver) {
         try {
@@ -39,9 +62,25 @@ public class PaymentGrpcService implements PaymentServiceGrpc.AsyncService, Bind
                     request.getBeneficiaryAccountNumber().isBlank() ? null : request.getBeneficiaryAccountNumber()
             );
 
-            TransferResponse transfer = paymentOrchestrator.initiate(transferRequest);
-            responseObserver.onNext(toProto(transfer));
-             responseObserver.onCompleted();
+            // Phase 1: DB commit — send Rail ack immediately
+            TransferResponse transfer = transferService.initiate(transferRequest);
+            responseObserver.onNext(toProto(transfer, AcknowledgedBy.RAIL));
+
+            // Phase 2: async — credit receiver bank, then send its ack
+            CompletableFuture.runAsync(() -> {
+                try {
+                    Acknowledgment receiverAck = receiverBankGrpcClient.sendCreditRequest(transfer);
+                    receiverBankGrpcClient.notifySenderBank(transfer, receiverAck);
+                    TransferResponse completedTransfer = transferService.complete(transfer.id());
+                    responseObserver.onNext(toProto(completedTransfer, AcknowledgedBy.RECEIVER_BANK));
+                    responseObserver.onCompleted();
+                } catch (Exception ex) {
+                    log.error("Async credit/notify failed for reference={}", transfer.reference(), ex);
+                    responseObserver.onError(
+                            Status.INTERNAL.withDescription(ex.getMessage()).asRuntimeException());
+                }
+            }, paymentExecutor);
+
         } catch (IllegalArgumentException e) {
             responseObserver.onError(Status.INVALID_ARGUMENT.withDescription(e.getMessage()).asRuntimeException());
         } catch (Exception e) {
@@ -53,14 +92,14 @@ public class PaymentGrpcService implements PaymentServiceGrpc.AsyncService, Bind
     public void getPayment(GetPaymentRequest request, StreamObserver<PaymentResponse> responseObserver) {
         try {
             TransferResponse transfer = transferService.getByReference(request.getReference());
-            responseObserver.onNext(toProto(transfer));
+            responseObserver.onNext(toProto(transfer, AcknowledgedBy.ACKNOWLEDGED_BY_UNSPECIFIED));
             responseObserver.onCompleted();
         } catch (Exception e) {
             responseObserver.onError(Status.NOT_FOUND.withDescription(e.getMessage()).asRuntimeException());
         }
     }
 
-    private PaymentResponse toProto(TransferResponse t) {
+    private PaymentResponse toProto(TransferResponse t, AcknowledgedBy acknowledgedBy) {
         PaymentResponse.Builder builder = PaymentResponse.newBuilder()
                 .setId(t.id())
                 .setReference(t.reference())
@@ -70,14 +109,16 @@ public class PaymentGrpcService implements PaymentServiceGrpc.AsyncService, Bind
                 .setToBankCode(t.toBankCode())
                 .setAmount(t.amount().toPlainString())
                 .setCurrency(t.currency())
-                .setStatus(t.status().name());
+                .setStatus(t.status().name())
+                .setAcknowledgedBy(acknowledgedBy);
 
-        if (t.description() != null)    builder.setDescription(t.description());
-        if (t.failureReason() != null)  builder.setFailureReason(t.failureReason());
-        if (t.createdAt() != null)      builder.setCreatedAt(t.createdAt().toString());
-        if (t.updatedAt() != null)      builder.setUpdatedAt(t.updatedAt().toString());
-        if (t.completedAt() != null)    builder.setCompletedAt(t.completedAt().toString());
+        if (t.description() != null)   builder.setDescription(t.description());
+        if (t.failureReason() != null) builder.setFailureReason(t.failureReason());
+        if (t.createdAt() != null)     builder.setCreatedAt(t.createdAt().toString());
+        if (t.updatedAt() != null)     builder.setUpdatedAt(t.updatedAt().toString());
+        if (t.completedAt() != null)   builder.setCompletedAt(t.completedAt().toString());
 
         return builder.build();
     }
 }
+

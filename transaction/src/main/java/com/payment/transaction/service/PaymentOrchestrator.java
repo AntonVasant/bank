@@ -46,11 +46,10 @@ public class PaymentOrchestrator {
 
     public CompletableFuture<PaymentResponse> createPayment(String idempotencyKey,
                                                              CreatePaymentRequest request) {
-        // Fast-path: idempotency check on the calling thread — cheap read, no executor needed
-//        var cached = paymentService.checkIdempotency(idempotencyKey);
-//        if (cached.isPresent()) {
-//            return CompletableFuture.completedFuture(cached.get());
-//        }
+        var cached = paymentService.checkIdempotency(idempotencyKey);
+        if (cached.isPresent()) {
+            return CompletableFuture.completedFuture(cached.get());
+        }
 
         validateRequest(request);
 
@@ -93,16 +92,26 @@ public class PaymentOrchestrator {
                             request.sourceAccountNumber()
                     );
 
-                    // Step 2: non-blocking gRPC call (gRPC executor thread)
-                    return settlementRailClient.submit(railRequest)
+                    SettlementFutures futures = settlementRailClient.submit(railRequest);
 
-                            // Step 3 success (paymentExecutor): mark COMPLETED + post ledger + outbox
+                    futures.cbAcknowledged()
+                            .thenAcceptAsync(
+                                    cbRef -> paymentService.markCbAcknowledged(savedPayment.getId()),
+                                    executor)
+                            .exceptionally(ex -> {
+                                org.slf4j.LoggerFactory.getLogger(PaymentOrchestrator.class)
+                                        .warn("Failed to record CB acknowledgement for payment {}: {}",
+                                                savedPayment.getId(), ex.getMessage());
+                                return null;
+                            });
+
+                    return futures.completed()
                             .thenApplyAsync(
                                     settlementRef -> paymentService.completeInterBankPayment(
                                             idempotencyKey, savedPayment.getId(), settlementRef),
                                     executor)
 
-                            // Step 3 failure (paymentExecutor): refund debit + mark FAILED
+                            // Step 2c (paymentExecutor, failure): refund debit + mark FAILED
                             .exceptionallyCompose(ex -> CompletableFuture.supplyAsync(() -> {
                                 paymentService.refundInterBankPayment(
                                         savedPayment.getId(),

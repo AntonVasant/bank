@@ -6,6 +6,8 @@ public interface TransferService {
 
     TransferResponse initiate(TransferRequest request);
 
+    TransferResponse complete(Long transferId);
+
     TransferResponse getById(Long id);
 
     TransferResponse getByReference(String reference);

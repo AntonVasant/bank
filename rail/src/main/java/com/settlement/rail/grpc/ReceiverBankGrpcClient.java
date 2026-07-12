@@ -156,7 +156,6 @@ public class ReceiverBankGrpcClient {
         }
     }
 
-    // -------------------------------------------------------------------------
 
     private CreditRequest buildCreditRequest(TransferResponse transfer) {
         CreditRequest.Builder builder = CreditRequest.newBuilder()

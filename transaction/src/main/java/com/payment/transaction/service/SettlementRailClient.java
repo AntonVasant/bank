@@ -1,6 +1,7 @@
 package com.payment.transaction.service;
 
 import com.payment.transaction.dto.SettlementRailRequest;
+import com.settlement.rail.grpc.AcknowledgedBy;
 import com.settlement.rail.grpc.PaymentRequest;
 import com.settlement.rail.grpc.PaymentResponse;
 import com.settlement.rail.grpc.PaymentServiceGrpc;
@@ -33,51 +34,74 @@ public class SettlementRailClient {
 
     /**
      * Sends a payment instruction to the settlement rail via gRPC asynchronously.
-     * The returned future completes with the settlement reference on success,
-     * or exceptionally with a {@link ResponseStatusException} (502) on rejection or unavailability.
+     * <p>
+     * The settlement rail streams two responses back:
+     * <ol>
+     *   <li>status {@code "ACCEPTED"}   — central bank has acknowledged the payment.</li>
+     *   <li>status {@code "COMPLETED"}  — payment has been fully settled.</li>
+     * </ol>
+     * Both futures complete exceptionally with a {@link ResponseStatusException} (502)
+     * if the rail rejects the payment or the connection fails.
+     *
+     * @return {@link SettlementFutures} carrying one future per stage
      */
-    public CompletableFuture<String> submit(SettlementRailRequest request) {
+    public SettlementFutures submit(SettlementRailRequest request) {
         PaymentRequest grpcRequest = PaymentRequest.newBuilder()
                 .setFromBankCode(request.sourceBankCode())
                 .setToBankCode(request.destinationBankCode())
                 .setAmount(request.amount().toPlainString())
                 .setCurrency(request.currency())
-                .setReceiverAccountNumber(request.destinationAccountNumber())
+                .setBeneficiaryAccountNumber(request.destinationAccountNumber())
                 .setSenderAccountNumber(request.sourceAccountNumber())
                 .setReference(request.paymentReference())
                 .setDescription("Transfer to account " + request.destinationAccountNumber())
                 .build();
 
-        CompletableFuture<String> result = new CompletableFuture<>();
+        CompletableFuture<String> cbAcknowledged = new CompletableFuture<>();
+        CompletableFuture<String> completed = new CompletableFuture<>();
 
         stub.processPayment(grpcRequest, new StreamObserver<PaymentResponse>() {
-            private PaymentResponse response;
 
             @Override
             public void onNext(PaymentResponse value) {
-                this.response = value;
+                AcknowledgedBy ack = value.getAcknowledgedBy();
+                if (ack == AcknowledgedBy.RAIL) {
+                    // Response 1: rail has committed the transfer
+                    cbAcknowledged.complete(value.getReference());
+                } else if (ack == AcknowledgedBy.RECEIVER_BANK) {
+                    // Response 2: receiver bank has confirmed the credit
+                    completed.complete(value.getReference());
+                } else {
+                    // Unspecified acknowledged_by — treat as failure
+                    ResponseStatusException ex = new ResponseStatusException(HttpStatus.BAD_GATEWAY,
+                            "Settlement rail returned unspecified acknowledgement for payment "
+                            + request.paymentReference()
+                            + ": " + value.getFailureReason());
+                    cbAcknowledged.completeExceptionally(ex);
+                    completed.completeExceptionally(ex);
+                }
             }
 
             @Override
             public void onError(Throwable t) {
-                result.completeExceptionally(new ResponseStatusException(HttpStatus.BAD_GATEWAY,
+                ResponseStatusException ex = new ResponseStatusException(HttpStatus.BAD_GATEWAY,
                         "Settlement rail unavailable for payment " + request.paymentReference()
-                        + ": " + t.getMessage(), t));
+                        + ": " + t.getMessage(), t);
+                cbAcknowledged.completeExceptionally(ex);
+                completed.completeExceptionally(ex);
             }
 
             @Override
             public void onCompleted() {
-                if (!"ACCEPTED".equalsIgnoreCase(response.getStatus())) {
-                    result.completeExceptionally(new ResponseStatusException(HttpStatus.BAD_GATEWAY,
-                            "Settlement rail rejected payment " + request.paymentReference()
-                            + ": " + response.getFailureReason()));
-                } else {
-                    result.complete(response.getReference());
-                }
+                // Safety net: if the stream closed before we got a COMPLETED response
+                // completeExceptionally is a no-op on an already-completed future
+                completed.completeExceptionally(new ResponseStatusException(HttpStatus.BAD_GATEWAY,
+                        "Settlement rail closed stream without a COMPLETED response for payment "
+                        + request.paymentReference()));
             }
         });
 
-        return result;
+        return new SettlementFutures(cbAcknowledged, completed);
     }
 
     @PreDestroy

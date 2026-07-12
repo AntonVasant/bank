@@ -121,6 +121,16 @@ public class PaymentService {
 
     // ── Inter-bank ───────────────────────────────────────────────────────────
 
+    /** TX-1b (CB acknowledged): move payment from PROCESSING → CB_ACKNOWLEDGED. */
+    @Transactional
+    public void markCbAcknowledged(Long paymentId) {
+        Payment payment = paymentRepository.findById(paymentId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,
+                        "Payment not found during CB acknowledgement: " + paymentId));
+        payment.setStatus(Payment.PaymentStatus.CB_ACKNOWLEDGED);
+        paymentRepository.save(payment);
+    }
+
     /** TX-1: debit source, persist PROCESSING payment and ledger entries. Commits before network call. */
     @Transactional
     public Payment prepareInterBankPayment(String idempotencyKey,
@@ -134,6 +144,7 @@ public class PaymentService {
         payment.setDestinationBankCode(request.destinationBankCode());
         payment.setDestinationExternalAccount(request.destinationAccountNumber());
         payment.setStatus(Payment.PaymentStatus.PROCESSING);
+        payment.setDestinationExternalAccount(request.destinationAccountNumber());
         Payment saved = paymentRepository.save(payment);
 
         createInterBankLedgerEntries(saved, source, sourceBalanceBefore);
@@ -162,7 +173,6 @@ public class PaymentService {
                     ledgerEntryRepository.save(e);
                 });
 
-        createOutboxEvent(payment);
         PaymentResponse response = toResponse(payment);
         idempotencyService.markComplete(idempotencyKey, payment.getId(), response);
         return response;
@@ -281,14 +291,17 @@ public class PaymentService {
      * without needing a distributed transaction.
      */
     private void createOutboxEvent(Payment payment) {
+        String destinationAccountNumber = payment.getDestinationAccount() != null
+                ? payment.getDestinationAccount().getAccountNumber()
+                : payment.getDestinationExternalAccount();
         String payload = String.format(
                 "{\"paymentId\":%d,\"paymentReference\":\"%s\","
-                + "\"sourceAccountId\":%d,\"destinationAccountId\":%d,"
+                + "\"sourceAccountNumber\":\"%s\",\"destinationAccountNumber\":\"%s\","
                 + "\"amount\":\"%s\",\"status\":\"%s\"}",
                 payment.getId(),
                 payment.getPaymentReference(),
-                payment.getSourceAccount().getId(),
-                payment.getDestinationAccount().getId(),
+                payment.getSourceAccount().getAccountNumber(),
+                destinationAccountNumber != null ? destinationAccountNumber : "",
                 payment.getAmount().toPlainString(),
                 payment.getStatus().name()
         );
@@ -311,11 +324,14 @@ public class PaymentService {
     }
 
     private PaymentResponse toResponse(Payment payment) {
+        String destinationAccountNumber = payment.getDestinationAccount() != null
+                ? payment.getDestinationAccount().getAccountNumber()
+                : payment.getDestinationExternalAccount();
         return new PaymentResponse(
                 payment.getId(),
                 payment.getPaymentReference(),
-                payment.getSourceAccount().getId(),
-                payment.getDestinationAccount().getId(),
+                payment.getSourceAccount().getAccountNumber(),
+                destinationAccountNumber,
                 payment.getAmount(),
                 payment.getStatus().name());
     }
