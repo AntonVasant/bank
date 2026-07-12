@@ -1,0 +1,758 @@
+2026-07-12T17:15:20.362+05:30  INFO 89639 --- [transaction-bankB] [main] c.p.transaction.TransactionApplication   : Starting TransactionApplication using Java 25.0.2 with PID 89639 (/Users/anton-23085/Project/bank/transaction/target/classes started by anton-23085 in /Users/anton-23085/Project/bank/transaction)
+2026-07-12T17:15:20.363+05:30  INFO 89639 --- [transaction-bankB] [main] c.p.transaction.TransactionApplication   : The following 1 profile is active: "bankB"
+2026-07-12T17:15:20.736+05:30  INFO 89639 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T17:15:20.737+05:30  INFO 89639 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-12T17:15:20.799+05:30  INFO 89639 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 57 ms. Found 6 JPA repository interfaces.
+2026-07-12T17:15:20.822+05:30  INFO 89639 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T17:15:20.822+05:30  INFO 89639 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-12T17:15:20.831+05:30  INFO 89639 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:15:20.831+05:30  INFO 89639 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.LedgerEntryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:15:20.831+05:30  INFO 89639 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.OutboxEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:15:20.832+05:30  INFO 89639 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.PaymentBatchRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:15:20.832+05:30  INFO 89639 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.PaymentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:15:20.832+05:30  INFO 89639 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:15:20.832+05:30  INFO 89639 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2026-07-12T17:15:21.207+05:30  INFO 89639 --- [transaction-bankB] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8081 (http)
+2026-07-12T17:15:21.214+05:30  INFO 89639 --- [transaction-bankB] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-12T17:15:21.214+05:30  INFO 89639 --- [transaction-bankB] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-12T17:15:21.236+05:30  INFO 89639 --- [transaction-bankB] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 845 ms
+2026-07-12T17:15:21.365+05:30  INFO 89639 --- [transaction-bankB] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-12T17:15:21.383+05:30  INFO 89639 --- [transaction-bankB] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-12T17:15:21.542+05:30  INFO 89639 --- [transaction-bankB] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-12T17:15:21.555+05:30  INFO 89639 --- [transaction-bankB] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-12T17:15:21.660+05:30  INFO 89639 --- [transaction-bankB] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5a31abe9
+2026-07-12T17:15:21.661+05:30  INFO 89639 --- [transaction-bankB] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-12T17:15:21.679+05:30  WARN 89639 --- [transaction-bankB] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-12T17:15:21.694+05:30  INFO 89639 --- [transaction-bankB] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5435/paymentdb_bankb]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: paymentdb_bankb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-12T17:15:22.201+05:30  INFO 89639 --- [transaction-bankB] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-12T17:15:22.246+05:30  INFO 89639 --- [transaction-bankB] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T17:15:22.292+05:30  INFO 89639 --- [transaction-bankB] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-12T17:15:22.493+05:30  INFO 89639 --- [transaction-bankB] [main] c.p.transaction.config.GrpcServerConfig  : Central Bank Gateway gRPC server started on port 9091
+2026-07-12T17:15:22.544+05:30  WARN 89639 --- [transaction-bankB] [main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-07-12T17:15:22.757+05:30  WARN 89639 --- [transaction-bankB] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-12T17:15:23.081+05:30  INFO 89639 --- [transaction-bankB] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-07-12T17:15:23.129+05:30  INFO 89639 --- [transaction-bankB] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8081 (http) with context path '/'
+2026-07-12T17:15:23.135+05:30  INFO 89639 --- [transaction-bankB] [main] c.p.transaction.TransactionApplication   : Started TransactionApplication in 3.132 seconds (process running for 3.438)
+2026-07-12T17:16:50.757+05:30  INFO 89639 --- [transaction-bankB] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-12T17:16:50.763+05:30  INFO 89639 --- [transaction-bankB] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-07-12T17:16:50.781+05:30  INFO 89639 --- [transaction-bankB] [SpringApplicationShutdownHook] c.p.transaction.config.GrpcServerConfig  : Shutting down gRPC server on port 9091
+2026-07-12T17:16:50.784+05:30  INFO 89639 --- [transaction-bankB] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T17:16:50.787+05:30  INFO 89639 --- [transaction-bankB] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-07-12T17:16:50.790+05:30  INFO 89639 --- [transaction-bankB] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-07-12T17:16:54.490+05:30  INFO 90209 --- [transaction-bankB] [main] c.p.transaction.TransactionApplication   : Starting TransactionApplication using Java 25.0.2 with PID 90209 (/Users/anton-23085/Project/bank/transaction/target/classes started by anton-23085 in /Users/anton-23085/Project/bank/transaction)
+2026-07-12T17:16:54.492+05:30  INFO 90209 --- [transaction-bankB] [main] c.p.transaction.TransactionApplication   : The following 1 profile is active: "bankB"
+2026-07-12T17:16:54.887+05:30  INFO 90209 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T17:16:54.887+05:30  INFO 90209 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-12T17:16:54.952+05:30  INFO 90209 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56 ms. Found 6 JPA repository interfaces.
+2026-07-12T17:16:54.974+05:30  INFO 90209 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T17:16:54.974+05:30  INFO 90209 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-12T17:16:54.982+05:30  INFO 90209 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:16:54.983+05:30  INFO 90209 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.LedgerEntryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:16:54.983+05:30  INFO 90209 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.OutboxEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:16:54.983+05:30  INFO 90209 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.PaymentBatchRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:16:54.983+05:30  INFO 90209 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.PaymentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:16:54.983+05:30  INFO 90209 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:16:54.983+05:30  INFO 90209 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2026-07-12T17:16:55.275+05:30  INFO 90209 --- [transaction-bankB] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8081 (http)
+2026-07-12T17:16:55.285+05:30  INFO 90209 --- [transaction-bankB] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-12T17:16:55.286+05:30  INFO 90209 --- [transaction-bankB] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-12T17:16:55.310+05:30  INFO 90209 --- [transaction-bankB] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 793 ms
+2026-07-12T17:16:55.444+05:30  INFO 90209 --- [transaction-bankB] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-12T17:16:55.464+05:30  INFO 90209 --- [transaction-bankB] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-12T17:16:55.622+05:30  INFO 90209 --- [transaction-bankB] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-12T17:16:55.633+05:30  INFO 90209 --- [transaction-bankB] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-12T17:16:55.709+05:30  INFO 90209 --- [transaction-bankB] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@bcd9ed6
+2026-07-12T17:16:55.710+05:30  INFO 90209 --- [transaction-bankB] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-12T17:16:55.724+05:30  WARN 90209 --- [transaction-bankB] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-12T17:16:55.734+05:30  INFO 90209 --- [transaction-bankB] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5435/paymentdb_bankb]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: paymentdb_bankb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-12T17:16:56.182+05:30  INFO 90209 --- [transaction-bankB] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-12T17:16:56.225+05:30  INFO 90209 --- [transaction-bankB] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T17:16:56.263+05:30  INFO 90209 --- [transaction-bankB] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-12T17:16:56.463+05:30  INFO 90209 --- [transaction-bankB] [main] c.p.transaction.config.GrpcServerConfig  : Central Bank Gateway gRPC server started on port 9091
+2026-07-12T17:16:56.527+05:30  WARN 90209 --- [transaction-bankB] [main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-07-12T17:16:56.852+05:30  WARN 90209 --- [transaction-bankB] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-12T17:16:57.226+05:30  INFO 90209 --- [transaction-bankB] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-07-12T17:16:57.280+05:30  INFO 90209 --- [transaction-bankB] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8081 (http) with context path '/'
+2026-07-12T17:16:57.293+05:30  INFO 90209 --- [transaction-bankB] [main] c.p.transaction.TransactionApplication   : Started TransactionApplication in 3.115 seconds (process running for 3.322)
+2026-07-12T17:17:59.122+05:30  INFO 90209 --- [transaction-bankB] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-12T17:17:59.125+05:30  INFO 90209 --- [transaction-bankB] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-07-12T17:17:59.136+05:30  INFO 90209 --- [transaction-bankB] [SpringApplicationShutdownHook] c.p.transaction.config.GrpcServerConfig  : Shutting down gRPC server on port 9091
+2026-07-12T17:17:59.139+05:30  INFO 90209 --- [transaction-bankB] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T17:17:59.141+05:30  INFO 90209 --- [transaction-bankB] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-07-12T17:17:59.142+05:30  INFO 90209 --- [transaction-bankB] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-07-12T17:18:05.129+05:30  INFO 90583 --- [transaction-bankB] [main] c.p.transaction.TransactionApplication   : Starting TransactionApplication using Java 25.0.2 with PID 90583 (/Users/anton-23085/Project/bank/transaction/target/classes started by anton-23085 in /Users/anton-23085/Project/bank/transaction)
+2026-07-12T17:18:05.132+05:30  INFO 90583 --- [transaction-bankB] [main] c.p.transaction.TransactionApplication   : The following 1 profile is active: "bankB"
+2026-07-12T17:18:05.689+05:30  INFO 90583 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T17:18:05.690+05:30  INFO 90583 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-12T17:18:05.761+05:30  INFO 90583 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 66 ms. Found 6 JPA repository interfaces.
+2026-07-12T17:18:05.786+05:30  INFO 90583 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T17:18:05.787+05:30  INFO 90583 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-12T17:18:05.795+05:30  INFO 90583 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:18:05.796+05:30  INFO 90583 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.LedgerEntryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:18:05.796+05:30  INFO 90583 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.OutboxEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:18:05.796+05:30  INFO 90583 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.PaymentBatchRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:18:05.797+05:30  INFO 90583 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.PaymentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:18:05.797+05:30  INFO 90583 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:18:05.797+05:30  INFO 90583 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2026-07-12T17:18:06.154+05:30  INFO 90583 --- [transaction-bankB] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8081 (http)
+2026-07-12T17:18:06.161+05:30  INFO 90583 --- [transaction-bankB] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-12T17:18:06.162+05:30  INFO 90583 --- [transaction-bankB] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-12T17:18:06.186+05:30  INFO 90583 --- [transaction-bankB] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 989 ms
+2026-07-12T17:18:06.321+05:30  INFO 90583 --- [transaction-bankB] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-12T17:18:06.371+05:30  INFO 90583 --- [transaction-bankB] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-12T17:18:06.611+05:30  INFO 90583 --- [transaction-bankB] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-12T17:18:06.625+05:30  INFO 90583 --- [transaction-bankB] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-12T17:18:06.725+05:30  INFO 90583 --- [transaction-bankB] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5e2718b3
+2026-07-12T17:18:06.726+05:30  INFO 90583 --- [transaction-bankB] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-12T17:18:06.743+05:30  WARN 90583 --- [transaction-bankB] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-12T17:18:06.756+05:30  INFO 90583 --- [transaction-bankB] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5435/paymentdb_bankb]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: paymentdb_bankb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-12T17:18:07.308+05:30  INFO 90583 --- [transaction-bankB] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-12T17:18:07.362+05:30  INFO 90583 --- [transaction-bankB] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T17:18:07.418+05:30  INFO 90583 --- [transaction-bankB] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-12T17:18:07.662+05:30  INFO 90583 --- [transaction-bankB] [main] c.p.transaction.config.GrpcServerConfig  : Central Bank Gateway gRPC server started on port 9091
+2026-07-12T17:18:07.715+05:30  WARN 90583 --- [transaction-bankB] [main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-07-12T17:18:07.945+05:30  WARN 90583 --- [transaction-bankB] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-12T17:18:08.188+05:30  INFO 90583 --- [transaction-bankB] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-07-12T17:18:08.234+05:30  INFO 90583 --- [transaction-bankB] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8081 (http) with context path '/'
+2026-07-12T17:18:08.241+05:30  INFO 90583 --- [transaction-bankB] [main] c.p.transaction.TransactionApplication   : Started TransactionApplication in 3.537 seconds (process running for 3.799)
+2026-07-12T17:19:08.997+05:30  INFO 90583 --- [transaction-bankB] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-12T17:19:09.001+05:30  INFO 90583 --- [transaction-bankB] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-07-12T17:19:09.015+05:30  INFO 90583 --- [transaction-bankB] [SpringApplicationShutdownHook] c.p.transaction.config.GrpcServerConfig  : Shutting down gRPC server on port 9091
+2026-07-12T17:19:09.018+05:30  INFO 90583 --- [transaction-bankB] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T17:19:09.021+05:30  INFO 90583 --- [transaction-bankB] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-07-12T17:19:09.023+05:30  INFO 90583 --- [transaction-bankB] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-07-12T17:19:23.022+05:30  INFO 90960 --- [transaction-bankB] [main] c.p.transaction.TransactionApplication   : Starting TransactionApplication using Java 25.0.2 with PID 90960 (/Users/anton-23085/Project/bank/transaction/target/classes started by anton-23085 in /Users/anton-23085/Project/bank/transaction)
+2026-07-12T17:19:23.024+05:30  INFO 90960 --- [transaction-bankB] [main] c.p.transaction.TransactionApplication   : The following 1 profile is active: "bankB"
+2026-07-12T17:19:23.373+05:30  INFO 90960 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T17:19:23.373+05:30  INFO 90960 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-12T17:19:23.435+05:30  INFO 90960 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 58 ms. Found 6 JPA repository interfaces.
+2026-07-12T17:19:23.457+05:30  INFO 90960 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T17:19:23.458+05:30  INFO 90960 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-12T17:19:23.467+05:30  INFO 90960 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:19:23.467+05:30  INFO 90960 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.LedgerEntryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:19:23.467+05:30  INFO 90960 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.OutboxEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:19:23.468+05:30  INFO 90960 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.PaymentBatchRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:19:23.468+05:30  INFO 90960 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.PaymentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:19:23.468+05:30  INFO 90960 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:19:23.468+05:30  INFO 90960 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2026-07-12T17:19:23.732+05:30  INFO 90960 --- [transaction-bankB] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8081 (http)
+2026-07-12T17:19:23.738+05:30  INFO 90960 --- [transaction-bankB] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-12T17:19:23.738+05:30  INFO 90960 --- [transaction-bankB] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-12T17:19:23.758+05:30  INFO 90960 --- [transaction-bankB] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 712 ms
+2026-07-12T17:19:23.875+05:30  INFO 90960 --- [transaction-bankB] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-12T17:19:23.893+05:30  INFO 90960 --- [transaction-bankB] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-12T17:19:24.043+05:30  INFO 90960 --- [transaction-bankB] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-12T17:19:24.055+05:30  INFO 90960 --- [transaction-bankB] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-12T17:19:24.134+05:30  INFO 90960 --- [transaction-bankB] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5e2718b3
+2026-07-12T17:19:24.135+05:30  INFO 90960 --- [transaction-bankB] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-12T17:19:24.150+05:30  WARN 90960 --- [transaction-bankB] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-12T17:19:24.160+05:30  INFO 90960 --- [transaction-bankB] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5435/paymentdb_bankb]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: paymentdb_bankb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-12T17:19:24.633+05:30  INFO 90960 --- [transaction-bankB] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-12T17:19:24.677+05:30  INFO 90960 --- [transaction-bankB] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T17:19:24.717+05:30  INFO 90960 --- [transaction-bankB] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-12T17:19:24.927+05:30  INFO 90960 --- [transaction-bankB] [main] c.p.transaction.config.GrpcServerConfig  : Central Bank Gateway gRPC server started on port 9091
+2026-07-12T17:19:24.986+05:30  WARN 90960 --- [transaction-bankB] [main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-07-12T17:19:25.186+05:30  WARN 90960 --- [transaction-bankB] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-12T17:19:25.398+05:30  INFO 90960 --- [transaction-bankB] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-07-12T17:19:25.443+05:30  INFO 90960 --- [transaction-bankB] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8081 (http) with context path '/'
+2026-07-12T17:19:25.449+05:30  INFO 90960 --- [transaction-bankB] [main] c.p.transaction.TransactionApplication   : Started TransactionApplication in 2.672 seconds (process running for 2.865)
+2026-07-12T17:24:54.078+05:30  INFO 90960 --- [transaction-bankB] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-12T17:24:54.084+05:30  INFO 90960 --- [transaction-bankB] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-07-12T17:24:54.121+05:30  INFO 90960 --- [transaction-bankB] [SpringApplicationShutdownHook] c.p.transaction.config.GrpcServerConfig  : Shutting down gRPC server on port 9091
+2026-07-12T17:24:54.125+05:30  INFO 90960 --- [transaction-bankB] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T17:24:54.129+05:30  INFO 90960 --- [transaction-bankB] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-07-12T17:24:54.131+05:30  INFO 90960 --- [transaction-bankB] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-07-12T17:25:11.960+05:30  INFO 93337 --- [transaction-bankB] [main] c.p.transaction.TransactionApplication   : Starting TransactionApplication using Java 25.0.2 with PID 93337 (/Users/anton-23085/Project/bank/transaction/target/classes started by anton-23085 in /Users/anton-23085/Project/bank/transaction)
+2026-07-12T17:25:11.962+05:30  INFO 93337 --- [transaction-bankB] [main] c.p.transaction.TransactionApplication   : The following 1 profile is active: "bankB"
+2026-07-12T17:25:12.316+05:30  INFO 93337 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T17:25:12.317+05:30  INFO 93337 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-12T17:25:12.376+05:30  INFO 93337 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 55 ms. Found 6 JPA repository interfaces.
+2026-07-12T17:25:12.396+05:30  INFO 93337 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T17:25:12.396+05:30  INFO 93337 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-12T17:25:12.403+05:30  INFO 93337 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:25:12.403+05:30  INFO 93337 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.LedgerEntryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:25:12.404+05:30  INFO 93337 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.OutboxEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:25:12.404+05:30  INFO 93337 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.PaymentBatchRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:25:12.404+05:30  INFO 93337 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.PaymentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:25:12.404+05:30  INFO 93337 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:25:12.404+05:30  INFO 93337 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2026-07-12T17:25:12.664+05:30  INFO 93337 --- [transaction-bankB] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8081 (http)
+2026-07-12T17:25:12.670+05:30  INFO 93337 --- [transaction-bankB] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-12T17:25:12.670+05:30  INFO 93337 --- [transaction-bankB] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-12T17:25:12.690+05:30  INFO 93337 --- [transaction-bankB] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 705 ms
+2026-07-12T17:25:12.805+05:30  INFO 93337 --- [transaction-bankB] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-12T17:25:12.822+05:30  INFO 93337 --- [transaction-bankB] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-12T17:25:12.975+05:30  INFO 93337 --- [transaction-bankB] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-12T17:25:12.987+05:30  INFO 93337 --- [transaction-bankB] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-12T17:25:13.063+05:30  INFO 93337 --- [transaction-bankB] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5e2718b3
+2026-07-12T17:25:13.064+05:30  INFO 93337 --- [transaction-bankB] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-12T17:25:13.076+05:30  WARN 93337 --- [transaction-bankB] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-12T17:25:13.086+05:30  INFO 93337 --- [transaction-bankB] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5435/paymentdb_bankb]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: paymentdb_bankb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-12T17:25:13.522+05:30  INFO 93337 --- [transaction-bankB] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-12T17:25:13.561+05:30  INFO 93337 --- [transaction-bankB] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T17:25:13.602+05:30  INFO 93337 --- [transaction-bankB] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-12T17:25:13.785+05:30  INFO 93337 --- [transaction-bankB] [main] c.p.transaction.config.GrpcServerConfig  : Central Bank Gateway gRPC server started on port 9091
+2026-07-12T17:25:13.832+05:30  WARN 93337 --- [transaction-bankB] [main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-07-12T17:25:14.020+05:30  WARN 93337 --- [transaction-bankB] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-12T17:25:14.247+05:30  INFO 93337 --- [transaction-bankB] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-07-12T17:25:14.294+05:30  INFO 93337 --- [transaction-bankB] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8081 (http) with context path '/'
+2026-07-12T17:25:14.300+05:30  INFO 93337 --- [transaction-bankB] [main] c.p.transaction.TransactionApplication   : Started TransactionApplication in 2.603 seconds (process running for 2.791)
+2026-07-12T17:40:09.549+05:30  WARN 93337 --- [transaction-bankB] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=12m43s352ms).
+2026-07-12T17:40:09.624+05:30  INFO 93337 --- [transaction-bankB] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-12T17:40:09.627+05:30  INFO 93337 --- [transaction-bankB] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-07-12T17:40:09.801+05:30  INFO 93337 --- [transaction-bankB] [SpringApplicationShutdownHook] c.p.transaction.config.GrpcServerConfig  : Shutting down gRPC server on port 9091
+2026-07-12T17:40:09.805+05:30  INFO 93337 --- [transaction-bankB] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T17:40:09.806+05:30  INFO 93337 --- [transaction-bankB] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-07-12T17:40:09.807+05:30  INFO 93337 --- [transaction-bankB] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-07-12T17:40:14.717+05:30  INFO 2198 --- [transaction-bankB] [main] c.p.transaction.TransactionApplication   : Starting TransactionApplication using Java 25.0.2 with PID 2198 (/Users/anton-23085/Project/bank/transaction/target/classes started by anton-23085 in /Users/anton-23085/Project/bank/transaction)
+2026-07-12T17:40:14.720+05:30  INFO 2198 --- [transaction-bankB] [main] c.p.transaction.TransactionApplication   : The following 1 profile is active: "bankB"
+2026-07-12T17:40:15.122+05:30  INFO 2198 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T17:40:15.123+05:30  INFO 2198 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-12T17:40:15.188+05:30  INFO 2198 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 61 ms. Found 6 JPA repository interfaces.
+2026-07-12T17:40:15.215+05:30  INFO 2198 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T17:40:15.215+05:30  INFO 2198 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-12T17:40:15.224+05:30  INFO 2198 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:40:15.225+05:30  INFO 2198 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.LedgerEntryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:40:15.225+05:30  INFO 2198 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.OutboxEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:40:15.225+05:30  INFO 2198 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.PaymentBatchRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:40:15.225+05:30  INFO 2198 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.PaymentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:40:15.225+05:30  INFO 2198 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:40:15.225+05:30  INFO 2198 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2026-07-12T17:40:15.554+05:30  INFO 2198 --- [transaction-bankB] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8081 (http)
+2026-07-12T17:40:15.561+05:30  INFO 2198 --- [transaction-bankB] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-12T17:40:15.562+05:30  INFO 2198 --- [transaction-bankB] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-12T17:40:15.583+05:30  INFO 2198 --- [transaction-bankB] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 831 ms
+2026-07-12T17:40:15.711+05:30  INFO 2198 --- [transaction-bankB] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-12T17:40:15.731+05:30  INFO 2198 --- [transaction-bankB] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-12T17:40:15.888+05:30  INFO 2198 --- [transaction-bankB] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-12T17:40:15.900+05:30  INFO 2198 --- [transaction-bankB] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-12T17:40:15.981+05:30  INFO 2198 --- [transaction-bankB] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@bcd9ed6
+2026-07-12T17:40:15.982+05:30  INFO 2198 --- [transaction-bankB] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-12T17:40:15.999+05:30  WARN 2198 --- [transaction-bankB] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-12T17:40:16.010+05:30  INFO 2198 --- [transaction-bankB] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5435/paymentdb_bankb]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: paymentdb_bankb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-12T17:40:16.604+05:30  INFO 2198 --- [transaction-bankB] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-12T17:40:16.677+05:30  INFO 2198 --- [transaction-bankB] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T17:40:16.748+05:30  INFO 2198 --- [transaction-bankB] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-12T17:40:17.032+05:30  INFO 2198 --- [transaction-bankB] [main] c.p.transaction.config.GrpcServerConfig  : Central Bank Gateway gRPC server started on port 9091
+2026-07-12T17:40:17.115+05:30  WARN 2198 --- [transaction-bankB] [main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-07-12T17:40:17.372+05:30  WARN 2198 --- [transaction-bankB] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-12T17:40:17.689+05:30  INFO 2198 --- [transaction-bankB] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-07-12T17:40:17.777+05:30  INFO 2198 --- [transaction-bankB] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8081 (http) with context path '/'
+2026-07-12T17:40:17.789+05:30  INFO 2198 --- [transaction-bankB] [main] c.p.transaction.TransactionApplication   : Started TransactionApplication in 3.39 seconds (process running for 3.609)
+2026-07-12T17:41:35.829+05:30  WARN 2198 --- [transaction-bankB] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=49s734ms).
+2026-07-12T17:42:18.751+05:30  INFO 2198 --- [transaction-bankB] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-12T17:42:18.754+05:30  INFO 2198 --- [transaction-bankB] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-07-12T17:42:18.775+05:30  INFO 2198 --- [transaction-bankB] [SpringApplicationShutdownHook] c.p.transaction.config.GrpcServerConfig  : Shutting down gRPC server on port 9091
+2026-07-12T17:42:18.794+05:30  INFO 2198 --- [transaction-bankB] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T17:42:18.802+05:30  INFO 2198 --- [transaction-bankB] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-07-12T17:42:18.804+05:30  INFO 2198 --- [transaction-bankB] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-07-12T17:47:32.790+05:30  INFO 4787 --- [transaction-bankB] [main] c.p.transaction.TransactionApplication   : Starting TransactionApplication using Java 25.0.2 with PID 4787 (/Users/anton-23085/Project/bank/transaction/target/classes started by anton-23085 in /Users/anton-23085/Project/bank/transaction)
+2026-07-12T17:47:32.793+05:30  INFO 4787 --- [transaction-bankB] [main] c.p.transaction.TransactionApplication   : The following 1 profile is active: "bankB"
+2026-07-12T17:47:33.345+05:30  INFO 4787 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T17:47:33.346+05:30  INFO 4787 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-12T17:47:33.419+05:30  INFO 4787 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 69 ms. Found 6 JPA repository interfaces.
+2026-07-12T17:47:33.451+05:30  INFO 4787 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T17:47:33.452+05:30  INFO 4787 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-12T17:47:33.461+05:30  INFO 4787 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:47:33.462+05:30  INFO 4787 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.LedgerEntryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:47:33.462+05:30  INFO 4787 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.OutboxEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:47:33.462+05:30  INFO 4787 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.PaymentBatchRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:47:33.462+05:30  INFO 4787 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.PaymentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:47:33.462+05:30  INFO 4787 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:47:33.462+05:30  INFO 4787 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2026-07-12T17:47:33.803+05:30  INFO 4787 --- [transaction-bankB] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8081 (http)
+2026-07-12T17:47:33.811+05:30  INFO 4787 --- [transaction-bankB] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-12T17:47:33.811+05:30  INFO 4787 --- [transaction-bankB] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-12T17:47:33.834+05:30  INFO 4787 --- [transaction-bankB] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1001 ms
+2026-07-12T17:47:33.970+05:30  INFO 4787 --- [transaction-bankB] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-12T17:47:33.993+05:30  INFO 4787 --- [transaction-bankB] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-12T17:47:34.178+05:30  INFO 4787 --- [transaction-bankB] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-12T17:47:34.192+05:30  INFO 4787 --- [transaction-bankB] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-12T17:47:34.292+05:30  INFO 4787 --- [transaction-bankB] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5e2718b3
+2026-07-12T17:47:34.293+05:30  INFO 4787 --- [transaction-bankB] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-12T17:47:34.307+05:30  WARN 4787 --- [transaction-bankB] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-12T17:47:34.320+05:30  INFO 4787 --- [transaction-bankB] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5435/paymentdb_bankb]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: paymentdb_bankb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-12T17:47:34.954+05:30  INFO 4787 --- [transaction-bankB] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-12T17:47:34.998+05:30  INFO 4787 --- [transaction-bankB] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T17:47:35.111+05:30  INFO 4787 --- [transaction-bankB] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-12T17:47:35.315+05:30  INFO 4787 --- [transaction-bankB] [main] c.p.transaction.config.GrpcServerConfig  : Central Bank Gateway gRPC server started on port 9091
+2026-07-12T17:47:35.366+05:30  WARN 4787 --- [transaction-bankB] [main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-07-12T17:47:35.580+05:30  WARN 4787 --- [transaction-bankB] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-12T17:47:35.819+05:30  INFO 4787 --- [transaction-bankB] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-07-12T17:47:35.869+05:30  INFO 4787 --- [transaction-bankB] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8081 (http) with context path '/'
+2026-07-12T17:47:35.876+05:30  INFO 4787 --- [transaction-bankB] [main] c.p.transaction.TransactionApplication   : Started TransactionApplication in 3.49 seconds (process running for 3.781)
+2026-07-12T17:48:08.946+05:30  INFO 4787 --- [transaction-bankB] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-12T17:48:08.952+05:30  INFO 4787 --- [transaction-bankB] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-07-12T17:48:09.002+05:30  INFO 4787 --- [transaction-bankB] [SpringApplicationShutdownHook] c.p.transaction.config.GrpcServerConfig  : Shutting down gRPC server on port 9091
+2026-07-12T17:48:09.008+05:30  INFO 4787 --- [transaction-bankB] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T17:48:09.011+05:30  INFO 4787 --- [transaction-bankB] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-07-12T17:48:09.013+05:30  INFO 4787 --- [transaction-bankB] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-07-12T17:48:19.227+05:30  INFO 4952 --- [transaction-bankB] [main] c.p.transaction.TransactionApplication   : Starting TransactionApplication using Java 25.0.2 with PID 4952 (/Users/anton-23085/Project/bank/transaction/target/classes started by anton-23085 in /Users/anton-23085/Project/bank/transaction)
+2026-07-12T17:48:19.230+05:30  INFO 4952 --- [transaction-bankB] [main] c.p.transaction.TransactionApplication   : The following 1 profile is active: "bankB"
+2026-07-12T17:48:19.840+05:30  INFO 4952 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T17:48:19.842+05:30  INFO 4952 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-12T17:48:19.920+05:30  INFO 4952 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 70 ms. Found 6 JPA repository interfaces.
+2026-07-12T17:48:19.942+05:30  INFO 4952 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T17:48:19.943+05:30  INFO 4952 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-12T17:48:19.952+05:30  INFO 4952 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:48:19.953+05:30  INFO 4952 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.LedgerEntryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:48:19.953+05:30  INFO 4952 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.OutboxEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:48:19.954+05:30  INFO 4952 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.PaymentBatchRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:48:19.954+05:30  INFO 4952 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.PaymentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:48:19.954+05:30  INFO 4952 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:48:19.954+05:30  INFO 4952 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2026-07-12T17:48:20.265+05:30  INFO 4952 --- [transaction-bankB] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8081 (http)
+2026-07-12T17:48:20.272+05:30  INFO 4952 --- [transaction-bankB] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-12T17:48:20.272+05:30  INFO 4952 --- [transaction-bankB] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-12T17:48:20.294+05:30  INFO 4952 --- [transaction-bankB] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1015 ms
+2026-07-12T17:48:20.426+05:30  INFO 4952 --- [transaction-bankB] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-12T17:48:20.445+05:30  INFO 4952 --- [transaction-bankB] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-12T17:48:20.630+05:30  INFO 4952 --- [transaction-bankB] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-12T17:48:20.642+05:30  INFO 4952 --- [transaction-bankB] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-12T17:48:20.723+05:30  INFO 4952 --- [transaction-bankB] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5e2718b3
+2026-07-12T17:48:20.724+05:30  INFO 4952 --- [transaction-bankB] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-12T17:48:20.735+05:30  WARN 4952 --- [transaction-bankB] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-12T17:48:20.746+05:30  INFO 4952 --- [transaction-bankB] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5435/paymentdb_bankb]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: paymentdb_bankb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-12T17:48:21.179+05:30  INFO 4952 --- [transaction-bankB] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-12T17:48:21.223+05:30  INFO 4952 --- [transaction-bankB] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T17:48:21.279+05:30  INFO 4952 --- [transaction-bankB] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-12T17:48:21.507+05:30  INFO 4952 --- [transaction-bankB] [main] c.p.transaction.config.GrpcServerConfig  : Central Bank Gateway gRPC server started on port 9091
+2026-07-12T17:48:21.604+05:30  WARN 4952 --- [transaction-bankB] [main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-07-12T17:48:21.900+05:30  WARN 4952 --- [transaction-bankB] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-12T17:48:22.241+05:30  INFO 4952 --- [transaction-bankB] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-07-12T17:48:22.309+05:30  INFO 4952 --- [transaction-bankB] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8081 (http) with context path '/'
+2026-07-12T17:48:22.317+05:30  INFO 4952 --- [transaction-bankB] [main] c.p.transaction.TransactionApplication   : Started TransactionApplication in 3.432 seconds (process running for 3.68)
+2026-07-12T17:51:46.406+05:30  INFO 4952 --- [transaction-bankB] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-12T17:51:46.413+05:30  INFO 4952 --- [transaction-bankB] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-07-12T17:51:46.432+05:30  INFO 4952 --- [transaction-bankB] [SpringApplicationShutdownHook] c.p.transaction.config.GrpcServerConfig  : Shutting down gRPC server on port 9091
+2026-07-12T17:51:46.436+05:30  INFO 4952 --- [transaction-bankB] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T17:51:46.438+05:30  INFO 4952 --- [transaction-bankB] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-07-12T17:51:46.440+05:30  INFO 4952 --- [transaction-bankB] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-07-12T18:01:48.159+05:30  INFO 10723 --- [transaction-bankB] [main] c.p.transaction.TransactionApplication   : Starting TransactionApplication using Java 25.0.2 with PID 10723 (/Users/anton-23085/Project/bank/transaction/target/classes started by anton-23085 in /Users/anton-23085/Project/bank/transaction)
+2026-07-12T18:01:48.161+05:30  INFO 10723 --- [transaction-bankB] [main] c.p.transaction.TransactionApplication   : The following 1 profile is active: "bankB"
+2026-07-12T18:01:48.538+05:30  INFO 10723 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T18:01:48.539+05:30  INFO 10723 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-12T18:01:48.603+05:30  INFO 10723 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 60 ms. Found 6 JPA repository interfaces.
+2026-07-12T18:01:48.623+05:30  INFO 10723 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T18:01:48.624+05:30  INFO 10723 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-12T18:01:48.631+05:30  INFO 10723 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:01:48.632+05:30  INFO 10723 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.LedgerEntryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:01:48.632+05:30  INFO 10723 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.OutboxEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:01:48.632+05:30  INFO 10723 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.PaymentBatchRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:01:48.632+05:30  INFO 10723 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.PaymentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:01:48.632+05:30  INFO 10723 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:01:48.632+05:30  INFO 10723 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2026-07-12T18:01:48.894+05:30  INFO 10723 --- [transaction-bankB] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8081 (http)
+2026-07-12T18:01:48.901+05:30  INFO 10723 --- [transaction-bankB] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-12T18:01:48.901+05:30  INFO 10723 --- [transaction-bankB] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-12T18:01:48.922+05:30  INFO 10723 --- [transaction-bankB] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 737 ms
+2026-07-12T18:01:49.033+05:30  INFO 10723 --- [transaction-bankB] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-12T18:01:49.051+05:30  INFO 10723 --- [transaction-bankB] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-12T18:01:49.206+05:30  INFO 10723 --- [transaction-bankB] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-12T18:01:49.218+05:30  INFO 10723 --- [transaction-bankB] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-12T18:01:49.297+05:30  INFO 10723 --- [transaction-bankB] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2c978637
+2026-07-12T18:01:49.298+05:30  INFO 10723 --- [transaction-bankB] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-12T18:01:49.312+05:30  WARN 10723 --- [transaction-bankB] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-12T18:01:49.321+05:30  INFO 10723 --- [transaction-bankB] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5435/paymentdb_bankb]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: paymentdb_bankb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-12T18:01:49.786+05:30  INFO 10723 --- [transaction-bankB] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-12T18:01:49.840+05:30  INFO 10723 --- [transaction-bankB] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T18:01:49.890+05:30  INFO 10723 --- [transaction-bankB] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-12T18:01:50.072+05:30  INFO 10723 --- [transaction-bankB] [main] c.p.transaction.config.GrpcServerConfig  : Central Bank Gateway gRPC server started on port 9091
+2026-07-12T18:01:50.120+05:30  WARN 10723 --- [transaction-bankB] [main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-07-12T18:01:50.252+05:30  WARN 10723 --- [transaction-bankB] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'paymentController': Lookup method resolution failed
+2026-07-12T18:01:50.257+05:30  INFO 10723 --- [transaction-bankB] [main] c.p.transaction.config.GrpcServerConfig  : Shutting down gRPC server on port 9091
+2026-07-12T18:01:50.259+05:30  INFO 10723 --- [transaction-bankB] [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T18:01:50.260+05:30  INFO 10723 --- [transaction-bankB] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-07-12T18:01:50.261+05:30  INFO 10723 --- [transaction-bankB] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-07-12T18:01:50.262+05:30  INFO 10723 --- [transaction-bankB] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2026-07-12T18:01:50.270+05:30  INFO 10723 --- [transaction-bankB] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-07-12T18:01:50.275+05:30 ERROR 10723 --- [transaction-bankB] [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'paymentController': Lookup method resolution failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.checkLookupMethods(AutowiredAnnotationBeanPostProcessor.java:482) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:352) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1319) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1216) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:196) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1225) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1191) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1121) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:994) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.1.0.jar:4.1.0]
+	at com.payment.transaction.TransactionApplication.main(TransactionApplication.java:10) ~[classes/:na]
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [com.payment.transaction.controller.PaymentController] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@7a8c5397]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483) ~[spring-core-7.0.8.jar:7.0.8]
+	at org.springframework.util.ReflectionUtils.doWithLocalMethods(ReflectionUtils.java:320) ~[spring-core-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.checkLookupMethods(AutowiredAnnotationBeanPostProcessor.java:460) ~[spring-beans-7.0.8.jar:7.0.8]
+	... 21 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: CreatePaymentRequest
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3010) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2329) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465) ~[spring-core-7.0.8.jar:7.0.8]
+	... 23 common frames omitted
+Caused by: java.lang.ClassNotFoundException: CreatePaymentRequest
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:580) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490) ~[na:na]
+	... 27 common frames omitted
+
+2026-07-12T18:03:06.133+05:30  INFO 11159 --- [transaction-bankB] [main] c.p.transaction.TransactionApplication   : Starting TransactionApplication using Java 25.0.2 with PID 11159 (/Users/anton-23085/Project/bank/transaction/target/classes started by anton-23085 in /Users/anton-23085/Project/bank/transaction)
+2026-07-12T18:03:06.135+05:30  INFO 11159 --- [transaction-bankB] [main] c.p.transaction.TransactionApplication   : The following 1 profile is active: "bankB"
+2026-07-12T18:03:06.503+05:30  INFO 11159 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T18:03:06.504+05:30  INFO 11159 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-12T18:03:06.563+05:30  INFO 11159 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 55 ms. Found 6 JPA repository interfaces.
+2026-07-12T18:03:06.585+05:30  INFO 11159 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T18:03:06.585+05:30  INFO 11159 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-12T18:03:06.592+05:30  INFO 11159 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:03:06.593+05:30  INFO 11159 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.LedgerEntryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:03:06.593+05:30  INFO 11159 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.OutboxEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:03:06.593+05:30  INFO 11159 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.PaymentBatchRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:03:06.593+05:30  INFO 11159 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.PaymentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:03:06.593+05:30  INFO 11159 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:03:06.594+05:30  INFO 11159 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2026-07-12T18:03:06.855+05:30  INFO 11159 --- [transaction-bankB] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8081 (http)
+2026-07-12T18:03:06.861+05:30  INFO 11159 --- [transaction-bankB] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-12T18:03:06.862+05:30  INFO 11159 --- [transaction-bankB] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-12T18:03:06.882+05:30  INFO 11159 --- [transaction-bankB] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 724 ms
+2026-07-12T18:03:06.997+05:30  INFO 11159 --- [transaction-bankB] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-12T18:03:07.015+05:30  INFO 11159 --- [transaction-bankB] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-12T18:03:07.175+05:30  INFO 11159 --- [transaction-bankB] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-12T18:03:07.187+05:30  INFO 11159 --- [transaction-bankB] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-12T18:03:07.278+05:30  INFO 11159 --- [transaction-bankB] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@24a7d3d3
+2026-07-12T18:03:07.279+05:30  INFO 11159 --- [transaction-bankB] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-12T18:03:07.292+05:30  WARN 11159 --- [transaction-bankB] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-12T18:03:07.304+05:30  INFO 11159 --- [transaction-bankB] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5435/paymentdb_bankb]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: paymentdb_bankb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-12T18:03:07.769+05:30  INFO 11159 --- [transaction-bankB] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-12T18:03:07.809+05:30  INFO 11159 --- [transaction-bankB] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T18:03:07.859+05:30  INFO 11159 --- [transaction-bankB] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-12T18:03:08.059+05:30  INFO 11159 --- [transaction-bankB] [main] c.p.transaction.config.GrpcServerConfig  : Central Bank Gateway gRPC server started on port 9091
+2026-07-12T18:03:08.112+05:30  WARN 11159 --- [transaction-bankB] [main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-07-12T18:03:08.252+05:30  WARN 11159 --- [transaction-bankB] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'paymentController': Lookup method resolution failed
+2026-07-12T18:03:08.258+05:30  INFO 11159 --- [transaction-bankB] [main] c.p.transaction.config.GrpcServerConfig  : Shutting down gRPC server on port 9091
+2026-07-12T18:03:08.260+05:30  INFO 11159 --- [transaction-bankB] [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T18:03:08.262+05:30  INFO 11159 --- [transaction-bankB] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-07-12T18:03:08.263+05:30  INFO 11159 --- [transaction-bankB] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-07-12T18:03:08.267+05:30  INFO 11159 --- [transaction-bankB] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2026-07-12T18:03:08.276+05:30  INFO 11159 --- [transaction-bankB] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-07-12T18:03:08.283+05:30 ERROR 11159 --- [transaction-bankB] [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'paymentController': Lookup method resolution failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.checkLookupMethods(AutowiredAnnotationBeanPostProcessor.java:482) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:352) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1319) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1216) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:196) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1225) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1191) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1121) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:994) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.1.0.jar:4.1.0]
+	at com.payment.transaction.TransactionApplication.main(TransactionApplication.java:10) ~[classes/:na]
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [com.payment.transaction.controller.PaymentController] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@7a8c5397]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483) ~[spring-core-7.0.8.jar:7.0.8]
+	at org.springframework.util.ReflectionUtils.doWithLocalMethods(ReflectionUtils.java:320) ~[spring-core-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.checkLookupMethods(AutowiredAnnotationBeanPostProcessor.java:460) ~[spring-beans-7.0.8.jar:7.0.8]
+	... 21 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: CreatePaymentRequest
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3010) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2329) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465) ~[spring-core-7.0.8.jar:7.0.8]
+	... 23 common frames omitted
+Caused by: java.lang.ClassNotFoundException: CreatePaymentRequest
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:580) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490) ~[na:na]
+	... 27 common frames omitted
+
+2026-07-12T18:04:04.248+05:30  INFO 11516 --- [transaction-bankB] [main] c.p.transaction.TransactionApplication   : Starting TransactionApplication using Java 25.0.2 with PID 11516 (/Users/anton-23085/Project/bank/transaction/target/classes started by anton-23085 in /Users/anton-23085/Project/bank/transaction)
+2026-07-12T18:04:04.250+05:30  INFO 11516 --- [transaction-bankB] [main] c.p.transaction.TransactionApplication   : The following 1 profile is active: "bankB"
+2026-07-12T18:04:04.614+05:30  INFO 11516 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T18:04:04.615+05:30  INFO 11516 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-12T18:04:04.675+05:30  INFO 11516 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56 ms. Found 6 JPA repository interfaces.
+2026-07-12T18:04:04.696+05:30  INFO 11516 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T18:04:04.697+05:30  INFO 11516 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-12T18:04:04.704+05:30  INFO 11516 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:04:04.704+05:30  INFO 11516 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.LedgerEntryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:04:04.705+05:30  INFO 11516 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.OutboxEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:04:04.705+05:30  INFO 11516 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.PaymentBatchRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:04:04.705+05:30  INFO 11516 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.PaymentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:04:04.705+05:30  INFO 11516 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:04:04.705+05:30  INFO 11516 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2026-07-12T18:04:04.981+05:30  INFO 11516 --- [transaction-bankB] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8081 (http)
+2026-07-12T18:04:04.988+05:30  INFO 11516 --- [transaction-bankB] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-12T18:04:04.988+05:30  INFO 11516 --- [transaction-bankB] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-12T18:04:05.012+05:30  INFO 11516 --- [transaction-bankB] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 741 ms
+2026-07-12T18:04:05.121+05:30  INFO 11516 --- [transaction-bankB] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-12T18:04:05.140+05:30  INFO 11516 --- [transaction-bankB] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-12T18:04:05.298+05:30  INFO 11516 --- [transaction-bankB] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-12T18:04:05.310+05:30  INFO 11516 --- [transaction-bankB] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-12T18:04:05.388+05:30  INFO 11516 --- [transaction-bankB] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5e2718b3
+2026-07-12T18:04:05.389+05:30  INFO 11516 --- [transaction-bankB] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-12T18:04:05.403+05:30  WARN 11516 --- [transaction-bankB] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-12T18:04:05.413+05:30  INFO 11516 --- [transaction-bankB] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5435/paymentdb_bankb]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: paymentdb_bankb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-12T18:04:05.859+05:30  INFO 11516 --- [transaction-bankB] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-12T18:04:05.899+05:30  INFO 11516 --- [transaction-bankB] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T18:04:05.950+05:30  INFO 11516 --- [transaction-bankB] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-12T18:04:06.141+05:30  INFO 11516 --- [transaction-bankB] [main] c.p.transaction.config.GrpcServerConfig  : Central Bank Gateway gRPC server started on port 9091
+2026-07-12T18:04:06.192+05:30  WARN 11516 --- [transaction-bankB] [main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-07-12T18:04:06.380+05:30  WARN 11516 --- [transaction-bankB] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-12T18:04:06.609+05:30  INFO 11516 --- [transaction-bankB] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-07-12T18:04:06.656+05:30  INFO 11516 --- [transaction-bankB] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8081 (http) with context path '/'
+2026-07-12T18:04:06.663+05:30  INFO 11516 --- [transaction-bankB] [main] c.p.transaction.TransactionApplication   : Started TransactionApplication in 2.663 seconds (process running for 2.865)
+2026-07-12T18:09:11.063+05:30  WARN 11516 --- [transaction-bankB] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m33s733ms).
+2026-07-12T18:09:11.170+05:30  INFO 11516 --- [transaction-bankB] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-12T18:09:11.173+05:30  INFO 11516 --- [transaction-bankB] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-07-12T18:09:11.250+05:30  INFO 11516 --- [transaction-bankB] [SpringApplicationShutdownHook] c.p.transaction.config.GrpcServerConfig  : Shutting down gRPC server on port 9091
+2026-07-12T18:11:46.122+05:30  INFO 14294 --- [transaction-bankB] [main] c.p.transaction.TransactionApplication   : Starting TransactionApplication using Java 25.0.2 with PID 14294 (/Users/anton-23085/Project/bank/transaction/target/classes started by anton-23085 in /Users/anton-23085/Project/bank/transaction)
+2026-07-12T18:11:46.124+05:30  INFO 14294 --- [transaction-bankB] [main] c.p.transaction.TransactionApplication   : The following 1 profile is active: "bankB"
+2026-07-12T18:11:46.521+05:30  INFO 14294 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T18:11:46.522+05:30  INFO 14294 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-12T18:11:46.586+05:30  INFO 14294 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 60 ms. Found 6 JPA repository interfaces.
+2026-07-12T18:11:46.610+05:30  INFO 14294 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T18:11:46.611+05:30  INFO 14294 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-12T18:11:46.619+05:30  INFO 14294 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:11:46.620+05:30  INFO 14294 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.LedgerEntryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:11:46.620+05:30  INFO 14294 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.OutboxEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:11:46.620+05:30  INFO 14294 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.PaymentBatchRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:11:46.620+05:30  INFO 14294 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.PaymentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:11:46.620+05:30  INFO 14294 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:11:46.620+05:30  INFO 14294 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2026-07-12T18:11:46.924+05:30  INFO 14294 --- [transaction-bankB] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8081 (http)
+2026-07-12T18:11:46.930+05:30  INFO 14294 --- [transaction-bankB] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-12T18:11:46.930+05:30  INFO 14294 --- [transaction-bankB] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-12T18:11:46.951+05:30  INFO 14294 --- [transaction-bankB] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 800 ms
+2026-07-12T18:11:47.066+05:30  INFO 14294 --- [transaction-bankB] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-12T18:11:47.083+05:30  INFO 14294 --- [transaction-bankB] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-12T18:11:47.244+05:30  INFO 14294 --- [transaction-bankB] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-12T18:11:47.256+05:30  INFO 14294 --- [transaction-bankB] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-12T18:11:47.334+05:30  INFO 14294 --- [transaction-bankB] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5e2718b3
+2026-07-12T18:11:47.335+05:30  INFO 14294 --- [transaction-bankB] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-12T18:11:47.350+05:30  WARN 14294 --- [transaction-bankB] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-12T18:11:47.361+05:30  INFO 14294 --- [transaction-bankB] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5435/paymentdb_bankb]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: paymentdb_bankb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-12T18:11:47.842+05:30  INFO 14294 --- [transaction-bankB] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-12T18:11:47.895+05:30  INFO 14294 --- [transaction-bankB] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T18:11:47.953+05:30  INFO 14294 --- [transaction-bankB] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-12T18:11:48.139+05:30  INFO 14294 --- [transaction-bankB] [main] c.p.transaction.config.GrpcServerConfig  : Central Bank Gateway gRPC server started on port 9091
+2026-07-12T18:11:48.189+05:30  WARN 14294 --- [transaction-bankB] [main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-07-12T18:11:48.388+05:30  WARN 14294 --- [transaction-bankB] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-12T18:11:48.617+05:30  INFO 14294 --- [transaction-bankB] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-07-12T18:11:48.661+05:30  INFO 14294 --- [transaction-bankB] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8081 (http) with context path '/'
+2026-07-12T18:11:48.667+05:30  INFO 14294 --- [transaction-bankB] [main] c.p.transaction.TransactionApplication   : Started TransactionApplication in 2.818 seconds (process running for 3.033)
+2026-07-12T18:13:02.734+05:30  WARN 14294 --- [transaction-bankB] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=45s289ms).
+2026-07-12T18:13:51.862+05:30  WARN 14294 --- [transaction-bankB] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=49s128ms).
+2026-07-12T18:16:36.225+05:30  INFO 14294 --- [transaction-bankB] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-12T18:16:36.229+05:30  INFO 14294 --- [transaction-bankB] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-07-12T18:16:36.240+05:30  INFO 14294 --- [transaction-bankB] [SpringApplicationShutdownHook] c.p.transaction.config.GrpcServerConfig  : Shutting down gRPC server on port 9091
+2026-07-12T18:16:36.243+05:30  INFO 14294 --- [transaction-bankB] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T18:16:36.245+05:30  INFO 14294 --- [transaction-bankB] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-07-12T18:16:36.247+05:30  INFO 14294 --- [transaction-bankB] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-07-12T18:21:17.642+05:30  INFO 17263 --- [transaction-bankB] [main] c.p.transaction.TransactionApplication   : Starting TransactionApplication using Java 25.0.2 with PID 17263 (/Users/anton-23085/Project/bank/transaction/target/classes started by anton-23085 in /Users/anton-23085/Project/bank/transaction)
+2026-07-12T18:21:17.644+05:30  INFO 17263 --- [transaction-bankB] [main] c.p.transaction.TransactionApplication   : The following 1 profile is active: "bankB"
+2026-07-12T18:21:18.158+05:30  INFO 17263 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T18:21:18.159+05:30  INFO 17263 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-12T18:21:18.225+05:30  INFO 17263 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 61 ms. Found 6 JPA repository interfaces.
+2026-07-12T18:21:18.249+05:30  INFO 17263 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T18:21:18.250+05:30  INFO 17263 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-12T18:21:18.258+05:30  INFO 17263 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:21:18.259+05:30  INFO 17263 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.LedgerEntryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:21:18.259+05:30  INFO 17263 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.OutboxEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:21:18.259+05:30  INFO 17263 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.PaymentBatchRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:21:18.259+05:30  INFO 17263 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.PaymentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:21:18.259+05:30  INFO 17263 --- [transaction-bankB] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:21:18.259+05:30  INFO 17263 --- [transaction-bankB] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2026-07-12T18:21:18.547+05:30  INFO 17263 --- [transaction-bankB] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8081 (http)
+2026-07-12T18:21:18.554+05:30  INFO 17263 --- [transaction-bankB] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-12T18:21:18.554+05:30  INFO 17263 --- [transaction-bankB] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-12T18:21:18.575+05:30  INFO 17263 --- [transaction-bankB] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 900 ms
+2026-07-12T18:21:18.695+05:30  INFO 17263 --- [transaction-bankB] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-12T18:21:18.716+05:30  INFO 17263 --- [transaction-bankB] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-12T18:21:18.898+05:30  INFO 17263 --- [transaction-bankB] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-12T18:21:18.912+05:30  INFO 17263 --- [transaction-bankB] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-12T18:21:19.010+05:30  INFO 17263 --- [transaction-bankB] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5e2718b3
+2026-07-12T18:21:19.012+05:30  INFO 17263 --- [transaction-bankB] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-12T18:21:19.027+05:30  WARN 17263 --- [transaction-bankB] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-12T18:21:19.039+05:30  INFO 17263 --- [transaction-bankB] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5435/paymentdb_bankb]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: paymentdb_bankb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-12T18:21:19.652+05:30  INFO 17263 --- [transaction-bankB] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-12T18:21:19.735+05:30  INFO 17263 --- [transaction-bankB] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T18:21:19.807+05:30  INFO 17263 --- [transaction-bankB] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-12T18:21:20.066+05:30  INFO 17263 --- [transaction-bankB] [main] c.p.transaction.config.GrpcServerConfig  : Central Bank Gateway gRPC server started on port 9091
+2026-07-12T18:21:20.159+05:30  WARN 17263 --- [transaction-bankB] [main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-07-12T18:21:20.487+05:30  WARN 17263 --- [transaction-bankB] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-12T18:21:20.808+05:30  INFO 17263 --- [transaction-bankB] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-07-12T18:21:20.880+05:30  INFO 17263 --- [transaction-bankB] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8081 (http) with context path '/'
+2026-07-12T18:21:20.888+05:30  INFO 17263 --- [transaction-bankB] [main] c.p.transaction.TransactionApplication   : Started TransactionApplication in 3.647 seconds (process running for 3.948)
+2026-07-12T18:22:55.218+05:30  INFO 17263 --- [transaction-bankB] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-12T18:22:55.222+05:30  INFO 17263 --- [transaction-bankB] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-07-12T18:22:55.231+05:30  INFO 17263 --- [transaction-bankB] [SpringApplicationShutdownHook] c.p.transaction.config.GrpcServerConfig  : Shutting down gRPC server on port 9091
+2026-07-12T18:22:55.235+05:30  INFO 17263 --- [transaction-bankB] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T18:22:55.237+05:30  INFO 17263 --- [transaction-bankB] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-07-12T18:22:55.238+05:30  INFO 17263 --- [transaction-bankB] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

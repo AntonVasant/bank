@@ -1,0 +1,17 @@
+services:
+
+  postgres:
+    image: postgres:17
+    container_name: postgres-delivery
+    environment:
+      POSTGRES_DB: deliverydb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5436:5432"
+    volumes:
+      - postgres-delivery-data:/var/lib/postgresql/data
+
+  
+volumes:
+  postgres-delivery-data:

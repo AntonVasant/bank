@@ -1,0 +1,817 @@
+2026-06-24T21:54:15.281+05:30  INFO 98720 --- [transaction] [main] c.p.transaction.TransactionApplication   : Starting TransactionApplication using Java 25.0.2 with PID 98720 (/Users/anton-23085/Project/transaction/target/classes started by anton-23085 in /Users/anton-23085/Project/transaction)
+2026-06-24T21:54:15.284+05:30 DEBUG 98720 --- [transaction] [main] c.p.transaction.TransactionApplication   : Running with Spring Boot v4.1.0, Spring v7.0.8
+2026-06-24T21:54:15.284+05:30  INFO 98720 --- [transaction] [main] c.p.transaction.TransactionApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-06-24T21:54:15.632+05:30  INFO 98720 --- [transaction] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-24T21:54:15.633+05:30  INFO 98720 --- [transaction] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-24T21:54:15.706+05:30  INFO 98720 --- [transaction] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 70 ms. Found 6 JPA repository interfaces.
+2026-06-24T21:54:15.730+05:30  INFO 98720 --- [transaction] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-24T21:54:15.731+05:30  INFO 98720 --- [transaction] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-06-24T21:54:15.738+05:30  INFO 98720 --- [transaction] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-24T21:54:15.739+05:30  INFO 98720 --- [transaction] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.LedgerEntryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-24T21:54:15.739+05:30  INFO 98720 --- [transaction] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.OutboxEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-24T21:54:15.739+05:30  INFO 98720 --- [transaction] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.PaymentBatchRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-24T21:54:15.739+05:30  INFO 98720 --- [transaction] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.PaymentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-24T21:54:15.739+05:30  INFO 98720 --- [transaction] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-24T21:54:15.739+05:30  INFO 98720 --- [transaction] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2026-06-24T21:54:16.003+05:30  INFO 98720 --- [transaction] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-06-24T21:54:16.010+05:30  INFO 98720 --- [transaction] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-06-24T21:54:16.011+05:30  INFO 98720 --- [transaction] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-06-24T21:54:16.035+05:30  INFO 98720 --- [transaction] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 731 ms
+2026-06-24T21:54:16.150+05:30  INFO 98720 --- [transaction] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-06-24T21:54:16.174+05:30  INFO 98720 --- [transaction] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-06-24T21:54:16.338+05:30  INFO 98720 --- [transaction] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-24T21:54:16.351+05:30  INFO 98720 --- [transaction] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-24T21:54:17.373+05:30  WARN 98720 --- [transaction] [main] org.hibernate.orm.jdbc.error             : HHH000247: ErrorCode: 0, SQLState: 08001
+2026-06-24T21:54:17.374+05:30  WARN 98720 --- [transaction] [main] org.hibernate.orm.jdbc.error             : Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-06-24T21:54:17.375+05:30  WARN 98720 --- [transaction] [main] org.hibernate.orm.jdbc                   : HHH100046: Could not obtain connection to query JDBC database metadata
+
+org.hibernate.exception.JDBCConnectionException: Unable to obtain isolated JDBC connection [Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] [n/a]
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:80) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:34) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:115) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:101) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:51) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:366) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:44) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:251) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:203) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:180) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1388) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.populateSessionFactoryBuilder(EntityManagerFactoryBuilderImpl.java:1468) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1450) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:93) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:443) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:436) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:411) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:419) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1862) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1811) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:603) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:977) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.1.0.jar:4.1.0]
+	at com.payment.transaction.TransactionApplication.main(TransactionApplication.java:10) ~[classes/:na]
+Caused by: org.postgresql.util.PSQLException: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:425) ~[postgresql-42.7.11.jar:42.7.11]
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:52) ~[postgresql-42.7.11.jar:42.7.11]
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:290) ~[postgresql-42.7.11.jar:42.7.11]
+	at org.postgresql.Driver.makeConnection(Driver.java:448) ~[postgresql-42.7.11.jar:42.7.11]
+	at org.postgresql.Driver.connect(Driver.java:298) ~[postgresql-42.7.11.jar:42.7.11]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144) ~[HikariCP-7.0.2.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:373) ~[HikariCP-7.0.2.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:210) ~[HikariCP-7.0.2.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488) ~[HikariCP-7.0.2.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:576) ~[HikariCP-7.0.2.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:97) ~[HikariCP-7.0.2.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-7.0.2.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DataSourceConnectionProvider.getConnection(DataSourceConnectionProvider.java:149) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:508) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:48) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	... 37 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:639) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:543) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:594) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:284) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:659) ~[na:na]
+	at org.postgresql.core.PGStream.createSocket(PGStream.java:271) ~[postgresql-42.7.11.jar:42.7.11]
+	at org.postgresql.core.PGStream.<init>(PGStream.java:132) ~[postgresql-42.7.11.jar:42.7.11]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:219) ~[postgresql-42.7.11.jar:42.7.11]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:365) ~[postgresql-42.7.11.jar:42.7.11]
+	... 51 common frames omitted
+
+2026-06-24T21:54:17.402+05:30  WARN 98720 --- [transaction] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-24T21:54:17.408+05:30  INFO 98720 --- [transaction] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [undefined/unknown]
+	Database driver: undefined/unknown
+	Database dialect: PostgreSQLDialect
+	Database version: 14.0
+	Default catalog/schema: unknown/unknown
+	Autocommit mode: undefined/unknown
+	Isolation level: NONE [default NONE]
+	JDBC fetch size: undefined/unknown
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-24T21:54:17.864+05:30  INFO 98720 --- [transaction] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-24T21:54:17.872+05:30  INFO 98720 --- [transaction] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-24T21:54:18.878+05:30  WARN 98720 --- [transaction] [main] org.hibernate.orm.jdbc.error             : HHH000247: ErrorCode: 0, SQLState: 08001
+2026-06-24T21:54:18.879+05:30  WARN 98720 --- [transaction] [main] org.hibernate.orm.jdbc.error             : Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-06-24T21:54:18.887+05:30 ERROR 98720 --- [transaction] [main] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: Unable to build Hibernate SessionFactory  [persistence unit: default] ; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] [n/a]
+2026-06-24T21:54:18.888+05:30  WARN 98720 --- [transaction] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/hibernate/autoconfigure/HibernateJpaConfiguration.class]: Unable to build Hibernate SessionFactory  [persistence unit: default] ; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] [n/a]
+2026-06-24T21:54:18.895+05:30  INFO 98720 --- [transaction] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2026-06-24T21:54:18.911+05:30  INFO 98720 --- [transaction] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-06-24T21:54:18.919+05:30 ERROR 98720 --- [transaction] [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/hibernate/autoconfigure/HibernateJpaConfiguration.class]: Unable to build Hibernate SessionFactory  [persistence unit: default] ; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] [n/a]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1815) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:603) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:977) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.1.0.jar:4.1.0]
+	at com.payment.transaction.TransactionApplication.main(TransactionApplication.java:10) ~[classes/:na]
+Caused by: jakarta.persistence.PersistenceException: Unable to build Hibernate SessionFactory  [persistence unit: default] ; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] [n/a]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:448) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:411) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:419) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1862) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1811) ~[spring-beans-7.0.8.jar:7.0.8]
+	... 15 common frames omitted
+Caused by: org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] [n/a]
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:80) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:34) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:115) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:101) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:71) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:37) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:61) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.extract.spi.ExtractionContext.getQueryResults(ExtractionContext.java:41) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.extract.internal.SequenceInformationExtractorLegacyImpl.extractMetadata(SequenceInformationExtractorLegacyImpl.java:36) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.initializeSequences(DatabaseInformationImpl.java:73) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.<init>(DatabaseInformationImpl.java:63) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.extract.internal.CachingDatabaseInformationImpl.<init>(CachingDatabaseInformationImpl.java:43) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.buildDatabaseInformation(GroupedSchemaMigratorImpl.java:112) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:83) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:269) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$1(SchemaManagementToolCoordinator.java:101) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at java.base/java.util.HashMap.forEach(HashMap.java:1430) ~[na:na]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:100) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:35) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:33) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:327) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.internal.SessionFactoryRegistry.instantiateSessionFactory(SessionFactoryRegistry.java:64) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:458) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1452) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:93) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:443) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:436) ~[spring-orm-7.0.8.jar:7.0.8]
+	... 19 common frames omitted
+Caused by: org.postgresql.util.PSQLException: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:425) ~[postgresql-42.7.11.jar:42.7.11]
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:52) ~[postgresql-42.7.11.jar:42.7.11]
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:290) ~[postgresql-42.7.11.jar:42.7.11]
+	at org.postgresql.Driver.makeConnection(Driver.java:448) ~[postgresql-42.7.11.jar:42.7.11]
+	at org.postgresql.Driver.connect(Driver.java:298) ~[postgresql-42.7.11.jar:42.7.11]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144) ~[HikariCP-7.0.2.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:373) ~[HikariCP-7.0.2.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:210) ~[HikariCP-7.0.2.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488) ~[HikariCP-7.0.2.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:576) ~[HikariCP-7.0.2.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:97) ~[HikariCP-7.0.2.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-7.0.2.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DataSourceConnectionProvider.getConnection(DataSourceConnectionProvider.java:149) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:508) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:44) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	... 41 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:639) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:550) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:594) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:284) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:659) ~[na:na]
+	at org.postgresql.core.PGStream.createSocket(PGStream.java:271) ~[postgresql-42.7.11.jar:42.7.11]
+	at org.postgresql.core.PGStream.<init>(PGStream.java:132) ~[postgresql-42.7.11.jar:42.7.11]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:219) ~[postgresql-42.7.11.jar:42.7.11]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:365) ~[postgresql-42.7.11.jar:42.7.11]
+	... 55 common frames omitted
+
+2026-06-24T21:54:50.273+05:30  INFO 98967 --- [transaction] [main] c.p.transaction.TransactionApplication   : Starting TransactionApplication using Java 25.0.2 with PID 98967 (/Users/anton-23085/Project/transaction/target/classes started by anton-23085 in /Users/anton-23085/Project/transaction)
+2026-06-24T21:54:50.274+05:30 DEBUG 98967 --- [transaction] [main] c.p.transaction.TransactionApplication   : Running with Spring Boot v4.1.0, Spring v7.0.8
+2026-06-24T21:54:50.275+05:30  INFO 98967 --- [transaction] [main] c.p.transaction.TransactionApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-06-24T21:54:50.680+05:30  INFO 98967 --- [transaction] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-24T21:54:50.681+05:30  INFO 98967 --- [transaction] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-24T21:54:50.755+05:30  INFO 98967 --- [transaction] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 69 ms. Found 6 JPA repository interfaces.
+2026-06-24T21:54:50.782+05:30  INFO 98967 --- [transaction] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-24T21:54:50.782+05:30  INFO 98967 --- [transaction] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-06-24T21:54:50.791+05:30  INFO 98967 --- [transaction] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-24T21:54:50.792+05:30  INFO 98967 --- [transaction] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.LedgerEntryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-24T21:54:50.792+05:30  INFO 98967 --- [transaction] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.OutboxEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-24T21:54:50.792+05:30  INFO 98967 --- [transaction] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.PaymentBatchRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-24T21:54:50.792+05:30  INFO 98967 --- [transaction] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.PaymentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-24T21:54:50.792+05:30  INFO 98967 --- [transaction] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-24T21:54:50.792+05:30  INFO 98967 --- [transaction] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2026-06-24T21:54:51.069+05:30  INFO 98967 --- [transaction] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-06-24T21:54:51.075+05:30  INFO 98967 --- [transaction] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-06-24T21:54:51.075+05:30  INFO 98967 --- [transaction] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-06-24T21:54:51.100+05:30  INFO 98967 --- [transaction] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 800 ms
+2026-06-24T21:54:51.218+05:30  INFO 98967 --- [transaction] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-06-24T21:54:51.242+05:30  INFO 98967 --- [transaction] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-06-24T21:54:51.408+05:30  INFO 98967 --- [transaction] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-24T21:54:51.424+05:30  INFO 98967 --- [transaction] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-24T21:54:51.554+05:30  INFO 98967 --- [transaction] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7aab98b6
+2026-06-24T21:54:51.555+05:30  INFO 98967 --- [transaction] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-24T21:54:51.588+05:30  WARN 98967 --- [transaction] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-24T21:54:51.600+05:30  INFO 98967 --- [transaction] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/paymentdb]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: paymentdb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-24T21:54:52.032+05:30  INFO 98967 --- [transaction] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-24T21:54:52.098+05:30  INFO 98967 --- [transaction] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-24T21:54:52.130+05:30  INFO 98967 --- [transaction] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-06-24T21:54:52.280+05:30  WARN 98967 --- [transaction] [main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-06-24T21:54:52.508+05:30  WARN 98967 --- [transaction] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-24T21:54:52.738+05:30  INFO 98967 --- [transaction] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-06-24T21:54:52.780+05:30  INFO 98967 --- [transaction] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-06-24T21:54:52.785+05:30  INFO 98967 --- [transaction] [main] c.p.transaction.TransactionApplication   : Started TransactionApplication in 2.78 seconds (process running for 3.075)
+2026-06-24T22:28:48.031+05:30  INFO 98967 --- [transaction] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-24T22:28:48.032+05:30  INFO 98967 --- [transaction] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-06-24T22:28:48.037+05:30  INFO 98967 --- [transaction] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2026-06-24T22:28:48.377+05:30 DEBUG 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.SQL                        : select a1_0.id,a1_0.account_number,a1_0.balance,a1_0.created_at,a1_0.currency,a1_0.status,a1_0.tigerbeetle_account_id,a1_0.updated_at,a1_0.user_id from accounts a1_0 where a1_0.id=?
+2026-06-24T22:28:48.378+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) <- [1]
+2026-06-24T22:28:48.411+05:30 DEBUG 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.SQL                        : select a1_0.id,a1_0.account_number,a1_0.balance,a1_0.created_at,a1_0.currency,a1_0.status,a1_0.tigerbeetle_account_id,a1_0.updated_at,a1_0.user_id from accounts a1_0 where a1_0.id=?
+2026-06-24T22:28:48.411+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) <- [2]
+2026-06-24T22:28:48.424+05:30 DEBUG 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.SQL                        : insert into payments (amount,batch_id,created_at,destination_account_id,destination_bank_code,destination_external_account,payment_reference,processed_at,source_account_id,status) values (?,?,?,?,?,?,?,?,?,?)
+2026-06-24T22:28:48.426+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:NUMERIC) <- [150.00]
+2026-06-24T22:28:48.426+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (2:BIGINT) <- [null]
+2026-06-24T22:28:48.427+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (3:TIMESTAMP) <- [2026-06-24T22:28:48.419851]
+2026-06-24T22:28:48.427+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (4:BIGINT) <- [2]
+2026-06-24T22:28:48.427+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (5:VARCHAR) <- [null]
+2026-06-24T22:28:48.427+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (6:VARCHAR) <- [null]
+2026-06-24T22:28:48.427+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) <- [PAY-REF-0021]
+2026-06-24T22:28:48.427+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (8:TIMESTAMP) <- [2026-06-24T22:28:48.418953]
+2026-06-24T22:28:48.427+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (9:BIGINT) <- [1]
+2026-06-24T22:28:48.427+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (10:VARCHAR) <- [COMPLETED]
+2026-06-24T22:28:48.446+05:30 DEBUG 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.SQL                        : insert into ledger_entries (account_id,amount,balance_after,balance_before,created_at,currency,description,destination_account_number,entry_reference,entry_type,payment_id,posted_at,source_account_number,status,voided_at) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+2026-06-24T22:28:48.446+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) <- [1]
+2026-06-24T22:28:48.446+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (2:NUMERIC) <- [150.00]
+2026-06-24T22:28:48.446+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (3:NUMERIC) <- [50499597.1600]
+2026-06-24T22:28:48.446+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (4:NUMERIC) <- [50499747.1600]
+2026-06-24T22:28:48.446+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (5:TIMESTAMP) <- [2026-06-24T22:28:48.446091]
+2026-06-24T22:28:48.446+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (6:VARCHAR) <- [USD]
+2026-06-24T22:28:48.447+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) <- [Debit for payment PAY-REF-0021]
+2026-06-24T22:28:48.447+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) <- [ACC-1003]
+2026-06-24T22:28:48.447+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (9:VARCHAR) <- [PAY-REF-0021-DEBIT]
+2026-06-24T22:28:48.447+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (10:VARCHAR) <- [DEBIT]
+2026-06-24T22:28:48.447+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (11:BIGINT) <- [14]
+2026-06-24T22:28:48.447+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (12:TIMESTAMP) <- [2026-06-24T22:28:48.445474]
+2026-06-24T22:28:48.447+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (13:VARCHAR) <- [ACC-1002]
+2026-06-24T22:28:48.447+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (14:VARCHAR) <- [POSTED]
+2026-06-24T22:28:48.447+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (15:TIMESTAMP) <- [null]
+2026-06-24T22:28:48.454+05:30 DEBUG 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.SQL                        : insert into ledger_entries (account_id,amount,balance_after,balance_before,created_at,currency,description,destination_account_number,entry_reference,entry_type,payment_id,posted_at,source_account_number,status,voided_at) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+2026-06-24T22:28:48.454+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) <- [2]
+2026-06-24T22:28:48.454+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (2:NUMERIC) <- [150.00]
+2026-06-24T22:28:48.454+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (3:NUMERIC) <- [50500402.8400]
+2026-06-24T22:28:48.454+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (4:NUMERIC) <- [50500252.8400]
+2026-06-24T22:28:48.454+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (5:TIMESTAMP) <- [2026-06-24T22:28:48.453906]
+2026-06-24T22:28:48.454+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (6:VARCHAR) <- [USD]
+2026-06-24T22:28:48.454+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) <- [Credit for payment PAY-REF-0021]
+2026-06-24T22:28:48.454+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) <- [ACC-1003]
+2026-06-24T22:28:48.454+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (9:VARCHAR) <- [PAY-REF-0021-CREDIT]
+2026-06-24T22:28:48.454+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (10:VARCHAR) <- [CREDIT]
+2026-06-24T22:28:48.454+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (11:BIGINT) <- [14]
+2026-06-24T22:28:48.454+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (12:TIMESTAMP) <- [2026-06-24T22:28:48.445474]
+2026-06-24T22:28:48.454+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (13:VARCHAR) <- [ACC-1002]
+2026-06-24T22:28:48.454+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (14:VARCHAR) <- [POSTED]
+2026-06-24T22:28:48.454+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (15:TIMESTAMP) <- [null]
+2026-06-24T22:28:48.457+05:30 DEBUG 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.SQL                        : insert into outbox_events (aggregate_id,aggregate_type,created_at,event_type,last_error,payload,processed_at,retry_count,status,topic) values (?,?,?,?,?,?,?,?,?,?)
+2026-06-24T22:28:48.457+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [14]
+2026-06-24T22:28:48.457+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) <- [Payment]
+2026-06-24T22:28:48.457+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (3:TIMESTAMP) <- [2026-06-24T22:28:48.457089]
+2026-06-24T22:28:48.457+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (4:VARCHAR) <- [PaymentCreated]
+2026-06-24T22:28:48.457+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (5:VARCHAR) <- [null]
+2026-06-24T22:28:48.457+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (6:VARCHAR) <- [{"paymentId":14,"paymentReference":"PAY-REF-0021","sourceAccountId":1,"destinationAccountId":2,"amount":"150.00","status":"COMPLETED"}]
+2026-06-24T22:28:48.457+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (7:TIMESTAMP) <- [null]
+2026-06-24T22:28:48.457+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (8:INTEGER) <- [0]
+2026-06-24T22:28:48.457+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (9:VARCHAR) <- [PENDING]
+2026-06-24T22:28:48.457+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (10:VARCHAR) <- [payments.created]
+2026-06-24T22:28:48.479+05:30 DEBUG 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.SQL                        : update accounts set account_number=?,balance=?,currency=?,status=?,tigerbeetle_account_id=?,updated_at=?,user_id=? where id=?
+2026-06-24T22:28:48.480+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [ACC-1002]
+2026-06-24T22:28:48.480+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (2:NUMERIC) <- [50499597.1600]
+2026-06-24T22:28:48.480+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) <- [USD]
+2026-06-24T22:28:48.480+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (4:VARCHAR) <- [ACTIVE]
+2026-06-24T22:28:48.480+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (5:VARCHAR) <- [null]
+2026-06-24T22:28:48.480+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (6:TIMESTAMP) <- [2026-06-24T22:28:48.476002]
+2026-06-24T22:28:48.480+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (7:BIGINT) <- [1]
+2026-06-24T22:28:48.480+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (8:BIGINT) <- [1]
+2026-06-24T22:28:48.486+05:30 DEBUG 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.SQL                        : update accounts set account_number=?,balance=?,currency=?,status=?,tigerbeetle_account_id=?,updated_at=?,user_id=? where id=?
+2026-06-24T22:28:48.486+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [ACC-1003]
+2026-06-24T22:28:48.486+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (2:NUMERIC) <- [50500402.8400]
+2026-06-24T22:28:48.486+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) <- [USD]
+2026-06-24T22:28:48.486+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (4:VARCHAR) <- [ACTIVE]
+2026-06-24T22:28:48.486+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (5:VARCHAR) <- [null]
+2026-06-24T22:28:48.486+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (6:TIMESTAMP) <- [2026-06-24T22:28:48.477129]
+2026-06-24T22:28:48.486+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (7:BIGINT) <- [2]
+2026-06-24T22:28:48.486+05:30 TRACE 98967 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (8:BIGINT) <- [2]
+2026-06-24T22:28:57.111+05:30  INFO 98967 --- [transaction] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-06-24T22:28:57.113+05:30  INFO 98967 --- [transaction] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-06-24T22:28:57.125+05:30  INFO 98967 --- [transaction] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-24T22:28:57.126+05:30  INFO 98967 --- [transaction] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-24T22:28:57.127+05:30  INFO 98967 --- [transaction] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-06-24T22:29:02.298+05:30  INFO 10543 --- [transaction] [main] c.p.transaction.TransactionApplication   : Starting TransactionApplication using Java 25.0.2 with PID 10543 (/Users/anton-23085/Project/transaction/target/classes started by anton-23085 in /Users/anton-23085/Project/transaction)
+2026-06-24T22:29:02.299+05:30 DEBUG 10543 --- [transaction] [main] c.p.transaction.TransactionApplication   : Running with Spring Boot v4.1.0, Spring v7.0.8
+2026-06-24T22:29:02.299+05:30  INFO 10543 --- [transaction] [main] c.p.transaction.TransactionApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-06-24T22:29:02.699+05:30  INFO 10543 --- [transaction] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-24T22:29:02.700+05:30  INFO 10543 --- [transaction] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-24T22:29:02.768+05:30  INFO 10543 --- [transaction] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 59 ms. Found 6 JPA repository interfaces.
+2026-06-24T22:29:02.794+05:30  INFO 10543 --- [transaction] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-24T22:29:02.795+05:30  INFO 10543 --- [transaction] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-06-24T22:29:02.802+05:30  INFO 10543 --- [transaction] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-24T22:29:02.803+05:30  INFO 10543 --- [transaction] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.LedgerEntryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-24T22:29:02.803+05:30  INFO 10543 --- [transaction] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.OutboxEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-24T22:29:02.803+05:30  INFO 10543 --- [transaction] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.PaymentBatchRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-24T22:29:02.803+05:30  INFO 10543 --- [transaction] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.PaymentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-24T22:29:02.804+05:30  INFO 10543 --- [transaction] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-24T22:29:02.804+05:30  INFO 10543 --- [transaction] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2026-06-24T22:29:03.146+05:30  INFO 10543 --- [transaction] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-06-24T22:29:03.156+05:30  INFO 10543 --- [transaction] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-06-24T22:29:03.156+05:30  INFO 10543 --- [transaction] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-06-24T22:29:03.182+05:30  INFO 10543 --- [transaction] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 860 ms
+2026-06-24T22:29:03.330+05:30  INFO 10543 --- [transaction] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-06-24T22:29:03.356+05:30  INFO 10543 --- [transaction] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-06-24T22:29:03.532+05:30  INFO 10543 --- [transaction] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-24T22:29:03.548+05:30  INFO 10543 --- [transaction] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-24T22:29:03.644+05:30  INFO 10543 --- [transaction] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2a20da9f
+2026-06-24T22:29:03.644+05:30  INFO 10543 --- [transaction] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-24T22:29:03.660+05:30  WARN 10543 --- [transaction] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-24T22:29:03.676+05:30  INFO 10543 --- [transaction] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/paymentdb]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: paymentdb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-24T22:29:04.164+05:30  INFO 10543 --- [transaction] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-24T22:29:04.234+05:30  INFO 10543 --- [transaction] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-24T22:29:04.272+05:30  INFO 10543 --- [transaction] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-06-24T22:29:04.448+05:30  WARN 10543 --- [transaction] [main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-06-24T22:29:04.722+05:30  WARN 10543 --- [transaction] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-24T22:29:04.983+05:30  INFO 10543 --- [transaction] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-06-24T22:29:05.035+05:30  INFO 10543 --- [transaction] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-06-24T22:29:05.040+05:30  INFO 10543 --- [transaction] [main] c.p.transaction.TransactionApplication   : Started TransactionApplication in 3.004 seconds (process running for 3.505)
+2026-06-24T22:29:25.226+05:30  INFO 10543 --- [transaction] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-24T22:29:25.226+05:30  INFO 10543 --- [transaction] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-06-24T22:29:25.229+05:30  INFO 10543 --- [transaction] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2026-06-24T22:30:25.478+05:30  WARN 10543 --- [transaction] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=51s483ms).
+2026-06-24T22:30:30.948+05:30 DEBUG 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.SQL                        : select a1_0.id,a1_0.account_number,a1_0.balance,a1_0.created_at,a1_0.currency,a1_0.status,a1_0.tigerbeetle_account_id,a1_0.updated_at,a1_0.user_id from accounts a1_0 where a1_0.id=?
+2026-06-24T22:30:30.952+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) <- [1]
+2026-06-24T22:30:39.516+05:30 DEBUG 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.SQL                        : select a1_0.id,a1_0.account_number,a1_0.balance,a1_0.created_at,a1_0.currency,a1_0.status,a1_0.tigerbeetle_account_id,a1_0.updated_at,a1_0.user_id from accounts a1_0 where a1_0.id=?
+2026-06-24T22:30:39.518+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) <- [2]
+2026-06-24T22:30:39.541+05:30 DEBUG 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.SQL                        : insert into payments (amount,batch_id,created_at,destination_account_id,destination_bank_code,destination_external_account,payment_reference,processed_at,source_account_id,status) values (?,?,?,?,?,?,?,?,?,?)
+2026-06-24T22:30:39.543+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:NUMERIC) <- [150.00]
+2026-06-24T22:30:39.543+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (2:BIGINT) <- [null]
+2026-06-24T22:30:39.543+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (3:TIMESTAMP) <- [2026-06-24T22:30:39.533066]
+2026-06-24T22:30:39.544+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (4:BIGINT) <- [2]
+2026-06-24T22:30:39.544+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (5:VARCHAR) <- [null]
+2026-06-24T22:30:39.544+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (6:VARCHAR) <- [null]
+2026-06-24T22:30:39.544+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) <- [PAY-REF-09021]
+2026-06-24T22:30:39.544+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (8:TIMESTAMP) <- [2026-06-24T22:30:39.530691]
+2026-06-24T22:30:39.544+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (9:BIGINT) <- [1]
+2026-06-24T22:30:39.544+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (10:VARCHAR) <- [COMPLETED]
+2026-06-24T22:30:39.555+05:30 DEBUG 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.SQL                        : insert into ledger_entries (account_id,amount,balance_after,balance_before,created_at,currency,description,destination_account_number,entry_reference,entry_type,payment_id,posted_at,source_account_number,status,voided_at) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+2026-06-24T22:30:39.556+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) <- [1]
+2026-06-24T22:30:39.556+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (2:NUMERIC) <- [150.00]
+2026-06-24T22:30:39.556+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (3:NUMERIC) <- [50499447.1600]
+2026-06-24T22:30:39.556+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (4:NUMERIC) <- [50499597.1600]
+2026-06-24T22:30:39.556+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (5:TIMESTAMP) <- [2026-06-24T22:30:39.555240]
+2026-06-24T22:30:39.556+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (6:VARCHAR) <- [USD]
+2026-06-24T22:30:39.556+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) <- [Debit for payment PAY-REF-09021]
+2026-06-24T22:30:39.556+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) <- [ACC-1003]
+2026-06-24T22:30:39.556+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (9:VARCHAR) <- [PAY-REF-09021-DEBIT]
+2026-06-24T22:30:39.556+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (10:VARCHAR) <- [DEBIT]
+2026-06-24T22:30:39.556+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (11:BIGINT) <- [15]
+2026-06-24T22:30:39.556+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (12:TIMESTAMP) <- [2026-06-24T22:30:39.554647]
+2026-06-24T22:30:39.556+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (13:VARCHAR) <- [ACC-1002]
+2026-06-24T22:30:39.556+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (14:VARCHAR) <- [POSTED]
+2026-06-24T22:30:39.557+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (15:TIMESTAMP) <- [null]
+2026-06-24T22:30:39.560+05:30 DEBUG 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.SQL                        : insert into ledger_entries (account_id,amount,balance_after,balance_before,created_at,currency,description,destination_account_number,entry_reference,entry_type,payment_id,posted_at,source_account_number,status,voided_at) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+2026-06-24T22:30:39.561+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) <- [2]
+2026-06-24T22:30:39.561+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (2:NUMERIC) <- [150.00]
+2026-06-24T22:30:39.561+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (3:NUMERIC) <- [50500552.8400]
+2026-06-24T22:30:39.561+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (4:NUMERIC) <- [50500402.8400]
+2026-06-24T22:30:39.561+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (5:TIMESTAMP) <- [2026-06-24T22:30:39.560728]
+2026-06-24T22:30:39.561+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (6:VARCHAR) <- [USD]
+2026-06-24T22:30:39.561+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) <- [Credit for payment PAY-REF-09021]
+2026-06-24T22:30:39.561+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) <- [ACC-1003]
+2026-06-24T22:30:39.561+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (9:VARCHAR) <- [PAY-REF-09021-CREDIT]
+2026-06-24T22:30:39.561+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (10:VARCHAR) <- [CREDIT]
+2026-06-24T22:30:39.561+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (11:BIGINT) <- [15]
+2026-06-24T22:30:39.561+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (12:TIMESTAMP) <- [2026-06-24T22:30:39.554647]
+2026-06-24T22:30:39.561+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (13:VARCHAR) <- [ACC-1002]
+2026-06-24T22:30:39.561+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (14:VARCHAR) <- [POSTED]
+2026-06-24T22:30:39.561+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (15:TIMESTAMP) <- [null]
+2026-06-24T22:30:39.564+05:30 DEBUG 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.SQL                        : insert into outbox_events (aggregate_id,aggregate_type,created_at,event_type,last_error,payload,processed_at,retry_count,status,topic) values (?,?,?,?,?,?,?,?,?,?)
+2026-06-24T22:30:39.564+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [15]
+2026-06-24T22:30:39.564+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) <- [Payment]
+2026-06-24T22:30:39.564+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (3:TIMESTAMP) <- [2026-06-24T22:30:39.564153]
+2026-06-24T22:30:39.564+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (4:VARCHAR) <- [PaymentCreated]
+2026-06-24T22:30:39.564+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (5:VARCHAR) <- [null]
+2026-06-24T22:30:39.564+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (6:VARCHAR) <- [{"paymentId":15,"paymentReference":"PAY-REF-09021","sourceAccountId":1,"destinationAccountId":2,"amount":"150.00","status":"COMPLETED"}]
+2026-06-24T22:30:39.565+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (7:TIMESTAMP) <- [null]
+2026-06-24T22:30:39.565+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (8:INTEGER) <- [0]
+2026-06-24T22:30:39.565+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (9:VARCHAR) <- [PENDING]
+2026-06-24T22:30:39.565+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (10:VARCHAR) <- [payments.created]
+2026-06-24T22:30:39.591+05:30 DEBUG 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.SQL                        : update accounts set account_number=?,balance=?,currency=?,status=?,tigerbeetle_account_id=?,updated_at=?,user_id=? where id=?
+2026-06-24T22:30:39.591+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [ACC-1002]
+2026-06-24T22:30:39.591+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (2:NUMERIC) <- [50499447.1600]
+2026-06-24T22:30:39.591+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) <- [USD]
+2026-06-24T22:30:39.591+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (4:VARCHAR) <- [ACTIVE]
+2026-06-24T22:30:39.591+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (5:VARCHAR) <- [null]
+2026-06-24T22:30:39.592+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (6:TIMESTAMP) <- [2026-06-24T22:30:39.586796]
+2026-06-24T22:30:39.592+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (7:BIGINT) <- [1]
+2026-06-24T22:30:39.592+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (8:BIGINT) <- [1]
+2026-06-24T22:30:39.595+05:30 DEBUG 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.SQL                        : update accounts set account_number=?,balance=?,currency=?,status=?,tigerbeetle_account_id=?,updated_at=?,user_id=? where id=?
+2026-06-24T22:30:39.595+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [ACC-1003]
+2026-06-24T22:30:39.595+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (2:NUMERIC) <- [50500552.8400]
+2026-06-24T22:30:39.595+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) <- [USD]
+2026-06-24T22:30:39.595+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (4:VARCHAR) <- [ACTIVE]
+2026-06-24T22:30:39.595+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (5:VARCHAR) <- [null]
+2026-06-24T22:30:39.595+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (6:TIMESTAMP) <- [2026-06-24T22:30:39.588152]
+2026-06-24T22:30:39.595+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (7:BIGINT) <- [2]
+2026-06-24T22:30:39.595+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (8:BIGINT) <- [2]
+2026-06-24T22:32:59.729+05:30 DEBUG 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.SQL                        : select a1_0.id,a1_0.account_number,a1_0.balance,a1_0.created_at,a1_0.currency,a1_0.status,a1_0.tigerbeetle_account_id,a1_0.updated_at,a1_0.user_id from accounts a1_0 where a1_0.id=?
+2026-06-24T22:32:59.734+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) <- [1]
+2026-06-24T22:33:22.568+05:30 DEBUG 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.SQL                        : insert into payments (amount,batch_id,created_at,destination_account_id,destination_bank_code,destination_external_account,payment_reference,processed_at,source_account_id,status) values (?,?,?,?,?,?,?,?,?,?)
+2026-06-24T22:33:22.573+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (1:NUMERIC) <- [150.00]
+2026-06-24T22:33:22.575+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (2:BIGINT) <- [null]
+2026-06-24T22:33:22.576+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (3:TIMESTAMP) <- [2026-06-24T22:33:22.564377]
+2026-06-24T22:33:22.578+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (4:BIGINT) <- [null]
+2026-06-24T22:33:22.579+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (5:VARCHAR) <- [3]
+2026-06-24T22:33:22.580+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (6:VARCHAR) <- [2]
+2026-06-24T22:33:22.581+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) <- [PAY-REF-021]
+2026-06-24T22:33:22.583+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (8:TIMESTAMP) <- [2026-06-24T22:33:20.003756]
+2026-06-24T22:33:22.584+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (9:BIGINT) <- [1]
+2026-06-24T22:33:22.585+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (10:VARCHAR) <- [PROCESSING]
+2026-06-24T22:33:28.140+05:30 DEBUG 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.SQL                        : insert into ledger_entries (account_id,amount,balance_after,balance_before,created_at,currency,description,destination_account_number,entry_reference,entry_type,payment_id,posted_at,source_account_number,status,voided_at) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+2026-06-24T22:33:28.142+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) <- [1]
+2026-06-24T22:33:28.144+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (2:NUMERIC) <- [150.00]
+2026-06-24T22:33:28.145+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (3:NUMERIC) <- [50499297.1600]
+2026-06-24T22:33:28.147+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (4:NUMERIC) <- [50499447.1600]
+2026-06-24T22:33:28.148+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (5:TIMESTAMP) <- [2026-06-24T22:33:28.138601]
+2026-06-24T22:33:28.149+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (6:VARCHAR) <- [USD]
+2026-06-24T22:33:28.151+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) <- [Debit for inter-bank payment PAY-REF-021]
+2026-06-24T22:33:28.152+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) <- [2]
+2026-06-24T22:33:28.153+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (9:VARCHAR) <- [PAY-REF-021-DEBIT]
+2026-06-24T22:33:28.154+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (10:VARCHAR) <- [DEBIT]
+2026-06-24T22:33:28.155+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (11:BIGINT) <- [16]
+2026-06-24T22:33:28.156+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (12:TIMESTAMP) <- [2026-06-24T22:33:25.481057]
+2026-06-24T22:33:28.157+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (13:VARCHAR) <- [ACC-1002]
+2026-06-24T22:33:28.158+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (14:VARCHAR) <- [POSTED]
+2026-06-24T22:33:28.159+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (15:TIMESTAMP) <- [null]
+2026-06-24T22:33:28.562+05:30 DEBUG 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.SQL                        : insert into ledger_entries (account_id,amount,balance_after,balance_before,created_at,currency,description,destination_account_number,entry_reference,entry_type,payment_id,posted_at,source_account_number,status,voided_at) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+2026-06-24T22:33:28.563+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) <- [null]
+2026-06-24T22:33:28.565+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (2:NUMERIC) <- [150.00]
+2026-06-24T22:33:28.566+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (3:NUMERIC) <- [0]
+2026-06-24T22:33:28.567+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (4:NUMERIC) <- [0]
+2026-06-24T22:33:28.568+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (5:TIMESTAMP) <- [2026-06-24T22:33:28.560267]
+2026-06-24T22:33:28.570+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (6:VARCHAR) <- [USD]
+2026-06-24T22:33:28.571+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) <- [Credit for inter-bank payment PAY-REF-021 to 3 / 2]
+2026-06-24T22:33:28.572+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) <- [2]
+2026-06-24T22:33:28.573+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (9:VARCHAR) <- [PAY-REF-021-CREDIT]
+2026-06-24T22:33:28.574+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (10:VARCHAR) <- [CREDIT]
+2026-06-24T22:33:28.575+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (11:BIGINT) <- [16]
+2026-06-24T22:33:28.576+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (12:TIMESTAMP) <- [null]
+2026-06-24T22:33:28.577+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (13:VARCHAR) <- [ACC-1002]
+2026-06-24T22:33:28.578+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (14:VARCHAR) <- [PENDING]
+2026-06-24T22:33:28.579+05:30 TRACE 10543 --- [transaction] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (15:TIMESTAMP) <- [null]
+2026-06-24T22:33:37.984+05:30  WARN 10543 --- [transaction] [grpc-nio-worker-ELG-1-2] i.g.n.s.i.n.u.concurrent.DefaultPromise  : An exception was thrown by io.grpc.netty.shaded.io.grpc.netty.NettyClientTransport$5.operationComplete()
+
+java.lang.NoSuchMethodError: 'void io.grpc.internal.ManagedClientTransport$Listener.transportShutdown(io.grpc.Status)'
+	at io.grpc.netty.shaded.io.grpc.netty.ClientTransportLifecycleManager.notifyGracefulShutdown(ClientTransportLifecycleManager.java:64) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.grpc.netty.ClientTransportLifecycleManager.notifyShutdown(ClientTransportLifecycleManager.java:70) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.grpc.netty.ClientTransportLifecycleManager.notifyTerminated(ClientTransportLifecycleManager.java:92) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.grpc.netty.NettyClientTransport$5.operationComplete(NettyClientTransport.java:309) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.grpc.netty.NettyClientTransport$5.operationComplete(NettyClientTransport.java:303) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:557) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:629) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.DefaultPromise.setFailure(DefaultPromise.java:110) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.channel.DefaultChannelPromise.setFailure(DefaultChannelPromise.java:89) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.grpc.netty.WriteBufferingAndExceptionHandler.failWrites(WriteBufferingAndExceptionHandler.java:243) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.grpc.netty.WriteBufferingAndExceptionHandler.access$100(WriteBufferingAndExceptionHandler.java:43) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.grpc.netty.WriteBufferingAndExceptionHandler$1ConnectListener.operationComplete(WriteBufferingAndExceptionHandler.java:152) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.grpc.netty.WriteBufferingAndExceptionHandler$1ConnectListener.operationComplete(WriteBufferingAndExceptionHandler.java:148) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:583) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:559) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:629) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:118) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:326) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:342) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:994) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-06-24T22:34:06.769+05:30  INFO 10543 --- [transaction] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-06-24T22:34:52.911+05:30  INFO 12559 --- [transaction] [main] c.p.transaction.TransactionApplication   : Starting TransactionApplication using Java 25.0.2 with PID 12559 (/Users/anton-23085/Project/transaction/target/classes started by anton-23085 in /Users/anton-23085/Project/transaction)
+2026-06-24T22:34:52.912+05:30 DEBUG 12559 --- [transaction] [main] c.p.transaction.TransactionApplication   : Running with Spring Boot v4.1.0, Spring v7.0.8
+2026-06-24T22:34:52.913+05:30  INFO 12559 --- [transaction] [main] c.p.transaction.TransactionApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-06-24T22:34:53.282+05:30  INFO 12559 --- [transaction] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-24T22:34:53.283+05:30  INFO 12559 --- [transaction] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-24T22:34:53.358+05:30  INFO 12559 --- [transaction] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 70 ms. Found 6 JPA repository interfaces.
+2026-06-24T22:34:53.389+05:30  INFO 12559 --- [transaction] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-24T22:34:53.389+05:30  INFO 12559 --- [transaction] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-06-24T22:34:53.397+05:30  INFO 12559 --- [transaction] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-24T22:34:53.398+05:30  INFO 12559 --- [transaction] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.LedgerEntryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-24T22:34:53.398+05:30  INFO 12559 --- [transaction] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.OutboxEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-24T22:34:53.399+05:30  INFO 12559 --- [transaction] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.PaymentBatchRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-24T22:34:53.399+05:30  INFO 12559 --- [transaction] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.PaymentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-24T22:34:53.399+05:30  INFO 12559 --- [transaction] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-24T22:34:53.399+05:30  INFO 12559 --- [transaction] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2026-06-24T22:34:53.681+05:30  INFO 12559 --- [transaction] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-06-24T22:34:53.688+05:30  INFO 12559 --- [transaction] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-06-24T22:34:53.688+05:30  INFO 12559 --- [transaction] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-06-24T22:34:53.709+05:30  INFO 12559 --- [transaction] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 771 ms
+2026-06-24T22:34:53.845+05:30  INFO 12559 --- [transaction] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-06-24T22:34:53.864+05:30  INFO 12559 --- [transaction] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-06-24T22:34:54.029+05:30  INFO 12559 --- [transaction] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-24T22:34:54.041+05:30  INFO 12559 --- [transaction] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-24T22:34:54.125+05:30  INFO 12559 --- [transaction] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@146db8a6
+2026-06-24T22:34:54.125+05:30  INFO 12559 --- [transaction] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-24T22:34:54.144+05:30  WARN 12559 --- [transaction] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-24T22:34:54.158+05:30  INFO 12559 --- [transaction] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/paymentdb]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: paymentdb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-24T22:34:54.606+05:30  INFO 12559 --- [transaction] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-24T22:34:54.673+05:30  INFO 12559 --- [transaction] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-24T22:34:54.707+05:30  INFO 12559 --- [transaction] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-06-24T22:34:54.857+05:30  WARN 12559 --- [transaction] [main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-06-24T22:34:55.112+05:30  WARN 12559 --- [transaction] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-24T22:34:55.347+05:30  INFO 12559 --- [transaction] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-06-24T22:34:55.394+05:30  INFO 12559 --- [transaction] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-06-24T22:34:55.400+05:30  INFO 12559 --- [transaction] [main] c.p.transaction.TransactionApplication   : Started TransactionApplication in 2.754 seconds (process running for 3.029)
+2026-06-24T22:36:15.270+05:30  INFO 12559 --- [transaction] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-24T22:36:15.271+05:30  INFO 12559 --- [transaction] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-06-24T22:36:15.276+05:30  INFO 12559 --- [transaction] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2026-06-24T22:36:26.908+05:30 DEBUG 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.SQL                        : select a1_0.id,a1_0.account_number,a1_0.balance,a1_0.created_at,a1_0.currency,a1_0.status,a1_0.tigerbeetle_account_id,a1_0.updated_at,a1_0.user_id from accounts a1_0 where a1_0.id=?
+2026-06-24T22:36:26.909+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) <- [1]
+2026-06-24T22:37:10.456+05:30  WARN 12559 --- [transaction] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=46s209ms).
+2026-06-24T22:37:10.465+05:30 DEBUG 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.SQL                        : insert into payments (amount,batch_id,created_at,destination_account_id,destination_bank_code,destination_external_account,payment_reference,processed_at,source_account_id,status) values (?,?,?,?,?,?,?,?,?,?)
+2026-06-24T22:37:10.467+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:NUMERIC) <- [150.00]
+2026-06-24T22:37:10.469+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (2:BIGINT) <- [null]
+2026-06-24T22:37:10.469+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (3:TIMESTAMP) <- [2026-06-24T22:37:10.455009]
+2026-06-24T22:37:10.469+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (4:BIGINT) <- [null]
+2026-06-24T22:37:10.469+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (5:VARCHAR) <- [3]
+2026-06-24T22:37:10.469+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (6:VARCHAR) <- [2]
+2026-06-24T22:37:10.469+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) <- [PAY-REF-021]
+2026-06-24T22:37:10.469+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (8:TIMESTAMP) <- [2026-06-24T22:37:10.452632]
+2026-06-24T22:37:10.470+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (9:BIGINT) <- [1]
+2026-06-24T22:37:10.470+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (10:VARCHAR) <- [PROCESSING]
+2026-06-24T22:37:12.293+05:30 DEBUG 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.SQL                        : insert into ledger_entries (account_id,amount,balance_after,balance_before,created_at,currency,description,destination_account_number,entry_reference,entry_type,payment_id,posted_at,source_account_number,status,voided_at) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+2026-06-24T22:37:12.294+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) <- [1]
+2026-06-24T22:37:12.294+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (2:NUMERIC) <- [150.00]
+2026-06-24T22:37:12.294+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (3:NUMERIC) <- [50499297.1600]
+2026-06-24T22:37:12.295+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (4:NUMERIC) <- [50499447.1600]
+2026-06-24T22:37:12.297+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (5:TIMESTAMP) <- [2026-06-24T22:37:12.292008]
+2026-06-24T22:37:12.297+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (6:VARCHAR) <- [USD]
+2026-06-24T22:37:12.297+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) <- [Debit for inter-bank payment PAY-REF-021]
+2026-06-24T22:37:12.297+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) <- [2]
+2026-06-24T22:37:12.297+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (9:VARCHAR) <- [PAY-REF-021-DEBIT]
+2026-06-24T22:37:12.298+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (10:VARCHAR) <- [DEBIT]
+2026-06-24T22:37:12.298+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (11:BIGINT) <- [17]
+2026-06-24T22:37:12.298+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (12:TIMESTAMP) <- [2026-06-24T22:37:10.484071]
+2026-06-24T22:37:12.298+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (13:VARCHAR) <- [ACC-1002]
+2026-06-24T22:37:12.298+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (14:VARCHAR) <- [POSTED]
+2026-06-24T22:37:12.298+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (15:TIMESTAMP) <- [null]
+2026-06-24T22:37:12.305+05:30 DEBUG 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.SQL                        : insert into ledger_entries (account_id,amount,balance_after,balance_before,created_at,currency,description,destination_account_number,entry_reference,entry_type,payment_id,posted_at,source_account_number,status,voided_at) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+2026-06-24T22:37:12.305+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) <- [null]
+2026-06-24T22:37:12.306+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (2:NUMERIC) <- [150.00]
+2026-06-24T22:37:12.306+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (3:NUMERIC) <- [0]
+2026-06-24T22:37:12.306+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (4:NUMERIC) <- [0]
+2026-06-24T22:37:12.306+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (5:TIMESTAMP) <- [2026-06-24T22:37:12.304933]
+2026-06-24T22:37:12.306+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (6:VARCHAR) <- [USD]
+2026-06-24T22:37:12.306+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) <- [Credit for inter-bank payment PAY-REF-021 to 3 / 2]
+2026-06-24T22:37:12.306+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) <- [2]
+2026-06-24T22:37:12.306+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (9:VARCHAR) <- [PAY-REF-021-CREDIT]
+2026-06-24T22:37:12.306+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (10:VARCHAR) <- [CREDIT]
+2026-06-24T22:37:12.306+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (11:BIGINT) <- [17]
+2026-06-24T22:37:12.306+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (12:TIMESTAMP) <- [null]
+2026-06-24T22:37:12.306+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (13:VARCHAR) <- [ACC-1002]
+2026-06-24T22:37:12.306+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (14:VARCHAR) <- [PENDING]
+2026-06-24T22:37:12.307+05:30 TRACE 12559 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (15:TIMESTAMP) <- [null]
+2026-06-24T22:37:17.205+05:30  WARN 12559 --- [transaction] [grpc-nio-worker-ELG-1-2] i.g.n.s.i.n.u.concurrent.DefaultPromise  : An exception was thrown by io.grpc.netty.shaded.io.grpc.netty.NettyClientTransport$5.operationComplete()
+
+java.lang.NoSuchMethodError: 'void io.grpc.internal.ManagedClientTransport$Listener.transportShutdown(io.grpc.Status)'
+	at io.grpc.netty.shaded.io.grpc.netty.ClientTransportLifecycleManager.notifyGracefulShutdown(ClientTransportLifecycleManager.java:64) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.grpc.netty.ClientTransportLifecycleManager.notifyShutdown(ClientTransportLifecycleManager.java:70) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.grpc.netty.ClientTransportLifecycleManager.notifyTerminated(ClientTransportLifecycleManager.java:92) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.grpc.netty.NettyClientTransport$5.operationComplete(NettyClientTransport.java:309) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.grpc.netty.NettyClientTransport$5.operationComplete(NettyClientTransport.java:303) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:557) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:629) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.DefaultPromise.setFailure(DefaultPromise.java:110) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.channel.DefaultChannelPromise.setFailure(DefaultChannelPromise.java:89) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.grpc.netty.WriteBufferingAndExceptionHandler.failWrites(WriteBufferingAndExceptionHandler.java:243) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.grpc.netty.WriteBufferingAndExceptionHandler.access$100(WriteBufferingAndExceptionHandler.java:43) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.grpc.netty.WriteBufferingAndExceptionHandler$1ConnectListener.operationComplete(WriteBufferingAndExceptionHandler.java:152) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.grpc.netty.WriteBufferingAndExceptionHandler$1ConnectListener.operationComplete(WriteBufferingAndExceptionHandler.java:148) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:583) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:559) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:629) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:118) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:326) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:342) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:994) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-06-24T22:37:17.230+05:30  INFO 12559 --- [transaction] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-06-24T23:06:55.685+05:30  INFO 22805 --- [transaction] [main] c.p.transaction.TransactionApplication   : Starting TransactionApplication using Java 25.0.2 with PID 22805 (/Users/anton-23085/Project/transaction/target/classes started by anton-23085 in /Users/anton-23085/Project/transaction)
+2026-06-24T23:06:55.686+05:30 DEBUG 22805 --- [transaction] [main] c.p.transaction.TransactionApplication   : Running with Spring Boot v4.1.0, Spring v7.0.8
+2026-06-24T23:06:55.686+05:30  INFO 22805 --- [transaction] [main] c.p.transaction.TransactionApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-06-24T23:06:56.169+05:30  INFO 22805 --- [transaction] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-24T23:06:56.170+05:30  INFO 22805 --- [transaction] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-24T23:06:56.246+05:30  INFO 22805 --- [transaction] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 71 ms. Found 6 JPA repository interfaces.
+2026-06-24T23:06:56.274+05:30  INFO 22805 --- [transaction] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-24T23:06:56.274+05:30  INFO 22805 --- [transaction] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-06-24T23:06:56.282+05:30  INFO 22805 --- [transaction] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-24T23:06:56.283+05:30  INFO 22805 --- [transaction] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.LedgerEntryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-24T23:06:56.283+05:30  INFO 22805 --- [transaction] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.OutboxEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-24T23:06:56.283+05:30  INFO 22805 --- [transaction] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.PaymentBatchRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-24T23:06:56.283+05:30  INFO 22805 --- [transaction] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.PaymentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-24T23:06:56.283+05:30  INFO 22805 --- [transaction] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.payment.transaction.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-24T23:06:56.283+05:30  INFO 22805 --- [transaction] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2026-06-24T23:06:56.553+05:30  INFO 22805 --- [transaction] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-06-24T23:06:56.559+05:30  INFO 22805 --- [transaction] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-06-24T23:06:56.560+05:30  INFO 22805 --- [transaction] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-06-24T23:06:56.581+05:30  INFO 22805 --- [transaction] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 866 ms
+2026-06-24T23:06:56.712+05:30  INFO 22805 --- [transaction] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-06-24T23:06:56.737+05:30  INFO 22805 --- [transaction] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-06-24T23:06:56.910+05:30  INFO 22805 --- [transaction] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-24T23:06:56.924+05:30  INFO 22805 --- [transaction] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-24T23:06:57.030+05:30  INFO 22805 --- [transaction] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@146db8a6
+2026-06-24T23:06:57.031+05:30  INFO 22805 --- [transaction] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-24T23:06:57.049+05:30  WARN 22805 --- [transaction] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-24T23:06:57.067+05:30  INFO 22805 --- [transaction] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/paymentdb]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: paymentdb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-24T23:06:57.542+05:30  INFO 22805 --- [transaction] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-24T23:06:57.610+05:30  INFO 22805 --- [transaction] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-24T23:06:57.646+05:30  INFO 22805 --- [transaction] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-06-24T23:06:57.811+05:30  WARN 22805 --- [transaction] [main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-06-24T23:06:58.098+05:30  WARN 22805 --- [transaction] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-24T23:06:58.318+05:30  INFO 22805 --- [transaction] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-06-24T23:06:58.369+05:30  INFO 22805 --- [transaction] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-06-24T23:06:58.375+05:30  INFO 22805 --- [transaction] [main] c.p.transaction.TransactionApplication   : Started TransactionApplication in 2.974 seconds (process running for 3.331)
+2026-06-24T23:10:58.688+05:30  INFO 22805 --- [transaction] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-24T23:10:58.689+05:30  INFO 22805 --- [transaction] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-06-24T23:10:58.694+05:30  INFO 22805 --- [transaction] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2026-06-24T23:11:02.395+05:30 DEBUG 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.SQL                        : select a1_0.id,a1_0.account_number,a1_0.balance,a1_0.created_at,a1_0.currency,a1_0.status,a1_0.tigerbeetle_account_id,a1_0.updated_at,a1_0.user_id from accounts a1_0 where a1_0.id=?
+2026-06-24T23:11:02.395+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) <- [1]
+2026-06-24T23:11:03.488+05:30 DEBUG 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.SQL                        : insert into payments (amount,batch_id,created_at,destination_account_id,destination_bank_code,destination_external_account,payment_reference,processed_at,source_account_id,status) values (?,?,?,?,?,?,?,?,?,?)
+2026-06-24T23:11:03.489+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:NUMERIC) <- [150.00]
+2026-06-24T23:11:03.490+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (2:BIGINT) <- [null]
+2026-06-24T23:11:03.490+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (3:TIMESTAMP) <- [2026-06-24T23:11:03.476773]
+2026-06-24T23:11:03.490+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (4:BIGINT) <- [null]
+2026-06-24T23:11:03.490+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (5:VARCHAR) <- [3]
+2026-06-24T23:11:03.490+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (6:VARCHAR) <- [2]
+2026-06-24T23:11:03.491+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) <- [PAY-REF-0521]
+2026-06-24T23:11:03.491+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (8:TIMESTAMP) <- [2026-06-24T23:11:03.473152]
+2026-06-24T23:11:03.491+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (9:BIGINT) <- [1]
+2026-06-24T23:11:03.491+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (10:VARCHAR) <- [PROCESSING]
+2026-06-24T23:11:04.843+05:30 DEBUG 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.SQL                        : insert into ledger_entries (account_id,amount,balance_after,balance_before,created_at,currency,description,destination_account_number,entry_reference,entry_type,payment_id,posted_at,source_account_number,status,voided_at) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+2026-06-24T23:11:04.844+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) <- [1]
+2026-06-24T23:11:04.845+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (2:NUMERIC) <- [150.00]
+2026-06-24T23:11:04.845+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (3:NUMERIC) <- [50499297.1600]
+2026-06-24T23:11:04.845+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (4:NUMERIC) <- [50499447.1600]
+2026-06-24T23:11:04.845+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (5:TIMESTAMP) <- [2026-06-24T23:11:04.841076]
+2026-06-24T23:11:04.846+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (6:VARCHAR) <- [USD]
+2026-06-24T23:11:04.846+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) <- [Debit for inter-bank payment PAY-REF-0521]
+2026-06-24T23:11:04.846+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) <- [2]
+2026-06-24T23:11:04.846+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (9:VARCHAR) <- [PAY-REF-0521-DEBIT]
+2026-06-24T23:11:04.846+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (10:VARCHAR) <- [DEBIT]
+2026-06-24T23:11:04.846+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (11:BIGINT) <- [18]
+2026-06-24T23:11:04.847+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (12:TIMESTAMP) <- [2026-06-24T23:11:03.503881]
+2026-06-24T23:11:04.847+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (13:VARCHAR) <- [ACC-1002]
+2026-06-24T23:11:04.847+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (14:VARCHAR) <- [POSTED]
+2026-06-24T23:11:04.847+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (15:TIMESTAMP) <- [null]
+2026-06-24T23:11:04.854+05:30 DEBUG 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.SQL                        : insert into ledger_entries (account_id,amount,balance_after,balance_before,created_at,currency,description,destination_account_number,entry_reference,entry_type,payment_id,posted_at,source_account_number,status,voided_at) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+2026-06-24T23:11:04.855+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) <- [null]
+2026-06-24T23:11:04.855+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (2:NUMERIC) <- [150.00]
+2026-06-24T23:11:04.855+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (3:NUMERIC) <- [0]
+2026-06-24T23:11:04.855+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (4:NUMERIC) <- [0]
+2026-06-24T23:11:04.855+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (5:TIMESTAMP) <- [2026-06-24T23:11:04.854371]
+2026-06-24T23:11:04.856+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (6:VARCHAR) <- [USD]
+2026-06-24T23:11:04.856+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) <- [Credit for inter-bank payment PAY-REF-0521 to 3 / 2]
+2026-06-24T23:11:04.856+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) <- [2]
+2026-06-24T23:11:04.856+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (9:VARCHAR) <- [PAY-REF-0521-CREDIT]
+2026-06-24T23:11:04.856+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (10:VARCHAR) <- [CREDIT]
+2026-06-24T23:11:04.856+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (11:BIGINT) <- [18]
+2026-06-24T23:11:04.856+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (12:TIMESTAMP) <- [null]
+2026-06-24T23:11:04.856+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (13:VARCHAR) <- [ACC-1002]
+2026-06-24T23:11:04.856+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (14:VARCHAR) <- [PENDING]
+2026-06-24T23:11:04.856+05:30 TRACE 22805 --- [transaction] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (15:TIMESTAMP) <- [null]
+2026-06-24T23:11:38.237+05:30 ERROR 22805 --- [transaction] [grpc-nio-worker-ELG-1-2] i.g.n.s.i.n.h.c.h.DefaultHttp2Connection : Caught Throwable from listener onGoAwayReceived.
+
+java.lang.NoSuchMethodError: 'void io.grpc.internal.ManagedClientTransport$Listener.transportShutdown(io.grpc.Status)'
+	at io.grpc.netty.shaded.io.grpc.netty.ClientTransportLifecycleManager.notifyGracefulShutdown(ClientTransportLifecycleManager.java:64) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.grpc.netty.NettyClientHandler.goingAway(NettyClientHandler.java:809) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.grpc.netty.NettyClientHandler.access$200(NettyClientHandler.java:95) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.grpc.netty.NettyClientHandler$2.onGoAwayReceived(NettyClientHandler.java:289) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.handler.codec.http2.DefaultHttp2Connection.goAwayReceived(DefaultHttp2Connection.java:235) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.handler.codec.http2.DefaultHttp2ConnectionDecoder.onGoAwayRead0(DefaultHttp2ConnectionDecoder.java:230) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.handler.codec.http2.DefaultHttp2ConnectionDecoder$FrameReadListener.onGoAwayRead(DefaultHttp2ConnectionDecoder.java:609) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.handler.codec.http2.Http2InboundFrameLogger$1.onGoAwayRead(Http2InboundFrameLogger.java:117) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.handler.codec.http2.DefaultHttp2FrameReader.readGoAwayFrame(DefaultHttp2FrameReader.java:579) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.handler.codec.http2.DefaultHttp2FrameReader.processPayloadState(DefaultHttp2FrameReader.java:265) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.handler.codec.http2.DefaultHttp2FrameReader.readFrame(DefaultHttp2FrameReader.java:164) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.handler.codec.http2.Http2InboundFrameLogger.readFrame(Http2InboundFrameLogger.java:39) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.handler.codec.http2.DefaultHttp2ConnectionDecoder.decodeFrame(DefaultHttp2ConnectionDecoder.java:186) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.handler.codec.http2.Http2ConnectionHandler$FrameDecoder.decode(Http2ConnectionHandler.java:391) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.handler.codec.http2.Http2ConnectionHandler.decode(Http2ConnectionHandler.java:451) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:530) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:469) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:290) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1407) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:918) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:994) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[grpc-netty-shaded-1.68.1.jar:1.68.1]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-06-24T23:11:42.522+05:30  INFO 22805 --- [transaction] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-06-24T23:11:42.525+05:30  INFO 22805 --- [transaction] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-06-24T23:11:47.550+05:30  INFO 22805 --- [transaction] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-24T23:11:47.555+05:30  INFO 22805 --- [transaction] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-24T23:11:47.564+05:30  INFO 22805 --- [transaction] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

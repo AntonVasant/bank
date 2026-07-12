@@ -1,0 +1,63 @@
+services:
+
+  postgres-banka:
+    image: postgres:17
+    container_name: postgres-banka
+    environment:
+      POSTGRES_DB: paymentdb_banka
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5434:5432"
+
+  postgres-bankb:
+    image: postgres:17
+    container_name: postgres-bankb
+    environment:
+      POSTGRES_DB: paymentdb_bankb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5435:5432"
+
+  redis:
+    image: redis:8
+    container_name: redis
+    ports:
+      - "6379:6379"
+
+  transaction-banka:
+    image: eclipse-temurin:21-jre
+    container_name: transaction-banka
+    volumes:
+      - ./target/transaction-0.0.1-SNAPSHOT.jar:/app/transaction.jar
+    command: java -jar /app/transaction.jar
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: bankA
+      POSTGRES_HOST: postgres-banka
+      REDIS_HOST: redis
+      SETTLEMENT_RAIL_GRPC_HOST: transaction-bankb
+      SETTLEMENT_RAIL_GRPC_PORT: 9091
+    depends_on:
+      - postgres-banka
+      - redis
+
+  transaction-bankb:
+    image: eclipse-temurin:21-jre
+    container_name: transaction-bankb
+    volumes:
+      - ./target/transaction-0.0.1-SNAPSHOT.jar:/app/transaction.jar
+    command: java -jar /app/transaction.jar
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_PROFILES_ACTIVE: bankB
+      POSTGRES_HOST: postgres-bankb
+      REDIS_HOST: redis
+      SETTLEMENT_RAIL_GRPC_HOST: transaction-banka
+      SETTLEMENT_RAIL_GRPC_PORT: 9092
+    depends_on:
+      - postgres-bankb
+      - redis

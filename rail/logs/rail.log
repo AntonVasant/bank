@@ -1,0 +1,1502 @@
+2026-07-12T16:51:15.436+05:30  INFO 73087 --- [rail] [main] com.settlement.rail.RailApplication      : Starting RailApplication using Java 25.0.2 with PID 73087 (/Users/anton-23085/Project/bank/rail/target/classes started by anton-23085 in /Users/anton-23085/Project/bank/rail)
+2026-07-12T16:51:15.440+05:30  INFO 73087 --- [rail] [main] com.settlement.rail.RailApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-07-12T16:51:15.799+05:30  INFO 73087 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T16:51:15.800+05:30  INFO 73087 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-12T16:51:15.875+05:30  INFO 73087 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 72 ms. Found 5 JPA repository interfaces.
+2026-07-12T16:51:15.895+05:30  INFO 73087 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T16:51:15.895+05:30  INFO 73087 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-12T16:51:15.903+05:30  INFO 73087 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.bank.BankRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T16:51:15.904+05:30  INFO 73087 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.bank.BankReserveRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T16:51:15.904+05:30  INFO 73087 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.ledger.LedgerEntryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T16:51:15.904+05:30  INFO 73087 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.outbox.OutboxEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T16:51:15.905+05:30  INFO 73087 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.transfer.TransferRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T16:51:15.905+05:30  INFO 73087 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2026-07-12T16:51:16.179+05:30  INFO 73087 --- [rail] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8082 (http)
+2026-07-12T16:51:16.185+05:30  INFO 73087 --- [rail] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-12T16:51:16.185+05:30  INFO 73087 --- [rail] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-12T16:51:16.206+05:30  INFO 73087 --- [rail] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 742 ms
+2026-07-12T16:51:16.282+05:30  INFO 73087 --- [rail] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-12T16:51:16.300+05:30  INFO 73087 --- [rail] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-12T16:51:16.455+05:30  INFO 73087 --- [rail] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-12T16:51:16.467+05:30  INFO 73087 --- [rail] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-12T16:51:16.545+05:30  INFO 73087 --- [rail] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@54caeadc
+2026-07-12T16:51:16.545+05:30  INFO 73087 --- [rail] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-12T16:51:16.558+05:30  WARN 73087 --- [rail] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-12T16:51:16.568+05:30  INFO 73087 --- [rail] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5433/rail]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: rail/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-12T16:51:17.025+05:30  INFO 73087 --- [rail] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-12T16:51:17.065+05:30  INFO 73087 --- [rail] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T16:51:17.101+05:30  INFO 73087 --- [rail] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-12T16:51:17.438+05:30  WARN 73087 --- [rail] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-12T16:51:17.557+05:30  INFO 73087 --- [rail] [main] g.s.a.GrpcServerFactoryAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
+2026-07-12T16:51:17.629+05:30  WARN 73087 --- [rail] [main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-07-12T16:51:17.820+05:30  INFO 73087 --- [rail] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8082 (http) with context path '/'
+2026-07-12T16:51:17.856+05:30  INFO 73087 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: com.settlement.rail.grpc.PaymentService, bean: paymentGrpcService, class: com.settlement.rail.grpc.PaymentGrpcService
+2026-07-12T16:51:17.856+05:30  INFO 73087 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
+2026-07-12T16:51:17.856+05:30  INFO 73087 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
+2026-07-12T16:51:17.897+05:30  INFO 73087 --- [rail] [main] n.d.b.g.s.s.GrpcServerLifecycle          : gRPC Server started, listening on address: *, port: 9090
+2026-07-12T16:51:17.903+05:30  INFO 73087 --- [rail] [main] com.settlement.rail.RailApplication      : Started RailApplication in 2.706 seconds (process running for 2.916)
+2026-07-12T16:51:27.842+05:30  INFO 73087 --- [rail] [SpringApplicationShutdownHook] n.d.b.g.s.s.GrpcServerLifecycle          : Completed gRPC server shutdown
+2026-07-12T16:51:27.843+05:30  INFO 73087 --- [rail] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-12T16:51:27.845+05:30  INFO 73087 --- [rail] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-07-12T16:51:27.856+05:30  INFO 73087 --- [rail] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T16:51:27.857+05:30  INFO 73087 --- [rail] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-07-12T16:51:27.858+05:30  INFO 73087 --- [rail] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-07-12T16:51:30.338+05:30  INFO 73208 --- [rail] [main] com.settlement.rail.RailApplication      : Starting RailApplication using Java 25.0.2 with PID 73208 (/Users/anton-23085/Project/bank/rail/target/classes started by anton-23085 in /Users/anton-23085/Project/bank/rail)
+2026-07-12T16:51:30.339+05:30  INFO 73208 --- [rail] [main] com.settlement.rail.RailApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-07-12T16:51:30.716+05:30  INFO 73208 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T16:51:30.716+05:30  INFO 73208 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-12T16:51:30.788+05:30  INFO 73208 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 67 ms. Found 5 JPA repository interfaces.
+2026-07-12T16:51:30.816+05:30  INFO 73208 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T16:51:30.816+05:30  INFO 73208 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-12T16:51:30.825+05:30  INFO 73208 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.bank.BankRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T16:51:30.825+05:30  INFO 73208 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.bank.BankReserveRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T16:51:30.826+05:30  INFO 73208 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.ledger.LedgerEntryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T16:51:30.826+05:30  INFO 73208 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.outbox.OutboxEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T16:51:30.826+05:30  INFO 73208 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.transfer.TransferRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T16:51:30.826+05:30  INFO 73208 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2026-07-12T16:51:31.152+05:30  INFO 73208 --- [rail] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8082 (http)
+2026-07-12T16:51:31.158+05:30  INFO 73208 --- [rail] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-12T16:51:31.159+05:30  INFO 73208 --- [rail] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-12T16:51:31.179+05:30  INFO 73208 --- [rail] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 817 ms
+2026-07-12T16:51:31.255+05:30  INFO 73208 --- [rail] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-12T16:51:31.273+05:30  INFO 73208 --- [rail] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-12T16:51:31.431+05:30  INFO 73208 --- [rail] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-12T16:51:31.443+05:30  INFO 73208 --- [rail] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-12T16:51:31.524+05:30  INFO 73208 --- [rail] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3a0e7f89
+2026-07-12T16:51:31.525+05:30  INFO 73208 --- [rail] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-12T16:51:31.538+05:30  WARN 73208 --- [rail] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-12T16:51:31.549+05:30  INFO 73208 --- [rail] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5433/rail]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: rail/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-12T16:51:32.030+05:30  INFO 73208 --- [rail] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-12T16:51:32.068+05:30  INFO 73208 --- [rail] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T16:51:32.104+05:30  INFO 73208 --- [rail] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-12T16:51:32.480+05:30  WARN 73208 --- [rail] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-12T16:51:32.600+05:30  INFO 73208 --- [rail] [main] g.s.a.GrpcServerFactoryAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
+2026-07-12T16:51:32.669+05:30  WARN 73208 --- [rail] [main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-07-12T16:51:32.874+05:30  INFO 73208 --- [rail] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8082 (http) with context path '/'
+2026-07-12T16:51:32.915+05:30  INFO 73208 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: com.settlement.rail.grpc.PaymentService, bean: paymentGrpcService, class: com.settlement.rail.grpc.PaymentGrpcService
+2026-07-12T16:51:32.915+05:30  INFO 73208 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
+2026-07-12T16:51:32.915+05:30  INFO 73208 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
+2026-07-12T16:51:32.956+05:30  INFO 73208 --- [rail] [main] n.d.b.g.s.s.GrpcServerLifecycle          : gRPC Server started, listening on address: *, port: 9090
+2026-07-12T16:51:32.961+05:30  INFO 73208 --- [rail] [main] com.settlement.rail.RailApplication      : Started RailApplication in 2.88 seconds (process running for 3.098)
+2026-07-12T16:54:29.749+05:30  INFO 73208 --- [rail] [SpringApplicationShutdownHook] n.d.b.g.s.s.GrpcServerLifecycle          : Completed gRPC server shutdown
+2026-07-12T16:54:29.752+05:30  INFO 73208 --- [rail] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-12T16:54:29.755+05:30  INFO 73208 --- [rail] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-07-12T16:54:29.770+05:30  INFO 73208 --- [rail] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T16:54:29.773+05:30  INFO 73208 --- [rail] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-07-12T16:54:29.775+05:30  INFO 73208 --- [rail] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-07-12T16:54:43.106+05:30  INFO 74307 --- [rail] [main] com.settlement.rail.RailApplication      : Starting RailApplication using Java 25.0.2 with PID 74307 (/Users/anton-23085/Project/bank/rail/target/classes started by anton-23085 in /Users/anton-23085/Project/bank/rail)
+2026-07-12T16:54:43.107+05:30  INFO 74307 --- [rail] [main] com.settlement.rail.RailApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-07-12T16:54:43.508+05:30  INFO 74307 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T16:54:43.508+05:30  INFO 74307 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-12T16:54:43.604+05:30  INFO 74307 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 91 ms. Found 5 JPA repository interfaces.
+2026-07-12T16:54:43.626+05:30  INFO 74307 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T16:54:43.627+05:30  INFO 74307 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-12T16:54:43.635+05:30  INFO 74307 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.bank.BankRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T16:54:43.636+05:30  INFO 74307 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.bank.BankReserveRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T16:54:43.636+05:30  INFO 74307 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.ledger.LedgerEntryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T16:54:43.636+05:30  INFO 74307 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.outbox.OutboxEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T16:54:43.636+05:30  INFO 74307 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.transfer.TransferRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T16:54:43.636+05:30  INFO 74307 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2026-07-12T16:54:43.940+05:30  INFO 74307 --- [rail] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8082 (http)
+2026-07-12T16:54:43.947+05:30  INFO 74307 --- [rail] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-12T16:54:43.947+05:30  INFO 74307 --- [rail] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-12T16:54:43.968+05:30  INFO 74307 --- [rail] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 839 ms
+2026-07-12T16:54:44.052+05:30  INFO 74307 --- [rail] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-12T16:54:44.072+05:30  INFO 74307 --- [rail] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-12T16:54:44.257+05:30  INFO 74307 --- [rail] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-12T16:54:44.271+05:30  INFO 74307 --- [rail] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-12T16:54:44.365+05:30  INFO 74307 --- [rail] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3a0e7f89
+2026-07-12T16:54:44.365+05:30  INFO 74307 --- [rail] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-12T16:54:44.383+05:30  WARN 74307 --- [rail] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-12T16:54:44.394+05:30  INFO 74307 --- [rail] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5433/rail]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: rail/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-12T16:54:44.889+05:30  INFO 74307 --- [rail] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-12T16:54:44.937+05:30  INFO 74307 --- [rail] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T16:54:44.975+05:30  INFO 74307 --- [rail] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-12T16:54:45.354+05:30  WARN 74307 --- [rail] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-12T16:54:45.485+05:30  INFO 74307 --- [rail] [main] g.s.a.GrpcServerFactoryAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
+2026-07-12T16:54:45.565+05:30  WARN 74307 --- [rail] [main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-07-12T16:54:45.762+05:30  INFO 74307 --- [rail] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8082 (http) with context path '/'
+2026-07-12T16:54:45.802+05:30  INFO 74307 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: com.settlement.rail.grpc.PaymentService, bean: paymentGrpcService, class: com.settlement.rail.grpc.PaymentGrpcService
+2026-07-12T16:54:45.802+05:30  INFO 74307 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
+2026-07-12T16:54:45.802+05:30  INFO 74307 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
+2026-07-12T16:54:45.846+05:30  INFO 74307 --- [rail] [main] n.d.b.g.s.s.GrpcServerLifecycle          : gRPC Server started, listening on address: *, port: 9090
+2026-07-12T16:54:45.856+05:30  INFO 74307 --- [rail] [main] com.settlement.rail.RailApplication      : Started RailApplication in 2.996 seconds (process running for 3.208)
+2026-07-12T16:55:52.541+05:30  WARN 74307 --- [rail] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m8s71ms).
+2026-07-12T16:55:52.672+05:30  INFO 74307 --- [rail] [SpringApplicationShutdownHook] n.d.b.g.s.s.GrpcServerLifecycle          : Completed gRPC server shutdown
+2026-07-12T16:55:52.673+05:30  INFO 74307 --- [rail] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-12T16:55:52.675+05:30  INFO 74307 --- [rail] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-07-12T16:55:52.683+05:30  INFO 74307 --- [rail] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T16:55:52.685+05:30  INFO 74307 --- [rail] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-07-12T16:55:52.686+05:30  INFO 74307 --- [rail] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-07-12T17:06:07.152+05:30  INFO 84662 --- [rail] [main] com.settlement.rail.RailApplication      : Starting RailApplication using Java 25.0.2 with PID 84662 (/Users/anton-23085/Project/bank/rail/target/classes started by anton-23085 in /Users/anton-23085/Project/bank/rail)
+2026-07-12T17:06:07.154+05:30  INFO 84662 --- [rail] [main] com.settlement.rail.RailApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-07-12T17:06:07.580+05:30  INFO 84662 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T17:06:07.581+05:30  INFO 84662 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-12T17:06:07.651+05:30  INFO 84662 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 66 ms. Found 5 JPA repository interfaces.
+2026-07-12T17:06:07.673+05:30  INFO 84662 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T17:06:07.673+05:30  INFO 84662 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-12T17:06:07.686+05:30  INFO 84662 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.bank.BankRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:06:07.687+05:30  INFO 84662 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.bank.BankReserveRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:06:07.687+05:30  INFO 84662 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.ledger.LedgerEntryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:06:07.687+05:30  INFO 84662 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.outbox.OutboxEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:06:07.687+05:30  INFO 84662 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.transfer.TransferRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:06:07.688+05:30  INFO 84662 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2026-07-12T17:06:07.989+05:30  INFO 84662 --- [rail] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8082 (http)
+2026-07-12T17:06:07.996+05:30  INFO 84662 --- [rail] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-12T17:06:07.996+05:30  INFO 84662 --- [rail] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-12T17:06:08.016+05:30  INFO 84662 --- [rail] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 834 ms
+2026-07-12T17:06:08.092+05:30  INFO 84662 --- [rail] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-12T17:06:08.117+05:30  INFO 84662 --- [rail] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-12T17:06:08.286+05:30  INFO 84662 --- [rail] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-12T17:06:08.300+05:30  INFO 84662 --- [rail] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-12T17:06:08.390+05:30  INFO 84662 --- [rail] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@55a055cc
+2026-07-12T17:06:08.391+05:30  INFO 84662 --- [rail] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-12T17:06:08.407+05:30  WARN 84662 --- [rail] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-12T17:06:08.419+05:30  INFO 84662 --- [rail] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5433/rail]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: rail/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-12T17:06:08.916+05:30  INFO 84662 --- [rail] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-12T17:06:08.953+05:30  INFO 84662 --- [rail] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T17:06:08.990+05:30  INFO 84662 --- [rail] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-12T17:06:09.369+05:30  WARN 84662 --- [rail] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-12T17:06:09.504+05:30  INFO 84662 --- [rail] [main] g.s.a.GrpcServerFactoryAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
+2026-07-12T17:06:09.578+05:30  WARN 84662 --- [rail] [main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-07-12T17:06:09.776+05:30  INFO 84662 --- [rail] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8082 (http) with context path '/'
+2026-07-12T17:06:09.817+05:30  INFO 84662 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: com.settlement.rail.grpc.PaymentService, bean: paymentGrpcService, class: com.settlement.rail.grpc.PaymentGrpcService
+2026-07-12T17:06:09.817+05:30  INFO 84662 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
+2026-07-12T17:06:09.817+05:30  INFO 84662 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
+2026-07-12T17:06:09.858+05:30  INFO 84662 --- [rail] [main] n.d.b.g.s.s.GrpcServerLifecycle          : gRPC Server started, listening on address: *, port: 9090
+2026-07-12T17:06:09.864+05:30  INFO 84662 --- [rail] [main] com.settlement.rail.RailApplication      : Started RailApplication in 2.986 seconds (process running for 3.227)
+2026-07-12T17:10:09.996+05:30  INFO 84662 --- [rail] [SpringApplicationShutdownHook] n.d.b.g.s.s.GrpcServerLifecycle          : Completed gRPC server shutdown
+2026-07-12T17:10:09.999+05:30  INFO 84662 --- [rail] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-12T17:10:10.003+05:30  INFO 84662 --- [rail] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-07-12T17:10:10.026+05:30  INFO 84662 --- [rail] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T17:10:10.029+05:30  INFO 84662 --- [rail] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-07-12T17:10:10.032+05:30  INFO 84662 --- [rail] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-07-12T17:11:01.412+05:30  INFO 86468 --- [rail] [main] com.settlement.rail.RailApplication      : Starting RailApplication using Java 25.0.2 with PID 86468 (/Users/anton-23085/Project/bank/rail/target/classes started by anton-23085 in /Users/anton-23085/Project/bank/rail)
+2026-07-12T17:11:01.414+05:30  INFO 86468 --- [rail] [main] com.settlement.rail.RailApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-07-12T17:11:01.774+05:30  INFO 86468 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T17:11:01.775+05:30  INFO 86468 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-12T17:11:01.851+05:30  INFO 86468 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 71 ms. Found 5 JPA repository interfaces.
+2026-07-12T17:11:01.877+05:30  INFO 86468 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T17:11:01.878+05:30  INFO 86468 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-12T17:11:01.886+05:30  INFO 86468 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.bank.BankRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:11:01.886+05:30  INFO 86468 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.bank.BankReserveRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:11:01.886+05:30  INFO 86468 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.ledger.LedgerEntryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:11:01.887+05:30  INFO 86468 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.outbox.OutboxEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:11:01.887+05:30  INFO 86468 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.transfer.TransferRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:11:01.887+05:30  INFO 86468 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2026-07-12T17:11:02.162+05:30  INFO 86468 --- [rail] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8082 (http)
+2026-07-12T17:11:02.168+05:30  INFO 86468 --- [rail] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-12T17:11:02.168+05:30  INFO 86468 --- [rail] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-12T17:11:02.188+05:30  INFO 86468 --- [rail] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 751 ms
+2026-07-12T17:11:02.264+05:30  INFO 86468 --- [rail] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-12T17:11:02.281+05:30  INFO 86468 --- [rail] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-12T17:11:02.441+05:30  INFO 86468 --- [rail] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-12T17:11:02.453+05:30  INFO 86468 --- [rail] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-12T17:11:02.535+05:30  INFO 86468 --- [rail] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1eda309d
+2026-07-12T17:11:02.536+05:30  INFO 86468 --- [rail] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-12T17:11:02.550+05:30  WARN 86468 --- [rail] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-12T17:11:02.559+05:30  INFO 86468 --- [rail] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5433/rail]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: rail/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-12T17:11:03.028+05:30  INFO 86468 --- [rail] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-12T17:11:03.068+05:30  INFO 86468 --- [rail] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T17:11:03.115+05:30  INFO 86468 --- [rail] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-12T17:11:03.690+05:30  WARN 86468 --- [rail] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-12T17:11:03.854+05:30  INFO 86468 --- [rail] [main] g.s.a.GrpcServerFactoryAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
+2026-07-12T17:11:03.947+05:30  WARN 86468 --- [rail] [main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-07-12T17:11:04.236+05:30  INFO 86468 --- [rail] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8082 (http) with context path '/'
+2026-07-12T17:11:04.292+05:30  INFO 86468 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: com.settlement.rail.grpc.PaymentService, bean: paymentGrpcService, class: com.settlement.rail.grpc.PaymentGrpcService
+2026-07-12T17:11:04.292+05:30  INFO 86468 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
+2026-07-12T17:11:04.292+05:30  INFO 86468 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
+2026-07-12T17:11:04.368+05:30  INFO 86468 --- [rail] [main] n.d.b.g.s.s.GrpcServerLifecycle          : gRPC Server started, listening on address: *, port: 9090
+2026-07-12T17:11:04.380+05:30  INFO 86468 --- [rail] [main] com.settlement.rail.RailApplication      : Started RailApplication in 3.211 seconds (process running for 3.454)
+2026-07-12T17:22:28.088+05:30  WARN 86468 --- [rail] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m19s374ms).
+2026-07-12T17:22:43.592+05:30  INFO 86468 --- [rail] [SpringApplicationShutdownHook] n.d.b.g.s.s.GrpcServerLifecycle          : Completed gRPC server shutdown
+2026-07-12T17:22:43.593+05:30  INFO 86468 --- [rail] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-12T17:22:43.596+05:30  INFO 86468 --- [rail] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-07-12T17:22:43.626+05:30  INFO 86468 --- [rail] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T17:22:43.628+05:30  INFO 86468 --- [rail] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-07-12T17:22:43.630+05:30  INFO 86468 --- [rail] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-07-12T17:24:14.382+05:30  INFO 93009 --- [rail] [main] com.settlement.rail.RailApplication      : Starting RailApplication using Java 25.0.2 with PID 93009 (/Users/anton-23085/Project/bank/rail/target/classes started by anton-23085 in /Users/anton-23085/Project/bank/rail)
+2026-07-12T17:24:14.383+05:30  INFO 93009 --- [rail] [main] com.settlement.rail.RailApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-07-12T17:24:14.772+05:30  INFO 93009 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T17:24:14.772+05:30  INFO 93009 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-12T17:24:14.865+05:30  INFO 93009 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 89 ms. Found 5 JPA repository interfaces.
+2026-07-12T17:24:14.886+05:30  INFO 93009 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T17:24:14.887+05:30  INFO 93009 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-12T17:24:14.894+05:30  INFO 93009 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.bank.BankRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:24:14.895+05:30  INFO 93009 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.bank.BankReserveRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:24:14.895+05:30  INFO 93009 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.ledger.LedgerEntryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:24:14.895+05:30  INFO 93009 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.outbox.OutboxEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:24:14.895+05:30  INFO 93009 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.transfer.TransferRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:24:14.895+05:30  INFO 93009 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2026-07-12T17:24:15.218+05:30  INFO 93009 --- [rail] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8082 (http)
+2026-07-12T17:24:15.233+05:30  INFO 93009 --- [rail] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-12T17:24:15.233+05:30  INFO 93009 --- [rail] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-12T17:24:15.261+05:30  INFO 93009 --- [rail] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 856 ms
+2026-07-12T17:24:15.358+05:30  INFO 93009 --- [rail] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-12T17:24:15.376+05:30  INFO 93009 --- [rail] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-12T17:24:15.542+05:30  INFO 93009 --- [rail] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-12T17:24:15.556+05:30  INFO 93009 --- [rail] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-12T17:24:15.654+05:30  INFO 93009 --- [rail] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6b5e1fc5
+2026-07-12T17:24:15.654+05:30  INFO 93009 --- [rail] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-12T17:24:15.675+05:30  WARN 93009 --- [rail] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-12T17:24:15.687+05:30  INFO 93009 --- [rail] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5433/rail]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: rail/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-12T17:24:16.180+05:30  INFO 93009 --- [rail] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-12T17:24:16.270+05:30  INFO 93009 --- [rail] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T17:24:16.318+05:30  INFO 93009 --- [rail] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-12T17:24:16.698+05:30  WARN 93009 --- [rail] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-12T17:24:16.819+05:30  INFO 93009 --- [rail] [main] g.s.a.GrpcServerFactoryAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
+2026-07-12T17:24:16.888+05:30  WARN 93009 --- [rail] [main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-07-12T17:24:17.086+05:30  INFO 93009 --- [rail] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8082 (http) with context path '/'
+2026-07-12T17:24:17.118+05:30  INFO 93009 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: com.settlement.rail.grpc.PaymentService, bean: paymentGrpcService, class: com.settlement.rail.grpc.PaymentGrpcService
+2026-07-12T17:24:17.119+05:30  INFO 93009 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
+2026-07-12T17:24:17.119+05:30  INFO 93009 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
+2026-07-12T17:24:17.159+05:30  INFO 93009 --- [rail] [main] n.d.b.g.s.s.GrpcServerLifecycle          : gRPC Server started, listening on address: *, port: 9090
+2026-07-12T17:24:17.165+05:30  INFO 93009 --- [rail] [main] com.settlement.rail.RailApplication      : Started RailApplication in 3.035 seconds (process running for 3.244)
+2026-07-12T17:24:57.200+05:30  INFO 93009 --- [rail] [SpringApplicationShutdownHook] n.d.b.g.s.s.GrpcServerLifecycle          : Completed gRPC server shutdown
+2026-07-12T17:24:57.202+05:30  INFO 93009 --- [rail] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-12T17:24:57.205+05:30  INFO 93009 --- [rail] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-07-12T17:24:57.225+05:30  INFO 93009 --- [rail] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T17:24:57.228+05:30  INFO 93009 --- [rail] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-07-12T17:24:57.230+05:30  INFO 93009 --- [rail] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-07-12T17:25:08.007+05:30  INFO 93317 --- [rail] [main] com.settlement.rail.RailApplication      : Starting RailApplication using Java 25.0.2 with PID 93317 (/Users/anton-23085/Project/bank/rail/target/classes started by anton-23085 in /Users/anton-23085/Project/bank/rail)
+2026-07-12T17:25:08.009+05:30  INFO 93317 --- [rail] [main] com.settlement.rail.RailApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-07-12T17:25:08.409+05:30  INFO 93317 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T17:25:08.410+05:30  INFO 93317 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-12T17:25:08.483+05:30  INFO 93317 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 69 ms. Found 5 JPA repository interfaces.
+2026-07-12T17:25:08.511+05:30  INFO 93317 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T17:25:08.511+05:30  INFO 93317 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-12T17:25:08.519+05:30  INFO 93317 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.bank.BankRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:25:08.519+05:30  INFO 93317 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.bank.BankReserveRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:25:08.520+05:30  INFO 93317 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.ledger.LedgerEntryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:25:08.520+05:30  INFO 93317 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.outbox.OutboxEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:25:08.520+05:30  INFO 93317 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.transfer.TransferRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:25:08.520+05:30  INFO 93317 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2026-07-12T17:25:08.804+05:30  INFO 93317 --- [rail] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8082 (http)
+2026-07-12T17:25:08.810+05:30  INFO 93317 --- [rail] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-12T17:25:08.811+05:30  INFO 93317 --- [rail] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-12T17:25:08.832+05:30  INFO 93317 --- [rail] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 797 ms
+2026-07-12T17:25:08.905+05:30  INFO 93317 --- [rail] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-12T17:25:08.924+05:30  INFO 93317 --- [rail] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-12T17:25:09.093+05:30  INFO 93317 --- [rail] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-12T17:25:09.106+05:30  INFO 93317 --- [rail] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-12T17:25:09.184+05:30  INFO 93317 --- [rail] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2a504ea7
+2026-07-12T17:25:09.185+05:30  INFO 93317 --- [rail] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-12T17:25:09.198+05:30  WARN 93317 --- [rail] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-12T17:25:09.208+05:30  INFO 93317 --- [rail] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5433/rail]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: rail/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-12T17:25:09.728+05:30  INFO 93317 --- [rail] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-12T17:25:09.774+05:30  INFO 93317 --- [rail] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T17:25:09.814+05:30  INFO 93317 --- [rail] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-12T17:25:10.201+05:30  WARN 93317 --- [rail] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-12T17:25:10.332+05:30  INFO 93317 --- [rail] [main] g.s.a.GrpcServerFactoryAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
+2026-07-12T17:25:10.406+05:30  WARN 93317 --- [rail] [main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-07-12T17:25:10.594+05:30  INFO 93317 --- [rail] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8082 (http) with context path '/'
+2026-07-12T17:25:10.628+05:30  INFO 93317 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: com.settlement.rail.grpc.PaymentService, bean: paymentGrpcService, class: com.settlement.rail.grpc.PaymentGrpcService
+2026-07-12T17:25:10.628+05:30  INFO 93317 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
+2026-07-12T17:25:10.628+05:30  INFO 93317 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
+2026-07-12T17:25:10.672+05:30  INFO 93317 --- [rail] [main] n.d.b.g.s.s.GrpcServerLifecycle          : gRPC Server started, listening on address: *, port: 9090
+2026-07-12T17:25:10.677+05:30  INFO 93317 --- [rail] [main] com.settlement.rail.RailApplication      : Started RailApplication in 2.91 seconds (process running for 3.098)
+2026-07-12T17:27:01.901+05:30  INFO 93317 --- [rail] [scheduler-4] o.a.kafka.common.config.AbstractConfig   : ProducerConfig values: 
+	acks = -1
+	batch.size = 16384
+	bootstrap.servers = [localhost:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = rail-producer-1
+	compression.gzip.level = -1
+	compression.lz4.level = 9
+	compression.type = none
+	compression.zstd.level = 3
+	config.providers = []
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	enable.metrics.push = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 5
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metadata.recovery.rebootstrap.trigger.ms = 300000
+	metadata.recovery.strategy = rebootstrap
+	metric.reporters = [org.apache.kafka.common.metrics.JmxReporter]
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.assertion.algorithm = RS256
+	sasl.oauthbearer.assertion.claim.aud = null
+	sasl.oauthbearer.assertion.claim.exp.seconds = 300
+	sasl.oauthbearer.assertion.claim.iss = null
+	sasl.oauthbearer.assertion.claim.jti.include = false
+	sasl.oauthbearer.assertion.claim.nbf.seconds = 60
+	sasl.oauthbearer.assertion.claim.sub = null
+	sasl.oauthbearer.assertion.file = null
+	sasl.oauthbearer.assertion.private.key.file = null
+	sasl.oauthbearer.assertion.private.key.passphrase = null
+	sasl.oauthbearer.assertion.template.file = null
+	sasl.oauthbearer.client.credentials.client.id = null
+	sasl.oauthbearer.client.credentials.client.secret = null
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = []
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.jwt.retriever.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtRetriever
+	sasl.oauthbearer.jwt.validator.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtValidator
+	sasl.oauthbearer.scope = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = []
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transaction.two.phase.commit.enable = false
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2026-07-12T17:27:01.936+05:30  INFO 93317 --- [rail] [scheduler-4] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2026-07-12T17:27:02.074+05:30  INFO 93317 --- [rail] [scheduler-4] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=rail-producer-1] Instantiated an idempotent producer.
+2026-07-12T17:27:02.112+05:30  INFO 93317 --- [rail] [scheduler-4] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 4.2.1
+2026-07-12T17:27:02.113+05:30  INFO 93317 --- [rail] [scheduler-4] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 92f61c44867f39dc
+2026-07-12T17:27:02.113+05:30  INFO 93317 --- [rail] [scheduler-4] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1783857422110
+2026-07-12T17:27:02.383+05:30  INFO 93317 --- [rail] [kafka-producer-network-thread | rail-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=rail-producer-1] Cluster ID: YnD_8WyzQ4SdY1TpLQDqKA
+2026-07-12T17:27:02.493+05:30  INFO 93317 --- [rail] [kafka-producer-network-thread | rail-producer-1] o.a.k.c.p.internals.TransactionManager   : [Producer clientId=rail-producer-1] ProducerId set to 7000 with epoch 0
+2026-07-12T17:39:35.617+05:30  INFO 1256 --- [rail] [main] com.settlement.rail.RailApplication      : Starting RailApplication using Java 25.0.2 with PID 1256 (/Users/anton-23085/Project/bank/rail/target/classes started by anton-23085 in /Users/anton-23085/Project/bank/rail)
+2026-07-12T17:39:35.621+05:30  INFO 1256 --- [rail] [main] com.settlement.rail.RailApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-07-12T17:39:36.159+05:30  INFO 1256 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T17:39:36.161+05:30  INFO 1256 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-12T17:39:36.256+05:30  INFO 1256 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 89 ms. Found 5 JPA repository interfaces.
+2026-07-12T17:39:36.288+05:30  INFO 1256 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T17:39:36.289+05:30  INFO 1256 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-12T17:39:36.299+05:30  INFO 1256 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.bank.BankRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:39:36.299+05:30  INFO 1256 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.bank.BankReserveRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:39:36.300+05:30  INFO 1256 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.ledger.LedgerEntryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:39:36.300+05:30  INFO 1256 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.outbox.OutboxEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:39:36.300+05:30  INFO 1256 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.transfer.TransferRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:39:36.300+05:30  INFO 1256 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2026-07-12T17:39:36.727+05:30  INFO 1256 --- [rail] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8082 (http)
+2026-07-12T17:39:36.737+05:30  INFO 1256 --- [rail] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-12T17:39:36.738+05:30  INFO 1256 --- [rail] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-12T17:39:36.766+05:30  INFO 1256 --- [rail] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1120 ms
+2026-07-12T17:39:36.892+05:30  INFO 1256 --- [rail] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-12T17:39:36.924+05:30  INFO 1256 --- [rail] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-12T17:39:37.153+05:30  INFO 1256 --- [rail] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-12T17:39:37.169+05:30  INFO 1256 --- [rail] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-12T17:39:37.276+05:30  INFO 1256 --- [rail] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@19d76106
+2026-07-12T17:39:37.277+05:30  INFO 1256 --- [rail] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-12T17:39:37.297+05:30  WARN 1256 --- [rail] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-12T17:39:37.308+05:30  INFO 1256 --- [rail] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5433/rail]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: rail/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-12T17:39:38.122+05:30  INFO 1256 --- [rail] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-12T17:39:38.183+05:30  INFO 1256 --- [rail] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T17:39:38.224+05:30  INFO 1256 --- [rail] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-12T17:39:38.649+05:30  WARN 1256 --- [rail] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-12T17:39:38.778+05:30  INFO 1256 --- [rail] [main] g.s.a.GrpcServerFactoryAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
+2026-07-12T17:39:38.857+05:30  WARN 1256 --- [rail] [main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-07-12T17:39:39.063+05:30  INFO 1256 --- [rail] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8082 (http) with context path '/'
+2026-07-12T17:39:39.103+05:30  INFO 1256 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: com.settlement.rail.grpc.PaymentService, bean: paymentGrpcService, class: com.settlement.rail.grpc.PaymentGrpcService
+2026-07-12T17:39:39.104+05:30  INFO 1256 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
+2026-07-12T17:39:39.104+05:30  INFO 1256 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
+2026-07-12T17:39:39.149+05:30  INFO 1256 --- [rail] [main] n.d.b.g.s.s.GrpcServerLifecycle          : gRPC Server started, listening on address: *, port: 9090
+2026-07-12T17:39:39.156+05:30  INFO 1256 --- [rail] [main] com.settlement.rail.RailApplication      : Started RailApplication in 3.867 seconds (process running for 4.171)
+2026-07-12T17:40:53.971+05:30  INFO 1256 --- [rail] [scheduler-4] o.a.kafka.common.config.AbstractConfig   : ProducerConfig values: 
+	acks = -1
+	batch.size = 16384
+	bootstrap.servers = [localhost:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = rail-producer-1
+	compression.gzip.level = -1
+	compression.lz4.level = 9
+	compression.type = none
+	compression.zstd.level = 3
+	config.providers = []
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	enable.metrics.push = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 5
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metadata.recovery.rebootstrap.trigger.ms = 300000
+	metadata.recovery.strategy = rebootstrap
+	metric.reporters = [org.apache.kafka.common.metrics.JmxReporter]
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.assertion.algorithm = RS256
+	sasl.oauthbearer.assertion.claim.aud = null
+	sasl.oauthbearer.assertion.claim.exp.seconds = 300
+	sasl.oauthbearer.assertion.claim.iss = null
+	sasl.oauthbearer.assertion.claim.jti.include = false
+	sasl.oauthbearer.assertion.claim.nbf.seconds = 60
+	sasl.oauthbearer.assertion.claim.sub = null
+	sasl.oauthbearer.assertion.file = null
+	sasl.oauthbearer.assertion.private.key.file = null
+	sasl.oauthbearer.assertion.private.key.passphrase = null
+	sasl.oauthbearer.assertion.template.file = null
+	sasl.oauthbearer.client.credentials.client.id = null
+	sasl.oauthbearer.client.credentials.client.secret = null
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = []
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.jwt.retriever.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtRetriever
+	sasl.oauthbearer.jwt.validator.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtValidator
+	sasl.oauthbearer.scope = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = []
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transaction.two.phase.commit.enable = false
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2026-07-12T17:40:54.002+05:30  INFO 1256 --- [rail] [scheduler-4] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2026-07-12T17:40:54.107+05:30  INFO 1256 --- [rail] [scheduler-4] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=rail-producer-1] Instantiated an idempotent producer.
+2026-07-12T17:40:54.157+05:30  INFO 1256 --- [rail] [scheduler-4] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 4.2.1
+2026-07-12T17:40:54.158+05:30  INFO 1256 --- [rail] [scheduler-4] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 92f61c44867f39dc
+2026-07-12T17:40:54.158+05:30  INFO 1256 --- [rail] [scheduler-4] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1783858254156
+2026-07-12T17:40:54.484+05:30  INFO 1256 --- [rail] [kafka-producer-network-thread | rail-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=rail-producer-1] Cluster ID: YnD_8WyzQ4SdY1TpLQDqKA
+2026-07-12T17:40:54.484+05:30  INFO 1256 --- [rail] [kafka-producer-network-thread | rail-producer-1] o.a.k.c.p.internals.TransactionManager   : [Producer clientId=rail-producer-1] ProducerId set to 7001 with epoch 0
+2026-07-12T17:41:36.142+05:30  INFO 1256 --- [rail] [payment-1] c.s.rail.grpc.ReceiverBankGrpcClient     : Credit request acknowledged: bank='HDFC_IN' ackId='5d4cc89f-8c00-4188-a8c1-f8b574937ffa' status='FAILURE' reference='PAY-R4151'
+2026-07-12T17:42:32.699+05:30 ERROR 1256 --- [rail] [payment-2] c.s.rail.grpc.ReceiverBankGrpcClient     : gRPC credit request to bank='HDFC_IN' failed for reference='PAY-R441251': status=Status{code=UNAVAILABLE, description=io exception, cause=io.grpc.netty.shaded.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: localhost/[0:0:0:0:0:0:0:1]:9091
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:639)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:1046)
+	at io.grpc.netty.shaded.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336)
+	at io.grpc.netty.shaded.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339)
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784)
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732)
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658)
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.grpc.netty.shaded.io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998)
+	at io.grpc.netty.shaded.io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.grpc.netty.shaded.io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+}
+
+io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at io.grpc.stub.ClientCalls.toStatusRuntimeException(ClientCalls.java:268) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.stub.ClientCalls.getUnchecked(ClientCalls.java:249) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.stub.ClientCalls.blockingUnaryCall(ClientCalls.java:167) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at com.centralbank.gateway.v1.CentralBankGatewayGrpc$CentralBankGatewayBlockingStub.requestCredit(CentralBankGatewayGrpc.java:392) ~[payment-contract-1.0-SNAPSHOT.jar:na]
+	at com.settlement.rail.grpc.ReceiverBankGrpcClient.sendCreditRequest(ReceiverBankGrpcClient.java:78) ~[classes/:na]
+	at com.settlement.rail.transfer.PaymentOrchestrator.runPostCommitTasks(PaymentOrchestrator.java:61) ~[classes/:na]
+	at com.settlement.rail.transfer.PaymentOrchestrator.lambda$0(PaymentOrchestrator.java:43) ~[classes/:na]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1825) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+Caused by: io.grpc.netty.shaded.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: localhost/[0:0:0:0:0:0:0:1]:9091
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:639) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:1046) ~[na:na]
+	at io.grpc.netty.shaded.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-07-12T17:42:32.705+05:30 ERROR 1256 --- [rail] [payment-2] c.s.rail.transfer.PaymentOrchestrator    : Post-commit async task failed for reference=PAY-R441251
+
+java.util.concurrent.CompletionException: io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at java.base/java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java:323) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:359) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:364) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1828) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+Caused by: io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at io.grpc.stub.ClientCalls.toStatusRuntimeException(ClientCalls.java:268) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.stub.ClientCalls.getUnchecked(ClientCalls.java:249) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.stub.ClientCalls.blockingUnaryCall(ClientCalls.java:167) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at com.centralbank.gateway.v1.CentralBankGatewayGrpc$CentralBankGatewayBlockingStub.requestCredit(CentralBankGatewayGrpc.java:392) ~[payment-contract-1.0-SNAPSHOT.jar:na]
+	at com.settlement.rail.grpc.ReceiverBankGrpcClient.sendCreditRequest(ReceiverBankGrpcClient.java:78) ~[classes/:na]
+	at com.settlement.rail.transfer.PaymentOrchestrator.runPostCommitTasks(PaymentOrchestrator.java:61) ~[classes/:na]
+	at com.settlement.rail.transfer.PaymentOrchestrator.lambda$0(PaymentOrchestrator.java:43) ~[classes/:na]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1825) ~[na:na]
+	... 3 common frames omitted
+Caused by: io.grpc.netty.shaded.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: localhost/[0:0:0:0:0:0:0:1]:9091
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:639) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:1046) ~[na:na]
+	at io.grpc.netty.shaded.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-07-12T17:42:57.315+05:30 ERROR 1256 --- [rail] [scheduler-3] c.s.rail.outbox.OutboxProcessor          : Failed to publish outbox event id=10 type=TRANSFER_INITIATED — will be retried by stuck-events scheduler
+
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1981) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2116) ~[na:na]
+	at com.settlement.rail.outbox.OutboxProcessor.processOutbox(OutboxProcessor.java:36) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.runInternal(ScheduledMethodRunnable.java:128) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.lambda$run$1(ScheduledMethodRunnable.java:122) ~[spring-context-7.0.8.jar:7.0.8]
+	at io.micrometer.observation.Observation.observe(Observation.java:569) ~[micrometer-observation-1.17.0.jar:1.17.0]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:122) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.scheduling.config.Task$OutcomeTrackingRunnable.run(Task.java:88) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-7.0.8.jar:7.0.8]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-07-12T17:48:11.834+05:30 ERROR 1256 --- [rail] [payment-3] c.s.rail.grpc.ReceiverBankGrpcClient     : gRPC credit request to bank='HDFC_IN' failed for reference='PAY-R41251': status=Status{code=UNAVAILABLE, description=io exception, cause=io.grpc.netty.shaded.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: localhost/[0:0:0:0:0:0:0:1]:9091
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:639)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:1046)
+	at io.grpc.netty.shaded.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336)
+	at io.grpc.netty.shaded.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339)
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784)
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732)
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658)
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.grpc.netty.shaded.io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998)
+	at io.grpc.netty.shaded.io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.grpc.netty.shaded.io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+}
+
+io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at io.grpc.stub.ClientCalls.toStatusRuntimeException(ClientCalls.java:268) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.stub.ClientCalls.getUnchecked(ClientCalls.java:249) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.stub.ClientCalls.blockingUnaryCall(ClientCalls.java:167) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at com.centralbank.gateway.v1.CentralBankGatewayGrpc$CentralBankGatewayBlockingStub.requestCredit(CentralBankGatewayGrpc.java:392) ~[payment-contract-1.0-SNAPSHOT.jar:na]
+	at com.settlement.rail.grpc.ReceiverBankGrpcClient.sendCreditRequest(ReceiverBankGrpcClient.java:78) ~[classes/:na]
+	at com.settlement.rail.transfer.PaymentOrchestrator.runPostCommitTasks(PaymentOrchestrator.java:61) ~[classes/:na]
+	at com.settlement.rail.transfer.PaymentOrchestrator.lambda$0(PaymentOrchestrator.java:43) ~[classes/:na]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1825) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+Caused by: io.grpc.netty.shaded.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: localhost/[0:0:0:0:0:0:0:1]:9091
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:639) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:1046) ~[na:na]
+	at io.grpc.netty.shaded.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-07-12T17:48:11.837+05:30 ERROR 1256 --- [rail] [payment-3] c.s.rail.transfer.PaymentOrchestrator    : Post-commit async task failed for reference=PAY-R41251
+
+java.util.concurrent.CompletionException: io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at java.base/java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java:323) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:359) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:364) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1828) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+Caused by: io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at io.grpc.stub.ClientCalls.toStatusRuntimeException(ClientCalls.java:268) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.stub.ClientCalls.getUnchecked(ClientCalls.java:249) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.stub.ClientCalls.blockingUnaryCall(ClientCalls.java:167) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at com.centralbank.gateway.v1.CentralBankGatewayGrpc$CentralBankGatewayBlockingStub.requestCredit(CentralBankGatewayGrpc.java:392) ~[payment-contract-1.0-SNAPSHOT.jar:na]
+	at com.settlement.rail.grpc.ReceiverBankGrpcClient.sendCreditRequest(ReceiverBankGrpcClient.java:78) ~[classes/:na]
+	at com.settlement.rail.transfer.PaymentOrchestrator.runPostCommitTasks(PaymentOrchestrator.java:61) ~[classes/:na]
+	at com.settlement.rail.transfer.PaymentOrchestrator.lambda$0(PaymentOrchestrator.java:43) ~[classes/:na]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1825) ~[na:na]
+	... 3 common frames omitted
+Caused by: io.grpc.netty.shaded.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: localhost/[0:0:0:0:0:0:0:1]:9091
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:639) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:1046) ~[na:na]
+	at io.grpc.netty.shaded.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-07-12T17:48:11.839+05:30  WARN 1256 --- [rail] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m21s336ms).
+2026-07-12T17:48:11.916+05:30  INFO 1256 --- [rail] [SpringApplicationShutdownHook] n.d.b.g.s.s.GrpcServerLifecycle          : Completed gRPC server shutdown
+2026-07-12T17:48:11.917+05:30  INFO 1256 --- [rail] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-12T17:48:11.920+05:30  INFO 1256 --- [rail] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-07-12T17:48:11.925+05:30  INFO 1256 --- [rail] [SpringApplicationShutdownHook] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=rail-producer-1] Closing the Kafka producer with timeoutMillis = 30000 ms.
+2026-07-12T17:48:11.929+05:30  INFO 1256 --- [rail] [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2026-07-12T17:48:11.929+05:30  INFO 1256 --- [rail] [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-07-12T17:48:11.929+05:30  INFO 1256 --- [rail] [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2026-07-12T17:48:11.929+05:30  INFO 1256 --- [rail] [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2026-07-12T17:48:11.930+05:30  INFO 1256 --- [rail] [SpringApplicationShutdownHook] o.a.kafka.common.utils.AppInfoParser     : App info kafka.producer for rail-producer-1 unregistered
+2026-07-12T17:48:11.937+05:30  INFO 1256 --- [rail] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T17:48:11.939+05:30  INFO 1256 --- [rail] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-07-12T17:48:11.941+05:30  INFO 1256 --- [rail] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-07-12T17:48:16.559+05:30  INFO 4949 --- [rail] [main] com.settlement.rail.RailApplication      : Starting RailApplication using Java 25.0.2 with PID 4949 (/Users/anton-23085/Project/bank/rail/target/classes started by anton-23085 in /Users/anton-23085/Project/bank/rail)
+2026-07-12T17:48:16.561+05:30  INFO 4949 --- [rail] [main] com.settlement.rail.RailApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-07-12T17:48:16.935+05:30  INFO 4949 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T17:48:16.936+05:30  INFO 4949 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-12T17:48:17.009+05:30  INFO 4949 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 70 ms. Found 5 JPA repository interfaces.
+2026-07-12T17:48:17.032+05:30  INFO 4949 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T17:48:17.032+05:30  INFO 4949 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-12T17:48:17.044+05:30  INFO 4949 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.bank.BankRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:48:17.045+05:30  INFO 4949 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.bank.BankReserveRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:48:17.046+05:30  INFO 4949 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.ledger.LedgerEntryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:48:17.047+05:30  INFO 4949 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.outbox.OutboxEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:48:17.047+05:30  INFO 4949 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.transfer.TransferRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T17:48:17.047+05:30  INFO 4949 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+2026-07-12T17:48:17.352+05:30  INFO 4949 --- [rail] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8082 (http)
+2026-07-12T17:48:17.358+05:30  INFO 4949 --- [rail] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-12T17:48:17.359+05:30  INFO 4949 --- [rail] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-12T17:48:17.382+05:30  INFO 4949 --- [rail] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 800 ms
+2026-07-12T17:48:17.461+05:30  INFO 4949 --- [rail] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-12T17:48:17.479+05:30  INFO 4949 --- [rail] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-12T17:48:17.637+05:30  INFO 4949 --- [rail] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-12T17:48:17.649+05:30  INFO 4949 --- [rail] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-12T17:48:17.724+05:30  INFO 4949 --- [rail] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@75c77add
+2026-07-12T17:48:17.725+05:30  INFO 4949 --- [rail] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-12T17:48:17.739+05:30  WARN 4949 --- [rail] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-12T17:48:17.751+05:30  INFO 4949 --- [rail] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5433/rail]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: rail/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-12T17:48:18.256+05:30  INFO 4949 --- [rail] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-12T17:48:18.327+05:30  INFO 4949 --- [rail] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T17:48:18.372+05:30  INFO 4949 --- [rail] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-12T17:48:18.832+05:30  WARN 4949 --- [rail] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-12T17:48:18.982+05:30  INFO 4949 --- [rail] [main] g.s.a.GrpcServerFactoryAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
+2026-07-12T17:48:19.091+05:30  WARN 4949 --- [rail] [main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-07-12T17:48:19.437+05:30  INFO 4949 --- [rail] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8082 (http) with context path '/'
+2026-07-12T17:48:19.476+05:30  INFO 4949 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: com.settlement.rail.grpc.PaymentService, bean: paymentGrpcService, class: com.settlement.rail.grpc.PaymentGrpcService
+2026-07-12T17:48:19.476+05:30  INFO 4949 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
+2026-07-12T17:48:19.476+05:30  INFO 4949 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
+2026-07-12T17:48:19.528+05:30  INFO 4949 --- [rail] [main] n.d.b.g.s.s.GrpcServerLifecycle          : gRPC Server started, listening on address: *, port: 9090
+2026-07-12T17:48:19.537+05:30  INFO 4949 --- [rail] [main] com.settlement.rail.RailApplication      : Started RailApplication in 3.205 seconds (process running for 3.398)
+2026-07-12T17:48:19.636+05:30  INFO 4949 --- [rail] [scheduler-2] o.a.kafka.common.config.AbstractConfig   : ProducerConfig values: 
+	acks = -1
+	batch.size = 16384
+	bootstrap.servers = [localhost:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = rail-producer-1
+	compression.gzip.level = -1
+	compression.lz4.level = 9
+	compression.type = none
+	compression.zstd.level = 3
+	config.providers = []
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	enable.metrics.push = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 5
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metadata.recovery.rebootstrap.trigger.ms = 300000
+	metadata.recovery.strategy = rebootstrap
+	metric.reporters = [org.apache.kafka.common.metrics.JmxReporter]
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.assertion.algorithm = RS256
+	sasl.oauthbearer.assertion.claim.aud = null
+	sasl.oauthbearer.assertion.claim.exp.seconds = 300
+	sasl.oauthbearer.assertion.claim.iss = null
+	sasl.oauthbearer.assertion.claim.jti.include = false
+	sasl.oauthbearer.assertion.claim.nbf.seconds = 60
+	sasl.oauthbearer.assertion.claim.sub = null
+	sasl.oauthbearer.assertion.file = null
+	sasl.oauthbearer.assertion.private.key.file = null
+	sasl.oauthbearer.assertion.private.key.passphrase = null
+	sasl.oauthbearer.assertion.template.file = null
+	sasl.oauthbearer.client.credentials.client.id = null
+	sasl.oauthbearer.client.credentials.client.secret = null
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = []
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.jwt.retriever.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtRetriever
+	sasl.oauthbearer.jwt.validator.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtValidator
+	sasl.oauthbearer.scope = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = []
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transaction.two.phase.commit.enable = false
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2026-07-12T17:48:19.669+05:30  INFO 4949 --- [rail] [scheduler-2] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2026-07-12T17:48:19.756+05:30  INFO 4949 --- [rail] [scheduler-2] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=rail-producer-1] Instantiated an idempotent producer.
+2026-07-12T17:48:19.784+05:30  INFO 4949 --- [rail] [scheduler-2] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 4.2.1
+2026-07-12T17:48:19.785+05:30  INFO 4949 --- [rail] [scheduler-2] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 92f61c44867f39dc
+2026-07-12T17:48:19.785+05:30  INFO 4949 --- [rail] [scheduler-2] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1783858699783
+2026-07-12T17:48:19.958+05:30  INFO 4949 --- [rail] [kafka-producer-network-thread | rail-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=rail-producer-1] Cluster ID: YnD_8WyzQ4SdY1TpLQDqKA
+2026-07-12T17:48:19.958+05:30  INFO 4949 --- [rail] [kafka-producer-network-thread | rail-producer-1] o.a.k.c.p.internals.TransactionManager   : [Producer clientId=rail-producer-1] ProducerId set to 7002 with epoch 0
+2026-07-12T18:04:15.594+05:30  WARN 4949 --- [rail] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m57s762ms).
+2026-07-12T18:04:19.155+05:30  INFO 4949 --- [rail] [kafka-producer-network-thread | rail-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=rail-producer-1] Node 1 disconnected.
+2026-07-12T18:04:19.155+05:30  INFO 4949 --- [rail] [kafka-producer-network-thread | rail-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=rail-producer-1] Cancelled in-flight METADATA request with correlation id 7 due to node 1 being disconnected (elapsed time since creation: 2ms, elapsed time since send: 2ms, throttle time: 0ms, request timeout: 30000ms)
+2026-07-12T18:04:41.252+05:30  INFO 4949 --- [rail] [payment-1] c.s.rail.grpc.ReceiverBankGrpcClient     : Credit request acknowledged: bank='HDFC_IN' ackId='cbffed79-9ca0-492e-8e88-ebfaa6745b10' status='FAILURE' reference='PAY-22251'
+2026-07-12T18:07:58.554+05:30  WARN 4949 --- [rail] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m27s117ms).
+2026-07-12T18:09:18.726+05:30  INFO 4949 --- [rail] [payment-4] c.s.rail.grpc.ReceiverBankGrpcClient     : Credit request acknowledged: bank='HDFC_IN' ackId='6134d498-094d-49c7-a009-69d67348573d' status='SUCCESS' reference='PAY-51'
+2026-07-12T18:09:18.726+05:30  INFO 4949 --- [rail] [payment-2] c.s.rail.grpc.ReceiverBankGrpcClient     : Credit request acknowledged: bank='HDFC_IN' ackId='21f9ebde-b709-4dee-aff9-dc6c8f4899dc' status='SUCCESS' reference='PAY-222151'
+2026-07-12T18:09:18.729+05:30  INFO 4949 --- [rail] [payment-3] c.s.rail.grpc.ReceiverBankGrpcClient     : Credit request acknowledged: bank='HDFC_IN' ackId='4f008eb9-cbd7-4d26-a6e1-07cf85acee08' status='SUCCESS' reference='PAY-151'
+2026-07-12T18:09:18.737+05:30  WARN 4949 --- [rail] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m20s184ms).
+2026-07-12T18:09:18.764+05:30 ERROR 4949 --- [rail] [payment-5] c.s.rail.grpc.ReceiverBankGrpcClient     : gRPC credit request to bank='HDFC_IN' failed for reference='PAY-1': status=Status{code=UNAVAILABLE, description=io exception, cause=io.grpc.netty.shaded.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: localhost/[0:0:0:0:0:0:0:1]:9091
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:639)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:1046)
+	at io.grpc.netty.shaded.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336)
+	at io.grpc.netty.shaded.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339)
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784)
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732)
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658)
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.grpc.netty.shaded.io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998)
+	at io.grpc.netty.shaded.io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.grpc.netty.shaded.io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+}
+
+io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at io.grpc.stub.ClientCalls.toStatusRuntimeException(ClientCalls.java:268) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.stub.ClientCalls.getUnchecked(ClientCalls.java:249) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.stub.ClientCalls.blockingUnaryCall(ClientCalls.java:167) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at com.centralbank.gateway.v1.CentralBankGatewayGrpc$CentralBankGatewayBlockingStub.requestCredit(CentralBankGatewayGrpc.java:392) ~[payment-contract-1.0-SNAPSHOT.jar:na]
+	at com.settlement.rail.grpc.ReceiverBankGrpcClient.sendCreditRequest(ReceiverBankGrpcClient.java:78) ~[classes/:na]
+	at com.settlement.rail.transfer.PaymentOrchestrator.runPostCommitTasks(PaymentOrchestrator.java:61) ~[classes/:na]
+	at com.settlement.rail.transfer.PaymentOrchestrator.lambda$0(PaymentOrchestrator.java:43) ~[classes/:na]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1825) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+Caused by: io.grpc.netty.shaded.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: localhost/[0:0:0:0:0:0:0:1]:9091
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:639) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:1046) ~[na:na]
+	at io.grpc.netty.shaded.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-07-12T18:09:18.771+05:30 ERROR 4949 --- [rail] [payment-5] c.s.rail.transfer.PaymentOrchestrator    : Post-commit async task failed for reference=PAY-1
+
+java.util.concurrent.CompletionException: io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at java.base/java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java:323) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:359) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:364) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1828) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+Caused by: io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at io.grpc.stub.ClientCalls.toStatusRuntimeException(ClientCalls.java:268) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.stub.ClientCalls.getUnchecked(ClientCalls.java:249) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at io.grpc.stub.ClientCalls.blockingUnaryCall(ClientCalls.java:167) ~[grpc-stub-1.68.1.jar:1.68.1]
+	at com.centralbank.gateway.v1.CentralBankGatewayGrpc$CentralBankGatewayBlockingStub.requestCredit(CentralBankGatewayGrpc.java:392) ~[payment-contract-1.0-SNAPSHOT.jar:na]
+	at com.settlement.rail.grpc.ReceiverBankGrpcClient.sendCreditRequest(ReceiverBankGrpcClient.java:78) ~[classes/:na]
+	at com.settlement.rail.transfer.PaymentOrchestrator.runPostCommitTasks(PaymentOrchestrator.java:61) ~[classes/:na]
+	at com.settlement.rail.transfer.PaymentOrchestrator.lambda$0(PaymentOrchestrator.java:43) ~[classes/:na]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1825) ~[na:na]
+	... 3 common frames omitted
+Caused by: io.grpc.netty.shaded.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: localhost/[0:0:0:0:0:0:0:1]:9091
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:639) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:1046) ~[na:na]
+	at io.grpc.netty.shaded.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[grpc-netty-shaded-1.80.0.jar:1.80.0]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-07-12T18:09:18.801+05:30  INFO 4949 --- [rail] [SpringApplicationShutdownHook] n.d.b.g.s.s.GrpcServerLifecycle          : Completed gRPC server shutdown
+2026-07-12T18:09:18.803+05:30  INFO 4949 --- [rail] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-12T18:09:18.806+05:30  INFO 4949 --- [rail] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-07-12T18:09:18.812+05:30  INFO 4949 --- [rail] [SpringApplicationShutdownHook] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=rail-producer-1] Closing the Kafka producer with timeoutMillis = 30000 ms.
+2026-07-12T18:09:18.819+05:30  INFO 4949 --- [rail] [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2026-07-12T18:09:18.820+05:30  INFO 4949 --- [rail] [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-07-12T18:09:18.820+05:30  INFO 4949 --- [rail] [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2026-07-12T18:09:18.820+05:30  INFO 4949 --- [rail] [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2026-07-12T18:09:18.822+05:30  INFO 4949 --- [rail] [SpringApplicationShutdownHook] o.a.kafka.common.utils.AppInfoParser     : App info kafka.producer for rail-producer-1 unregistered
+2026-07-12T18:09:18.833+05:30  INFO 4949 --- [rail] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T18:09:18.836+05:30  INFO 4949 --- [rail] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-07-12T18:09:18.837+05:30  INFO 4949 --- [rail] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-07-12T18:11:52.005+05:30  INFO 14320 --- [rail] [main] com.settlement.rail.RailApplication      : Starting RailApplication using Java 25.0.2 with PID 14320 (/Users/anton-23085/Project/bank/rail/target/classes started by anton-23085 in /Users/anton-23085/Project/bank/rail)
+2026-07-12T18:11:52.007+05:30  INFO 14320 --- [rail] [main] com.settlement.rail.RailApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-07-12T18:11:52.413+05:30  INFO 14320 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T18:11:52.414+05:30  INFO 14320 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-12T18:11:52.493+05:30  INFO 14320 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 75 ms. Found 5 JPA repository interfaces.
+2026-07-12T18:11:52.516+05:30  INFO 14320 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T18:11:52.517+05:30  INFO 14320 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-12T18:11:52.525+05:30  INFO 14320 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.bank.BankRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:11:52.526+05:30  INFO 14320 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.bank.BankReserveRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:11:52.526+05:30  INFO 14320 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.ledger.LedgerEntryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:11:52.526+05:30  INFO 14320 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.outbox.OutboxEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:11:52.527+05:30  INFO 14320 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.transfer.TransferRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:11:52.527+05:30  INFO 14320 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2026-07-12T18:11:52.815+05:30  INFO 14320 --- [rail] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8082 (http)
+2026-07-12T18:11:52.822+05:30  INFO 14320 --- [rail] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-12T18:11:52.822+05:30  INFO 14320 --- [rail] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-12T18:11:52.842+05:30  INFO 14320 --- [rail] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 809 ms
+2026-07-12T18:11:52.917+05:30  INFO 14320 --- [rail] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-12T18:11:52.935+05:30  INFO 14320 --- [rail] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-12T18:11:53.093+05:30  INFO 14320 --- [rail] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-12T18:11:53.108+05:30  INFO 14320 --- [rail] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-12T18:11:53.194+05:30  INFO 14320 --- [rail] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@75c77add
+2026-07-12T18:11:53.195+05:30  INFO 14320 --- [rail] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-12T18:11:53.209+05:30  WARN 14320 --- [rail] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-12T18:11:53.219+05:30  INFO 14320 --- [rail] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5433/rail]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: rail/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-12T18:11:53.689+05:30  INFO 14320 --- [rail] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-12T18:11:53.739+05:30  INFO 14320 --- [rail] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T18:11:53.775+05:30  INFO 14320 --- [rail] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-12T18:11:54.158+05:30  WARN 14320 --- [rail] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-12T18:11:54.278+05:30  INFO 14320 --- [rail] [main] g.s.a.GrpcServerFactoryAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
+2026-07-12T18:11:54.351+05:30  WARN 14320 --- [rail] [main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-07-12T18:11:54.546+05:30  INFO 14320 --- [rail] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8082 (http) with context path '/'
+2026-07-12T18:11:54.584+05:30  INFO 14320 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: com.settlement.rail.grpc.PaymentService, bean: paymentGrpcService, class: com.settlement.rail.grpc.PaymentGrpcService
+2026-07-12T18:11:54.584+05:30  INFO 14320 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
+2026-07-12T18:11:54.584+05:30  INFO 14320 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
+2026-07-12T18:11:54.627+05:30  INFO 14320 --- [rail] [main] n.d.b.g.s.s.GrpcServerLifecycle          : gRPC Server started, listening on address: *, port: 9090
+2026-07-12T18:11:54.633+05:30  INFO 14320 --- [rail] [main] com.settlement.rail.RailApplication      : Started RailApplication in 2.882 seconds (process running for 3.146)
+2026-07-12T18:11:54.697+05:30  INFO 14320 --- [rail] [scheduler-2] o.a.kafka.common.config.AbstractConfig   : ProducerConfig values: 
+	acks = -1
+	batch.size = 16384
+	bootstrap.servers = [localhost:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = rail-producer-1
+	compression.gzip.level = -1
+	compression.lz4.level = 9
+	compression.type = none
+	compression.zstd.level = 3
+	config.providers = []
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	enable.metrics.push = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 5
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metadata.recovery.rebootstrap.trigger.ms = 300000
+	metadata.recovery.strategy = rebootstrap
+	metric.reporters = [org.apache.kafka.common.metrics.JmxReporter]
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.assertion.algorithm = RS256
+	sasl.oauthbearer.assertion.claim.aud = null
+	sasl.oauthbearer.assertion.claim.exp.seconds = 300
+	sasl.oauthbearer.assertion.claim.iss = null
+	sasl.oauthbearer.assertion.claim.jti.include = false
+	sasl.oauthbearer.assertion.claim.nbf.seconds = 60
+	sasl.oauthbearer.assertion.claim.sub = null
+	sasl.oauthbearer.assertion.file = null
+	sasl.oauthbearer.assertion.private.key.file = null
+	sasl.oauthbearer.assertion.private.key.passphrase = null
+	sasl.oauthbearer.assertion.template.file = null
+	sasl.oauthbearer.client.credentials.client.id = null
+	sasl.oauthbearer.client.credentials.client.secret = null
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = []
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.jwt.retriever.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtRetriever
+	sasl.oauthbearer.jwt.validator.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtValidator
+	sasl.oauthbearer.scope = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = []
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transaction.two.phase.commit.enable = false
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2026-07-12T18:11:54.712+05:30  INFO 14320 --- [rail] [scheduler-2] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2026-07-12T18:11:54.760+05:30  INFO 14320 --- [rail] [scheduler-2] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=rail-producer-1] Instantiated an idempotent producer.
+2026-07-12T18:11:54.780+05:30  INFO 14320 --- [rail] [scheduler-2] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 4.2.1
+2026-07-12T18:11:54.780+05:30  INFO 14320 --- [rail] [scheduler-2] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 92f61c44867f39dc
+2026-07-12T18:11:54.780+05:30  INFO 14320 --- [rail] [scheduler-2] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1783860114779
+2026-07-12T18:11:54.938+05:30  INFO 14320 --- [rail] [kafka-producer-network-thread | rail-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=rail-producer-1] Cluster ID: YnD_8WyzQ4SdY1TpLQDqKA
+2026-07-12T18:11:54.938+05:30  INFO 14320 --- [rail] [kafka-producer-network-thread | rail-producer-1] o.a.k.c.p.internals.TransactionManager   : [Producer clientId=rail-producer-1] ProducerId set to 7003 with epoch 0
+2026-07-12T18:14:25.071+05:30  WARN 14320 --- [rail] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m1s755ms).
+2026-07-12T18:14:25.483+05:30  INFO 14320 --- [rail] [payment-1] c.s.rail.grpc.ReceiverBankGrpcClient     : Credit request acknowledged: bank='HDFC_IN' ackId='25b43d81-86fe-4bb0-b518-0a74da5d9db7' status='SUCCESS' reference='PAY-234'
+2026-07-12T18:16:32.693+05:30  INFO 14320 --- [rail] [SpringApplicationShutdownHook] n.d.b.g.s.s.GrpcServerLifecycle          : Completed gRPC server shutdown
+2026-07-12T18:16:32.696+05:30  INFO 14320 --- [rail] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-12T18:16:32.704+05:30  INFO 14320 --- [rail] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-07-12T18:16:32.717+05:30  INFO 14320 --- [rail] [SpringApplicationShutdownHook] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=rail-producer-1] Closing the Kafka producer with timeoutMillis = 30000 ms.
+2026-07-12T18:16:32.727+05:30  INFO 14320 --- [rail] [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2026-07-12T18:16:32.728+05:30  INFO 14320 --- [rail] [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-07-12T18:16:32.728+05:30  INFO 14320 --- [rail] [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2026-07-12T18:16:32.728+05:30  INFO 14320 --- [rail] [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2026-07-12T18:16:32.730+05:30  INFO 14320 --- [rail] [SpringApplicationShutdownHook] o.a.kafka.common.utils.AppInfoParser     : App info kafka.producer for rail-producer-1 unregistered
+2026-07-12T18:16:32.751+05:30  INFO 14320 --- [rail] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T18:16:32.761+05:30  INFO 14320 --- [rail] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-07-12T18:16:32.764+05:30  INFO 14320 --- [rail] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-07-12T18:21:24.309+05:30  INFO 17425 --- [rail] [main] com.settlement.rail.RailApplication      : Starting RailApplication using Java 25.0.2 with PID 17425 (/Users/anton-23085/Project/bank/rail/target/classes started by anton-23085 in /Users/anton-23085/Project/bank/rail)
+2026-07-12T18:21:24.310+05:30  INFO 17425 --- [rail] [main] com.settlement.rail.RailApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-07-12T18:21:24.692+05:30  INFO 17425 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T18:21:24.692+05:30  INFO 17425 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-12T18:21:24.770+05:30  INFO 17425 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 73 ms. Found 5 JPA repository interfaces.
+2026-07-12T18:21:24.796+05:30  INFO 17425 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-12T18:21:24.797+05:30  INFO 17425 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-12T18:21:24.806+05:30  INFO 17425 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.bank.BankRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:21:24.806+05:30  INFO 17425 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.bank.BankReserveRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:21:24.807+05:30  INFO 17425 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.ledger.LedgerEntryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:21:24.807+05:30  INFO 17425 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.outbox.OutboxEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:21:24.807+05:30  INFO 17425 --- [rail] [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.settlement.rail.transfer.TransferRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-12T18:21:24.807+05:30  INFO 17425 --- [rail] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2026-07-12T18:21:25.092+05:30  INFO 17425 --- [rail] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8082 (http)
+2026-07-12T18:21:25.098+05:30  INFO 17425 --- [rail] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-12T18:21:25.099+05:30  INFO 17425 --- [rail] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-12T18:21:25.120+05:30  INFO 17425 --- [rail] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 788 ms
+2026-07-12T18:21:25.203+05:30  INFO 17425 --- [rail] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-12T18:21:25.222+05:30  INFO 17425 --- [rail] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-12T18:21:25.382+05:30  INFO 17425 --- [rail] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-12T18:21:25.397+05:30  INFO 17425 --- [rail] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-12T18:21:25.488+05:30  INFO 17425 --- [rail] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@231d3ce
+2026-07-12T18:21:25.489+05:30  INFO 17425 --- [rail] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-12T18:21:25.504+05:30  WARN 17425 --- [rail] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-12T18:21:25.516+05:30  INFO 17425 --- [rail] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5433/rail]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: rail/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-12T18:21:25.986+05:30  INFO 17425 --- [rail] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-12T18:21:26.035+05:30  INFO 17425 --- [rail] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T18:21:26.073+05:30  INFO 17425 --- [rail] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-12T18:21:26.436+05:30  WARN 17425 --- [rail] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-12T18:21:26.577+05:30  INFO 17425 --- [rail] [main] g.s.a.GrpcServerFactoryAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
+2026-07-12T18:21:26.667+05:30  WARN 17425 --- [rail] [main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-07-12T18:21:26.890+05:30  INFO 17425 --- [rail] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8082 (http) with context path '/'
+2026-07-12T18:21:26.928+05:30  INFO 17425 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: com.settlement.rail.grpc.PaymentService, bean: paymentGrpcService, class: com.settlement.rail.grpc.PaymentGrpcService
+2026-07-12T18:21:26.928+05:30  INFO 17425 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
+2026-07-12T18:21:26.929+05:30  INFO 17425 --- [rail] [main] n.d.b.g.s.s.AbstractGrpcServerFactory    : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
+2026-07-12T18:21:26.981+05:30  INFO 17425 --- [rail] [main] n.d.b.g.s.s.GrpcServerLifecycle          : gRPC Server started, listening on address: *, port: 9090
+2026-07-12T18:21:26.986+05:30  INFO 17425 --- [rail] [main] com.settlement.rail.RailApplication      : Started RailApplication in 2.92 seconds (process running for 3.168)
+2026-07-12T18:21:50.604+05:30  INFO 17425 --- [rail] [scheduler-4] o.a.kafka.common.config.AbstractConfig   : ProducerConfig values: 
+	acks = -1
+	batch.size = 16384
+	bootstrap.servers = [localhost:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = rail-producer-1
+	compression.gzip.level = -1
+	compression.lz4.level = 9
+	compression.type = none
+	compression.zstd.level = 3
+	config.providers = []
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	enable.metrics.push = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 5
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metadata.recovery.rebootstrap.trigger.ms = 300000
+	metadata.recovery.strategy = rebootstrap
+	metric.reporters = [org.apache.kafka.common.metrics.JmxReporter]
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.assertion.algorithm = RS256
+	sasl.oauthbearer.assertion.claim.aud = null
+	sasl.oauthbearer.assertion.claim.exp.seconds = 300
+	sasl.oauthbearer.assertion.claim.iss = null
+	sasl.oauthbearer.assertion.claim.jti.include = false
+	sasl.oauthbearer.assertion.claim.nbf.seconds = 60
+	sasl.oauthbearer.assertion.claim.sub = null
+	sasl.oauthbearer.assertion.file = null
+	sasl.oauthbearer.assertion.private.key.file = null
+	sasl.oauthbearer.assertion.private.key.passphrase = null
+	sasl.oauthbearer.assertion.template.file = null
+	sasl.oauthbearer.client.credentials.client.id = null
+	sasl.oauthbearer.client.credentials.client.secret = null
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = []
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.jwt.retriever.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtRetriever
+	sasl.oauthbearer.jwt.validator.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtValidator
+	sasl.oauthbearer.scope = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = []
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transaction.two.phase.commit.enable = false
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2026-07-12T18:21:50.624+05:30  INFO 17425 --- [rail] [scheduler-4] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2026-07-12T18:21:50.750+05:30  INFO 17425 --- [rail] [scheduler-4] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=rail-producer-1] Instantiated an idempotent producer.
+2026-07-12T18:21:50.786+05:30  INFO 17425 --- [rail] [scheduler-4] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 4.2.1
+2026-07-12T18:21:50.786+05:30  INFO 17425 --- [rail] [scheduler-4] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 92f61c44867f39dc
+2026-07-12T18:21:50.786+05:30  INFO 17425 --- [rail] [scheduler-4] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1783860710782
+2026-07-12T18:21:51.171+05:30  INFO 17425 --- [rail] [kafka-producer-network-thread | rail-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=rail-producer-1] Cluster ID: YnD_8WyzQ4SdY1TpLQDqKA
+2026-07-12T18:21:51.171+05:30  INFO 17425 --- [rail] [kafka-producer-network-thread | rail-producer-1] o.a.k.c.p.internals.TransactionManager   : [Producer clientId=rail-producer-1] ProducerId set to 7004 with epoch 0
+2026-07-12T18:22:14.514+05:30  INFO 17425 --- [rail] [payment-1] c.s.rail.grpc.ReceiverBankGrpcClient     : Credit request acknowledged: bank='HDFC_IN' ackId='634ac667-97e0-41fc-9428-9059936b7530' status='SUCCESS' reference='PAY-12234'
+2026-07-12T18:22:49.051+05:30  INFO 17425 --- [rail] [SpringApplicationShutdownHook] n.d.b.g.s.s.GrpcServerLifecycle          : Completed gRPC server shutdown
+2026-07-12T18:22:49.052+05:30  INFO 17425 --- [rail] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-12T18:22:49.054+05:30  INFO 17425 --- [rail] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-07-12T18:22:49.058+05:30  INFO 17425 --- [rail] [SpringApplicationShutdownHook] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=rail-producer-1] Closing the Kafka producer with timeoutMillis = 30000 ms.
+2026-07-12T18:22:49.063+05:30  INFO 17425 --- [rail] [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2026-07-12T18:22:49.063+05:30  INFO 17425 --- [rail] [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-07-12T18:22:49.063+05:30  INFO 17425 --- [rail] [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2026-07-12T18:22:49.064+05:30  INFO 17425 --- [rail] [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2026-07-12T18:22:49.065+05:30  INFO 17425 --- [rail] [SpringApplicationShutdownHook] o.a.kafka.common.utils.AppInfoParser     : App info kafka.producer for rail-producer-1 unregistered
+2026-07-12T18:22:49.080+05:30  INFO 17425 --- [rail] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-12T18:22:49.083+05:30  INFO 17425 --- [rail] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-07-12T18:22:49.086+05:30  INFO 17425 --- [rail] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

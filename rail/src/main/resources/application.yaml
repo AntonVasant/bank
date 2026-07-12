@@ -1,0 +1,68 @@
+spring:
+  application:
+    name: rail
+
+  datasource:
+    url: jdbc:postgresql://localhost:5433/rail
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: false
+
+  data:
+    redis:
+      host: localhost
+      port: 6378
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: rail-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+  task:
+    scheduling:
+      pool:
+        size: 5
+      thread-name-prefix: scheduler-
+
+server:
+  port: 8082
+
+grpc:
+  server:
+    port: 9090
+
+banks:
+  grpc:
+    endpoints:
+      HDFC_IN:
+        host: localhost
+        port: 9091
+      AXIS_IN:
+        host: localhost
+        port: 9095
+
+logging:
+  level:
+    com.settlement.rail: INFO
+  file:
+    name: logs/rail.log
+  logback:
+    rollingpolicy:
+      max-file-size: 10MB
+      max-history: 30
+      file-name-pattern: logs/rail.%d{yyyy-MM-dd}.%i.log
