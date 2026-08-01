@@ -9,5 +9,6 @@ public record SettlementRailRequest(
         String destinationBankCode,
         BigDecimal amount,
         String currency,
-        String sourceAccountNumber
+        String sourceAccountNumber,
+        long cycleId
 ) {}

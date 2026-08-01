@@ -57,6 +57,13 @@ public class OutboxEvent {
     @Column(name = "published_at")
     private Instant publishedAt;
 
+    /**
+     * When the downstream consumer (e.g. the bank, via the notification
+     * service's ack event) confirmed it processed this event.
+     */
+    @Column(name = "acknowledged_at")
+    private Instant acknowledgedAt;
+
     @PrePersist
     void prePersist() {
         this.createdAt = Instant.now();

@@ -7,6 +7,8 @@ spring:
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 30
 
   jpa:
     hibernate:
@@ -16,6 +18,16 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: false
+
+  batch:
+    job:
+      # We launch the settlementJob explicitly (from SettlementCycleScheduler),
+      # so don't let Spring Boot auto-run every Job bean on startup.
+      enabled: false
+    jdbc:
+      # Postgres isn't an embedded DB, so the BATCH_* metadata tables need to
+      # be created explicitly on first run.
+      initialize-schema: always
 
   data:
     redis:
@@ -39,6 +51,15 @@ spring:
         size: 5
       thread-name-prefix: scheduler-
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    metrics:
+      enabled: true
+
 server:
   port: 8082
 
@@ -58,7 +79,9 @@ banks:
 
 logging:
   level:
-    com.settlement.rail: INFO
+    root: INFO
+    com.settlement.rail: DEBUG
+  exception-conversion-word: "%xEx"
   file:
     name: logs/rail.log
   logback:

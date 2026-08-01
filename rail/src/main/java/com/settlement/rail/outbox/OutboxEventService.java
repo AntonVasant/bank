@@ -9,4 +9,10 @@ public interface OutboxEventService {
     void markPublished(Long id);
 
     void resetStuckEvents();
+
+    /**
+     * Marks the outbox event(s) matching the given aggregate as ACKNOWLEDGED,
+     * e.g. once the notification service confirms the bank processed it.
+     */
+    void markAcknowledged(String aggregateType, String aggregateId);
 }

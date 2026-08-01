@@ -44,6 +44,7 @@ public class BankReserve {
     @Column(name = "reserved_balance", nullable = false, precision = 20, scale = 6)
     private BigDecimal reservedBalance;
 
+
     @Column(name = "created_at", nullable = false, updatable = false)
     private Instant createdAt;
 

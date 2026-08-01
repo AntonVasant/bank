@@ -1,6 +1,7 @@
 package com.payment.transaction.config;
 
 import com.payment.transaction.grpc.CentralBankGatewayGrpcServer;
+import com.payment.transaction.grpc.SettlementReportGrpcServer;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import jakarta.annotation.PostConstruct;
@@ -15,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Manages the lifecycle of the embedded gRPC server that hosts
- * {@link CentralBankGatewayGrpcServer}.
+ * {@link CentralBankGatewayGrpcServer} and {@link SettlementReportGrpcServer}.
  * <p>
  * The server starts on {@link PostConstruct} and performs a graceful
  * 30-second drain on {@link PreDestroy}.  Port is configured via
@@ -27,13 +28,16 @@ public class GrpcServerConfig {
     private static final Logger log = LoggerFactory.getLogger(GrpcServerConfig.class);
 
     private final CentralBankGatewayGrpcServer centralBankGatewayGrpcServer;
+    private final SettlementReportGrpcServer settlementReportGrpcServer;
     private final int port;
 
     private Server server;
 
     public GrpcServerConfig(CentralBankGatewayGrpcServer centralBankGatewayGrpcServer,
+                             SettlementReportGrpcServer settlementReportGrpcServer,
                              @Value("${grpc.server.port}") int port) {
         this.centralBankGatewayGrpcServer = centralBankGatewayGrpcServer;
+        this.settlementReportGrpcServer = settlementReportGrpcServer;
         this.port = port;
     }
 
@@ -41,6 +45,7 @@ public class GrpcServerConfig {
     public void start() throws IOException {
         server = ServerBuilder.forPort(port)
                 .addService(centralBankGatewayGrpcServer)
+                .addService(settlementReportGrpcServer)
                 .build()
                 .start();
         log.info("Central Bank Gateway gRPC server started on port {}", port);

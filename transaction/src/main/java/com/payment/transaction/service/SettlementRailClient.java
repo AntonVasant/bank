@@ -53,11 +53,12 @@ public class SettlementRailClient {
                 .setCurrency(request.currency())
                 .setBeneficiaryAccountNumber(request.destinationAccountNumber())
                 .setSenderAccountNumber(request.sourceAccountNumber())
-                .setReference(request.paymentReference())
+                .setUtr(request.paymentReference())
                 .setDescription("Transfer to account " + request.destinationAccountNumber())
+                .setCycleId(String.valueOf(request.cycleId()))
                 .build();
 
-        CompletableFuture<String> cbAcknowledged = new CompletableFuture<>();
+        CompletableFuture<CbAcknowledgement> cbAcknowledged = new CompletableFuture<>();
         CompletableFuture<String> completed = new CompletableFuture<>();
 
         stub.processPayment(grpcRequest, new StreamObserver<PaymentResponse>() {
@@ -66,11 +67,12 @@ public class SettlementRailClient {
             public void onNext(PaymentResponse value) {
                 AcknowledgedBy ack = value.getAcknowledgedBy();
                 if (ack == AcknowledgedBy.RAIL) {
-                    // Response 1: rail has committed the transfer
-                    cbAcknowledged.complete(value.getReference());
+                    // Response 1: rail has committed the transfer (or rejected
+                    // it, e.g. cycle mismatch — status carries which).
+                    cbAcknowledged.complete(new CbAcknowledgement(value.getUtr(), value.getCycleId(), value.getStatus()));
                 } else if (ack == AcknowledgedBy.RECEIVER_BANK) {
                     // Response 2: receiver bank has confirmed the credit
-                    completed.complete(value.getReference());
+                    completed.complete(value.getUtr());
                 } else {
                     // Unspecified acknowledged_by — treat as failure
                     ResponseStatusException ex = new ResponseStatusException(HttpStatus.BAD_GATEWAY,

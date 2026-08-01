@@ -7,8 +7,8 @@ import java.util.concurrent.CompletableFuture;
  * {@code processPayment} gRPC call to the settlement rail.
  *
  * <pre>
- *   cbAcknowledged – completes (with the CB reference) when the rail sends
- *                    its first response: status = "ACCEPTED".
+ *   cbAcknowledged – completes (with the CB reference + cycle id) when the
+ *                    rail sends its first response: status = "ACCEPTED".
  *   completed      – completes (with the final settlement reference) when the
  *                    rail sends its second response: status = "COMPLETED".
  * </pre>
@@ -17,6 +17,6 @@ import java.util.concurrent.CompletableFuture;
  * the payment at either stage.
  */
 public record SettlementFutures(
-        CompletableFuture<String> cbAcknowledged,
+        CompletableFuture<CbAcknowledgement> cbAcknowledged,
         CompletableFuture<String> completed) {
 }

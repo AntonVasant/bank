@@ -18,7 +18,7 @@ public record TransferRequest(
         String currency,
 
         @NotBlank @Size(max = 64)
-        String reference,
+        String utr,
 
         @Size(max = 500)
         String description,
@@ -27,5 +27,15 @@ public record TransferRequest(
         String senderAccountNumber,
 
         @Size(max = 64)
-        String beneficiaryAccountNumber
+        String beneficiaryAccountNumber,
+
+        /**
+         * The settlement cycle id the sending bank cached from the central
+         * bank's last cycle-open broadcast. Optional (null/blank means "not
+         * supplied" — e.g. callers not yet updated to this protocol): when
+         * present, {@code TransferServiceImpl.initiate} rejects the request
+         * if it no longer matches the currently open cycle, rather than
+         * silently accepting a stale cycle id.
+         */
+        Long cycleId
 ) {}

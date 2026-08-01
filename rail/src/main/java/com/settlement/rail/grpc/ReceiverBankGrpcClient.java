@@ -57,8 +57,8 @@ public class ReceiverBankGrpcClient {
 
         if (endpoint == null) {
             log.warn("No gRPC endpoint configured for receiver bank='{}'; " +
-                     "skipping credit request for reference='{}'",
-                     receiverBankCode, transfer.reference());
+                     "skipping credit request for utr='{}'",
+                     receiverBankCode, transfer.utr());
             return null;
         }
 
@@ -72,18 +72,18 @@ public class ReceiverBankGrpcClient {
                 CentralBankGatewayGrpc.newBlockingStub(channel);
 
         CreditRequest request = buildCreditRequest(transfer);
-        log.debug("Sending credit request to bank='{}' host='{}:{}' reference='{}'",
+        log.debug("Sending credit request to bank='{}' host='{}:{}' utr='{}'",
                 receiverBankCode, endpoint.getHost(), endpoint.getPort(),
-                transfer.reference());
+                transfer.utr());
 
         try {
             Acknowledgment ack = stub.requestCredit(request);
-            log.info("Credit request acknowledged: bank='{}' ackId='{}' status='{}' reference='{}'",
-                    receiverBankCode, ack.getAckId(), ack.getStatus(), transfer.reference());
+            log.info("Credit request acknowledged: bank='{}' ackId='{}' status='{}' utr='{}'",
+                    receiverBankCode, ack.getAckId(), ack.getStatus(), transfer.utr());
             return ack;
         } catch (StatusRuntimeException e) {
-            log.error("gRPC credit request to bank='{}' failed for reference='{}': status={}",
-                    receiverBankCode, transfer.reference(), e.getStatus(), e);
+            log.error("gRPC credit request to bank='{}' failed for utr='{}': status={}",
+                    receiverBankCode, transfer.utr(), e.getStatus(), e);
             throw e;
         }
     }
@@ -105,8 +105,8 @@ public class ReceiverBankGrpcClient {
 
         if (endpoint == null) {
             log.warn("No gRPC endpoint configured for sender bank='{}'; " +
-                     "skipping notification for reference='{}'",
-                     senderBankCode, transfer.reference());
+                     "skipping notification for utr='{}'",
+                     senderBankCode, transfer.utr());
             return null;
         }
 
@@ -125,14 +125,14 @@ public class ReceiverBankGrpcClient {
                         : com.centralbank.gateway.v1.TransferStatus.FAILED;
 
         TransferNotification.Builder notifBuilder = TransferNotification.newBuilder()
-                .setNotificationId(transfer.reference() + "-NOTIF")
+                .setNotificationId(transfer.utr() + "-NOTIF")
                 .setTransactionId(transfer.id().toString())
                 .setEventTime(nowTimestamp())
                 .setSenderBankCode(transfer.fromBankCode())
                 .setReceiverBankCode(transfer.toBankCode())
                 .setAmount(toMoney(transfer.amount(), transfer.currency()))
                 .setStatus(status)
-                .setReferenceNumber(transfer.reference());
+                .setReferenceNumber(transfer.utr());
 
         if (transfer.senderAccountNumber() != null) {
             notifBuilder.setSenderAccountNumber(transfer.senderAccountNumber());
@@ -141,17 +141,17 @@ public class ReceiverBankGrpcClient {
             notifBuilder.setReceiverAccountNumber(transfer.beneficiaryAccountNumber());
         }
 
-        log.debug("Sending transfer notification to sender bank='{}' host='{}:{}' reference='{}'",
-                senderBankCode, endpoint.getHost(), endpoint.getPort(), transfer.reference());
+        log.debug("Sending transfer notification to sender bank='{}' host='{}:{}' utr='{}'",
+                senderBankCode, endpoint.getHost(), endpoint.getPort(), transfer.utr());
 
         try {
             Acknowledgment ack = stub.sendTransferNotification(notifBuilder.build());
-            log.info("Transfer notification acknowledged by sender bank='{}' ackId='{}' status='{}' reference='{}'",
-                    senderBankCode, ack.getAckId(), ack.getStatus(), transfer.reference());
+            log.info("Transfer notification acknowledged by sender bank='{}' ackId='{}' status='{}' utr='{}'",
+                    senderBankCode, ack.getAckId(), ack.getStatus(), transfer.utr());
             return ack;
         } catch (StatusRuntimeException e) {
-            log.error("gRPC notification to sender bank='{}' failed for reference='{}': status={}",
-                    senderBankCode, transfer.reference(), e.getStatus(), e);
+            log.error("gRPC notification to sender bank='{}' failed for utr='{}': status={}",
+                    senderBankCode, transfer.utr(), e.getStatus(), e);
             throw e;
         }
     }
@@ -159,19 +159,22 @@ public class ReceiverBankGrpcClient {
 
     private CreditRequest buildCreditRequest(TransferResponse transfer) {
         CreditRequest.Builder builder = CreditRequest.newBuilder()
-                .setCreditRequestId(transfer.reference() + "-CR")
+                .setCreditRequestId(transfer.utr() + "-CR")
                 .setTransactionId(transfer.id().toString())
                 .setInstructionTime(nowTimestamp())
                 .setSenderBankCode(transfer.fromBankCode())
                 .setReceiverBankCode(transfer.toBankCode())
                 .setAmount(toMoney(transfer.amount(), transfer.currency()))
-                .setReferenceNumber(transfer.reference());
+                .setReferenceNumber(transfer.utr());
 
         if (transfer.senderAccountNumber() != null) {
             builder.setSenderAccountNumber(transfer.senderAccountNumber());
         }
         if (transfer.beneficiaryAccountNumber() != null) {
             builder.setBeneficiaryAccountNumber(transfer.beneficiaryAccountNumber());
+        }
+        if (transfer.cycleId() != null) {
+            builder.setCycleId(transfer.cycleId());
         }
 
         return builder.build();

@@ -16,5 +16,14 @@ spring:
       port: ${REDIS_PORT:6379}
       timeout: 2000ms
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    metrics:
+      enabled: true
+
 server:
   port: 8080

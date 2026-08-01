@@ -1,0 +1,302 @@
+2026-07-28T23:02:05.285+05:30  INFO 88906 --- [delivery] [main] c.d.s.delivery.DeliveryApplication       : Starting DeliveryApplication using Java 21.0.12 with PID 88906 (/Users/anton-23085/Project/bank/delivery/target/classes started by anton-23085 in /Users/anton-23085/Project/bank/delivery)
+2026-07-28T23:02:05.289+05:30  INFO 88906 --- [delivery] [main] c.d.s.delivery.DeliveryApplication       : No active profile set, falling back to 1 default profile: "default"
+2026-07-28T23:02:05.553+05:30  INFO 88906 --- [delivery] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-28T23:02:05.577+05:30  INFO 88906 --- [delivery] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 2 JPA repository interfaces.
+2026-07-28T23:02:05.806+05:30  INFO 88906 --- [delivery] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8084 (http)
+2026-07-28T23:02:05.812+05:30  INFO 88906 --- [delivery] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-28T23:02:05.813+05:30  INFO 88906 --- [delivery] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-28T23:02:05.832+05:30  INFO 88906 --- [delivery] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 518 ms
+2026-07-28T23:02:05.906+05:30  INFO 88906 --- [delivery] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-28T23:02:05.924+05:30  INFO 88906 --- [delivery] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-28T23:02:06.084+05:30  INFO 88906 --- [delivery] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-28T23:02:06.100+05:30  INFO 88906 --- [delivery] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-28T23:02:06.223+05:30  INFO 88906 --- [delivery] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7381d6f0
+2026-07-28T23:02:06.224+05:30  INFO 88906 --- [delivery] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-28T23:02:06.240+05:30  WARN 88906 --- [delivery] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-28T23:02:06.249+05:30  INFO 88906 --- [delivery] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5436/deliverydb]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: deliverydb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-28T23:02:06.663+05:30  INFO 88906 --- [delivery] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-28T23:02:06.702+05:30  INFO 88906 --- [delivery] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-28T23:02:06.741+05:30  INFO 88906 --- [delivery] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-28T23:02:07.202+05:30  WARN 88906 --- [delivery] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-28T23:02:07.356+05:30  INFO 88906 --- [delivery] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8084 (http) with context path '/'
+2026-07-28T23:02:07.377+05:30  INFO 88906 --- [delivery] [main] o.a.kafka.common.config.AbstractConfig   : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-delivery-group-1
+	client.rack = 
+	config.providers = []
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = delivery-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.rebootstrap.trigger.ms = 300000
+	metadata.recovery.strategy = rebootstrap
+	metric.reporters = [org.apache.kafka.common.metrics.JmxReporter]
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.assertion.algorithm = RS256
+	sasl.oauthbearer.assertion.claim.aud = null
+	sasl.oauthbearer.assertion.claim.exp.seconds = 300
+	sasl.oauthbearer.assertion.claim.iss = null
+	sasl.oauthbearer.assertion.claim.jti.include = false
+	sasl.oauthbearer.assertion.claim.nbf.seconds = 60
+	sasl.oauthbearer.assertion.claim.sub = null
+	sasl.oauthbearer.assertion.file = null
+	sasl.oauthbearer.assertion.private.key.file = null
+	sasl.oauthbearer.assertion.private.key.passphrase = null
+	sasl.oauthbearer.assertion.template.file = null
+	sasl.oauthbearer.client.credentials.client.id = null
+	sasl.oauthbearer.client.credentials.client.secret = null
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = []
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.jwt.retriever.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtRetriever
+	sasl.oauthbearer.jwt.validator.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtValidator
+	sasl.oauthbearer.scope = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	share.acknowledgement.mode = implicit
+	share.acquire.mode = BATCH_OPTIMIZED
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = []
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2026-07-28T23:02:07.396+05:30  INFO 88906 --- [delivery] [main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2026-07-28T23:02:07.469+05:30  INFO 88906 --- [delivery] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 4.2.1
+2026-07-28T23:02:07.469+05:30  INFO 88906 --- [delivery] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 92f61c44867f39dc
+2026-07-28T23:02:07.469+05:30  INFO 88906 --- [delivery] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1785259927468
+2026-07-28T23:02:07.471+05:30  INFO 88906 --- [delivery] [main] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Subscribed to topic(s): settlement.reconciliation.events
+2026-07-28T23:02:07.475+05:30  INFO 88906 --- [delivery] [main] o.a.kafka.common.config.AbstractConfig   : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-delivery-group-2
+	client.rack = 
+	config.providers = []
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = delivery-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.rebootstrap.trigger.ms = 300000
+	metadata.recovery.strategy = rebootstrap
+	metric.reporters = [org.apache.kafka.common.metrics.JmxReporter]
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.assertion.algorithm = RS256
+	sasl.oauthbearer.assertion.claim.aud = null
+	sasl.oauthbearer.assertion.claim.exp.seconds = 300
+	sasl.oauthbearer.assertion.claim.iss = null
+	sasl.oauthbearer.assertion.claim.jti.include = false
+	sasl.oauthbearer.assertion.claim.nbf.seconds = 60
+	sasl.oauthbearer.assertion.claim.sub = null
+	sasl.oauthbearer.assertion.file = null
+	sasl.oauthbearer.assertion.private.key.file = null
+	sasl.oauthbearer.assertion.private.key.passphrase = null
+	sasl.oauthbearer.assertion.template.file = null
+	sasl.oauthbearer.client.credentials.client.id = null
+	sasl.oauthbearer.client.credentials.client.secret = null
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = []
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.jwt.retriever.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtRetriever
+	sasl.oauthbearer.jwt.validator.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtValidator
+	sasl.oauthbearer.scope = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	share.acknowledgement.mode = implicit
+	share.acquire.mode = BATCH_OPTIMIZED
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = []
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2026-07-28T23:02:07.475+05:30  INFO 88906 --- [delivery] [main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2026-07-28T23:02:07.479+05:30  INFO 88906 --- [delivery] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 4.2.1
+2026-07-28T23:02:07.479+05:30  INFO 88906 --- [delivery] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 92f61c44867f39dc
+2026-07-28T23:02:07.479+05:30  INFO 88906 --- [delivery] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1785259927479
+2026-07-28T23:02:07.480+05:30  INFO 88906 --- [delivery] [main] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Subscribed to topic(s): settlement.net-position.events
+2026-07-28T23:02:07.485+05:30  INFO 88906 --- [delivery] [main] c.d.s.delivery.DeliveryApplication       : Started DeliveryApplication in 2.503 seconds (process running for 2.703)
+2026-07-28T23:02:07.624+05:30  INFO 88906 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Cluster ID: YnD_8WyzQ4SdY1TpLQDqKA
+2026-07-28T23:02:07.624+05:30  INFO 88906 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Cluster ID: YnD_8WyzQ4SdY1TpLQDqKA
+2026-07-28T23:02:07.626+05:30  INFO 88906 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-28T23:02:07.626+05:30  INFO 88906 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-28T23:02:07.627+05:30  INFO 88906 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] (Re-)joining group
+2026-07-28T23:02:07.627+05:30  INFO 88906 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] (Re-)joining group
+2026-07-28T23:02:07.636+05:30  INFO 88906 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Request joining group due to: need to re-join with the given member-id: consumer-delivery-group-1-7df9614c-e2b1-435c-8ddf-38410260fdc9
+2026-07-28T23:02:07.636+05:30  INFO 88906 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Request joining group due to: need to re-join with the given member-id: consumer-delivery-group-2-57a2e7c9-88a4-4ba3-a5c0-40b214ecfd15
+2026-07-28T23:02:07.637+05:30  INFO 88906 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] (Re-)joining group
+2026-07-28T23:02:07.637+05:30  INFO 88906 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] (Re-)joining group
+2026-07-28T23:02:13.727+05:30  INFO 88906 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Successfully joined group with generation Generation{generationId=33, memberId='consumer-delivery-group-1-7df9614c-e2b1-435c-8ddf-38410260fdc9', protocol='range'}
+2026-07-28T23:02:13.727+05:30  INFO 88906 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Successfully joined group with generation Generation{generationId=33, memberId='consumer-delivery-group-2-57a2e7c9-88a4-4ba3-a5c0-40b214ecfd15', protocol='range'}
+2026-07-28T23:02:13.742+05:30  INFO 88906 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Finished assignment for group at generation 33: {consumer-delivery-group-1-7df9614c-e2b1-435c-8ddf-38410260fdc9=Assignment(partitions=[settlement.reconciliation.events-0]), consumer-delivery-group-2-57a2e7c9-88a4-4ba3-a5c0-40b214ecfd15=Assignment(partitions=[settlement.net-position.events-0])}
+2026-07-28T23:02:13.757+05:30  INFO 88906 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Successfully synced group in generation Generation{generationId=33, memberId='consumer-delivery-group-1-7df9614c-e2b1-435c-8ddf-38410260fdc9', protocol='range'}
+2026-07-28T23:02:13.757+05:30  INFO 88906 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Successfully synced group in generation Generation{generationId=33, memberId='consumer-delivery-group-2-57a2e7c9-88a4-4ba3-a5c0-40b214ecfd15', protocol='range'}
+2026-07-28T23:02:13.758+05:30  INFO 88906 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Notifying assignor about the new Assignment(partitions=[settlement.reconciliation.events-0])
+2026-07-28T23:02:13.758+05:30  INFO 88906 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Notifying assignor about the new Assignment(partitions=[settlement.net-position.events-0])
+2026-07-28T23:02:13.760+05:30  INFO 88906 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Adding newly assigned partitions: [settlement.net-position.events-0]
+2026-07-28T23:02:13.760+05:30  INFO 88906 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Adding newly assigned partitions: [settlement.reconciliation.events-0]
+2026-07-28T23:02:13.773+05:30  INFO 88906 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerUtils        : Setting offset for partition settlement.net-position.events-0 to the committed offset FetchPosition{offset=10, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null isFenced: false)], epoch=4}}
+2026-07-28T23:02:13.773+05:30  INFO 88906 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerUtils        : Setting offset for partition settlement.reconciliation.events-0 to the committed offset FetchPosition{offset=7, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null isFenced: false)], epoch=4}}
+2026-07-28T23:02:13.776+05:30  INFO 88906 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : delivery-group: partitions assigned: [settlement.net-position.events-0]
+2026-07-28T23:02:13.776+05:30  INFO 88906 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : delivery-group: partitions assigned: [settlement.reconciliation.events-0]

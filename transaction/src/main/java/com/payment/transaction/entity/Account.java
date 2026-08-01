@@ -31,8 +31,16 @@ public class Account {
     @Column(nullable = false, precision = 19, scale = 4)
     private BigDecimal balance;
 
-    @Column(name = "tigerbeetle_account_id")
-    private String tigerBeetleAccountId;
+    /**
+     * Funds locked by an in-flight interbank ledger hold (placed at request
+     * time, before the interbank round trip confirms or fails). Available
+     * balance for new payments is balance minus heldBalance. On success the
+     * hold is posted (heldBalance decreases, balance decreases by the same
+     * amount); on failure it is voided (heldBalance decreases, balance
+     * untouched) - see AccountLedgerService.
+     */
+    @Column(name = "held_balance", nullable = false, precision = 19, scale = 4)
+    private BigDecimal heldBalance;
 
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
@@ -51,6 +59,7 @@ public class Account {
         createdAt = LocalDateTime.now();
         updatedAt = LocalDateTime.now();
         if (balance == null) balance = BigDecimal.ZERO;
+        if (heldBalance == null) heldBalance = BigDecimal.ZERO;
     }
 
     @PreUpdate
@@ -84,8 +93,13 @@ public class Account {
     public BigDecimal getBalance() { return balance; }
     public void setBalance(BigDecimal balance) { this.balance = balance; }
 
-    public String getTigerBeetleAccountId() { return tigerBeetleAccountId; }
-    public void setTigerBeetleAccountId(String tigerBeetleAccountId) { this.tigerBeetleAccountId = tigerBeetleAccountId; }
+    public BigDecimal getHeldBalance() { return heldBalance; }
+    public void setHeldBalance(BigDecimal heldBalance) { this.heldBalance = heldBalance; }
+
+    /** Funds actually available for new holds/payments: balance minus heldBalance. */
+    public BigDecimal getAvailableBalance() {
+        return balance.subtract(heldBalance == null ? BigDecimal.ZERO : heldBalance);
+    }
 
     public LocalDateTime getCreatedAt() { return createdAt; }
     public LocalDateTime getUpdatedAt() { return updatedAt; }

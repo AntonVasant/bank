@@ -52,6 +52,26 @@ public class OutboxEventServiceImpl implements OutboxEventService {
     }
 
     /**
+     * Marks the outbox event(s) matching the given aggregate as ACKNOWLEDGED.
+     * Used when the notification service confirms (via its own ack event)
+     * that the bank received and processed a previously published event.
+     */
+    @Override
+    @Transactional
+    public void markAcknowledged(String aggregateType, String aggregateId) {
+        List<OutboxEvent> events = outboxEventRepository.findAllByAggregateTypeAndAggregateId(aggregateType, aggregateId);
+        if (events.isEmpty()) {
+            return;
+        }
+        Instant now = Instant.now();
+        for (OutboxEvent event : events) {
+            event.setStatus(OutboxEventStatus.ACKNOWLEDGED);
+            event.setAcknowledgedAt(now);
+        }
+        outboxEventRepository.saveAll(events);
+    }
+
+    /**
      * Finds events stuck in PROCESSING for longer than the threshold and either
      * resets them to PENDING (incrementing retryCount) or marks them FAILED once
      * MAX_RETRIES is exhausted.

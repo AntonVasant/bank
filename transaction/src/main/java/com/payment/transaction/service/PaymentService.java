@@ -30,45 +30,47 @@ public class PaymentService {
     private final LedgerEntryRepository ledgerEntryRepository;
     private final OutboxEventRepository outboxEventRepository;
     private final IdempotencyService idempotencyService;
+    private final AccountLedgerService accountLedgerService;
+    private final CycleCacheService cycleCacheService;
 
     public PaymentService(PaymentRepository paymentRepository,
                           AccountRepository accountRepository,
                           LedgerEntryRepository ledgerEntryRepository,
                           OutboxEventRepository outboxEventRepository,
-                          IdempotencyService idempotencyService) {
+                          IdempotencyService idempotencyService,
+                          AccountLedgerService accountLedgerService,
+                          CycleCacheService cycleCacheService) {
         this.paymentRepository = paymentRepository;
         this.accountRepository = accountRepository;
         this.ledgerEntryRepository = ledgerEntryRepository;
         this.outboxEventRepository = outboxEventRepository;
         this.idempotencyService = idempotencyService;
+        this.accountLedgerService = accountLedgerService;
+        this.cycleCacheService = cycleCacheService;
     }
 
-    // ── Idempotency ──────────────────────────────────────────────────────────
 
-    @Transactional(readOnly = true)
     public Optional<PaymentResponse> checkIdempotency(String idempotencyKey) {
         return idempotencyService.checkExisting(idempotencyKey, PaymentResponse.class);
     }
 
-    @Transactional
     public void registerIdempotencyKey(String idempotencyKey) {
         idempotencyService.register(idempotencyKey, null);
     }
 
-    // ── Source account ────────────────────────────────────────────────────────
 
     @Transactional(readOnly = true)
     public Account loadAndValidateSource(CreatePaymentRequest request) {
-        Account source = accountRepository.findByAccountNumber(request.destinationAccountNumber())
+        Account source = accountRepository.findByAccountNumber(request.sourceAccountNumber())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,
-                        "Source account not found: "));
+                        "Source account not found: " + request.sourceAccountNumber()));
         if (source.getStatus() != Account.AccountStatus.ACTIVE) {
             throw new ResponseStatusException(HttpStatusCode.valueOf(422),
                     "Source account is not active: " + source.getAccountNumber());
         }
-        if (source.getBalance().compareTo(request.amount()) < 0) {
+        if (source.getAvailableBalance().compareTo(request.amount()) < 0) {
             throw new ResponseStatusException(HttpStatusCode.valueOf(422),
-                    "Insufficient balance: available " + source.getBalance()
+                    "Insufficient balance: available " + source.getAvailableBalance()
                     + ", requested " + request.amount());
         }
         return source;
@@ -115,7 +117,7 @@ public class PaymentService {
         createOutboxEvent(saved);
 
         PaymentResponse response = toResponse(saved);
-        idempotencyService.markComplete(idempotencyKey, saved.getId(), response);
+      //  idempotencyService.markComplete(idempotencyKey, saved.getId(), response);
         return response;
     }
 
@@ -123,76 +125,164 @@ public class PaymentService {
 
     /** TX-1b (CB acknowledged): move payment from PROCESSING → CB_ACKNOWLEDGED. */
     @Transactional
-    public void markCbAcknowledged(Long paymentId) {
+    public void markCbAcknowledged(Long paymentId, String cycleId) {
         Payment payment = paymentRepository.findById(paymentId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,
                         "Payment not found during CB acknowledgement: " + paymentId));
         payment.setStatus(Payment.PaymentStatus.CB_ACKNOWLEDGED);
+        payment.setCycleId(cycleId);
         paymentRepository.save(payment);
     }
 
-    /** TX-1: debit source, persist PROCESSING payment and ledger entries. Commits before network call. */
+    /**
+     * Reads the settlement rail's last-broadcast cycle id from Redis (see
+     * {@link CycleCacheService}). Deliberately {@code @Transactional}-free —
+     * called before {@link #prepareInterBankPayment} so the Redis round
+     * trip never happens while a DB transaction (and its connection) is
+     * held open.
+     */
+    public long currentCycleId() {
+        return cycleCacheService.getCurrentCycleId();
+    }
+
+    /**
+     * TX-1 (Moment 1): place a hold — lock {@code request.amount()} of the
+     * source account's funds via a PENDING ledger transaction (not yet a
+     * permanent debit), tagged with {@code cycleId} — the settlement cycle
+     * id cached from the rail's last broadcast (never guessed — see
+     * {@link #currentCycleId()}, which the caller must fetch <em>before</em>
+     * calling this method, since it's a Redis round trip that shouldn't
+     * happen inside this DB transaction), persist a PROCESSING payment and
+     * PENDING ledger entries, and commit — all before the network call to
+     * the rail.
+     */
     @Transactional
     public Payment prepareInterBankPayment(String idempotencyKey,
                                             CreatePaymentRequest request,
-                                            Account source) {
-        BigDecimal sourceBalanceBefore = source.getBalance();
-        source.setBalance(sourceBalanceBefore.subtract(request.amount()));
+                                            Account source,
+                                            long cycleId) {
+        BigDecimal heldBefore = source.getHeldBalance();
+        source.setHeldBalance(heldBefore.add(request.amount()));
         accountRepository.save(source);
 
         Payment payment = buildPayment(request, source);
         payment.setDestinationBankCode(request.destinationBankCode());
         payment.setDestinationExternalAccount(request.destinationAccountNumber());
         payment.setStatus(Payment.PaymentStatus.PROCESSING);
-        payment.setDestinationExternalAccount(request.destinationAccountNumber());
+        payment.setCycleId(String.valueOf(cycleId));
         Payment saved = paymentRepository.save(payment);
 
-        createInterBankLedgerEntries(saved, source, sourceBalanceBefore);
+        Long ledgerTransactionId = accountLedgerService.holdFunds(
+                source, request.amount(), request.paymentReference(), cycleId, saved.getId());
+        saved.setLedgerTransactionId(ledgerTransactionId);
+        saved = paymentRepository.save(saved);
+
+        createInterBankLedgerEntries(saved, source);
+        createOutboxEvent(saved);
         return saved;
     }
 
-    /** TX-2 (success): mark COMPLETED, post credit ledger entry, outbox event, idempotency record. */
+    /**
+     * Cycle-mismatch retry (the rail rejected because our cached cycle id
+     * had gone stale): re-cache the corrected cycle id and retag the
+     * payment with it. The ledger hold itself is untouched — it only
+     * records that funds are locked, never which settlement cycle they'll
+     * eventually settle in, so there's nothing to void/re-place here.
+     */
+    @Transactional
+    public Payment reholdForNewCycle(Long paymentId, long newCycleId) {
+        Payment payment = paymentRepository.findById(paymentId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,
+                        "Payment not found during cycle retry: " + paymentId));
+
+        cycleCacheService.setCurrentCycleId(newCycleId);
+        payment.setCycleId(String.valueOf(newCycleId));
+        paymentRepository.save(payment);
+
+        createCycleRetryOutboxEvent(payment, newCycleId);
+        return payment;
+    }
+
+    /** Builds the response returned to the caller immediately after the hold is placed, and marks the idempotency record complete (Moment 1: the caller never waits for the interbank round trip). */
+    @Transactional(readOnly = true)
+    public PaymentResponse toProcessingResponseAndMarkIdempotent(String idempotencyKey, Payment payment) {
+        PaymentResponse response = toResponse(payment);
+        //idempotencyService.markComplete(idempotencyKey, payment.getId(), response);
+        return response;
+    }
+
+    /**
+     * TX-2 (success, Moment 3): the receiver bank confirmed the credit —
+     * finalize the hold as a permanent debit, mark COMPLETED, post both
+     * ledger entries.
+     */
     @Transactional
     public PaymentResponse completeInterBankPayment(String idempotencyKey,
                                                      Long paymentId,
-                                                     String settlementRef) {
+                                                     String settlementRef,
+                                                     long cycleId) {
         Payment payment = paymentRepository.findById(paymentId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,
                         "Payment lost after settlement: " + paymentId));
+
+        accountLedgerService.postHold(payment.getLedgerTransactionId(), payment.getAmount(), cycleId);
+
+        Account source = payment.getSourceAccount();
+        source.setHeldBalance(source.getHeldBalance().subtract(payment.getAmount()));
+        source.setBalance(source.getBalance().subtract(payment.getAmount()));
+        accountRepository.save(source);
+
         payment.setStatus(Payment.PaymentStatus.COMPLETED);
         payment.setProcessedAt(LocalDateTime.now());
         paymentRepository.save(payment);
 
-        ledgerEntryRepository.findByPayment_Id(paymentId).stream()
-                .filter(e -> e.getEntryType() == LedgerEntry.EntryType.CREDIT)
-                .findFirst()
-                .ifPresent(e -> {
-                    e.setStatus(LedgerEntry.EntryStatus.POSTED);
-                    e.setPostedAt(LocalDateTime.now());
-                    e.setDescription(e.getDescription() + " | settlement: " + settlementRef);
-                    ledgerEntryRepository.save(e);
-                });
+        LocalDateTime now = LocalDateTime.now();
+        ledgerEntryRepository.findByPayment_Id(paymentId).forEach(e -> {
+            if (e.getEntryType() == LedgerEntry.EntryType.DEBIT) {
+                e.setStatus(LedgerEntry.EntryStatus.POSTED);
+                e.setBalanceAfter(source.getBalance());
+                e.setPostedAt(now);
+                ledgerEntryRepository.save(e);
+            } else if (e.getEntryType() == LedgerEntry.EntryType.CREDIT) {
+                e.setStatus(LedgerEntry.EntryStatus.POSTED);
+                e.setPostedAt(now);
+                e.setDescription(e.getDescription() + " | settlement: " + settlementRef);
+                ledgerEntryRepository.save(e);
+            }
+        });
 
-        PaymentResponse response = toResponse(payment);
-        idempotencyService.markComplete(idempotencyKey, payment.getId(), response);
-        return response;
+        return toResponse(payment);
     }
 
-    /** TX-3 (failure): refund the debit and mark the payment as FAILED. */
+    /**
+     * TX-3 (failure, Moment 2 — invalid account or round-trip failure): void
+     * the hold — no funds ever moved, so nothing needs to be refunded, only
+     * the hold released — and mark the payment FAILED.
+     */
     @Transactional
     public void refundInterBankPayment(Long paymentId, Long sourceAccountId, BigDecimal amount) {
-        Account source = accountRepository.findById(sourceAccountId)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,
-                        "Source account not found during refund"));
-        source.setBalance(source.getBalance().add(amount));
-        accountRepository.save(source);
-
         Payment payment = paymentRepository.findById(paymentId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,
-                        "Payment not found during refund: " + paymentId));
+                        "Payment not found during void: " + paymentId));
+
+        accountLedgerService.voidHold(payment.getLedgerTransactionId());
+
+        Account source = accountRepository.findById(sourceAccountId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,
+                        "Source account not found during void"));
+        source.setHeldBalance(source.getHeldBalance().subtract(amount));
+        accountRepository.save(source);
+
         payment.setStatus(Payment.PaymentStatus.FAILED);
         payment.setProcessedAt(LocalDateTime.now());
         paymentRepository.save(payment);
+
+        LocalDateTime now = LocalDateTime.now();
+        ledgerEntryRepository.findByPayment_Id(paymentId).forEach(e -> {
+            e.setStatus(LedgerEntry.EntryStatus.VOIDED);
+            e.setVoidedAt(now);
+            ledgerEntryRepository.save(e);
+        });
     }
 
     // ── Helpers ──────────────────────────────────────────────────────────────
@@ -245,9 +335,7 @@ public class PaymentService {
         ledgerEntryRepository.save(credit);
     }
 
-    private void createInterBankLedgerEntries(Payment payment, Account source,
-                                               BigDecimal sourceBalanceBefore) {
-        LocalDateTime now = LocalDateTime.now();
+    private void createInterBankLedgerEntries(Payment payment, Account source) {
         String externalAccount = payment.getDestinationExternalAccount();
 
         LedgerEntry debit = new LedgerEntry();
@@ -259,11 +347,10 @@ public class PaymentService {
         debit.setEntryType(LedgerEntry.EntryType.DEBIT);
         debit.setAmount(payment.getAmount());
         debit.setCurrency(source.getCurrency());
-        debit.setBalanceBefore(sourceBalanceBefore);
+        debit.setBalanceBefore(source.getBalance());
         debit.setBalanceAfter(source.getBalance());
-        debit.setStatus(LedgerEntry.EntryStatus.POSTED);
-        debit.setPostedAt(now);
-        debit.setDescription("Debit for inter-bank payment " + payment.getPaymentReference());
+        debit.setStatus(LedgerEntry.EntryStatus.PENDING);
+        debit.setDescription("Hold for inter-bank payment " + payment.getPaymentReference());
 
         // account is null — external destination, balance managed by receiving bank
         LedgerEntry credit = new LedgerEntry();
@@ -297,12 +384,13 @@ public class PaymentService {
         String payload = String.format(
                 "{\"paymentId\":%d,\"paymentReference\":\"%s\","
                 + "\"sourceAccountNumber\":\"%s\",\"destinationAccountNumber\":\"%s\","
-                + "\"amount\":\"%s\",\"status\":\"%s\"}",
+                + "\"amount\":\"%s\",\"cycleId\":\"%s\",\"status\":\"%s\"}",
                 payment.getId(),
                 payment.getPaymentReference(),
                 payment.getSourceAccount().getAccountNumber(),
                 destinationAccountNumber != null ? destinationAccountNumber : "",
                 payment.getAmount().toPlainString(),
+                payment.getCycleId() != null ? payment.getCycleId() : "",
                 payment.getStatus().name()
         );
 
@@ -310,6 +398,22 @@ public class PaymentService {
         event.setAggregateId(String.valueOf(payment.getId()));
         event.setAggregateType("Payment");
         event.setEventType("PaymentCreated");
+        event.setTopic(PAYMENT_TOPIC);
+        event.setPayload(payload);
+
+        outboxEventRepository.save(event);
+    }
+
+    /** Records the cycle-mismatch retry (step 19: "updates outbox with new cycle_id") so downstream consumers see the corrected cycle id too. */
+    private void createCycleRetryOutboxEvent(Payment payment, long newCycleId) {
+        String payload = String.format(
+                "{\"paymentId\":%d,\"paymentReference\":\"%s\",\"newCycleId\":%d}",
+                payment.getId(), payment.getPaymentReference(), newCycleId);
+
+        OutboxEvent event = new OutboxEvent();
+        event.setAggregateId(String.valueOf(payment.getId()));
+        event.setAggregateType("Payment");
+        event.setEventType("PaymentCycleRetried");
         event.setTopic(PAYMENT_TOPIC);
         event.setPayload(payload);
 

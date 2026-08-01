@@ -1,0 +1,2 @@
+# No external dependencies — stdlib only (urllib, json, concurrent.futures).
+# Python 3.9+ required (installed via: brew install python)

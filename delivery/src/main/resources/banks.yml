@@ -1,8 +1,0 @@
-banks:
-  endpoints:
-    - bankCode: HDFC_IN
-      host: hdfc-bank-service.internal
-      port: 8081
-    - bankCode: ICICI_IN
-      host: icici-bank-service.internal
-      port: 8082

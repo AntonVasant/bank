@@ -29,9 +29,49 @@ spring:
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+  task:
+    scheduling:
+      pool:
+        size: 5
+      thread-name-prefix: scheduler-
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    metrics:
+      enabled: true
 
 server:
   port: 8084
+
+# gRPC endpoints for each bank's SettlementReportService (exposed by the
+# transaction/bank application), used to deliver each settlement cycle's
+# net position after it is consumed from Kafka.
+banks:
+  grpc:
+    endpoints:
+      HDFC_IN:
+        host: localhost
+        port: 9091
+      AXIS_IN:
+        host: localhost
+        port: 9095
+  # REST base URL for each bank's reconciliation endpoint
+  # (POST /api/reconciliation), used to deliver each settlement cycle's
+  # reconciliation request after it is consumed from Kafka.
+  rest:
+    endpoints:
+      HDFC_IN:
+        base-url: http://localhost:8081
+      AXIS_IN:
+        base-url: http://localhost:8080
 
 logging:
   level:

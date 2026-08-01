@@ -26,9 +26,9 @@ public class TransferController {
         return ResponseEntity.ok(transferService.getById(id));
     }
 
-    @GetMapping("/reference/{reference}")
-    public ResponseEntity<TransferResponse> getByReference(@PathVariable String reference) {
-        return ResponseEntity.ok(transferService.getByReference(reference));
+    @GetMapping("/utr/{utr}")
+    public ResponseEntity<TransferResponse> getByUtr(@PathVariable String utr) {
+        return ResponseEntity.ok(transferService.getByUtr(utr));
     }
 
     @GetMapping

@@ -1,0 +1,1299 @@
+2026-07-27T00:22:15.470+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T00:22:15.494+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T00:22:15.494+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T00:22:15.470+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T00:22:15.495+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T00:22:15.495+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T00:22:15.515+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T00:22:15.515+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T00:22:15.516+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T00:22:15.516+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T00:22:15.516+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T00:22:15.516+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T00:22:15.623+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T00:22:15.623+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T00:22:35.103+05:30  WARN 15898 --- [delivery] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=39m27s17ms).
+2026-07-27T01:50:14.746+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T01:50:14.746+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T01:50:14.746+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T01:50:14.746+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T01:50:14.746+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T01:50:14.746+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T01:50:14.751+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T01:50:14.751+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T01:50:14.751+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T01:50:14.751+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T01:50:14.751+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T01:50:14.751+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T01:50:14.860+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T01:50:14.862+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T03:18:09.492+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T03:18:09.492+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T03:18:09.492+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T03:18:09.492+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T03:18:09.492+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T03:18:09.492+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T03:18:09.494+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T03:18:09.494+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T03:18:09.494+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T03:18:09.494+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T03:18:09.494+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T03:18:09.494+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T03:18:09.600+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T03:18:09.607+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T03:36:00.495+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T03:36:00.495+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T03:36:00.496+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T03:36:00.496+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T03:36:00.496+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T03:36:00.496+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T03:36:00.498+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T03:36:00.498+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T03:36:00.498+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T03:36:00.498+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T03:36:00.498+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T03:36:00.498+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T03:36:00.596+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T03:36:00.606+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T03:49:10.010+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T03:49:10.010+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T03:49:10.011+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T03:49:10.011+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T03:49:10.011+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T03:49:10.011+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T03:49:10.013+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T03:49:10.013+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T03:49:10.014+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T03:49:10.014+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T03:49:10.014+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T03:49:10.014+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T03:49:10.143+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T03:49:10.143+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T03:49:15.638+05:30  WARN 15898 --- [delivery] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3h26m40s535ms).
+2026-07-27T05:04:59.585+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T05:04:59.585+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T05:04:59.585+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T05:04:59.585+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T05:04:59.585+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T05:04:59.586+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T05:04:59.600+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T05:04:59.600+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T05:04:59.600+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T05:04:59.600+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T05:04:59.600+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T05:04:59.600+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T05:04:59.692+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T05:04:59.694+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T05:22:19.974+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T05:22:19.974+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T05:22:19.974+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T05:22:19.975+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T05:22:19.975+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T05:22:19.975+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T05:22:19.975+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T05:22:19.975+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T05:22:19.975+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T05:22:19.976+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T05:22:19.976+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T05:22:19.976+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T05:22:20.080+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T05:22:20.094+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T05:36:59.810+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T05:36:59.810+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T05:36:59.810+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T05:36:59.810+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T05:36:59.810+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T05:36:59.810+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T05:36:59.811+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T05:36:59.811+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T05:36:59.811+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T05:36:59.811+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T05:36:59.811+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T05:36:59.811+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T05:36:59.940+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T05:36:59.940+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T06:37:58.689+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T06:37:58.690+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T06:37:58.690+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T06:37:58.690+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T06:37:58.691+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T06:37:58.691+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T06:37:58.710+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T06:37:58.710+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T06:37:58.710+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T06:37:58.710+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T06:37:58.710+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T06:37:58.710+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T06:37:58.816+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T06:37:58.838+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T06:38:02.770+05:30  WARN 15898 --- [delivery] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h48m47s132ms).
+2026-07-27T07:31:47.092+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T07:31:47.092+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T07:31:47.092+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T07:31:47.092+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T07:31:47.092+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T07:31:47.092+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T07:31:47.094+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T07:31:47.094+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T07:31:47.094+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T07:31:47.094+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T07:31:47.094+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T07:31:47.094+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T07:31:47.186+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T07:31:47.211+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T07:38:57.499+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T07:38:57.499+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T07:38:57.499+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T07:38:57.499+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T07:38:57.499+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T07:38:57.499+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T07:38:57.501+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T07:38:57.501+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T07:38:57.501+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T07:38:57.501+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T07:38:57.501+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T07:38:57.501+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T07:38:57.596+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T07:38:57.597+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T08:35:39.531+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T08:35:39.531+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T08:35:39.531+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T08:35:39.531+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T08:35:39.532+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T08:35:39.532+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T08:35:39.534+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T08:35:39.534+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T08:35:39.534+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T08:35:39.534+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T08:35:39.534+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T08:35:39.534+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T08:35:39.626+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T08:35:39.631+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T08:35:40.158+05:30  WARN 15898 --- [delivery] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h57m37s388ms).
+2026-07-27T08:39:56.426+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T08:39:56.426+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T08:39:56.426+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T08:39:56.426+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T08:39:56.428+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T08:39:56.429+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T08:39:56.430+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T08:39:56.430+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T08:39:56.430+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T08:39:56.430+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T08:39:56.430+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T08:39:56.430+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T08:39:56.527+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T08:39:56.528+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T09:30:30.259+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T09:30:30.259+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T09:30:30.259+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T09:30:30.259+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T09:30:30.259+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T09:30:30.259+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T09:30:30.261+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T09:30:30.261+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T09:30:30.261+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T09:30:30.261+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T09:30:30.261+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T09:30:30.261+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T09:30:30.375+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T09:30:30.384+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T09:40:55.484+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T09:40:55.484+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T09:40:55.484+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T09:40:55.484+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T09:40:55.484+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T09:40:55.484+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T09:40:55.484+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T09:40:55.484+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T09:40:55.484+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T09:40:55.484+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T09:40:55.485+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T09:40:55.485+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T09:40:55.575+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T09:40:55.582+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T09:41:00.964+05:30  WARN 15898 --- [delivery] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h5m20s805ms).
+2026-07-27T10:31:04.604+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T10:31:04.604+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T10:31:04.604+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T10:31:04.604+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T10:31:04.605+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T10:31:04.605+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T10:31:04.606+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T10:31:04.606+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T10:31:04.606+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T10:31:04.606+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T10:31:04.606+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T10:31:04.606+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T10:31:04.697+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T10:31:04.697+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T10:41:53.867+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T10:41:53.867+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T10:41:53.988+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T10:41:53.988+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T10:41:53.988+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T10:41:53.988+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T10:41:54.031+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T10:41:54.034+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T10:41:54.034+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T10:41:54.031+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T10:41:54.034+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T10:41:54.034+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T10:41:54.139+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T10:41:54.148+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T11:42:52.899+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T11:42:52.899+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T11:42:52.899+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T11:42:52.900+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T11:42:52.900+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T11:42:52.900+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T11:42:52.901+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T11:42:52.901+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T11:42:52.901+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T11:42:52.901+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T11:42:52.901+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T11:42:52.901+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T11:42:52.999+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T11:42:53.011+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T12:02:08.729+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T12:02:08.729+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T12:02:08.729+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T12:02:08.729+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T12:02:08.730+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T12:02:08.730+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T12:02:08.731+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T12:02:08.731+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T12:02:08.731+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T12:02:08.731+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T12:02:08.731+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T12:02:08.731+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T12:02:08.819+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T12:02:08.822+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T12:02:10.984+05:30  WARN 15898 --- [delivery] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h21m10s21ms).
+2026-07-27T12:43:50.948+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T12:43:50.948+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T12:43:50.948+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T12:43:50.948+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T12:43:50.949+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T12:43:50.949+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T12:43:50.950+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T12:43:50.950+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T12:43:50.950+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T12:43:50.950+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T12:43:50.950+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T12:43:50.950+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T12:43:51.037+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T12:43:51.065+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T12:59:24.715+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T12:59:24.715+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T12:59:24.715+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T12:59:24.715+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T12:59:24.715+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T12:59:24.715+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T12:59:24.716+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T12:59:24.716+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T12:59:24.716+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T12:59:24.716+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T12:59:24.716+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T12:59:24.716+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T12:59:24.811+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T12:59:24.811+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T13:02:08.537+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T13:02:08.537+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-07-27T13:02:08.628+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T13:02:08.632+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T13:02:08.632+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T13:02:08.632+05:30  INFO 15898 --- [delivery] [kafka-coordinator-heartbeat-thread | delivery-group] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Client requested disconnect from node 2147483646
+2026-07-27T13:02:08.694+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T13:02:08.694+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T13:02:20.337+05:30  WARN 15898 --- [delivery] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h9s353ms).
+2026-07-27T13:09:17.037+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Revoke previously assigned partitions [settlement.net-position.events-0]
+2026-07-27T13:09:17.037+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Revoke previously assigned partitions [settlement.reconciliation.events-0]
+2026-07-27T13:09:17.038+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : delivery-group: partitions revoked: [settlement.net-position.events-0]
+2026-07-27T13:09:17.038+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : delivery-group: partitions revoked: [settlement.reconciliation.events-0]
+2026-07-27T13:09:17.038+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Member consumer-delivery-group-2-98a06d66-5ea7-4982-9b66-27df3d9b4ccd sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) due to the consumer unsubscribed from all topics
+2026-07-27T13:09:17.038+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Member consumer-delivery-group-1-f2a3d8cf-d369-42d2-b2f7-d1ddaa726d68 sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) due to the consumer unsubscribed from all topics
+2026-07-27T13:09:17.039+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-07-27T13:09:17.039+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-07-27T13:09:17.039+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Request joining group due to: consumer pro-actively leaving the group
+2026-07-27T13:09:17.039+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Request joining group due to: consumer pro-actively leaving the group
+2026-07-27T13:09:17.039+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Unsubscribed all topics or patterns and assigned partitions
+2026-07-27T13:09:17.039+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Unsubscribed all topics or patterns and assigned partitions
+2026-07-27T13:09:17.043+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-07-27T13:09:17.043+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-07-27T13:09:17.043+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Request joining group due to: consumer pro-actively leaving the group
+2026-07-27T13:09:17.043+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Request joining group due to: consumer pro-actively leaving the group
+2026-07-27T13:09:17.166+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2026-07-27T13:09:17.166+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2026-07-27T13:09:17.166+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-07-27T13:09:17.166+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-07-27T13:09:17.166+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2026-07-27T13:09:17.166+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2026-07-27T13:09:17.166+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2026-07-27T13:09:17.166+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2026-07-27T13:09:17.169+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-delivery-group-1 unregistered
+2026-07-27T13:09:17.169+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-delivery-group-2 unregistered
+2026-07-27T13:09:17.169+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : delivery-group: Consumer stopped
+2026-07-27T13:09:17.169+05:30  INFO 15898 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : delivery-group: Consumer stopped
+2026-07-27T13:09:17.171+05:30  INFO 15898 --- [delivery] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-27T13:09:17.175+05:30  INFO 15898 --- [delivery] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-07-27T13:09:17.178+05:30  INFO 15898 --- [delivery] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-27T13:09:17.179+05:30  INFO 15898 --- [delivery] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-07-27T13:09:17.180+05:30  INFO 15898 --- [delivery] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-07-27T22:23:04.263+05:30  INFO 97122 --- [delivery] [main] c.d.s.delivery.DeliveryApplicationTests  : Starting DeliveryApplicationTests using Java 17.0.16 with PID 97122 (started by anton-23085 in /Users/anton-23085/Project/bank/delivery)
+2026-07-27T22:23:04.267+05:30  INFO 97122 --- [delivery] [main] c.d.s.delivery.DeliveryApplicationTests  : No active profile set, falling back to 1 default profile: "default"
+2026-07-27T22:23:04.590+05:30  INFO 97122 --- [delivery] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-27T22:23:04.620+05:30  INFO 97122 --- [delivery] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24 ms. Found 2 JPA repository interfaces.
+2026-07-27T22:23:04.845+05:30  INFO 97122 --- [delivery] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-27T22:23:04.904+05:30  INFO 97122 --- [delivery] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-27T22:23:05.103+05:30  INFO 97122 --- [delivery] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-27T22:23:05.125+05:30  INFO 97122 --- [delivery] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-27T22:23:05.273+05:30  INFO 97122 --- [delivery] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2ccecae2
+2026-07-27T22:23:05.274+05:30  INFO 97122 --- [delivery] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-27T22:23:05.314+05:30  WARN 97122 --- [delivery] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-27T22:23:05.330+05:30  INFO 97122 --- [delivery] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5436/deliverydb]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: deliverydb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-27T22:23:05.818+05:30  INFO 97122 --- [delivery] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-27T22:23:05.911+05:30  INFO 97122 --- [delivery] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-27T22:23:05.979+05:30  INFO 97122 --- [delivery] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-27T22:23:06.595+05:30  WARN 97122 --- [delivery] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-27T22:23:06.877+05:30  INFO 97122 --- [delivery] [main] o.a.kafka.common.config.AbstractConfig   : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-delivery-group-1
+	client.rack = 
+	config.providers = []
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = delivery-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.rebootstrap.trigger.ms = 300000
+	metadata.recovery.strategy = rebootstrap
+	metric.reporters = [org.apache.kafka.common.metrics.JmxReporter]
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.assertion.algorithm = RS256
+	sasl.oauthbearer.assertion.claim.aud = null
+	sasl.oauthbearer.assertion.claim.exp.seconds = 300
+	sasl.oauthbearer.assertion.claim.iss = null
+	sasl.oauthbearer.assertion.claim.jti.include = false
+	sasl.oauthbearer.assertion.claim.nbf.seconds = 60
+	sasl.oauthbearer.assertion.claim.sub = null
+	sasl.oauthbearer.assertion.file = null
+	sasl.oauthbearer.assertion.private.key.file = null
+	sasl.oauthbearer.assertion.private.key.passphrase = null
+	sasl.oauthbearer.assertion.template.file = null
+	sasl.oauthbearer.client.credentials.client.id = null
+	sasl.oauthbearer.client.credentials.client.secret = null
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = []
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.jwt.retriever.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtRetriever
+	sasl.oauthbearer.jwt.validator.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtValidator
+	sasl.oauthbearer.scope = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	share.acknowledgement.mode = implicit
+	share.acquire.mode = BATCH_OPTIMIZED
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = []
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2026-07-27T22:23:06.901+05:30  INFO 97122 --- [delivery] [main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2026-07-27T22:23:06.962+05:30  INFO 97122 --- [delivery] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 4.2.1
+2026-07-27T22:23:06.962+05:30  INFO 97122 --- [delivery] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 92f61c44867f39dc
+2026-07-27T22:23:06.962+05:30  INFO 97122 --- [delivery] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1785171186961
+2026-07-27T22:23:06.964+05:30  INFO 97122 --- [delivery] [main] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Subscribed to topic(s): settlement.reconciliation.events
+2026-07-27T22:23:06.968+05:30  INFO 97122 --- [delivery] [main] o.a.kafka.common.config.AbstractConfig   : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-delivery-group-2
+	client.rack = 
+	config.providers = []
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = delivery-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.rebootstrap.trigger.ms = 300000
+	metadata.recovery.strategy = rebootstrap
+	metric.reporters = [org.apache.kafka.common.metrics.JmxReporter]
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.assertion.algorithm = RS256
+	sasl.oauthbearer.assertion.claim.aud = null
+	sasl.oauthbearer.assertion.claim.exp.seconds = 300
+	sasl.oauthbearer.assertion.claim.iss = null
+	sasl.oauthbearer.assertion.claim.jti.include = false
+	sasl.oauthbearer.assertion.claim.nbf.seconds = 60
+	sasl.oauthbearer.assertion.claim.sub = null
+	sasl.oauthbearer.assertion.file = null
+	sasl.oauthbearer.assertion.private.key.file = null
+	sasl.oauthbearer.assertion.private.key.passphrase = null
+	sasl.oauthbearer.assertion.template.file = null
+	sasl.oauthbearer.client.credentials.client.id = null
+	sasl.oauthbearer.client.credentials.client.secret = null
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = []
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.jwt.retriever.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtRetriever
+	sasl.oauthbearer.jwt.validator.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtValidator
+	sasl.oauthbearer.scope = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	share.acknowledgement.mode = implicit
+	share.acquire.mode = BATCH_OPTIMIZED
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = []
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2026-07-27T22:23:06.969+05:30  INFO 97122 --- [delivery] [main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2026-07-27T22:23:06.972+05:30  INFO 97122 --- [delivery] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 4.2.1
+2026-07-27T22:23:06.972+05:30  INFO 97122 --- [delivery] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 92f61c44867f39dc
+2026-07-27T22:23:06.972+05:30  INFO 97122 --- [delivery] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1785171186972
+2026-07-27T22:23:06.972+05:30  INFO 97122 --- [delivery] [main] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Subscribed to topic(s): settlement.net-position.events
+2026-07-27T22:23:06.977+05:30  INFO 97122 --- [delivery] [main] c.d.s.delivery.DeliveryApplicationTests  : Started DeliveryApplicationTests in 2.88 seconds (process running for 3.459)
+2026-07-27T22:23:07.191+05:30  INFO 97122 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Cluster ID: YnD_8WyzQ4SdY1TpLQDqKA
+2026-07-27T22:23:07.191+05:30  INFO 97122 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Cluster ID: YnD_8WyzQ4SdY1TpLQDqKA
+2026-07-27T22:23:07.196+05:30  INFO 97122 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T22:23:07.196+05:30  INFO 97122 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T22:23:07.197+05:30  INFO 97122 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] (Re-)joining group
+2026-07-27T22:23:07.197+05:30  INFO 97122 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] (Re-)joining group
+2026-07-27T22:23:07.221+05:30  INFO 97122 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Request joining group due to: need to re-join with the given member-id: consumer-delivery-group-2-74994566-955c-4f27-ace1-953e8dbfa965
+2026-07-27T22:23:07.221+05:30  INFO 97122 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Request joining group due to: need to re-join with the given member-id: consumer-delivery-group-1-fe704830-9412-4950-9a71-f1140026274e
+2026-07-27T22:23:07.221+05:30  INFO 97122 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] (Re-)joining group
+2026-07-27T22:23:07.221+05:30  INFO 97122 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] (Re-)joining group
+2026-07-27T22:23:07.312+05:30  INFO 97122 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Member consumer-delivery-group-2-74994566-955c-4f27-ace1-953e8dbfa965 sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) due to the consumer unsubscribed from all topics
+2026-07-27T22:23:07.312+05:30  INFO 97122 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Member consumer-delivery-group-1-fe704830-9412-4950-9a71-f1140026274e sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) due to the consumer unsubscribed from all topics
+2026-07-27T22:23:07.312+05:30  INFO 97122 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-07-27T22:23:07.312+05:30  INFO 97122 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Request joining group due to: consumer pro-actively leaving the group
+2026-07-27T22:23:07.312+05:30  INFO 97122 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-07-27T22:23:07.312+05:30  INFO 97122 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Unsubscribed all topics or patterns and assigned partitions
+2026-07-27T22:23:07.312+05:30  INFO 97122 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Request joining group due to: consumer pro-actively leaving the group
+2026-07-27T22:23:07.312+05:30  INFO 97122 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Unsubscribed all topics or patterns and assigned partitions
+2026-07-27T22:23:07.314+05:30  INFO 97122 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-07-27T22:23:07.314+05:30  INFO 97122 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-07-27T22:23:07.314+05:30  INFO 97122 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Request joining group due to: consumer pro-actively leaving the group
+2026-07-27T22:23:07.314+05:30  INFO 97122 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Request joining group due to: consumer pro-actively leaving the group
+2026-07-27T22:23:13.408+05:30  INFO 97122 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2026-07-27T22:23:13.409+05:30  INFO 97122 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-07-27T22:23:13.409+05:30  INFO 97122 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2026-07-27T22:23:13.409+05:30  INFO 97122 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2026-07-27T22:23:13.418+05:30  INFO 97122 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-delivery-group-1 unregistered
+2026-07-27T22:23:13.418+05:30  INFO 97122 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : delivery-group: Consumer stopped
+2026-07-27T22:23:13.459+05:30  INFO 97122 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2026-07-27T22:23:13.459+05:30  INFO 97122 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-07-27T22:23:13.459+05:30  INFO 97122 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2026-07-27T22:23:13.459+05:30  INFO 97122 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2026-07-27T22:23:13.461+05:30  INFO 97122 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-delivery-group-2 unregistered
+2026-07-27T22:23:13.461+05:30  INFO 97122 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : delivery-group: Consumer stopped
+2026-07-27T22:23:13.463+05:30  INFO 97122 --- [delivery] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-27T22:23:13.465+05:30  INFO 97122 --- [delivery] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-07-27T22:23:13.466+05:30  INFO 97122 --- [delivery] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-07-27T22:34:39.749+05:30  INFO 36553 --- [delivery] [main] c.d.s.delivery.DeliveryApplicationTests  : Starting DeliveryApplicationTests using Java 21.0.12 with PID 36553 (started by anton-23085 in /Users/anton-23085/Project/bank/delivery)
+2026-07-27T22:34:39.750+05:30  INFO 36553 --- [delivery] [main] c.d.s.delivery.DeliveryApplicationTests  : No active profile set, falling back to 1 default profile: "default"
+2026-07-27T22:34:40.104+05:30  INFO 36553 --- [delivery] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-27T22:34:40.132+05:30  INFO 36553 --- [delivery] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 23 ms. Found 2 JPA repository interfaces.
+2026-07-27T22:34:40.459+05:30  INFO 36553 --- [delivery] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-27T22:34:40.507+05:30  INFO 36553 --- [delivery] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-27T22:34:40.785+05:30  INFO 36553 --- [delivery] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-27T22:34:40.808+05:30  INFO 36553 --- [delivery] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-27T22:34:40.935+05:30  INFO 36553 --- [delivery] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@21ab919c
+2026-07-27T22:34:40.937+05:30  INFO 36553 --- [delivery] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-27T22:34:40.964+05:30  WARN 36553 --- [delivery] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-27T22:34:40.982+05:30  INFO 36553 --- [delivery] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5436/deliverydb]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: deliverydb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-27T22:34:41.590+05:30  INFO 36553 --- [delivery] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-27T22:34:41.650+05:30  INFO 36553 --- [delivery] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-27T22:34:41.706+05:30  INFO 36553 --- [delivery] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-27T22:34:42.351+05:30  WARN 36553 --- [delivery] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-27T22:34:42.639+05:30  INFO 36553 --- [delivery] [main] o.a.kafka.common.config.AbstractConfig   : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-delivery-group-1
+	client.rack = 
+	config.providers = []
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = delivery-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.rebootstrap.trigger.ms = 300000
+	metadata.recovery.strategy = rebootstrap
+	metric.reporters = [org.apache.kafka.common.metrics.JmxReporter]
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.assertion.algorithm = RS256
+	sasl.oauthbearer.assertion.claim.aud = null
+	sasl.oauthbearer.assertion.claim.exp.seconds = 300
+	sasl.oauthbearer.assertion.claim.iss = null
+	sasl.oauthbearer.assertion.claim.jti.include = false
+	sasl.oauthbearer.assertion.claim.nbf.seconds = 60
+	sasl.oauthbearer.assertion.claim.sub = null
+	sasl.oauthbearer.assertion.file = null
+	sasl.oauthbearer.assertion.private.key.file = null
+	sasl.oauthbearer.assertion.private.key.passphrase = null
+	sasl.oauthbearer.assertion.template.file = null
+	sasl.oauthbearer.client.credentials.client.id = null
+	sasl.oauthbearer.client.credentials.client.secret = null
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = []
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.jwt.retriever.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtRetriever
+	sasl.oauthbearer.jwt.validator.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtValidator
+	sasl.oauthbearer.scope = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	share.acknowledgement.mode = implicit
+	share.acquire.mode = BATCH_OPTIMIZED
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = []
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2026-07-27T22:34:42.666+05:30  INFO 36553 --- [delivery] [main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2026-07-27T22:34:42.767+05:30  INFO 36553 --- [delivery] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 4.2.1
+2026-07-27T22:34:42.767+05:30  INFO 36553 --- [delivery] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 92f61c44867f39dc
+2026-07-27T22:34:42.767+05:30  INFO 36553 --- [delivery] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1785171882765
+2026-07-27T22:34:42.769+05:30  INFO 36553 --- [delivery] [main] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Subscribed to topic(s): settlement.reconciliation.events
+2026-07-27T22:34:42.775+05:30  INFO 36553 --- [delivery] [main] o.a.kafka.common.config.AbstractConfig   : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-delivery-group-2
+	client.rack = 
+	config.providers = []
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = delivery-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.rebootstrap.trigger.ms = 300000
+	metadata.recovery.strategy = rebootstrap
+	metric.reporters = [org.apache.kafka.common.metrics.JmxReporter]
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.assertion.algorithm = RS256
+	sasl.oauthbearer.assertion.claim.aud = null
+	sasl.oauthbearer.assertion.claim.exp.seconds = 300
+	sasl.oauthbearer.assertion.claim.iss = null
+	sasl.oauthbearer.assertion.claim.jti.include = false
+	sasl.oauthbearer.assertion.claim.nbf.seconds = 60
+	sasl.oauthbearer.assertion.claim.sub = null
+	sasl.oauthbearer.assertion.file = null
+	sasl.oauthbearer.assertion.private.key.file = null
+	sasl.oauthbearer.assertion.private.key.passphrase = null
+	sasl.oauthbearer.assertion.template.file = null
+	sasl.oauthbearer.client.credentials.client.id = null
+	sasl.oauthbearer.client.credentials.client.secret = null
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = []
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.jwt.retriever.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtRetriever
+	sasl.oauthbearer.jwt.validator.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtValidator
+	sasl.oauthbearer.scope = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	share.acknowledgement.mode = implicit
+	share.acquire.mode = BATCH_OPTIMIZED
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = []
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2026-07-27T22:34:42.776+05:30  INFO 36553 --- [delivery] [main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2026-07-27T22:34:42.781+05:30  INFO 36553 --- [delivery] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 4.2.1
+2026-07-27T22:34:42.781+05:30  INFO 36553 --- [delivery] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 92f61c44867f39dc
+2026-07-27T22:34:42.781+05:30  INFO 36553 --- [delivery] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1785171882780
+2026-07-27T22:34:42.782+05:30  INFO 36553 --- [delivery] [main] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Subscribed to topic(s): settlement.net-position.events
+2026-07-27T22:34:42.788+05:30  INFO 36553 --- [delivery] [main] c.d.s.delivery.DeliveryApplicationTests  : Started DeliveryApplicationTests in 3.212 seconds (process running for 3.806)
+2026-07-27T22:34:43.091+05:30  INFO 36553 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Cluster ID: YnD_8WyzQ4SdY1TpLQDqKA
+2026-07-27T22:34:43.091+05:30  INFO 36553 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Cluster ID: YnD_8WyzQ4SdY1TpLQDqKA
+2026-07-27T22:34:43.093+05:30  INFO 36553 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T22:34:43.093+05:30  INFO 36553 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T22:34:43.094+05:30  INFO 36553 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] (Re-)joining group
+2026-07-27T22:34:43.094+05:30  INFO 36553 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] (Re-)joining group
+2026-07-27T22:34:43.120+05:30  INFO 36553 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Request joining group due to: need to re-join with the given member-id: consumer-delivery-group-2-4b797814-03f3-4fb8-8e1d-4751d6a6dcd5
+2026-07-27T22:34:43.120+05:30  INFO 36553 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Request joining group due to: need to re-join with the given member-id: consumer-delivery-group-1-c07332c7-32ac-49ce-8ccb-20a227e6e3fa
+2026-07-27T22:34:43.121+05:30  INFO 36553 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] (Re-)joining group
+2026-07-27T22:34:43.121+05:30  INFO 36553 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] (Re-)joining group
+2026-07-27T22:34:43.268+05:30  INFO 36553 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Member consumer-delivery-group-2-4b797814-03f3-4fb8-8e1d-4751d6a6dcd5 sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) due to the consumer unsubscribed from all topics
+2026-07-27T22:34:43.268+05:30  INFO 36553 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Member consumer-delivery-group-1-c07332c7-32ac-49ce-8ccb-20a227e6e3fa sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) due to the consumer unsubscribed from all topics
+2026-07-27T22:34:43.269+05:30  INFO 36553 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-07-27T22:34:43.269+05:30  INFO 36553 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-07-27T22:34:43.269+05:30  INFO 36553 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Request joining group due to: consumer pro-actively leaving the group
+2026-07-27T22:34:43.269+05:30  INFO 36553 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Unsubscribed all topics or patterns and assigned partitions
+2026-07-27T22:34:43.269+05:30  INFO 36553 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Request joining group due to: consumer pro-actively leaving the group
+2026-07-27T22:34:43.269+05:30  INFO 36553 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Unsubscribed all topics or patterns and assigned partitions
+2026-07-27T22:34:43.270+05:30  INFO 36553 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-07-27T22:34:43.270+05:30  INFO 36553 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-07-27T22:34:43.270+05:30  INFO 36553 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Request joining group due to: consumer pro-actively leaving the group
+2026-07-27T22:34:43.270+05:30  INFO 36553 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Request joining group due to: consumer pro-actively leaving the group
+2026-07-27T22:34:49.254+05:30  INFO 36553 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2026-07-27T22:34:49.254+05:30  INFO 36553 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-07-27T22:34:49.255+05:30  INFO 36553 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2026-07-27T22:34:49.255+05:30  INFO 36553 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2026-07-27T22:34:49.265+05:30  INFO 36553 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-delivery-group-2 unregistered
+2026-07-27T22:34:49.266+05:30  INFO 36553 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : delivery-group: Consumer stopped
+2026-07-27T22:34:49.276+05:30  INFO 36553 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2026-07-27T22:34:49.277+05:30  INFO 36553 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-07-27T22:34:49.277+05:30  INFO 36553 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2026-07-27T22:34:49.277+05:30  INFO 36553 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2026-07-27T22:34:49.279+05:30  INFO 36553 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-delivery-group-1 unregistered
+2026-07-27T22:34:49.279+05:30  INFO 36553 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : delivery-group: Consumer stopped
+2026-07-27T22:34:49.280+05:30  INFO 36553 --- [delivery] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-27T22:34:49.282+05:30  INFO 36553 --- [delivery] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-07-27T22:34:49.283+05:30  INFO 36553 --- [delivery] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-07-27T22:41:22.134+05:30  INFO 57446 --- [delivery] [main] c.d.s.delivery.DeliveryApplication       : Starting DeliveryApplication using Java 21.0.12 with PID 57446 (/Users/anton-23085/Project/bank/delivery/target/classes started by anton-23085 in /Users/anton-23085/Project/bank/delivery)
+2026-07-27T22:41:22.137+05:30  INFO 57446 --- [delivery] [main] c.d.s.delivery.DeliveryApplication       : No active profile set, falling back to 1 default profile: "default"
+2026-07-27T22:41:22.421+05:30  INFO 57446 --- [delivery] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-27T22:41:22.446+05:30  INFO 57446 --- [delivery] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 2 JPA repository interfaces.
+2026-07-27T22:41:22.701+05:30  INFO 57446 --- [delivery] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8084 (http)
+2026-07-27T22:41:22.709+05:30  INFO 57446 --- [delivery] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-27T22:41:22.709+05:30  INFO 57446 --- [delivery] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-27T22:41:22.733+05:30  INFO 57446 --- [delivery] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 568 ms
+2026-07-27T22:41:22.826+05:30  INFO 57446 --- [delivery] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-27T22:41:22.845+05:30  INFO 57446 --- [delivery] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-27T22:41:23.022+05:30  INFO 57446 --- [delivery] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-27T22:41:23.035+05:30  INFO 57446 --- [delivery] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-27T22:41:23.117+05:30  INFO 57446 --- [delivery] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6a552721
+2026-07-27T22:41:23.118+05:30  INFO 57446 --- [delivery] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-27T22:41:23.130+05:30  WARN 57446 --- [delivery] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-27T22:41:23.140+05:30  INFO 57446 --- [delivery] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5436/deliverydb]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: deliverydb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-27T22:41:23.621+05:30  INFO 57446 --- [delivery] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-27T22:41:23.657+05:30  INFO 57446 --- [delivery] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-27T22:41:23.701+05:30  INFO 57446 --- [delivery] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-27T22:41:24.183+05:30  WARN 57446 --- [delivery] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-27T22:41:24.334+05:30  INFO 57446 --- [delivery] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8084 (http) with context path '/'
+2026-07-27T22:41:24.351+05:30  INFO 57446 --- [delivery] [main] o.a.kafka.common.config.AbstractConfig   : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-delivery-group-1
+	client.rack = 
+	config.providers = []
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = delivery-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.rebootstrap.trigger.ms = 300000
+	metadata.recovery.strategy = rebootstrap
+	metric.reporters = [org.apache.kafka.common.metrics.JmxReporter]
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.assertion.algorithm = RS256
+	sasl.oauthbearer.assertion.claim.aud = null
+	sasl.oauthbearer.assertion.claim.exp.seconds = 300
+	sasl.oauthbearer.assertion.claim.iss = null
+	sasl.oauthbearer.assertion.claim.jti.include = false
+	sasl.oauthbearer.assertion.claim.nbf.seconds = 60
+	sasl.oauthbearer.assertion.claim.sub = null
+	sasl.oauthbearer.assertion.file = null
+	sasl.oauthbearer.assertion.private.key.file = null
+	sasl.oauthbearer.assertion.private.key.passphrase = null
+	sasl.oauthbearer.assertion.template.file = null
+	sasl.oauthbearer.client.credentials.client.id = null
+	sasl.oauthbearer.client.credentials.client.secret = null
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = []
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.jwt.retriever.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtRetriever
+	sasl.oauthbearer.jwt.validator.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtValidator
+	sasl.oauthbearer.scope = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	share.acknowledgement.mode = implicit
+	share.acquire.mode = BATCH_OPTIMIZED
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = []
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2026-07-27T22:41:24.367+05:30  INFO 57446 --- [delivery] [main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2026-07-27T22:41:24.452+05:30  INFO 57446 --- [delivery] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 4.2.1
+2026-07-27T22:41:24.452+05:30  INFO 57446 --- [delivery] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 92f61c44867f39dc
+2026-07-27T22:41:24.453+05:30  INFO 57446 --- [delivery] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1785172284451
+2026-07-27T22:41:24.455+05:30  INFO 57446 --- [delivery] [main] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Subscribed to topic(s): settlement.reconciliation.events
+2026-07-27T22:41:24.460+05:30  INFO 57446 --- [delivery] [main] o.a.kafka.common.config.AbstractConfig   : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-delivery-group-2
+	client.rack = 
+	config.providers = []
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = delivery-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.rebootstrap.trigger.ms = 300000
+	metadata.recovery.strategy = rebootstrap
+	metric.reporters = [org.apache.kafka.common.metrics.JmxReporter]
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.assertion.algorithm = RS256
+	sasl.oauthbearer.assertion.claim.aud = null
+	sasl.oauthbearer.assertion.claim.exp.seconds = 300
+	sasl.oauthbearer.assertion.claim.iss = null
+	sasl.oauthbearer.assertion.claim.jti.include = false
+	sasl.oauthbearer.assertion.claim.nbf.seconds = 60
+	sasl.oauthbearer.assertion.claim.sub = null
+	sasl.oauthbearer.assertion.file = null
+	sasl.oauthbearer.assertion.private.key.file = null
+	sasl.oauthbearer.assertion.private.key.passphrase = null
+	sasl.oauthbearer.assertion.template.file = null
+	sasl.oauthbearer.client.credentials.client.id = null
+	sasl.oauthbearer.client.credentials.client.secret = null
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = []
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.jwt.retriever.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtRetriever
+	sasl.oauthbearer.jwt.validator.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtValidator
+	sasl.oauthbearer.scope = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	share.acknowledgement.mode = implicit
+	share.acquire.mode = BATCH_OPTIMIZED
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = []
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2026-07-27T22:41:24.460+05:30  INFO 57446 --- [delivery] [main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2026-07-27T22:41:24.464+05:30  INFO 57446 --- [delivery] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 4.2.1
+2026-07-27T22:41:24.464+05:30  INFO 57446 --- [delivery] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 92f61c44867f39dc
+2026-07-27T22:41:24.464+05:30  INFO 57446 --- [delivery] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1785172284464
+2026-07-27T22:41:24.464+05:30  INFO 57446 --- [delivery] [main] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Subscribed to topic(s): settlement.net-position.events
+2026-07-27T22:41:24.470+05:30  INFO 57446 --- [delivery] [main] c.d.s.delivery.DeliveryApplication       : Started DeliveryApplication in 2.641 seconds (process running for 2.898)
+2026-07-27T22:41:24.609+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Cluster ID: YnD_8WyzQ4SdY1TpLQDqKA
+2026-07-27T22:41:24.609+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Cluster ID: YnD_8WyzQ4SdY1TpLQDqKA
+2026-07-27T22:41:24.611+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T22:41:24.611+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-27T22:41:24.613+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] (Re-)joining group
+2026-07-27T22:41:24.613+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] (Re-)joining group
+2026-07-27T22:41:24.619+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Request joining group due to: need to re-join with the given member-id: consumer-delivery-group-1-40aadb98-3a74-4706-ba80-871973dc1128
+2026-07-27T22:41:24.619+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Request joining group due to: need to re-join with the given member-id: consumer-delivery-group-2-601982ad-9fbf-47b7-bedc-11c4ff1debe8
+2026-07-27T22:41:24.620+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] (Re-)joining group
+2026-07-27T22:41:24.620+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] (Re-)joining group
+2026-07-27T22:41:30.744+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Successfully joined group with generation Generation{generationId=31, memberId='consumer-delivery-group-1-40aadb98-3a74-4706-ba80-871973dc1128', protocol='range'}
+2026-07-27T22:41:30.744+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Successfully joined group with generation Generation{generationId=31, memberId='consumer-delivery-group-2-601982ad-9fbf-47b7-bedc-11c4ff1debe8', protocol='range'}
+2026-07-27T22:41:30.755+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Finished assignment for group at generation 31: {consumer-delivery-group-2-601982ad-9fbf-47b7-bedc-11c4ff1debe8=Assignment(partitions=[settlement.net-position.events-0]), consumer-delivery-group-1-40aadb98-3a74-4706-ba80-871973dc1128=Assignment(partitions=[settlement.reconciliation.events-0])}
+2026-07-27T22:41:30.777+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Successfully synced group in generation Generation{generationId=31, memberId='consumer-delivery-group-1-40aadb98-3a74-4706-ba80-871973dc1128', protocol='range'}
+2026-07-27T22:41:30.777+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Successfully synced group in generation Generation{generationId=31, memberId='consumer-delivery-group-2-601982ad-9fbf-47b7-bedc-11c4ff1debe8', protocol='range'}
+2026-07-27T22:41:30.777+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Notifying assignor about the new Assignment(partitions=[settlement.reconciliation.events-0])
+2026-07-27T22:41:30.777+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Notifying assignor about the new Assignment(partitions=[settlement.net-position.events-0])
+2026-07-27T22:41:30.778+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Adding newly assigned partitions: [settlement.reconciliation.events-0]
+2026-07-27T22:41:30.778+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Adding newly assigned partitions: [settlement.net-position.events-0]
+2026-07-27T22:41:30.781+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerUtils        : Setting offset for partition settlement.net-position.events-0 to the committed offset FetchPosition{offset=10, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null isFenced: false)], epoch=4}}
+2026-07-27T22:41:30.781+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerUtils        : Setting offset for partition settlement.reconciliation.events-0 to the committed offset FetchPosition{offset=7, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null isFenced: false)], epoch=4}}
+2026-07-27T22:41:30.783+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : delivery-group: partitions assigned: [settlement.reconciliation.events-0]
+2026-07-27T22:41:30.783+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : delivery-group: partitions assigned: [settlement.net-position.events-0]
+2026-07-27T23:06:40.132+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Revoke previously assigned partitions [settlement.reconciliation.events-0]
+2026-07-27T23:06:40.132+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Revoke previously assigned partitions [settlement.net-position.events-0]
+2026-07-27T23:06:40.133+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : delivery-group: partitions revoked: [settlement.reconciliation.events-0]
+2026-07-27T23:06:40.133+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : delivery-group: partitions revoked: [settlement.net-position.events-0]
+2026-07-27T23:06:40.134+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Member consumer-delivery-group-2-601982ad-9fbf-47b7-bedc-11c4ff1debe8 sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) due to the consumer unsubscribed from all topics
+2026-07-27T23:06:40.134+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Member consumer-delivery-group-1-40aadb98-3a74-4706-ba80-871973dc1128 sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) due to the consumer unsubscribed from all topics
+2026-07-27T23:06:40.134+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-07-27T23:06:40.134+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-07-27T23:06:40.134+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Request joining group due to: consumer pro-actively leaving the group
+2026-07-27T23:06:40.134+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Request joining group due to: consumer pro-actively leaving the group
+2026-07-27T23:06:40.135+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Unsubscribed all topics or patterns and assigned partitions
+2026-07-27T23:06:40.135+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Unsubscribed all topics or patterns and assigned partitions
+2026-07-27T23:06:40.137+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-07-27T23:06:40.137+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-07-27T23:06:40.137+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-1, groupId=delivery-group] Request joining group due to: consumer pro-actively leaving the group
+2026-07-27T23:06:40.137+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-delivery-group-2, groupId=delivery-group] Request joining group due to: consumer pro-actively leaving the group
+2026-07-27T23:06:40.347+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2026-07-27T23:06:40.347+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2026-07-27T23:06:40.348+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-07-27T23:06:40.348+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-07-27T23:06:40.348+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2026-07-27T23:06:40.348+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2026-07-27T23:06:40.348+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2026-07-27T23:06:40.348+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2026-07-27T23:06:40.356+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-delivery-group-2 unregistered
+2026-07-27T23:06:40.357+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-delivery-group-1 unregistered
+2026-07-27T23:06:40.357+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : delivery-group: Consumer stopped
+2026-07-27T23:06:40.357+05:30  INFO 57446 --- [delivery] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : delivery-group: Consumer stopped
+2026-07-27T23:06:40.360+05:30  INFO 57446 --- [delivery] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-27T23:06:40.366+05:30  INFO 57446 --- [delivery] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-07-27T23:06:40.370+05:30  INFO 57446 --- [delivery] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-27T23:06:40.373+05:30  INFO 57446 --- [delivery] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-07-27T23:06:40.374+05:30  INFO 57446 --- [delivery] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

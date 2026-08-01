@@ -75,6 +75,7 @@ public class AccountService {
 
     private AccountResponse toResponse(Account account) {
         return new AccountResponse(
+                account.getId(),
                 account.getAccountNumber(),
                 account.getStatus().name(),
                 account.getUser().getId());

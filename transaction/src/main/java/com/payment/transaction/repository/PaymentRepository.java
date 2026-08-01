@@ -11,4 +11,7 @@ public interface PaymentRepository extends JpaRepository<Payment, Long> {
     Optional<Payment> findByPaymentReference(String paymentReference);
 
     List<Payment> findByBatch_Id(Long batchId);
+
+    /** Inter-bank payments (destinationBankCode populated) tagged with the given settlement cycle id. */
+    List<Payment> findAllByCycleIdAndDestinationBankCodeIsNotNull(String cycleId);
 }

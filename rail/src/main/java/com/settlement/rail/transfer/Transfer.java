@@ -20,8 +20,8 @@ public class Transfer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "reference", nullable = false, unique = true, length = 64)
-    private String reference;
+    @Column(name = "utr", nullable = false, unique = true, length = 64)
+    private String utr;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "from_bank_id", nullable = false)
@@ -41,6 +41,17 @@ public class Transfer {
     @Column(name = "status", nullable = false)
     private TransferStatus status;
 
+    /**
+     * This rail's own recoverable state for its interaction with the
+     * <b>receiver</b> bank — see {@link CreditLegStatus}. Independent of
+     * {@link #status} (the overall/debit-facing lifecycle), since the two
+     * legs (accepting from the sender, crediting the receiver) can each
+     * fail or crash independently.
+     */
+    @Enumerated(EnumType.STRING)
+    @Column(name = "credit_status", nullable = false)
+    private CreditLegStatus creditStatus;
+
     @Column(name = "description", columnDefinition = "TEXT")
     private String description;
 
@@ -49,6 +60,15 @@ public class Transfer {
 
     @Column(name = "beneficiary_account_number", length = 64)
     private String beneficiaryAccountNumber;
+
+    /**
+     * The settlement cycle this transfer was recorded against. Sent back to
+     * both banks via gRPC (PaymentResponse.cycle_id / CreditRequest.cycle_id)
+     * so each bank can tag its own local record with the same cycle id and
+     * later reconcile against the rail's per-cycle net position.
+     */
+    @Column(name = "cycle_id", length = 64)
+    private String cycleId;
 
     @Column(name = "failure_reason", columnDefinition = "TEXT")
     private String failureReason;
@@ -68,6 +88,9 @@ public class Transfer {
         this.updatedAt = Instant.now();
         if (this.status == null) {
             this.status = TransferStatus.PENDING;
+        }
+        if (this.creditStatus == null) {
+            this.creditStatus = CreditLegStatus.PENDING;
         }
     }
 
