@@ -5,6 +5,7 @@ import com.payment.transaction.dto.ReconciliationResultRequest;
 import com.payment.transaction.entity.SettlementAccount;
 import com.payment.transaction.ledger.LedgerEntryLineRepository;
 import com.payment.transaction.ledger.LedgerEntryType;
+import io.micrometer.core.annotation.Timed;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -42,6 +43,7 @@ public class ReconciliationService {
         this.deliveryBaseUrl = deliveryBaseUrl;
     }
 
+    @Timed("reconciliation.reconcile")
     @Transactional(readOnly = true)
     public void reconcile(ReconciliationRequest request) {
         Long settlementAccountId = SettlementAccount.SETTLEMENT_ACCOUNT_ID;

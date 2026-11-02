@@ -1,0 +1,273 @@
+syntax = "proto3";
+
+package centralbank.gateway.v1;
+
+option go_package = "centralbankpb/gateway/v1;gatewayv1";
+option java_package = "com.centralbank.gateway.v1";
+option java_multiple_files = true;
+
+import "google/protobuf/timestamp.proto";
+
+// =====================================================================
+// SERVICE DEFINITION
+// Central Bank is the client (caller). Receiver Bank is the server
+// (callee) for these two RPCs — the central bank pushes data to the
+// receiver bank, which acknowledges receipt/processing.
+// =====================================================================
+
+service CentralBankGateway {
+  // Fired the moment a money transfer request is processed at the
+  // central bank, notifying the receiver bank that funds/instructions
+  // are on the way (or have landed) in their reserve account.
+  rpc SendTransferNotification(TransferNotification) returns (Acknowledgment);
+
+  // Sent on a schedule (e.g. every N minutes/hours/EOD) so the receiver
+  // bank can verify its own ledger against the central bank's record
+  // of the reserve account balance and transaction activity.
+  rpc SendReconciliationData(ReconciliationData) returns (Acknowledgment);
+
+  // Optional: for high transaction volumes, stream individual
+  // transaction records instead of embedding them all in one
+  // ReconciliationData message. Ends with the summary + ack still
+  // flowing through SendReconciliationData, or you can fold the
+  // summary into ReconciliationSummary below and use this instead.
+  rpc StreamReconciliationTransactions(ReconciliationHeader)
+      returns (stream TransactionDetail);
+
+  // Sent by the central bank to instruct the receiver bank to apply a
+  // credit to a specific account. The receiver bank (server) processes
+  // the instruction and returns an Acknowledgment. Idempotent on
+  // credit_request_id — duplicate calls with the same ID must return
+  // SUCCESS without re-crediting.
+  rpc RequestCredit(CreditRequest) returns (Acknowledgment);
+}
+
+// =====================================================================
+// SHARED / COMMON TYPES
+// =====================================================================
+
+// Self-contained money type (avoids depending on google/type/money.proto).
+// units = whole currency units, nanos = fractional (10^-9), same sign as units.
+message Money {
+  string currency_code = 1;  // ISO 4217, e.g. "INR", "USD"
+  int64 units = 2;
+  int32 nanos = 3;
+}
+
+enum TransferType {
+  TRANSFER_TYPE_UNSPECIFIED = 0;
+  RTGS = 1;
+  NEFT = 2;
+  IMPS = 3;
+  UPI = 4;
+  INTRABANK = 5;
+}
+
+enum TransferStatus {
+  TRANSFER_STATUS_UNSPECIFIED = 0;
+  PENDING = 1;
+  CREDITED = 2;
+  DEBITED = 3;
+  COMPLETED = 4;
+  FAILED = 5;
+  REVERSED = 6;
+}
+
+enum AckStatus {
+  ACK_STATUS_UNSPECIFIED = 0;
+  SUCCESS = 1;
+  FAILURE = 2;
+  PARTIAL = 3;   // e.g. reconciliation processed but with discrepancies
+}
+
+enum AckType {
+  ACK_TYPE_UNSPECIFIED = 0;
+  NOTIFICATION_ACK = 1;
+  RECONCILIATION_ACK = 2;
+  CREDIT_REQUEST_ACK = 3;
+}
+
+enum DiscrepancyType {
+  DISCREPANCY_TYPE_UNSPECIFIED = 0;
+  MISSING_AT_RECEIVER = 1;      // central bank has it, receiver bank doesn't
+  MISSING_AT_CENTRAL = 2;       // receiver bank has it, central bank doesn't
+  AMOUNT_MISMATCH = 3;
+  STATUS_MISMATCH = 4;
+  BALANCE_MISMATCH = 5;
+  DUPLICATE_ENTRY = 6;
+}
+
+// =====================================================================
+// 1. TRANSFER NOTIFICATION
+// Central Bank -> Receiver Bank, one per money transfer event.
+// =====================================================================
+
+message TransferNotification {
+  string notification_id = 1;        // UUID for this notification event
+  string transaction_id = 2;         // central bank's transaction reference
+  google.protobuf.Timestamp event_time = 3;
+
+  string sender_bank_code = 4;       // IFSC/SWIFT/BIC or internal bank code
+  string receiver_bank_code = 5;
+
+  string sender_account_number = 6;  // consider masking in transit/logs
+  string receiver_account_number = 7;
+
+  Money amount = 8;
+  TransferType transfer_type = 9;
+  TransferStatus status = 10;
+
+  string reference_number = 11;      // customer/UTR-style reference
+  string narration = 12;
+
+  Money reserve_account_balance_after = 13; // receiver bank's reserve
+                                             // balance at central bank
+                                             // immediately after this txn
+}
+
+// =====================================================================
+// 2. CREDIT REQUEST
+// Central Bank -> Receiver Bank.
+// Central bank instructs the receiver bank to credit a specific
+// beneficiary account. The receiver bank is the gRPC server and must
+// implement this RPC.
+// =====================================================================
+
+enum CreditPriority {
+  CREDIT_PRIORITY_UNSPECIFIED = 0;
+  NORMAL = 1;    // Standard processing (e.g. NEFT batch)
+  HIGH = 2;      // Same-day / near-real-time (e.g. RTGS, IMPS)
+  URGENT = 3;    // Immediate — e.g. court order, emergency funds
+}
+
+message CreditRequest {
+  string credit_request_id = 1;          // UUID — idempotency key
+  string transaction_id = 2;             // Central bank's transaction reference
+  google.protobuf.Timestamp instruction_time = 3; // When CB issued this credit
+
+  string sender_bank_code = 4;           // Originating bank (IFSC/SWIFT/BIC)
+  string receiver_bank_code = 5;         // Bank that must apply the credit
+
+  string sender_account_number = 6;      // Debited account at sender bank
+  string beneficiary_account_number = 7; // Account to be credited
+  string beneficiary_name = 8;           // Account holder name for verification
+
+  Money amount = 9;
+  TransferType transfer_type = 10;
+
+  google.protobuf.Timestamp value_date = 11; // Effective date of the credit
+
+  string reference_number = 12;          // UTR / customer-facing reference
+  string narration = 13;                 // Remittance information / remarks
+
+  CreditPriority priority = 14;
+
+  // Reserve account balance at the central bank after this debit,
+  // so the receiver bank can reconcile its reserve position.
+  Money reserve_account_balance_after = 15;
+
+  // The settlement cycle this credit was recorded against. The receiver
+  // bank persists this alongside its own record of the credit so it can
+  // later reconcile against the rail's per-cycle net position using the
+  // same cycle id.
+  string cycle_id = 16;
+}
+
+// =====================================================================
+// 3. TRANSACTION DETAIL
+// Line-item used inside ReconciliationData (or streamed individually)
+// so the receiver bank can verify each transaction, not just the total.
+// =====================================================================
+
+message TransactionDetail {
+  string transaction_id = 1;
+  google.protobuf.Timestamp event_time = 2;
+
+  string sender_bank_code = 3;
+  string receiver_bank_code = 4;
+  string sender_account_number = 5;
+  string receiver_account_number = 6;
+
+  Money amount = 7;
+  TransferType transfer_type = 8;
+  TransferStatus status = 9;
+  string reference_number = 10;
+
+  string debit_credit_indicator = 11; // "D" or "C" relative to receiver bank
+}
+
+// Small header used if you split reconciliation into a summary call
+// plus a streamed transaction list (see StreamReconciliationTransactions).
+message ReconciliationHeader {
+  string reconciliation_id = 1;
+  string bank_code = 2;
+  google.protobuf.Timestamp period_start = 3;
+  google.protobuf.Timestamp period_end = 4;
+}
+
+// =====================================================================
+// 4. RECONCILIATION DATA
+// Central Bank -> Receiver Bank, sent periodically (e.g. hourly / EOD).
+// =====================================================================
+
+message ReconciliationData {
+  string reconciliation_id = 1;      // UUID for this reconciliation run
+  string bank_code = 2;              // receiver bank this is addressed to
+  google.protobuf.Timestamp period_start = 3;
+  google.protobuf.Timestamp period_end = 4;
+  google.protobuf.Timestamp generated_at = 5;
+
+  // Reserve account snapshot
+  Money opening_balance = 6;
+  Money closing_balance = 7;
+  Money reserve_account_balance = 8;  // current balance as of generated_at
+
+  // Aggregate counts/amounts for quick verification before line-item check
+  int64 total_transaction_count = 9;
+  int64 credit_count = 10;
+  int64 debit_count = 11;
+  Money total_credit_amount = 12;
+  Money total_debit_amount = 13;
+
+  // Full transaction detail needed to verify line-by-line.
+  // For very high volumes, omit this and use
+  // StreamReconciliationTransactions with ReconciliationHeader instead.
+  repeated TransactionDetail transactions = 14;
+
+  // Integrity check: hash (e.g. SHA-256) of the ordered transaction list
+  // + balances, so the receiver bank can detect tampering/truncation.
+  string checksum = 15;
+  string checksum_algorithm = 16;   // e.g. "SHA-256"
+}
+
+// =====================================================================
+// 5. ACKNOWLEDGMENT
+// Receiver Bank -> Central Bank, returned as the RPC response for
+// SendTransferNotification, SendReconciliationData, and RequestCredit.
+// =====================================================================
+
+message Discrepancy {
+  string transaction_id = 1;        // empty if it's a balance-level issue
+  DiscrepancyType type = 2;
+  string expected_value = 3;
+  string actual_value = 4;
+  string description = 5;
+}
+
+message Acknowledgment {
+  string ack_id = 1;                 // UUID for this ack
+  string reference_id = 2;           // notification_id, reconciliation_id, or credit_request_id
+  AckType ack_type = 3;
+
+  AckStatus status = 4;
+  google.protobuf.Timestamp received_at = 5;
+  google.protobuf.Timestamp processed_at = 6;
+
+  string receiver_bank_code = 7;
+
+  string error_code = 8;             // set when status = FAILURE/PARTIAL
+  string error_message = 9;
+
+  // Populated when status = PARTIAL after a reconciliation check
+  repeated Discrepancy discrepancies = 10;
+}

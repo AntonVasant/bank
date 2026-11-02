@@ -70,18 +70,6 @@ public class LedgerEntry {
     @Column(nullable = false, length = 3)
     private Account.Currency currency;
 
-    /** Account balance immediately before this entry was applied. */
-    @Column(name = "balance_before", nullable = false, precision = 19, scale = 4)
-    private BigDecimal balanceBefore;
-
-    /** Account balance immediately after this entry was applied. */
-    @Column(name = "balance_after", nullable = false, precision = 19, scale = 4)
-    private BigDecimal balanceAfter;
-
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = 10)
-    private EntryStatus status;
-
     /** Free-text description, e.g. "Payment to ACCT-0042 for invoice #99". */
     @Column(length = 255)
     private String description;
@@ -89,11 +77,11 @@ public class LedgerEntry {
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
-    /** Set when status transitions to POSTED. */
+    /** Set once this entry is finalized (posted / settled). */
     @Column(name = "posted_at")
     private LocalDateTime postedAt;
 
-    /** Set when status transitions to VOIDED (e.g. on payment reversal). */
+    /** Set once this entry is reversed / cancelled (e.g. on payment reversal). */
     @Column(name = "voided_at")
     private LocalDateTime voidedAt;
 
@@ -111,15 +99,6 @@ public class LedgerEntry {
         DEBIT,
         /** Money enters this account. */
         CREDIT
-    }
-
-    public enum EntryStatus {
-        /** Entry created but not yet reflected in the account balance. */
-        PENDING,
-        /** Entry has been applied to the account balance. */
-        POSTED,
-        /** Entry has been reversed / cancelled. */
-        VOIDED
     }
 
     // -----------------------------------------------------------------------
@@ -151,15 +130,6 @@ public class LedgerEntry {
 
     public Account.Currency getCurrency() { return currency; }
     public void setCurrency(Account.Currency currency) { this.currency = currency; }
-
-    public BigDecimal getBalanceBefore() { return balanceBefore; }
-    public void setBalanceBefore(BigDecimal balanceBefore) { this.balanceBefore = balanceBefore; }
-
-    public BigDecimal getBalanceAfter() { return balanceAfter; }
-    public void setBalanceAfter(BigDecimal balanceAfter) { this.balanceAfter = balanceAfter; }
-
-    public EntryStatus getStatus() { return status; }
-    public void setStatus(EntryStatus status) { this.status = status; }
 
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }

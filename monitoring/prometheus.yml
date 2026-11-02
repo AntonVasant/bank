@@ -1,0 +1,36 @@
+global:
+  scrape_interval: 2s
+
+scrape_configs:
+  - job_name: bank-a
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets:
+          - host.docker.internal:8080
+
+  - job_name: bank-b
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets:
+          - host.docker.internal:8081
+
+  - job_name: rail
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets:
+          - host.docker.internal:8082
+
+  - job_name: postgres-banka
+    static_configs:
+      - targets:
+          - postgres-exporter-banka:9187
+
+  - job_name: postgres-bankb
+    static_configs:
+      - targets:
+          - postgres-exporter-bankb:9187
+
+  - job_name: postgres-rail
+    static_configs:
+      - targets:
+          - postgres-exporter-rail:9187

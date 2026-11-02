@@ -10,6 +10,8 @@ import com.payment.transaction.repository.AccountRepository;
 import com.payment.transaction.repository.LedgerEntryRepository;
 import com.payment.transaction.repository.OutboxEventRepository;
 import com.payment.transaction.repository.PaymentRepository;
+import io.micrometer.core.annotation.Timed;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
@@ -18,8 +20,10 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 @Service
 public class PaymentService {
 
@@ -59,6 +63,7 @@ public class PaymentService {
     }
 
 
+    @Timed("payment.load_and_validate_source")
     @Transactional(readOnly = true)
     public Account loadAndValidateSource(CreatePaymentRequest request) {
         Account source = accountRepository.findByAccountNumber(request.sourceAccountNumber())
@@ -78,10 +83,21 @@ public class PaymentService {
 
     // ── Intra-bank ───────────────────────────────────────────────────────────
 
-    @Transactional
-    public PaymentResponse executeIntraBank(String idempotencyKey,
-                                             CreatePaymentRequest request,
-                                             Account source) {
+    /**
+     * Fetches and validates the destination account for an intra-bank
+     * transfer. Deliberately read-only/separate from {@link #executeIntraBank}
+     * — same reasoning as {@link #loadAndValidateSource}: the lookup/validation
+     * happens <em>before</em> the write transaction opens, so
+     * {@link #executeIntraBank} only has to mutate balances and persist.
+     * <p>
+     * Deliberately does <em>not</em> build the {@link Payment} object itself —
+     * see {@link #buildIntraBankPayment}, a plain (non-transactional) method —
+     * so that in-memory object construction never happens while this
+     * transaction's connection is held open either.
+     */
+    @Timed("payment.validate_intra_bank_destination")
+    @Transactional(readOnly = true)
+    public Account validateIntraBankDestination(CreatePaymentRequest request, Account source) {
         Account destination = accountRepository.findByAccountNumber(request.destinationAccountNumber())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,
                         "Destination account not found: "));
@@ -99,6 +115,31 @@ public class PaymentService {
                     "Currency mismatch: source=" + source.getCurrency()
                     + " destination=" + destination.getCurrency());
         }
+        return destination;
+    }
+
+    /**
+     * Builds the COMPLETED {@link Payment} object for an intra-bank transfer.
+     * Deliberately {@code @Transactional}-free, same reasoning as
+     * {@link #currentCycleId()} — plain in-memory object construction, no DB
+     * access, so it never needs to hold a connection open at all; the caller
+     * must have already validated {@code destination} via
+     * {@link #validateIntraBankDestination}.
+     */
+    public Payment buildIntraBankPayment(CreatePaymentRequest request, Account source, Account destination) {
+        Payment payment = buildPayment(request, source);
+        payment.setDestinationAccount(destination);
+        payment.setStatus(Payment.PaymentStatus.COMPLETED);
+        return payment;
+    }
+
+    @Timed("payment.execute_intra_bank")
+    @Transactional
+    public Payment executeIntraBank(String idempotencyKey,
+                                     CreatePaymentRequest request,
+                                     Account source,
+                                     Payment payment) {
+        Account destination = payment.getDestinationAccount();
 
         BigDecimal sourceBalanceBefore      = source.getBalance();
         BigDecimal destinationBalanceBefore = destination.getBalance();
@@ -108,22 +149,19 @@ public class PaymentService {
         accountRepository.save(source);
         accountRepository.save(destination);
 
-        Payment payment = buildPayment(request, source);
-        payment.setDestinationAccount(destination);
-        payment.setStatus(Payment.PaymentStatus.COMPLETED);
         Payment saved = paymentRepository.save(payment);
 
-        createIntraBankLedgerEntries(saved, source, destination, sourceBalanceBefore, destinationBalanceBefore);
+        createIntraBankLedgerEntries(saved, source, destination);
         createOutboxEvent(saved);
 
-        PaymentResponse response = toResponse(saved);
       //  idempotencyService.markComplete(idempotencyKey, saved.getId(), response);
-        return response;
+        return saved;
     }
 
     // ── Inter-bank ───────────────────────────────────────────────────────────
 
     /** TX-1b (CB acknowledged): move payment from PROCESSING → CB_ACKNOWLEDGED. */
+    @Timed("payment.mark_cb_acknowledged")
     @Transactional
     public void markCbAcknowledged(Long paymentId, String cycleId) {
         Payment payment = paymentRepository.findById(paymentId)
@@ -146,21 +184,57 @@ public class PaymentService {
     }
 
     /**
-     * TX-1 (Moment 1): place a hold — lock {@code request.amount()} of the
-     * source account's funds via a PENDING ledger transaction (not yet a
-     * permanent debit), tagged with {@code cycleId} — the settlement cycle
-     * id cached from the rail's last broadcast (never guessed — see
-     * {@link #currentCycleId()}, which the caller must fetch <em>before</em>
-     * calling this method, since it's a Redis round trip that shouldn't
-     * happen inside this DB transaction), persist a PROCESSING payment and
-     * PENDING ledger entries, and commit — all before the network call to
-     * the rail.
+     * Re-caches the rail's corrected cycle id in Redis. Deliberately
+     * {@code @Transactional}-free, same reasoning as {@link #currentCycleId()} —
+     * the caller must invoke this <em>before or after</em> {@link #reholdForNewCycle}
+     * rather than from inside it, so the Redis round trip never happens while
+     * that method's DB transaction (and its connection) is held open.
      */
+    public void cacheNewCycleId(long newCycleId) {
+        cycleCacheService.setCurrentCycleId(newCycleId);
+    }
+
+    /**
+     * TX-1 (Moment 1): validates the source account and places a hold — lock
+     * {@code request.amount()} of the source account's funds via a PENDING
+     * ledger transaction (not yet a permanent debit), tagged with
+     * {@code cycleId} — the settlement cycle id cached from the rail's last
+     * broadcast (never guessed — see {@link #currentCycleId()}, which the
+     * caller must fetch <em>before</em> calling this method, since it's a
+     * Redis round trip that shouldn't happen inside this DB transaction),
+     * persist a PROCESSING payment and PENDING ledger entries, and commit —
+     * all before the network call to the rail.
+     * <p>
+     * Deliberately does the balance check and the hold in the <em>same</em>
+     * transaction (unlike the old two-step {@code loadAndValidateSource} +
+     * {@code prepareInterBankPayment} split): checking the available balance
+     * in one transaction and then mutating {@code heldBalance} in a second,
+     * separate transaction against a detached account instance is a
+     * check-then-act race — a concurrent payment on the same account could
+     * pass its own balance check before this one's hold is ever written,
+     * and the later save of the stale detached entity risks a lost update
+     * that silently under-holds funds. Re-fetching and validating the
+     * account fresh, right here, right before the hold write, keeps the
+     * check and the act atomic within one transaction.
+     */
+    @Timed("payment.prepare_inter_bank")
     @Transactional
     public Payment prepareInterBankPayment(String idempotencyKey,
                                             CreatePaymentRequest request,
-                                            Account source,
                                             long cycleId) {
+        Account source = accountRepository.findByAccountNumber(request.sourceAccountNumber())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,
+                        "Source account not found: " + request.sourceAccountNumber()));
+        if (source.getStatus() != Account.AccountStatus.ACTIVE) {
+            throw new ResponseStatusException(HttpStatusCode.valueOf(422),
+                    "Source account is not active: " + source.getAccountNumber());
+        }
+        if (source.getAvailableBalance().compareTo(request.amount()) < 0) {
+            throw new ResponseStatusException(HttpStatusCode.valueOf(422),
+                    "Insufficient balance: available " + source.getAvailableBalance()
+                    + ", requested " + request.amount());
+        }
+
         BigDecimal heldBefore = source.getHeldBalance();
         source.setHeldBalance(heldBefore.add(request.amount()));
         accountRepository.save(source);
@@ -189,13 +263,13 @@ public class PaymentService {
      * records that funds are locked, never which settlement cycle they'll
      * eventually settle in, so there's nothing to void/re-place here.
      */
+    @Timed("payment.rehold_for_new_cycle")
     @Transactional
     public Payment reholdForNewCycle(Long paymentId, long newCycleId) {
         Payment payment = paymentRepository.findById(paymentId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,
                         "Payment not found during cycle retry: " + paymentId));
 
-        cycleCacheService.setCurrentCycleId(newCycleId);
         payment.setCycleId(String.valueOf(newCycleId));
         paymentRepository.save(payment);
 
@@ -203,24 +277,17 @@ public class PaymentService {
         return payment;
     }
 
-    /** Builds the response returned to the caller immediately after the hold is placed, and marks the idempotency record complete (Moment 1: the caller never waits for the interbank round trip). */
-    @Transactional(readOnly = true)
-    public PaymentResponse toProcessingResponseAndMarkIdempotent(String idempotencyKey, Payment payment) {
-        PaymentResponse response = toResponse(payment);
-        //idempotencyService.markComplete(idempotencyKey, payment.getId(), response);
-        return response;
-    }
-
     /**
      * TX-2 (success, Moment 3): the receiver bank confirmed the credit —
      * finalize the hold as a permanent debit, mark COMPLETED, post both
      * ledger entries.
      */
+    @Timed("payment.complete_inter_bank")
     @Transactional
-    public PaymentResponse completeInterBankPayment(String idempotencyKey,
-                                                     Long paymentId,
-                                                     String settlementRef,
-                                                     long cycleId) {
+    public Payment completeInterBankPayment(String idempotencyKey,
+                                             Long paymentId,
+                                             String settlementRef,
+                                             long cycleId) {
         Payment payment = paymentRepository.findById(paymentId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,
                         "Payment lost after settlement: " + paymentId));
@@ -238,20 +305,14 @@ public class PaymentService {
 
         LocalDateTime now = LocalDateTime.now();
         ledgerEntryRepository.findByPayment_Id(paymentId).forEach(e -> {
-            if (e.getEntryType() == LedgerEntry.EntryType.DEBIT) {
-                e.setStatus(LedgerEntry.EntryStatus.POSTED);
-                e.setBalanceAfter(source.getBalance());
-                e.setPostedAt(now);
-                ledgerEntryRepository.save(e);
-            } else if (e.getEntryType() == LedgerEntry.EntryType.CREDIT) {
-                e.setStatus(LedgerEntry.EntryStatus.POSTED);
-                e.setPostedAt(now);
+            e.setPostedAt(now);
+            if (e.getEntryType() == LedgerEntry.EntryType.CREDIT) {
                 e.setDescription(e.getDescription() + " | settlement: " + settlementRef);
-                ledgerEntryRepository.save(e);
             }
+            ledgerEntryRepository.save(e);
         });
 
-        return toResponse(payment);
+        return payment;
     }
 
     /**
@@ -259,6 +320,7 @@ public class PaymentService {
      * the hold — no funds ever moved, so nothing needs to be refunded, only
      * the hold released — and mark the payment FAILED.
      */
+    @Timed("payment.refund_inter_bank")
     @Transactional
     public void refundInterBankPayment(Long paymentId, Long sourceAccountId, BigDecimal amount) {
         Payment payment = paymentRepository.findById(paymentId)
@@ -279,26 +341,23 @@ public class PaymentService {
 
         LocalDateTime now = LocalDateTime.now();
         ledgerEntryRepository.findByPayment_Id(paymentId).forEach(e -> {
-            e.setStatus(LedgerEntry.EntryStatus.VOIDED);
             e.setVoidedAt(now);
             ledgerEntryRepository.save(e);
         });
     }
 
-    // ── Helpers ──────────────────────────────────────────────────────────────
 
     private Payment buildPayment(CreatePaymentRequest request, Account source) {
         Payment payment = new Payment();
         payment.setPaymentReference(request.paymentReference());
+        payment.setUetr(java.util.UUID.randomUUID().toString());
         payment.setSourceAccount(source);
         payment.setAmount(request.amount());
         payment.setProcessedAt(LocalDateTime.now());
         return payment;
     }
 
-    private void createIntraBankLedgerEntries(Payment payment, Account source, Account destination,
-                                               BigDecimal sourceBalanceBefore,
-                                               BigDecimal destinationBalanceBefore) {
+    private void createIntraBankLedgerEntries(Payment payment, Account source, Account destination) {
         LocalDateTime now = LocalDateTime.now();
 
         LedgerEntry debit = new LedgerEntry();
@@ -310,9 +369,6 @@ public class PaymentService {
         debit.setEntryType(LedgerEntry.EntryType.DEBIT);
         debit.setAmount(payment.getAmount());
         debit.setCurrency(source.getCurrency());
-        debit.setBalanceBefore(sourceBalanceBefore);
-        debit.setBalanceAfter(source.getBalance());
-        debit.setStatus(LedgerEntry.EntryStatus.POSTED);
         debit.setPostedAt(now);
         debit.setDescription("Debit for payment " + payment.getPaymentReference());
 
@@ -325,9 +381,6 @@ public class PaymentService {
         credit.setEntryType(LedgerEntry.EntryType.CREDIT);
         credit.setAmount(payment.getAmount());
         credit.setCurrency(destination.getCurrency());
-        credit.setBalanceBefore(destinationBalanceBefore);
-        credit.setBalanceAfter(destination.getBalance());
-        credit.setStatus(LedgerEntry.EntryStatus.POSTED);
         credit.setPostedAt(now);
         credit.setDescription("Credit for payment " + payment.getPaymentReference());
 
@@ -347,9 +400,6 @@ public class PaymentService {
         debit.setEntryType(LedgerEntry.EntryType.DEBIT);
         debit.setAmount(payment.getAmount());
         debit.setCurrency(source.getCurrency());
-        debit.setBalanceBefore(source.getBalance());
-        debit.setBalanceAfter(source.getBalance());
-        debit.setStatus(LedgerEntry.EntryStatus.PENDING);
         debit.setDescription("Hold for inter-bank payment " + payment.getPaymentReference());
 
         // account is null — external destination, balance managed by receiving bank
@@ -362,15 +412,11 @@ public class PaymentService {
         credit.setEntryType(LedgerEntry.EntryType.CREDIT);
         credit.setAmount(payment.getAmount());
         credit.setCurrency(source.getCurrency());
-        credit.setBalanceBefore(BigDecimal.ZERO);
-        credit.setBalanceAfter(BigDecimal.ZERO);
-        credit.setStatus(LedgerEntry.EntryStatus.PENDING);
         credit.setDescription("Credit for inter-bank payment " + payment.getPaymentReference()
                 + " to " + payment.getDestinationBankCode()
                 + " / " + externalAccount);
 
-        ledgerEntryRepository.save(debit);
-        ledgerEntryRepository.save(credit);
+        ledgerEntryRepository.saveAll(List.of(debit, credit));
     }
 
     /**
@@ -420,23 +466,19 @@ public class PaymentService {
         outboxEventRepository.save(event);
     }
 
+    @Timed("payment.get_payment")
     @Transactional(readOnly = true)
-    public PaymentResponse getPayment(Long paymentId) {
+    public Payment getPayment(Long paymentId) {
         Payment payment = paymentRepository.findById(paymentId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Payment not found: " + paymentId));
-        return toResponse(payment);
-    }
-
-    private PaymentResponse toResponse(Payment payment) {
-        String destinationAccountNumber = payment.getDestinationAccount() != null
-                ? payment.getDestinationAccount().getAccountNumber()
-                : payment.getDestinationExternalAccount();
-        return new PaymentResponse(
-                payment.getId(),
-                payment.getPaymentReference(),
-                payment.getSourceAccount().getAccountNumber(),
-                destinationAccountNumber,
-                payment.getAmount(),
-                payment.getStatus().name());
+        // Force-initialize the lazy source/destination account associations
+        // (both FetchType.LAZY) before the transaction closes, since the
+        // caller now builds PaymentResponse.from(payment) itself, outside
+        // this transactional method.
+        payment.getSourceAccount().getAccountNumber();
+        if (payment.getDestinationAccount() != null) {
+            payment.getDestinationAccount().getAccountNumber();
+        }
+        return payment;
     }
 }

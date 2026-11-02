@@ -53,7 +53,7 @@ public class SettlementRailClient {
                 .setCurrency(request.currency())
                 .setBeneficiaryAccountNumber(request.destinationAccountNumber())
                 .setSenderAccountNumber(request.sourceAccountNumber())
-                .setUtr(request.paymentReference())
+                .setUtr(request.uetr())
                 .setDescription("Transfer to account " + request.destinationAccountNumber())
                 .setCycleId(String.valueOf(request.cycleId()))
                 .build();

@@ -2,6 +2,10 @@ spring:
   application:
     name: rail
 
+  threads:
+    virtual:
+      enabled: true
+
   datasource:
     url: jdbc:postgresql://localhost:5433/rail
     username: postgres
@@ -55,10 +59,15 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,info,metrics,prometheus
+        include: health,metrics,prometheus
   endpoint:
     metrics:
       enabled: true
+    prometheus:
+      access: unrestricted
+  metrics:
+    tags:
+      application: bank-service
 
 server:
   port: 8082

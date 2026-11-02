@@ -19,11 +19,11 @@ public class UserController {
 
     @PostMapping
     public ResponseEntity<UserResponse> createUser(@RequestBody CreateUserRequest request) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(userService.createUser(request));
+        return ResponseEntity.status(HttpStatus.CREATED).body(UserResponse.from(userService.createUser(request)));
     }
 
     @GetMapping("/{userId}")
     public ResponseEntity<UserResponse> getUser(@PathVariable Long userId) {
-        return ResponseEntity.ok(userService.getUser(userId));
+        return ResponseEntity.ok(UserResponse.from(userService.getUser(userId)));
     }
 }

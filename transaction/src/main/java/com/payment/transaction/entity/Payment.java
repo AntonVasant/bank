@@ -20,6 +20,21 @@ public class Payment {
     @Column(nullable = false, unique = true)
     private String paymentReference;
 
+    /**
+     * Unique End-to-end Transaction Reference (UETR) — generated once by
+     * this bank (the sender) when the payment is created, never by the
+     * client/caller. For inter-bank payments this exact value is sent to
+     * the rail as {@code PaymentRequest.utr} and from there unchanged to the
+     * receiver bank (see {@code IncomingCredit.uetr}), so the sender bank,
+     * the rail ({@code Transfer.utr} / rail's own {@code Payment.utr}) and
+     * the receiver bank all track and operate on the payment using this one
+     * id — distinct from {@link #paymentReference}, which is just the
+     * caller-supplied business reference.
+     */
+    @Setter
+    @Column(nullable = false, unique = true, length = 64)
+    private String uetr;
+
     @Setter
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "source_account_id", nullable = false)

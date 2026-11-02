@@ -1,12 +1,11 @@
 package com.payment.transaction.service;
 
-import com.payment.transaction.dto.AccountResponse;
-import com.payment.transaction.dto.BalanceResponse;
 import com.payment.transaction.dto.CreateAccountRequest;
 import com.payment.transaction.entity.Account;
 import com.payment.transaction.entity.User;
 import com.payment.transaction.repository.AccountRepository;
 import com.payment.transaction.repository.UserRepository;
+import io.micrometer.core.annotation.Timed;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,7 +25,8 @@ public class AccountService {
         this.userRepository = userRepository;
     }
 
-    public AccountResponse createAccount(CreateAccountRequest request) {
+    @Timed("account.create_account")
+    public Account createAccount(CreateAccountRequest request) {
         User user = userRepository.findById(request.userId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found: " + request.userId()));
 
@@ -37,47 +37,34 @@ public class AccountService {
         account.setCurrency(Account.Currency.USD);
         account.setBalance(BigDecimal.ZERO);
 
-        Account saved = accountRepository.save(account);
-        return toResponse(saved);
+        return accountRepository.save(account);
     }
 
+    @Timed("account.get_account")
     @Transactional(readOnly = true)
-    public AccountResponse getAccount(Long accountId) {
+    public Account getAccount(Long accountId) {
         Account account = accountRepository.findById(accountId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Account not found: " + accountId));
-        return toResponse(account);
+        account.getUser().getId(); // force-initialize the lazy association before the transaction closes
+        return account;
     }
 
+    @Timed("account.get_balance")
     @Transactional(readOnly = true)
-    public BalanceResponse getBalance(Long accountId) {
-        Account account = accountRepository.findById(accountId)
+    public Account getBalance(Long accountId) {
+        return accountRepository.findById(accountId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Account not found: " + accountId));
-        return new BalanceResponse(
-                account.getAccountNumber(),
-                account.getBalance(),
-                account.getCurrency().name());
     }
 
     /**
      * INTERNAL / ADMIN ONLY — directly credits an account balance.
      * For testing and back-office top-ups. No business validation applied.
      */
-    public BalanceResponse adminCredit(Long accountId, BigDecimal amount) {
+    @Timed("account.admin_credit")
+    public Account adminCredit(Long accountId, BigDecimal amount) {
         Account account = accountRepository.findById(accountId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Account not found: " + accountId));
         account.setBalance(account.getBalance().add(amount));
-        Account saved = accountRepository.save(account);
-        return new BalanceResponse(
-                saved.getAccountNumber(),
-                saved.getBalance(),
-                saved.getCurrency().name());
-    }
-
-    private AccountResponse toResponse(Account account) {
-        return new AccountResponse(
-                account.getId(),
-                account.getAccountNumber(),
-                account.getStatus().name(),
-                account.getUser().getId());
+        return accountRepository.save(account);
     }
 }

@@ -1,0 +1,72 @@
+syntax = "proto3";
+
+package com.settlement.rail.grpc;
+
+option java_multiple_files = true;
+option java_package = "com.settlement.rail.grpc";
+option java_outer_classname = "PaymentProto";
+
+service PaymentService {
+  // Server-streaming: the rail sends two responses.
+  // Response 1 — after the DB commit: acknowledged_by = RAIL
+  // Response 2 — after the receiver bank confirms the credit: acknowledged_by = RECEIVER_BANK
+  rpc ProcessPayment(PaymentRequest) returns (stream PaymentResponse);
+  rpc GetPayment(GetPaymentRequest) returns (PaymentResponse);
+}
+
+// Maps to TransferRequest
+message PaymentRequest {
+  string from_bank_code             = 1;
+  string to_bank_code               = 2;
+  // BigDecimal sent as string to preserve precision
+  string amount                     = 3;
+  string currency                   = 4;
+  string utr                        = 5;  // Unique Transaction Reference, client-supplied
+  string description                = 6;
+  string sender_account_number      = 7;  // Account debited at the sender bank
+  string beneficiary_account_number = 8;  // Account to be credited at the receiver bank
+  // The settlement cycle id the sending bank cached from the central bank's
+  // last cycle-open broadcast (never guessed). The rail validates this
+  // against its actual currently-open cycle; if it no longer matches
+  // (the cycle rotated in between), the rail rejects with status FAILED
+  // and returns the real open cycle id in PaymentResponse.cycle_id so the
+  // sending bank can retry with the same utr and the corrected cycle id.
+  string cycle_id                    = 9;
+}
+
+// Maps to TransferResponse
+message PaymentResponse {
+  int64  id             = 1;
+  string utr            = 2;  // Unique Transaction Reference, client-supplied
+  int64  from_bank_id   = 3;
+  string from_bank_code = 4;
+  int64  to_bank_id     = 5;
+  string to_bank_code   = 6;
+  string amount         = 7;
+  string currency       = 8;
+  string status         = 9;
+  string description    = 10;
+  string failure_reason = 11;
+  // Timestamps as ISO-8601 strings
+  string created_at     = 12;
+  string updated_at     = 13;
+  string completed_at   = 14;
+  // Indicates which party has acknowledged this response
+  AcknowledgedBy acknowledged_by = 15;
+  // The settlement cycle this transaction was recorded against. The bank
+  // persists this alongside its own record of the transaction so it can
+  // later reconcile against the rail's per-cycle net position using the
+  // same cycle id, without needing to recompute a time window.
+  string cycle_id = 16;
+}
+
+// Who acknowledged the payment at each streaming response
+enum AcknowledgedBy {
+  ACKNOWLEDGED_BY_UNSPECIFIED = 0;
+  RAIL                        = 1;  // Rail committed the transfer (first response)
+  RECEIVER_BANK               = 2;  // Receiver bank confirmed the credit (second response)
+}
+
+message GetPaymentRequest {
+  string utr = 1;  // Unique Transaction Reference, client-supplied
+}

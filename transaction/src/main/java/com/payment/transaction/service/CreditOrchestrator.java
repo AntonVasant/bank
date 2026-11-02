@@ -70,6 +70,7 @@ public class CreditOrchestrator {
                 .supplyAsync(() -> creditService.recordReceived(
                         request.getCreditRequestId(),
                         request.getTransactionId(),
+                        request.getReferenceNumber(),
                         request.getCycleId(),
                         request.getBeneficiaryAccountNumber(),
                         amount,

@@ -18,8 +18,11 @@ export const AMOUNT_PER_TX = Number(__ENV.AMOUNT_PER_TX || '10');
 
 // ── Sustained-rate load — no sleeps; k6 fires requests at a fixed rate
 // regardless of response latency (open-model load, like a real TPS target). ─
-// e.g. k6 run -e TARGET_TPS=4000 -e LOAD_TEST_DURATION_SECONDS=30 02-load-test.js
-export const TARGET_TPS = Number(__ENV.TARGET_TPS || '2000');
+// Default (500) is the confirmed clean sustainable ceiling for this stack —
+// 0 failures, 0 dropped iterations. Above ~600-700 TPS it starts queueing;
+// above ~800 TPS it hard-fails (see PERFORMANCE.md).
+// e.g. k6 run -e TARGET_TPS=2000 -e LOAD_TEST_DURATION_SECONDS=30 02-load-test.js
+export const TARGET_TPS = Number(__ENV.TARGET_TPS || '700');
 export const LOAD_TEST_DURATION_SECONDS = Number(__ENV.LOAD_TEST_DURATION_SECONDS || '10');
 // Split evenly across the two directions.
 export const RATE_PER_DIRECTION = TARGET_TPS / 2;

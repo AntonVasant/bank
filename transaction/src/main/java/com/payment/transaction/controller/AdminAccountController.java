@@ -31,6 +31,6 @@ public class AdminAccountController {
     public ResponseEntity<BalanceResponse> creditAccount(
             @PathVariable Long accountId,
             @RequestBody CreditAccountRequest request) {
-        return ResponseEntity.ok(accountService.adminCredit(accountId, request.amount()));
+        return ResponseEntity.ok(BalanceResponse.from(accountService.adminCredit(accountId, request.amount())));
     }
 }

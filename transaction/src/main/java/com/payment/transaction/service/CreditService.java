@@ -7,6 +7,7 @@ import com.payment.transaction.entity.OutboxEvent;
 import com.payment.transaction.repository.AccountRepository;
 import com.payment.transaction.repository.IncomingCreditRepository;
 import com.payment.transaction.repository.OutboxEventRepository;
+import io.micrometer.core.annotation.Timed;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -49,6 +50,7 @@ public class CreditService {
 
     // ── Account lookup ────────────────────────────────────────────────────────
 
+    @Timed("credit.find_and_validate_beneficiary")
     @Transactional(readOnly = true)
     public Account findAndValidateBeneficiary(String accountNumber) {
         Account account = accountRepository.findByAccountNumber(accountNumber)
@@ -76,9 +78,11 @@ public class CreditService {
      * decide whether to short-circuit (already {@code COMPLETED}/{@code FAILED})
      * or resume (still {@code RECEIVED}/{@code ACCEPTED}).
      */
+    @Timed("credit.record_received")
     @Transactional
     public IncomingCredit recordReceived(String creditRequestId,
                                           String transactionId,
+                                          String uetr,
                                           String cycleId,
                                           String beneficiaryAccountNumber,
                                           BigDecimal amount,
@@ -89,6 +93,7 @@ public class CreditService {
                     IncomingCredit incomingCredit = new IncomingCredit();
                     incomingCredit.setCreditRequestId(creditRequestId);
                     incomingCredit.setTransactionId(transactionId);
+                    incomingCredit.setUetr(uetr);
                     incomingCredit.setCycleId(cycleId);
                     incomingCredit.setSenderBankCode(senderBankCode);
                     incomingCredit.setBeneficiaryAccountNumber(beneficiaryAccountNumber);
@@ -100,6 +105,7 @@ public class CreditService {
     }
 
     /** Moment 2: the beneficiary account has been validated — about to apply the credit. */
+    @Timed("credit.mark_accepted")
     @Transactional
     public void markAccepted(Long incomingCreditId) {
         IncomingCredit incomingCredit = findIncomingCredit(incomingCreditId);
@@ -118,6 +124,7 @@ public class CreditService {
      * an outbox event, marks the {@link IncomingCredit} {@code COMPLETED},
      * and returns the generated acknowledgment ID.
      */
+    @Timed("credit.apply_credit")
     @Transactional
     public String applyCredit(Long incomingCreditId, Account beneficiary, String narration) {
         IncomingCredit incomingCredit = findIncomingCredit(incomingCreditId);
@@ -140,6 +147,7 @@ public class CreditService {
     }
 
     /** Terminal failure — validation failed or the credit couldn't be applied. Idempotent: a no-op if already COMPLETED. */
+    @Timed("credit.mark_failed")
     @Transactional
     public void markFailed(Long incomingCreditId, String reason) {
         IncomingCredit incomingCredit = findIncomingCredit(incomingCreditId);

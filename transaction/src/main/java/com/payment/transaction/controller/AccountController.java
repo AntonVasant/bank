@@ -20,16 +20,16 @@ public class AccountController {
 
     @PostMapping
     public ResponseEntity<AccountResponse> createAccount(@RequestBody CreateAccountRequest request) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(accountService.createAccount(request));
+        return ResponseEntity.status(HttpStatus.CREATED).body(AccountResponse.from(accountService.createAccount(request)));
     }
 
     @GetMapping("/{accountId}")
     public ResponseEntity<AccountResponse> getAccount(@PathVariable Long accountId) {
-        return ResponseEntity.ok(accountService.getAccount(accountId));
+        return ResponseEntity.ok(AccountResponse.from(accountService.getAccount(accountId)));
     }
 
     @GetMapping("/{accountId}/balance")
     public ResponseEntity<BalanceResponse> getBalance(@PathVariable Long accountId) {
-        return ResponseEntity.ok(accountService.getBalance(accountId));
+        return ResponseEntity.ok(BalanceResponse.from(accountService.getBalance(accountId)));
     }
 }

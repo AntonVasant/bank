@@ -1,6 +1,18 @@
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.orm.jdbc.bind: TRACE
+    org.hibernate.stat: DEBUG
+    p6spy: DEBUG
+
+
 spring:
   application:
     name: transaction
+
+  threads:
+    virtual:
+      enabled: true
 
   jpa:
     hibernate:
@@ -9,6 +21,7 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+        generate_statistics: true
 
   data:
     redis:
@@ -20,10 +33,15 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,info,metrics,prometheus
+        include: health,metrics,prometheus
   endpoint:
     metrics:
       enabled: true
+    prometheus:
+      access: unrestricted
+  metrics:
+    tags:
+      application: bank-service
 
 server:
   port: 8080

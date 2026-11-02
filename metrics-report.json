@@ -1,0 +1,126 @@
+[
+    {
+        "metric": "payment.load_and_validate_source",
+        "count": 1790.0,
+        "total_seconds": 12.673649469,
+        "max_seconds": 0.197355792,
+        "mean_seconds": "0.007080"
+    },
+    {
+        "metric": "payment.execute_intra_bank",
+        "error": "not available (no data yet or service down)"
+    },
+    {
+        "metric": "payment.mark_cb_acknowledged",
+        "error": "not available (no data yet or service down)"
+    },
+    {
+        "metric": "payment.prepare_inter_bank",
+        "count": 1431.0,
+        "total_seconds": 139.734981954,
+        "max_seconds": 0.490258167,
+        "mean_seconds": "0.097648"
+    },
+    {
+        "metric": "payment.rehold_for_new_cycle",
+        "error": "not available (no data yet or service down)"
+    },
+    {
+        "metric": "payment.complete_inter_bank",
+        "error": "not available (no data yet or service down)"
+    },
+    {
+        "metric": "payment.refund_inter_bank",
+        "count": 836.0,
+        "total_seconds": 23.502054209,
+        "max_seconds": 0.410456542,
+        "mean_seconds": "0.028113"
+    },
+    {
+        "metric": "payment.get_payment",
+        "error": "not available (no data yet or service down)"
+    },
+    {
+        "metric": "account.create_account",
+        "count": 50.0,
+        "total_seconds": 0.211712456,
+        "max_seconds": 0.013062708,
+        "mean_seconds": "0.004234"
+    },
+    {
+        "metric": "account.get_account",
+        "error": "not available (no data yet or service down)"
+    },
+    {
+        "metric": "account.get_balance",
+        "count": 50.0,
+        "total_seconds": 0.078280331,
+        "max_seconds": 0.004340417,
+        "mean_seconds": "0.001566"
+    },
+    {
+        "metric": "account.admin_credit",
+        "count": 50.0,
+        "total_seconds": 0.090960915,
+        "max_seconds": 0.005618917,
+        "mean_seconds": "0.001819"
+    },
+    {
+        "metric": "ledger.hold_funds",
+        "count": 1672.0,
+        "total_seconds": 68.901429076,
+        "max_seconds": 0.269269334,
+        "mean_seconds": "0.041209"
+    },
+    {
+        "metric": "ledger.post_hold",
+        "error": "not available (no data yet or service down)"
+    },
+    {
+        "metric": "ledger.void_hold",
+        "count": 992.0,
+        "total_seconds": 7.250880114,
+        "max_seconds": 0.213751875,
+        "mean_seconds": "0.007309"
+    },
+    {
+        "metric": "ledger.credit_account",
+        "error": "not available (no data yet or service down)"
+    },
+    {
+        "metric": "batch.create_batch",
+        "error": "not available (no data yet or service down)"
+    },
+    {
+        "metric": "batch.get_batch_status",
+        "error": "not available (no data yet or service down)"
+    },
+    {
+        "metric": "batch.get_batch_payments",
+        "error": "not available (no data yet or service down)"
+    },
+    {
+        "metric": "credit.find_and_validate_beneficiary",
+        "error": "not available (no data yet or service down)"
+    },
+    {
+        "metric": "credit.record_received",
+        "error": "not available (no data yet or service down)"
+    },
+    {
+        "metric": "credit.mark_accepted",
+        "error": "not available (no data yet or service down)"
+    },
+    {
+        "metric": "credit.apply_credit",
+        "error": "not available (no data yet or service down)"
+    },
+    {
+        "metric": "credit.mark_failed",
+        "error": "not available (no data yet or service down)"
+    },
+    {
+        "metric": "reconciliation.reconcile",
+        "error": "not available (no data yet or service down)"
+    }
+]

@@ -2,6 +2,10 @@ spring:
   application:
     name: delivery
 
+  threads:
+    virtual:
+      enabled: true
+
   datasource:
     url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5436}/deliverydb
     username: ${POSTGRES_USER:postgres}

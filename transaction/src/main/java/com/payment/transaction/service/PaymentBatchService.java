@@ -1,6 +1,5 @@
 package com.payment.transaction.service;
 
-import com.payment.transaction.dto.BatchPaymentsResponse;
 import com.payment.transaction.dto.BatchResponse;
 import com.payment.transaction.dto.BulkPaymentItem;
 import com.payment.transaction.dto.CreateBulkPaymentRequest;
@@ -10,6 +9,7 @@ import com.payment.transaction.entity.PaymentBatch;
 import com.payment.transaction.repository.AccountRepository;
 import com.payment.transaction.repository.PaymentBatchRepository;
 import com.payment.transaction.repository.PaymentRepository;
+import io.micrometer.core.annotation.Timed;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,6 +36,7 @@ public class PaymentBatchService {
         this.idempotencyService = idempotencyService;
     }
 
+    @Timed("batch.create_batch")
     public BatchResponse createBatch(String idempotencyKey, CreateBulkPaymentRequest request) {
         // Return cached response if this batch was already completed
         var cached = idempotencyService.checkExisting(idempotencyKey, BatchResponse.class);
@@ -73,9 +74,12 @@ public class PaymentBatchService {
             paymentRepository.save(payment);
         }
 
-        BatchResponse response = toBatchResponse(savedBatch);
-
-        // Mark COMPLETE and cache the response
+        // The idempotency cache stores this response (in Redis) for replay on
+        // retries, so it has to be built here (unlike the simpler read
+        // methods below) — PaymentBatch itself can't be cached directly since
+        // its lazy `payments` collection would throw LazyInitializationException
+        // if Jackson tried to serialize it outside this transaction.
+        BatchResponse response = BatchResponse.from(savedBatch);
         idempotencyService.markComplete(idempotencyKey, savedBatch.getId(), response);
 
         // TODO: publish OutboxEvent to Kafka
@@ -83,36 +87,19 @@ public class PaymentBatchService {
         return response;
     }
 
+    @Timed("batch.get_batch_status")
     @Transactional(readOnly = true)
-    public BatchResponse getBatchStatus(Long batchId) {
-        PaymentBatch batch = paymentBatchRepository.findById(batchId)
+    public PaymentBatch getBatchStatus(Long batchId) {
+        return paymentBatchRepository.findById(batchId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Batch not found: " + batchId));
-        return toBatchResponse(batch);
     }
 
+    @Timed("batch.get_batch_payments")
     @Transactional(readOnly = true)
-    public BatchPaymentsResponse getBatchPayments(Long batchId) {
+    public List<Payment> getBatchPayments(Long batchId) {
         paymentBatchRepository.findById(batchId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Batch not found: " + batchId));
 
-        List<BatchPaymentsResponse.PaymentSummary> summaries = paymentRepository.findByBatch_Id(batchId)
-                .stream()
-                .map(p -> new BatchPaymentsResponse.PaymentSummary(
-                        p.getId(),
-                        p.getPaymentReference(),
-                        p.getStatus().name()))
-                .toList();
-
-        return new BatchPaymentsResponse(batchId, summaries);
-    }
-
-    private BatchResponse toBatchResponse(PaymentBatch batch) {
-        return new BatchResponse(
-                batch.getId(),
-                batch.getBatchReference(),
-                batch.getStatus().name(),
-                batch.getTotalPayments(),
-                batch.getSuccessfulPayments(),
-                batch.getFailedPayments());
+        return paymentRepository.findByBatch_Id(batchId);
     }
 }

@@ -4,21 +4,21 @@ import java.util.List;
 
 public interface BankService {
 
-    BankResponse create(BankRequest request);
+    Bank create(BankRequest request);
 
-    BankResponse getById(Long id);
+    Bank getById(Long id);
 
-    BankResponse getByBankCode(String bankCode);
+    Bank getByBankCode(String bankCode);
 
-    List<BankResponse> getAll();
+    List<Bank> getAll();
 
-    List<BankResponse> getAllByStatus(BankStatus status);
+    List<Bank> getAllByStatus(BankStatus status);
 
-    BankResponse update(Long id, BankRequest request);
+    Bank update(Long id, BankRequest request);
 
-    BankResponse activate(Long id);
+    Bank activate(Long id);
 
-    BankResponse deactivate(Long id);
+    Bank deactivate(Long id);
 
     void delete(Long id);
 }

@@ -17,42 +17,40 @@ public class BankController {
 
     @PostMapping
     public ResponseEntity<BankResponse> create(@Valid @RequestBody BankRequest request) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(bankService.create(request));
+        return ResponseEntity.status(HttpStatus.CREATED).body(BankResponse.from(bankService.create(request)));
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<BankResponse> getById(@PathVariable Long id) {
-        return ResponseEntity.ok(bankService.getById(id));
+        return ResponseEntity.ok(BankResponse.from(bankService.getById(id)));
     }
 
     @GetMapping("/code/{bankCode}")
     public ResponseEntity<BankResponse> getByBankCode(@PathVariable String bankCode) {
-        return ResponseEntity.ok(bankService.getByBankCode(bankCode));
+        return ResponseEntity.ok(BankResponse.from(bankService.getByBankCode(bankCode)));
     }
 
     @GetMapping
     public ResponseEntity<List<BankResponse>> getAll(
             @RequestParam(required = false) BankStatus status) {
-        if (status != null) {
-            return ResponseEntity.ok(bankService.getAllByStatus(status));
-        }
-        return ResponseEntity.ok(bankService.getAll());
+        List<Bank> banks = status != null ? bankService.getAllByStatus(status) : bankService.getAll();
+        return ResponseEntity.ok(banks.stream().map(BankResponse::from).toList());
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<BankResponse> update(@PathVariable Long id,
                                                @Valid @RequestBody BankRequest request) {
-        return ResponseEntity.ok(bankService.update(id, request));
+        return ResponseEntity.ok(BankResponse.from(bankService.update(id, request)));
     }
 
     @PatchMapping("/{id}/activate")
     public ResponseEntity<BankResponse> activate(@PathVariable Long id) {
-        return ResponseEntity.ok(bankService.activate(id));
+        return ResponseEntity.ok(BankResponse.from(bankService.activate(id)));
     }
 
     @PatchMapping("/{id}/deactivate")
     public ResponseEntity<BankResponse> deactivate(@PathVariable Long id) {
-        return ResponseEntity.ok(bankService.deactivate(id));
+        return ResponseEntity.ok(BankResponse.from(bankService.deactivate(id)));
     }
 
     @DeleteMapping("/{id}")

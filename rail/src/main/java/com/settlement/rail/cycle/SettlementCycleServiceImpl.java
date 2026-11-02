@@ -1,6 +1,7 @@
 package com.settlement.rail.cycle;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
@@ -9,6 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionTemplate;
 
 import java.time.Instant;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.Executor;
 
 @Slf4j
 @Service
@@ -21,14 +24,17 @@ public class SettlementCycleServiceImpl implements SettlementCycleService {
     private final SettlementCycleRepository settlementCycleRepository;
     private final TransactionTemplate newTransactionTemplate;
     private final KafkaTemplate<String, String> kafkaTemplate;
+    private final Executor paymentExecutor;
 
     public SettlementCycleServiceImpl(SettlementCycleRepository settlementCycleRepository,
                                        PlatformTransactionManager transactionManager,
-                                       KafkaTemplate<String, String> kafkaTemplate) {
+                                       KafkaTemplate<String, String> kafkaTemplate,
+                                       @Qualifier("paymentExecutor") Executor paymentExecutor) {
         this.settlementCycleRepository = settlementCycleRepository;
         this.newTransactionTemplate = new TransactionTemplate(transactionManager);
         this.newTransactionTemplate.setPropagationBehavior(TransactionTemplate.PROPAGATION_REQUIRES_NEW);
         this.kafkaTemplate = kafkaTemplate;
+        this.paymentExecutor = paymentExecutor;
     }
 
     @Override
@@ -113,13 +119,25 @@ public class SettlementCycleServiceImpl implements SettlementCycleService {
      * the current cycle id on every single payment. Best-effort: a bank that
      * misses this (e.g. was down) still gets the correct cycle id back on
      * its next payment attempt via the cycle-mismatch rejection path.
+     * <p>
+     * Dispatched on {@code paymentExecutor} rather than sent inline: this
+     * method can run as a fallback inside {@link #getCurrentCycle()}, which
+     * itself is commonly called from within {@code TransferServiceImpl.initiate()}'s
+     * own {@code @Transactional} method (per-payment hot path) — a same-thread
+     * {@code KafkaTemplate.send()} can block synchronously on producer
+     * metadata lookup (first send to a topic, or a broker hiccup), which
+     * would otherwise hold that caller's pooled DB connection open for the
+     * duration. Firing it on a separate executor keeps the calling
+     * transaction/connection free regardless of Kafka producer internals.
      */
     private void broadcastCycleOpened(Long cycleId) {
-        try {
-            kafkaTemplate.send(CYCLE_OPENED_TOPIC, String.valueOf(cycleId), "{\"cycleId\":%d}".formatted(cycleId));
-        } catch (Exception e) {
-            log.warn("Failed to broadcast cycle-opened event for cycleId={}; commercial banks will pick it up " +
-                    "via the cycle-mismatch rejection path on their next payment instead", cycleId, e);
-        }
+        CompletableFuture.runAsync(() -> {
+            try {
+                kafkaTemplate.send(CYCLE_OPENED_TOPIC, String.valueOf(cycleId), "{\"cycleId\":%d}".formatted(cycleId));
+            } catch (Exception e) {
+                log.warn("Failed to broadcast cycle-opened event for cycleId={}; commercial banks will pick it up " +
+                        "via the cycle-mismatch rejection path on their next payment instead", cycleId, e);
+            }
+        }, paymentExecutor);
     }
 }

@@ -10,5 +10,8 @@ public interface IncomingCreditRepository extends JpaRepository<IncomingCredit, 
 
     Optional<IncomingCredit> findByCreditRequestId(String creditRequestId);
 
+    /** Lookup by the sender-generated UETR — the same id the sender bank and the rail track this payment by. */
+    Optional<IncomingCredit> findByUetr(String uetr);
+
     List<IncomingCredit> findAllByCycleId(String cycleId);
 }

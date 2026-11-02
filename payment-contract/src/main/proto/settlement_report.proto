@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package com.settlement.rail.grpc;
+
+option java_multiple_files = true;
+option java_package = "com.settlement.rail.grpc";
+option java_outer_classname = "SettlementReportProto";
+
+// Exposed by each bank application (the "transaction" service). The rail
+// calls this after a settlement cycle closes to report that bank's net
+// settlement position for the cycle, so the bank can update its own records.
+service SettlementReportService {
+  rpc ReportSettlementCycle(SettlementCycleReport) returns (SettlementReportAck);
+}
+
+message SettlementCycleReport {
+  string cycle_id          = 1;
+  string bank_code         = 2;
+  string currency          = 3;
+  // BigDecimal sent as string to preserve precision
+  string net_amount        = 4;
+  int32  transaction_count = 5;
+  // ISO-8601 timestamp string of when the net amount was generated
+  string generated_at      = 6;
+}
+
+message SettlementReportAck {
+  string ack_id   = 1;
+  bool   accepted = 2;
+  string message  = 3;
+}

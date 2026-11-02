@@ -9,11 +9,13 @@ import com.payment.transaction.ledger.LedgerTransaction;
 import com.payment.transaction.ledger.LedgerTransactionRepository;
 import com.payment.transaction.ledger.LedgerTransactionStatus;
 import com.payment.transaction.repository.SettlementAccountRepository;
+import io.micrometer.core.annotation.Timed;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * Wires this bank's customer accounts into a Postgres-backed double-entry
@@ -69,6 +71,7 @@ public class AccountLedgerService {
      * balance yet. Returns the ledger transaction id, to be posted or voided
      * once the interbank round trip resolves.
      */
+    @Timed("ledger.hold_funds")
     public Long holdFunds(Account source, BigDecimal amount, String reference, long cycleId, Long paymentId) {
         SettlementAccount settlementAccount = ensureSettlementAccount();
 
@@ -79,11 +82,11 @@ public class AccountLedgerService {
                 .currency(source.getCurrency().name())
                 .build());
 
-        saveEntry(transaction, source.getId(), LedgerEntryType.DEBIT, amount);
-        saveEntry(transaction, settlementAccount.getId(), LedgerEntryType.CREDIT, amount);
+        ledgerEntryRepository.saveAll(List.of(
+                buildEntry(transaction, source.getId(), LedgerEntryType.DEBIT, amount),
+                buildEntry(transaction, settlementAccount.getId(), LedgerEntryType.CREDIT, amount)
+        ));
 
-        log.info("Placed ledger hold {} for reference={} amount={} cycleId={}",
-                transaction.getTransactionId(), reference, amount, cycleId);
         return transaction.getTransactionId();
     }
 
@@ -97,6 +100,7 @@ public class AccountLedgerService {
      * retry) - so reconciliation always aggregates against the cycle this
      * payment actually settled in.
      */
+    @Timed("ledger.post_hold")
     public void postHold(Long ledgerTransactionId, BigDecimal amount, long cycleId) {
         LedgerTransaction transaction = findTransaction(ledgerTransactionId);
         transaction.setStatus(LedgerTransactionStatus.POSTED);
@@ -107,10 +111,10 @@ public class AccountLedgerService {
         settlementAccount.setBalance(settlementAccount.getBalance().add(amount));
         settlementAccountRepository.save(settlementAccount);
 
-        log.info("Posted ledger hold {} amount={} cycleId={}", ledgerTransactionId, amount, cycleId);
     }
 
     /** Releases a previously-placed hold - no funds ever move, so the settlement account balance is untouched. */
+    @Timed("ledger.void_hold")
     public void voidHold(Long ledgerTransactionId) {
         LedgerTransaction transaction = findTransaction(ledgerTransactionId);
         transaction.setStatus(LedgerTransactionStatus.VOIDED);
@@ -123,6 +127,7 @@ public class AccountLedgerService {
      * {@code beneficiary} - the receiving side of an interbank payment,
      * applied only after the beneficiary account has been validated.
      */
+    @Timed("ledger.credit_account")
     public void creditAccount(Account beneficiary, BigDecimal amount, String reference, long cycleId, Long paymentId) {
         SettlementAccount settlementAccount = ensureSettlementAccount();
 
@@ -133,8 +138,10 @@ public class AccountLedgerService {
                 .currency(beneficiary.getCurrency().name())
                 .build());
 
-        saveEntry(transaction, settlementAccount.getId(), LedgerEntryType.DEBIT, amount);
-        saveEntry(transaction, beneficiary.getId(), LedgerEntryType.CREDIT, amount);
+        ledgerEntryRepository.saveAll(List.of(
+                buildEntry(transaction, settlementAccount.getId(), LedgerEntryType.DEBIT, amount),
+                buildEntry(transaction, beneficiary.getId(), LedgerEntryType.CREDIT, amount)
+        ));
 
         settlementAccount.setBalance(settlementAccount.getBalance().subtract(amount));
         settlementAccountRepository.save(settlementAccount);
@@ -148,13 +155,14 @@ public class AccountLedgerService {
                         "Ledger transaction not found with id: " + ledgerTransactionId));
     }
 
-    private void saveEntry(LedgerTransaction transaction, Long accountId, LedgerEntryType entryType, BigDecimal amount) {
-        ledgerEntryRepository.save(LedgerEntryLine.builder()
+    /** Builds (but does not persist) a single double-entry line — callers batch both DEBIT/CREDIT lines of a transaction into one {@code saveAll()} instead of two round trips. */
+    private LedgerEntryLine buildEntry(LedgerTransaction transaction, Long accountId, LedgerEntryType entryType, BigDecimal amount) {
+        return LedgerEntryLine.builder()
                 .transaction(transaction)
                 .accountId(accountId)
                 .entryType(entryType)
                 .amount(amount)
-                .build());
+                .build();
     }
 
     /** Finds this bank instance's singleton settlement account, creating it (with a zero balance) on first use. */

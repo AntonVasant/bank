@@ -18,11 +18,11 @@ public class BatchController {
 
     @GetMapping("/{batchId}")
     public ResponseEntity<BatchResponse> getBatchStatus(@PathVariable Long batchId) {
-        return ResponseEntity.ok(paymentBatchService.getBatchStatus(batchId));
+        return ResponseEntity.ok(BatchResponse.from(paymentBatchService.getBatchStatus(batchId)));
     }
 
     @GetMapping("/{batchId}/payments")
     public ResponseEntity<BatchPaymentsResponse> getBatchPayments(@PathVariable Long batchId) {
-        return ResponseEntity.ok(paymentBatchService.getBatchPayments(batchId));
+        return ResponseEntity.ok(BatchPaymentsResponse.from(batchId, paymentBatchService.getBatchPayments(batchId)));
     }
 }

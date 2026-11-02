@@ -59,41 +59,52 @@ public class PaymentOrchestrator {
         boolean interBank = request.destinationBankCode() != null
                 && !request.destinationBankCode().isBlank();
 
+        // Inter-bank: skip the separate loadAndValidateSource lookup —
+        // prepareInterBankPayment validates the source account and places
+        // the hold in one transaction (see its Javadoc) instead of a
+        // check-then-act split across two.
+        if (interBank) {
+            return CompletableFuture
+                    .supplyAsync(() -> {
+                        paymentService.registerIdempotencyKey(idempotencyKey);
+                        return paymentService.currentCycleId();
+                    }, executor)
+                    .thenCompose(cycleId -> executeInterBank(idempotencyKey, request, cycleId));
+        }
+
         // Dispatch all DB + network work to paymentExecutor
         return CompletableFuture
                 .supplyAsync(() -> {
                     paymentService.registerIdempotencyKey(idempotencyKey);
                     return paymentService.loadAndValidateSource(request);
                 }, executor)
-                .thenCompose(source -> interBank
-                        ? executeInterBank(idempotencyKey, request, source)
-                        : CompletableFuture.supplyAsync(
-                                () -> paymentService.executeIntraBank(idempotencyKey, request, source),
-                                executor));
+                .thenCompose(source -> CompletableFuture.supplyAsync(() -> {
+                        Account destination = paymentService.validateIntraBankDestination(request, source);
+                        Payment payment = paymentService.buildIntraBankPayment(request, source, destination);
+                        return PaymentResponse.from(
+                                paymentService.executeIntraBank(idempotencyKey, request, source, payment));
+                    }, executor));
     }
 
     public PaymentResponse getPayment(Long paymentId) {
-        return paymentService.getPayment(paymentId);
+        return PaymentResponse.from(paymentService.getPayment(paymentId));
     }
 
 
     private CompletableFuture<PaymentResponse> executeInterBank(String idempotencyKey,
                                                                   CreatePaymentRequest request,
-                                                                  Account source) {
-        // Step 1 (paymentExecutor): read the cached cycle id from Redis, then
-        // place the hold + persist PROCESSING payment — commits before gRPC.
-        // The Redis read happens before prepareInterBankPayment's DB
-        // transaction opens, so it never holds a DB connection open.
+                                                                  long cycleId) {
+        // Step 1 (paymentExecutor): validate the source account and place the
+        // hold + persist PROCESSING payment in one transaction — commits
+        // before gRPC. cycleId was already read from Redis by the caller, so
+        // that round trip never happens while this DB transaction is open.
         // Moment 1: the caller gets a response the instant this step finishes;
         // it never waits for the rail / receiver-bank round trip below.
         return CompletableFuture
-                .supplyAsync(() -> {
-                    long cycleId = paymentService.currentCycleId();
-                    return paymentService.prepareInterBankPayment(idempotencyKey, request, source, cycleId);
-                }, executor)
+                .supplyAsync(() -> paymentService.prepareInterBankPayment(idempotencyKey, request, cycleId), executor)
                 .thenApply(savedPayment -> {
-                    continueSettlement(idempotencyKey, request, source, savedPayment);
-                    return paymentService.toProcessingResponseAndMarkIdempotent(idempotencyKey, savedPayment);
+                    continueSettlement(idempotencyKey, request, savedPayment.getSourceAccount(), savedPayment);
+                    return PaymentResponse.from(savedPayment);
                 });
     }
 
@@ -129,6 +140,7 @@ public class PaymentOrchestrator {
         long cycleId = parseCycleId(savedPayment.getCycleId());
         SettlementRailRequest railRequest = new SettlementRailRequest(
                 savedPayment.getPaymentReference(),
+                savedPayment.getUetr(),
                 localBankCode,
                 request.destinationAccountNumber(),
                 request.destinationBankCode(),
@@ -195,8 +207,14 @@ public class PaymentOrchestrator {
         log.warn("Payment {} rejected (cycle mismatch), retrying (attempt {}/{}) with cycleId={}",
                 savedPayment.getId(), attempt + 1, MAX_CYCLE_RETRY_ATTEMPTS, newCycleId);
 
-        return CompletableFuture.supplyAsync(
-                        () -> paymentService.reholdForNewCycle(savedPayment.getId(), newCycleId), executor)
+        return CompletableFuture.supplyAsync(() -> {
+                    // Redis write done before the DB transaction opens (same
+                    // reasoning as currentCycleId()) so reholdForNewCycle's
+                    // @Transactional method never holds a connection open
+                    // across the Redis round trip.
+                    paymentService.cacheNewCycleId(newCycleId);
+                    return paymentService.reholdForNewCycle(savedPayment.getId(), newCycleId);
+                }, executor)
                 .thenAccept(updatedPayment ->
                         continueSettlement(idempotencyKey, request, source, updatedPayment, attempt + 1));
     }
